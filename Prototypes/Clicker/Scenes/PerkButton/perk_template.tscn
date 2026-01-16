@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ga4t8twxtuad"]
+
+[ext_resource type="Script" uid="uid://c85fd43d4yvuv" path="res://Prototypes/Clicker/Scenes/PerkButton/perk_template.gd" id="1_p8r06"]
+[ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="2_p8r06"]
+[ext_resource type="Texture2D" uid="uid://bqmcow8p45mmd" path="res://Prototypes/Clicker/Assets/DemoUI/current_sel.png" id="2_uwbcs"]
+[ext_resource type="Texture2D" uid="uid://cnm8v50vwwont" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_name.png" id="3_p8r06"]
+
+[node name="PerkTemplate" type="Node2D"]
+script = ExtResource("1_p8r06")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uwbcs")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_p8r06")
+metadata/_edit_use_anchors_ = true
+
+[node name="InfoBG" type="Sprite2D" parent="."]
+position = Vector2(172, 0)
+texture = ExtResource("3_p8r06")
+
+[node name="Name" type="Label" parent="."]
+offset_left = 88.0
+offset_top = -20.0
+offset_right = 272.0
+offset_bottom = 20.0
+vertical_alignment = 1

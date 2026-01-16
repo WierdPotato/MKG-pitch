@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw3l207y81scm"]
+
+[ext_resource type="Script" uid="uid://fbwk3v1nlgy7" path="res://Prototypes/Menus/Store Menu/AmmoBuyer/ammo_buyer.gd" id="1_gxd2e"]
+
+[node name="AmmoBuyer" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.165
+anchor_bottom = 0.326
+offset_right = 375.8
+offset_bottom = -157.72
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_gxd2e")
+round_price = 100
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "BUY AMMO "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="HBoxAmmounts" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="x1Unit" type="Button" parent="HBoxAmmounts"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "x1"
+
+[node name="x10Unit" type="Button" parent="HBoxAmmounts"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "x10"
+
+[node name="x100Unit" type="Button" parent="HBoxAmmounts"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "x100"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="HBoxSelector" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 77)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Less" type="Button" parent="HBoxSelector"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "-"
+
+[node name="SelectedAmmo" type="Label" parent="HBoxSelector"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="More" type="Button" parent="HBoxSelector"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "+"
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "BUY"
+
+[connection signal="pressed" from="HBoxAmmounts/x1Unit" to="." method="_on_x_1_unit_pressed"]
+[connection signal="pressed" from="HBoxAmmounts/x10Unit" to="." method="_on_x_10_unit_pressed"]
+[connection signal="pressed" from="HBoxAmmounts/x100Unit" to="." method="_on_x_100_unit_pressed"]
+[connection signal="pressed" from="HBoxSelector/Less" to="." method="_on_less_pressed"]
+[connection signal="pressed" from="HBoxSelector/More" to="." method="_on_more_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]

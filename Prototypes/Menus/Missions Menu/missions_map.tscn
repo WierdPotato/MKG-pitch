@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5fgr3lauvnx"]
+
+[ext_resource type="Script" uid="uid://2lhhqhh8qs1l" path="res://Prototypes/Menus/Missions Menu/missions_map.gd" id="1_j74h7"]
+[ext_resource type="Script" uid="uid://el5hietcswkd" path="res://Prototypes/Menus/Missions Menu/grid_manager.gd" id="2_rkxeu"]
+
+[node name="MissionsMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j74h7")
+n_paths = 2
+
+[node name="GridManager" type="Node2D" parent="."]
+position = Vector2(0, 2)
+script = ExtResource("2_rkxeu")
+columns = 10
+steps = 5
+
+[node name="Columns" type="HBoxContainer" parent="GridManager"]
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 121.0
+offset_bottom = 101.0
+theme_override_constants/separation = 10
+
+[node name="Steps" type="VBoxContainer" parent="GridManager"]
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 121.0
+offset_bottom = 101.0
+theme_override_constants/separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="GridManager"]
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 388.0
+offset_bottom = 487.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5

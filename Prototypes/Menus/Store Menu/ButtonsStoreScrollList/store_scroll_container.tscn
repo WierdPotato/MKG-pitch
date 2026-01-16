@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://4134tx2hp0er"]
+
+[ext_resource type="Script" uid="uid://ngx1jbei621h" path="res://Prototypes/Menus/Store Menu/ButtonsStoreScrollList/store_tab_scroll_menu.gd" id="1_hk2vs"]
+
+[node name="StoreScrollContainer" type="ScrollContainer"]
+custom_minimum_size = Vector2(510, 0)
+offset_top = 12.0
+offset_right = 671.0
+offset_bottom = 189.0
+horizontal_scroll_mode = 3
+script = ExtResource("1_hk2vs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(645, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1

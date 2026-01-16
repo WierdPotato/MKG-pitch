@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbvkt5we6pnid"]
+
+[ext_resource type="PackedScene" uid="uid://ga4t8twxtuad" path="res://Prototypes/Clicker/Scenes/PerkButton/perk_template.tscn" id="1_0rw36"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+theme_override_constants/separation = 354
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PerkTemplate" parent="Container" instance=ExtResource("1_0rw36")]
+
+[node name="Container2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PerkTemplate" parent="Container2" instance=ExtResource("1_0rw36")]
+
+[node name="Container3" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PerkTemplate" parent="Container3" instance=ExtResource("1_0rw36")]
+
+[node name="Container4" type="Control" parent="."]
+layout_mode = 2
+
+[node name="PerkTemplate" parent="Container4" instance=ExtResource("1_0rw36")]

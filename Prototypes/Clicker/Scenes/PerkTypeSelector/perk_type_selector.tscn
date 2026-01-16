@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://df5mk1xtiw7bw"]
+
+[ext_resource type="Script" uid="uid://c1dshf35gcc2k" path="res://Prototypes/Clicker/Scenes/PerkTypeSelector/perk_type_selector.gd" id="1_kk31d"]
+[ext_resource type="Texture2D" uid="uid://mmgeuqr53i4u" path="res://Prototypes/Clicker/Assets/DemoUI/ruleta.png" id="2_kk31d"]
+[ext_resource type="Texture2D" uid="uid://bjqloumgj2hnf" path="res://Prototypes/Clicker/Assets/DemoUI/flecha_rule.png" id="3_nnvqu"]
+
+[node name="PerkTypeSelector" type="Node2D"]
+script = ExtResource("1_kk31d")
+
+[node name="Circle" type="Sprite2D" parent="."]
+texture = ExtResource("2_kk31d")
+offset = Vector2(5, -3)
+
+[node name="Button" type="Button" parent="Circle"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.149
+anchor_right = 0.88100004
+anchor_bottom = 0.851
+offset_left = -252.705
+offset_top = -260.735
+offset_right = -268.71503
+offset_bottom = -260.265
+metadata/_edit_use_anchors_ = true
+
+[node name="Indicator" type="Sprite2D" parent="."]
+texture = ExtResource("3_nnvqu")
+offset = Vector2(-130, -130)
+
+[connection signal="pressed" from="Circle/Button" to="." method="_on_button_pressed"]

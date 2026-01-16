@@ -1,0 +1,335 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdxuwfu3vc3yd"]
+
+[ext_resource type="Texture2D" uid="uid://bil3db0tu5eag" path="res://Prototypes/Shmup/Assets/Charas/Player/ship-01.png" id="1_orbld"]
+[ext_resource type="Script" uid="uid://ehv0wa470tqs" path="res://Prototypes/Menus/Prep Menu/ShipManager/parts_manager.gd" id="2_iy4ym"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orbld"]
+bg_color = Color(0.28423044, 0.56925356, 0.8540158, 1)
+
+[node name="ShipManager" type="Node2D"]
+position = Vector2(641.37024, 337.49683)
+script = ExtResource("2_iy4ym")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -370.7
+offset_top = -162.79999
+offset_right = 306.19995
+offset_bottom = 137.89996
+color = Color(0.17893267, 0.2767049, 0.36791652, 1)
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+scale = Vector2(3.056198, 2.5550237)
+texture = ExtResource("1_orbld")
+
+[node name="PartsManager" type="Node2D" parent="."]
+
+[node name="Engine" type="Label" parent="PartsManager"]
+offset_left = -354.0
+offset_top = -86.0
+offset_right = -176.0
+offset_bottom = -24.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Body" type="Label" parent="PartsManager"]
+offset_left = -133.0
+offset_top = -141.0
+offset_right = 45.0
+offset_bottom = -79.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Weapon" type="Label" parent="PartsManager"]
+offset_left = 97.0
+offset_top = -93.0
+offset_right = 275.0
+offset_bottom = -31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Cargo" type="Label" parent="PartsManager"]
+offset_left = -281.0
+offset_top = 62.0
+offset_right = -103.0
+offset_bottom = 124.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Shield" type="Label" parent="PartsManager"]
+offset_left = 33.75653
+offset_top = 67.725006
+offset_right = 211.75653
+offset_bottom = 129.725
+theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Weapon" type="Line2D" parent="Lines"]
+points = PackedVector2Array(116.67859, 28.284332, 221.1062, 28.284332, 243.8996, -23.746826)
+width = 2.0
+
+[node name="Body" type="Line2D" parent="Lines"]
+points = PackedVector2Array(-52.663574, -30.42096, -52.663574, -76.14334)
+width = 2.0
+
+[node name="Engine" type="Line2D" parent="Lines"]
+points = PackedVector2Array(-121.52942, 10.785645, -249.1005, 10.785645, -271.115, -20.82489)
+width = 2.0
+
+[node name="Cargo" type="Line2D" parent="Lines"]
+points = PackedVector2Array(-29.32129, 33.543518, -193.86539, 34.16443, -208.14658, 60.243134)
+width = 2.0
+
+[node name="Shield" type="Line2D" parent="Lines"]
+points = PackedVector2Array(-30.734253, 9.9123535, 14.048828, 42.16559, 125.71057, 42.41916, 126.000244, 57.48172)
+width = 2.0
+
+[node name="LoadManager" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="LoadManager"]
+offset_left = -359.87973
+offset_top = -197.5958
+offset_right = -186.89703
+offset_bottom = -166.5958
+theme_override_font_sizes/font_size = 22
+text = "SHIP LOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadManager"]
+offset_left = -178.06158
+offset_top = -196.09314
+offset_right = 291.37482
+offset_bottom = -169.09314
+max_value = 10.0
+step = 0.1
+value = 4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsManager" type="Node2D" parent="."]
+position = Vector2(0, -19)
+
+[node name="StatsBackground" type="ColorRect" parent="StatsManager"]
+offset_left = -370.69995
+offset_top = 162.28186
+offset_right = 306.2
+offset_bottom = 270.23633
+color = Color(0.094301604, 0.15793476, 0.21639693, 1)
+
+[node name="Stats" type="HBoxContainer" parent="StatsManager"]
+offset_left = -361.95453
+offset_top = 162.05457
+offset_right = 300.04547
+offset_bottom = 202.05457
+
+[node name="Health" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "AREA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mass" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "MASS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "SPEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Force" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "FORCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "CPCTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "DMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "RPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="StatsManager/Stats"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "MXAMM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Values" type="HBoxContainer" parent="StatsManager"]
+offset_left = -361.95453
+offset_top = 197.05457
+offset_right = 300.04547
+offset_bottom = 237.05457
+
+[node name="Health" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "AREA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mass" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "MASS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "SPEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Force" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "FORCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "CPCTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "DMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "RPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="StatsManager/Values"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "AMMO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SimValues" type="HBoxContainer" parent="StatsManager"]
+offset_left = -361.95453
+offset_top = 231.05457
+offset_right = 300.04547
+offset_bottom = 271.05457
+
+[node name="Health" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "AREA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mass" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "MASS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "SPEED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Force" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "FORCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "CPCTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "DMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "RPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="StatsManager/SimValues"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "AMMO"
+horizontal_alignment = 1
+vertical_alignment = 1

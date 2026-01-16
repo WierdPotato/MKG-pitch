@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://clnwdyxs3ylfj"]
+
+[ext_resource type="Script" uid="uid://cbwkvhjm11imo" path="res://Prototypes/Shmup/FightLevel/fight_level.gd" id="1_cn8b7"]
+[ext_resource type="PackedScene" uid="uid://d2f76wxyv41ef" path="res://Prototypes/Shmup/Player/Player.tscn" id="2_jf8sv"]
+[ext_resource type="PackedScene" uid="uid://ckpmoplqy60qo" path="res://Prototypes/Shmup/WaspScene/enemy.tscn" id="2_mhro8"]
+[ext_resource type="Texture2D" uid="uid://cifjqrh550pcp" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/bg.png" id="2_xrwtx"]
+[ext_resource type="Texture2D" uid="uid://cn8osauwtbo1s" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/buildings.png" id="3_mhro8"]
+[ext_resource type="Texture2D" uid="uid://du52iclrsm1k" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/far-buildings.png" id="4_jf8sv"]
+
+[sub_resource type="Curve2D" id="Curve2D_cn8b7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1184.1249, 130.14285, 0, 0, 0, 0, 1186.7499, 564.2, 0, 0, 0, 0, 1188.9374, 561.22675, 0, 0, 0, 0, 1189.7395, 130.10536, 0, 0, 0, 0, 1185.8749, 129.11429)
+}
+point_count = 5
+
+[node name="FightLevel" type="Node2D" groups=["Level"]]
+script = ExtResource("1_cn8b7")
+player = ExtResource("2_jf8sv")
+enemy = ExtResource("2_mhro8")
+path_speed = 500
+points_goal = 50
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Back" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Back"]
+position = Vector2(0, 1.5258789e-05)
+scale = Vector2(4.757353, 2.0984375)
+texture = ExtResource("2_xrwtx")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Back"]
+position = Vector2(1287.4028, 722.43854)
+rotation = 3.1415927
+scale = Vector2(4.733099, 2.45151)
+texture = ExtResource("2_xrwtx")
+centered = false
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+repeat_size = Vector2(2254, 0)
+autoscroll = Vector2(-1000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Mid"]
+position = Vector2(1, 243)
+scale = Vector2(4.698, 4.3099995)
+texture = ExtResource("3_mhro8")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/Mid"]
+position = Vector2(994, 245)
+scale = Vector2(4.698, 4.31)
+texture = ExtResource("3_mhro8")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Mid"]
+position = Vector2(1060.6277, 408.99997)
+rotation = 3.1415927
+scale = Vector2(4.698, 4.31)
+texture = ExtResource("3_mhro8")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/Mid"]
+position = Vector2(1814.9999, 503.99997)
+rotation = 3.1415927
+scale = Vector2(4.698, 4.31)
+texture = ExtResource("3_mhro8")
+centered = false
+
+[node name="Top" type="Parallax2D" parent="Background"]
+z_index = 1
+scroll_offset = Vector2(-1898, 0)
+repeat_size = Vector2(100000, 0)
+autoscroll = Vector2(-3000, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Top"]
+position = Vector2(-3.9999998, -96.999985)
+scale = Vector2(5.417841, 5.8380284)
+texture = ExtResource("4_jf8sv")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/Top"]
+position = Vector2(10044, 767.99994)
+rotation = 3.1415927
+scale = Vector2(5.417841, 5.4577465)
+texture = ExtResource("4_jf8sv")
+centered = false
+
+[node name="SpawnPoints" type="Path2D" parent="."]
+z_index = 1
+position = Vector2(-133.31168, 12.724123)
+scale = Vector2(1.2467533, 1.0089966)
+curve = SubResource("Curve2D_cn8b7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnPoints"]
+position = Vector2(1184.1249, 130.14285)
+rotation = 1.5647488
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(241, 327)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1046.0
+offset_top = 10.0
+offset_right = 1251.0
+offset_bottom = 56.0
+text = "POINTS: "
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

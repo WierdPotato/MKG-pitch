@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4hyeiu450m0c"]
+
+[ext_resource type="Script" uid="uid://b4lwytvc6xrii" path="res://Prototypes/Menus/Prep Menu/prep_menu.gd" id="1_km43s"]
+[ext_resource type="PackedScene" uid="uid://clnwdyxs3ylfj" path="res://Prototypes/Shmup/FightLevel/fight_level.tscn" id="2_q6218"]
+[ext_resource type="PackedScene" uid="uid://cdxuwfu3vc3yd" path="res://Prototypes/Menus/Components/ship_manager.tscn" id="3_poovv"]
+[ext_resource type="PackedScene" uid="uid://cc1uv382pou3q" path="res://Prototypes/Menus/Components/full_inventory.tscn" id="4_poovv"]
+[ext_resource type="PackedScene" uid="uid://bleqg07t33uqg" path="res://Prototypes/Menus/Components/AmmoLoader.tscn" id="4_wbgox"]
+
+[node name="PrepMenu" type="Node2D"]
+script = ExtResource("1_km43s")
+level = ExtResource("2_q6218")
+
+[node name="ShipManager" parent="." instance=ExtResource("3_poovv")]
+position = Vector2(962.27, 291.58997)
+
+[node name="AmmoLoader" parent="." instance=ExtResource("4_wbgox")]
+offset_left = 595.0
+offset_top = 604.99994
+offset_right = 1016.0
+offset_bottom = 705.99994
+
+[node name="Inventory" parent="." instance=ExtResource("4_poovv")]
+offset_left = 19.0
+offset_top = 96.0
+offset_right = 511.0
+offset_bottom = 576.0
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="InventoryAmmo" type="Label" parent="Elements"]
+offset_left = 594.2847
+offset_top = 567.642
+offset_right = 868.93207
+offset_bottom = 597.642
+theme_override_font_sizes/font_size = 21
+text = "AVAILABLE AMMO: 1000"
+
+[node name="LoadedAmmo" type="Label" parent="Elements"]
+offset_left = 873.7412
+offset_top = 569.36884
+offset_right = 1115.7609
+offset_bottom = 599.36884
+theme_override_font_sizes/font_size = 21
+text = "LOADED AMMO:"
+vertical_alignment = 1
+
+[node name="Fight" type="Button" parent="Elements"]
+offset_left = 1052.5609
+offset_top = 610.276
+offset_right = 1242.5609
+offset_bottom = 702.4893
+text = "FIGHT!"
+
+[node name="Equip" type="Button" parent="Elements"]
+offset_left = 22.0
+offset_top = 612.0
+offset_right = 581.0
+offset_bottom = 704.0
+text = "EQUIP"
+
+[node name="Label" type="Label" parent="Elements"]
+offset_left = 17.843319
+offset_top = 16.0
+offset_right = 625.8433
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 36
+text = "PREPARE FOR THE BATTLE!"
+
+[connection signal="pressed" from="Elements/Fight" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Elements/Equip" to="." method="_on_equip_pressed"]

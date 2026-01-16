@@ -1,0 +1,179 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0cgidy8ygrkl"]
+
+[ext_resource type="Script" uid="uid://d0jhfofya7ao5" path="res://Prototypes/Menus/Missions Menu/missions_menu.gd" id="1_b10sa"]
+[ext_resource type="Texture2D" uid="uid://dr7i7liyldc08" path="res://Prototypes/Shmup/Assets/WorldMaps/WorldMap1.jpg" id="2_1xbc7"]
+[ext_resource type="Script" uid="uid://dldq3heddmsn7" path="res://Prototypes/Menus/Missions Menu/mission_details.gd" id="2_4d1xq"]
+[ext_resource type="Script" uid="uid://41jaf0a1rbtd" path="res://Prototypes/Menus/Missions Menu/paths_manager.gd" id="3_1xbc7"]
+[ext_resource type="PackedScene" uid="uid://c7245n8vadohj" path="res://Prototypes/Menus/Missions Menu/level_button.tscn" id="4_gtf88"]
+
+[node name="MissionsMenu" type="Node2D"]
+script = ExtResource("1_b10sa")
+
+[node name="WorldMap" type="Sprite2D" parent="."]
+position = Vector2(425, 371.5)
+scale = Vector2(0.38696292, 0.39778647)
+texture = ExtResource("2_1xbc7")
+
+[node name="MissionDetails" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 839.0
+offset_top = 64.0
+offset_right = 1237.0
+offset_bottom = 676.0
+script = ExtResource("2_4d1xq")
+
+[node name="Background" type="ColorRect" parent="MissionDetails"]
+layout_mode = 0
+offset_right = 397.0
+offset_bottom = 613.0
+color = Color(0.8918124, 0.7989307, 0.6687767, 1)
+
+[node name="Description" type="Label" parent="MissionDetails"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 45.0
+offset_right = 373.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
+text = "Force back the enemy forces to secure a safe landing spot for the infantry."
+autowrap_mode = 2
+
+[node name="MainObjective" type="Label" parent="MissionDetails"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 284.0
+offset_right = 373.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "- Destroy 10 enemy ships."
+autowrap_mode = 2
+
+[node name="Challenge" type="Label" parent="MissionDetails"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 357.0
+offset_right = 375.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "- Don´t recieve any damage."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MissionDetails"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 543.0
+offset_right = 388.0
+offset_bottom = 605.0
+text = "FIGHT"
+
+[node name="Hide" type="Node2D" parent="MissionDetails"]
+
+[node name="Background2" type="ColorRect" parent="MissionDetails/Hide"]
+offset_right = 397.0
+offset_bottom = 613.0
+color = Color(0.8918124, 0.7989307, 0.6687767, 1)
+
+[node name="Label" type="Label" parent="MissionDetails/Hide"]
+offset_right = 397.0
+offset_bottom = 612.0
+theme_override_colors/font_color = Color(1, 0.21176471, 0, 1)
+theme_override_font_sizes/font_size = 68
+text = "CLASSIFIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PathsManager" type="Node2D" parent="."]
+script = ExtResource("3_1xbc7")
+
+[node name="Lvl3" parent="PathsManager" instance=ExtResource("4_gtf88")]
+offset_left = 449.0
+offset_top = 603.0
+offset_right = 487.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PathA" type="Node2D" parent="PathsManager"]
+
+[node name="Buttons" type="Control" parent="PathsManager/PathA"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Lvl1a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 488.0
+offset_right = 289.0
+offset_bottom = 523.0
+
+[node name="Lvl2a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 331.0
+offset_right = 127.0
+offset_bottom = 368.0
+
+[node name="Lines" type="Node2D" parent="PathsManager/PathA"]
+
+[node name="OneA" type="Line2D" parent="PathsManager/PathA/Lines"]
+position = Vector2(22, 136)
+points = PackedVector2Array(419, 467, 277, 404)
+width = 3.0
+
+[node name="TwoA" type="Line2D" parent="PathsManager/PathA/Lines"]
+position = Vector2(-57, 60)
+points = PackedVector2Array(296, 421, 190, 314)
+width = 3.0
+
+[node name="PathB" type="Node2D" parent="PathsManager"]
+
+[node name="Buttons" type="Control" parent="PathsManager/PathB"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lvl1b" parent="PathsManager/PathB/Buttons" instance=ExtResource("4_gtf88")]
+layout_mode = 0
+offset_left = 727.0
+offset_top = 228.0
+offset_right = 765.0
+offset_bottom = 265.0
+
+[node name="Lvl2b" parent="PathsManager/PathB/Buttons" instance=ExtResource("4_gtf88")]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 433.0
+offset_right = 632.0
+offset_bottom = 470.0
+
+[node name="Lines" type="Node2D" parent="PathsManager/PathB"]
+
+[node name="OneB" type="Line2D" parent="PathsManager/PathB/Lines"]
+position = Vector2(226, 0)
+points = PackedVector2Array(266, 595, 365, 479)
+width = 3.0
+
+[node name="TwoB" type="Line2D" parent="PathsManager/PathB/Lines"]
+points = PackedVector2Array(637, 426, 736, 278)
+width = 3.0
+
+[connection signal="pressed" from="MissionDetails/Button" to="MissionDetails" method="_on_button_pressed"]
+[connection signal="focus_entered" from="PathsManager/Lvl3" to="." method="_on_lvl_3_focus_entered"]
+[connection signal="mouse_entered" from="PathsManager/Lvl3" to="." method="_on_lvl_3_mouse_entered"]
+[connection signal="focus_entered" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_focus_entered"]
+[connection signal="focus_exited" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_focus_exited"]
+[connection signal="mouse_entered" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_mouse_entered"]
+[connection signal="mouse_exited" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_mouse_exited"]
+[connection signal="focus_entered" from="PathsManager/PathA/Buttons/Lvl2a" to="." method="_on_lvl_2_focus_entered"]
+[connection signal="mouse_entered" from="PathsManager/PathA/Buttons/Lvl2a" to="." method="_on_lvl_2_mouse_entered"]
+[connection signal="focus_entered" from="PathsManager/PathB/Buttons/Lvl1b" to="." method="_on_lvl_1b_focus_entered"]
+[connection signal="mouse_entered" from="PathsManager/PathB/Buttons/Lvl1b" to="." method="_on_lvl_1b_mouse_entered"]
+[connection signal="focus_entered" from="PathsManager/PathB/Buttons/Lvl2b" to="." method="_on_lvl_2b_focus_entered"]
+[connection signal="mouse_entered" from="PathsManager/PathB/Buttons/Lvl2b" to="." method="_on_lvl_2b_mouse_entered"]

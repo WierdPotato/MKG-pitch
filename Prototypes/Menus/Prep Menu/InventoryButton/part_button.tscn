@@ -1,0 +1,182 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4hj58hwhwb0i"]
+
+[ext_resource type="Script" uid="uid://b7t7fcl7mjj02" path="res://Prototypes/Menus/Prep Menu/InventoryButton/part_button.gd" id="1_0ajp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ajp3"]
+resource_local_to_scene = true
+bg_color = Color(0.105882354, 0.40784314, 0.40784314, 0.3372549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ajp3"]
+
+[node name="PartButton" type="Button"]
+offset_right = 501.0
+offset_bottom = 70.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ajp3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ajp3")
+script = ExtResource("1_0ajp3")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 146.0
+offset_bottom = 61.0
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 208.0
+offset_top = 19.0
+offset_right = 383.0
+offset_bottom = 42.0
+horizontal_alignment = 2
+
+[node name="Ammount" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 171.0
+offset_top = 5.0
+offset_right = 263.0
+offset_bottom = 28.0
+text = "A    W    V    P    H    L    D    C    R    S "
+horizontal_alignment = 1
+
+[node name="StatsTitle" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 12.0
+offset_right = 496.0
+offset_bottom = 35.0
+alignment = 1
+
+[node name="Health" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "H"
+horizontal_alignment = 1
+
+[node name="Area" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "A"
+horizontal_alignment = 1
+
+[node name="Weight" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "W"
+horizontal_alignment = 1
+
+[node name="Velocity" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "V"
+horizontal_alignment = 1
+
+[node name="Power" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "P"
+horizontal_alignment = 1
+
+[node name="Load" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "L"
+horizontal_alignment = 1
+
+[node name="Damage" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "D"
+horizontal_alignment = 1
+
+[node name="Cadence" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "C"
+horizontal_alignment = 1
+
+[node name="Rounds" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "R"
+horizontal_alignment = 1
+
+[node name="Size" type="Label" parent="StatsTitle"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "S"
+horizontal_alignment = 1
+
+[node name="StatsValue" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 36.0
+offset_right = 496.0
+offset_bottom = 59.0
+alignment = 1
+
+[node name="Health" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "300"
+horizontal_alignment = 1
+
+[node name="Area" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1.5"
+horizontal_alignment = 1
+
+[node name="Weight" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0.3"
+horizontal_alignment = 1
+
+[node name="Velocity" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "350"
+horizontal_alignment = 1
+
+[node name="Power" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+
+[node name="Load" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "20"
+horizontal_alignment = 1
+
+[node name="Damage" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "250"
+horizontal_alignment = 1
+
+[node name="Cadence" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "60"
+horizontal_alignment = 1
+
+[node name="Rounds" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "999"
+horizontal_alignment = 1
+
+[node name="Size" type="Label" parent="StatsValue"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "10"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

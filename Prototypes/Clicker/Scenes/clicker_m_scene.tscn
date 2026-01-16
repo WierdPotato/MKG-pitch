@@ -1,0 +1,233 @@
+[gd_scene load_steps=18 format=3 uid="uid://c6q62ufk5h678"]
+
+[ext_resource type="Script" uid="uid://cce3llebno6gj" path="res://Prototypes/Clicker/Scenes/clicker_m_scene.gd" id="1_a80n7"]
+[ext_resource type="PackedScene" uid="uid://b4hyeiu450m0c" path="res://Prototypes/Menus/Prep Menu/Prep Menu.tscn" id="2_0vghb"]
+[ext_resource type="Texture2D" uid="uid://clm146m01o2ff" path="res://Prototypes/Clicker/Assets/DemoUI/click_here.png" id="3_lop6x"]
+[ext_resource type="Texture2D" uid="uid://c2qe2q4nxpwpp" path="res://Prototypes/Clicker/Assets/DemoUI/background.png" id="3_y7r7s"]
+[ext_resource type="Texture2D" uid="uid://drik8qoapk3qo" path="res://Prototypes/Clicker/Assets/DemoUI/footer_bg.png" id="4_edn7n"]
+[ext_resource type="PackedScene" uid="uid://cbvkt5we6pnid" path="res://Prototypes/Clicker/Scenes/perk_hbox.tscn" id="4_xqyea"]
+[ext_resource type="Texture2D" uid="uid://bd68ds1r6mfc2" path="res://Prototypes/Clicker/Assets/DemoUI/mony_amt_pill.png" id="5_bnjck"]
+[ext_resource type="PackedScene" uid="uid://df5mk1xtiw7bw" path="res://Prototypes/Clicker/Scenes/PerkTypeSelector/perk_type_selector.tscn" id="5_cwjc2"]
+[ext_resource type="Script" uid="uid://ghst28b6bnpa" path="res://Prototypes/Clicker/Scenes/upgrades_manager.gd" id="5_qlef0"]
+[ext_resource type="Texture2D" uid="uid://d0fi4r44h6vso" path="res://Prototypes/Clicker/Assets/DemoUI/time_pill.png" id="6_0rcxh"]
+[ext_resource type="Texture2D" uid="uid://cns10nwkjk5md" path="res://Prototypes/Clicker/Assets/DemoUI/mony_sec_pill.png" id="7_ah3fh"]
+[ext_resource type="Texture2D" uid="uid://c4134wivrg24i" path="res://Prototypes/Clicker/Assets/DemoUI/pill_propiedades.png" id="7_bnjck"]
+[ext_resource type="Texture2D" uid="uid://byosasjcgsk8s" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo_prop.png" id="8_bfq4p"]
+[ext_resource type="Texture2D" uid="uid://dcoah3qlanh0b" path="res://Prototypes/Clicker/Assets/DemoUI/hover_prop_name.png" id="9_gbmv8"]
+[ext_resource type="Texture2D" uid="uid://lfxlfgnb3d3n" path="res://Prototypes/Clicker/Assets/DemoUI/hover_info_prop.png" id="10_y7r7s"]
+[ext_resource type="Texture2D" uid="uid://c20043x0snn6p" path="res://Prototypes/Clicker/Assets/DemoUI/footer_big.png" id="16_0rcxh"]
+[ext_resource type="Texture2D" uid="uid://bkq72s2fv0kwk" path="res://Prototypes/Clicker/Assets/DemoUI/footer small.png" id="17_ah3fh"]
+
+[node name="ClickerMScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a80n7")
+prep_menu = ExtResource("2_0vghb")
+clicker_minutes = 1.0
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_y7r7s")
+
+[node name="Footer" type="Sprite2D" parent="."]
+position = Vector2(960, 958)
+texture = ExtResource("4_edn7n")
+
+[node name="MainClicker" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.002
+anchor_right = 0.9990001
+anchor_bottom = 1.0
+offset_left = 1564.0
+offset_top = 864.84
+offset_right = -30.080078
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_lop6x")
+
+[node name="Countdown" type="Timer" parent="."]
+ignore_time_scale = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DebugLabels" type="Node2D" parent="."]
+
+[node name="DebugLabel2" type="Label" parent="DebugLabels"]
+offset_left = 68.0
+offset_top = 177.0
+offset_right = 129.0
+offset_bottom = 216.0
+
+[node name="Clock" type="Node2D" parent="."]
+position = Vector2(652, 57)
+
+[node name="ClockBG" type="Sprite2D" parent="Clock"]
+texture = ExtResource("6_0rcxh")
+
+[node name="ClockLBL" type="Label" parent="Clock"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -21.0
+offset_right = 57.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "120"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyPerSecond" type="Node2D" parent="."]
+position = Vector2(1311, 57)
+
+[node name="MoneyPerScndBG" type="Sprite2D" parent="MoneyPerSecond"]
+texture = ExtResource("7_ah3fh")
+
+[node name="MoneyPerSecondLBL" type="Label" parent="MoneyPerSecond"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -15.5
+offset_right = 90.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "MPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMoney" type="Node2D" parent="."]
+position = Vector2(1667, 57)
+
+[node name="TotalMoneyBG" type="Sprite2D" parent="TotalMoney"]
+texture = ExtResource("5_bnjck")
+
+[node name="TotalMoneyLBL" type="Label" parent="TotalMoney"]
+offset_left = -189.0
+offset_top = -18.999985
+offset_right = 198.0
+offset_bottom = 18.000015
+text = "Total Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradesManager" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -86.0
+offset_right = 121.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_qlef0")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.0
+offset_top = -300.0
+offset_right = 531.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 120
+
+[node name="HBoxContainer" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="HBoxContainer2" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="HBoxContainer3" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="HBoxContainer4" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="HBoxContainer5" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="HBoxContainer6" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+layout_mode = 2
+
+[node name="PerkDetails" type="Node2D" parent="."]
+
+[node name="PerkDetailsBackground" type="Sprite2D" parent="PerkDetails"]
+position = Vector2(249, 540)
+texture = ExtResource("7_bnjck")
+
+[node name="PerkIcon" type="Sprite2D" parent="PerkDetails"]
+position = Vector2(165.5, 167)
+texture = ExtResource("8_bfq4p")
+
+[node name="PerkName" type="Node2D" parent="PerkDetails"]
+position = Vector2(346, 207)
+
+[node name="PerkNameBG" type="Sprite2D" parent="PerkDetails/PerkName"]
+texture = ExtResource("9_gbmv8")
+
+[node name="PerkNameLBL" type="Label" parent="PerkDetails/PerkName"]
+offset_left = -70.0
+offset_top = -33.0
+offset_right = 72.0
+offset_bottom = 32.0
+
+[node name="PerkDescription" type="Node2D" parent="PerkDetails"]
+position = Vector2(241, 435)
+
+[node name="PerkDescriptionBG" type="Sprite2D" parent="PerkDetails/PerkDescription"]
+position = Vector2(7.666443, 10.66658)
+texture = ExtResource("10_y7r7s")
+
+[node name="PerkDescriptionLBL" type="Label" parent="PerkDetails/PerkDescription"]
+offset_left = -160.3333
+offset_top = -135.99982
+offset_right = 176.6667
+offset_bottom = 161.00018
+
+[node name="PerkTypeSelector" parent="PerkDetails" instance=ExtResource("5_cwjc2")]
+position = Vector2(248, 829)
+
+[node name="Joker1" type="Node2D" parent="."]
+position = Vector2(798, 958)
+
+[node name="Joker1Sprite" type="Sprite2D" parent="Joker1"]
+texture = ExtResource("16_0rcxh")
+metadata/_edit_lock_ = true
+
+[node name="Joker2" type="Node2D" parent="."]
+position = Vector2(1330, 958)
+
+[node name="Joker2Sprite" type="Sprite2D" parent="Joker2"]
+texture = ExtResource("17_ah3fh")
+metadata/_edit_lock_ = true
+
+[connection signal="button_down" from="MainClicker" to="." method="_on_main_clicker_button_down"]
+[connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

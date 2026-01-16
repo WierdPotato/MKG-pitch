@@ -1,0 +1,438 @@
+[gd_scene load_steps=8 format=3 uid="uid://co5xipffjpfgb"]
+
+[ext_resource type="PackedScene" uid="uid://bdsjq47tmvu3y" path="res://Prototypes/Menus/Store Menu/StorePartsList/store_inventory.tscn" id="1_5xqf7"]
+[ext_resource type="Script" uid="uid://flb4cuiaue5i" path="res://Prototypes/Menus/Store Menu/store_menu.gd" id="1_oamnr"]
+[ext_resource type="PackedScene" uid="uid://b4hyeiu450m0c" path="res://Prototypes/Menus/Prep Menu/Prep Menu.tscn" id="2_yttvm"]
+[ext_resource type="PackedScene" uid="uid://cw3l207y81scm" path="res://Prototypes/Menus/Store Menu/AmmoBuyer/AmmoBuyer.tscn" id="4_mqi26"]
+[ext_resource type="Script" uid="uid://c28nucbnkei4a" path="res://Prototypes/Menus/Store Menu/preview.gd" id="4_yttvm"]
+[ext_resource type="Texture2D" uid="uid://ctkffr4rnas1x" path="res://Prototypes/Shmup/Assets/Blueprints/KOKOeng1.jpg" id="6_8aasp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mqi26"]
+color = Color(1, 1, 1, 1)
+vertical = true
+
+[node name="StoreMenu" type="Node2D"]
+script = ExtResource("1_oamnr")
+prep_menu = ExtResource("2_yttvm")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 193.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 29
+text = "BUY DEATH!"
+
+[node name="Wallet" type="Label" parent="."]
+offset_left = 699.0
+offset_top = 19.0
+offset_right = 1257.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 31
+text = "WALLET: 9090900990909090"
+vertical_alignment = 1
+
+[node name="Store" parent="." instance=ExtResource("1_5xqf7")]
+offset_left = 12.0
+offset_top = 61.0
+offset_right = 748.0
+offset_bottom = 559.0
+
+[node name="Buy" type="Button" parent="."]
+offset_left = 716.0
+offset_top = 587.0
+offset_right = 1254.0
+offset_bottom = 635.0
+text = "BUY"
+
+[node name="PrepMenu" type="Button" parent="."]
+offset_left = 718.0
+offset_top = 652.0
+offset_right = 1252.0
+offset_bottom = 692.0
+text = "PREPARE"
+
+[node name="AmmoBuyer" parent="." instance=ExtResource("4_mqi26")]
+offset_left = 22.0
+offset_top = 568.0
+offset_right = 700.0
+offset_bottom = 645.0
+
+[node name="TotalPrice" type="Label" parent="."]
+offset_left = 50.0
+offset_top = 669.0
+offset_right = 191.0
+offset_bottom = 701.0
+theme_override_font_sizes/font_size = 23
+text = "TOTAL PRICE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 721.0
+offset_top = 97.0
+offset_right = 1259.0
+offset_bottom = 554.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 538.0
+offset_bottom = 458.0
+color = Color(0.09803922, 0.4627451, 0.58431375, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 59.0
+offset_right = 481.0
+offset_bottom = 382.0
+theme_override_font_sizes/font_size = 90
+text = "PREVIEW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Preview" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 715.0
+offset_top = 98.0
+offset_right = 1254.0
+offset_bottom = 555.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_yttvm")
+
+[node name="ColorRect" type="ColorRect" parent="Preview"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -7.0
+offset_right = 554.0
+offset_bottom = 480.0
+color = Color(0.09773957, 0.46154314, 0.5823542, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Preview"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -1.0
+offset_right = 437.0
+offset_bottom = 183.0
+
+[node name="Blueprint" type="Sprite2D" parent="Preview"]
+position = Vector2(274.99997, 90.99999)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("6_8aasp")
+
+[node name="Name" type="Label" parent="Preview"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 184.0
+offset_right = 303.0
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 22
+text = "KOKO ENG MK1"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 4
+
+[node name="Type" type="Label" parent="Preview"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 182.0
+offset_right = 535.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 19
+text = "ENGINE"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Preview"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 263.0
+offset_right = 552.0
+offset_bottom = 458.0
+theme_override_constants/separation = 27
+
+[node name="FirstRowTitles" type="HBoxContainer" parent="Preview/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator6" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="HP" type="Label" parent="Preview/VBoxContainer/FirstRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "HEALTH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="AREA" type="Label" parent="Preview/VBoxContainer/FirstRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "AREA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Weight" type="Label" parent="Preview/VBoxContainer/FirstRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "WEIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Speed" type="Label" parent="Preview/VBoxContainer/FirstRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "VELOCITY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Force" type="Label" parent="Preview/VBoxContainer/FirstRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "POWER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Preview/VBoxContainer/FirstRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="FirstRowValue" type="HBoxContainer" parent="Preview/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator6" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="HP" type="Label" parent="Preview/VBoxContainer/FirstRowValue"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="AREA" type="Label" parent="Preview/VBoxContainer/FirstRowValue"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Weight" type="Label" parent="Preview/VBoxContainer/FirstRowValue"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Speed" type="Label" parent="Preview/VBoxContainer/FirstRowValue"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Force" type="Label" parent="Preview/VBoxContainer/FirstRowValue"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Preview/VBoxContainer/FirstRowValue"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="SecondRowTitles" type="HBoxContainer" parent="Preview/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator6" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Capacity" type="Label" parent="Preview/VBoxContainer/SecondRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "LOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Damage" type="Label" parent="Preview/VBoxContainer/SecondRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "DAMAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Cadence" type="Label" parent="Preview/VBoxContainer/SecondRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "CADENCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Ammo" type="Label" parent="Preview/VBoxContainer/SecondRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "ROUNDS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Size" type="Label" parent="Preview/VBoxContainer/SecondRowTitles"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "SIZE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Preview/VBoxContainer/SecondRowTitles"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="SecondRowValues" type="HBoxContainer" parent="Preview/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator6" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Capacity" type="Label" parent="Preview/VBoxContainer/SecondRowValues"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Damage" type="Label" parent="Preview/VBoxContainer/SecondRowValues"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Cadence" type="Label" parent="Preview/VBoxContainer/SecondRowValues"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Rounds" type="Label" parent="Preview/VBoxContainer/SecondRowValues"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "0.3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[node name="Size" type="Label" parent="Preview/VBoxContainer/SecondRowValues"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="Preview/VBoxContainer/SecondRowValues"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_mqi26")
+
+[connection signal="pressed" from="Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="PrepMenu" to="." method="_on_prep_menu_pressed"]

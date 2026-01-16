@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdsjq47tmvu3y"]
+
+[ext_resource type="Script" uid="uid://dxfxep611op" path="res://Prototypes/Menus/Store Menu/StorePartsList/store_filters.gd" id="1_fit4g"]
+[ext_resource type="PackedScene" uid="uid://4134tx2hp0er" path="res://Prototypes/Menus/Store Menu/ButtonsStoreScrollList/store_scroll_container.tscn" id="2_vpu8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xauue"]
+bg_color = Color(0, 0.12941177, 0.1764706, 1)
+
+[node name="Store" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 736.0
+offset_bottom = 498.0
+
+[node name="Filters" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 679.0
+offset_bottom = 498.0
+theme_override_constants/side_margin = 1
+theme_override_constants/tab_separation = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xauue")
+current_tab = 0
+script = ExtResource("1_fit4g")
+
+[node name="All" type="Control" parent="Filters"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Weapons")
+focus_neighbor_right = NodePath("../Bodies")
+focus_neighbor_bottom = NodePath("StoreScrollContainer")
+focus_mode = 2
+metadata/_tab_index = 0
+
+[node name="StoreScrollContainer" parent="Filters/All" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 670.0
+offset_bottom = 454.0
+
+[node name="Bodies" type="Control" parent="Filters"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="StoreScrollContainer" parent="Filters/Bodies" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 680.0
+offset_bottom = 454.0
+
+[node name="Cargo" type="Control" parent="Filters"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="StoreScrollContainer" parent="Filters/Cargo" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 680.0
+offset_bottom = 454.0
+
+[node name="Engines" type="Control" parent="Filters"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="StoreScrollContainer" parent="Filters/Engines" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 680.0
+offset_bottom = 454.0
+
+[node name="Shields" type="Control" parent="Filters"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="StoreScrollContainer" parent="Filters/Shields" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 680.0
+offset_bottom = 454.0
+
+[node name="Weapons" type="Control" parent="Filters"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="StoreScrollContainer" parent="Filters/Weapons" instance=ExtResource("2_vpu8w")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 680.0
+offset_bottom = 454.0
+
+[connection signal="tab_changed" from="Filters" to="Filters" method="_on_tab_changed"]

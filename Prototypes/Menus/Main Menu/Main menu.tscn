@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddvv7tij5cilm"]
+
+[ext_resource type="Script" uid="uid://b27d03hrhkmm8" path="res://Prototypes/Menus/Main Menu/main_menu.gd" id="1_v4spl"]
+[ext_resource type="PackedScene" uid="uid://c6q62ufk5h678" path="res://Prototypes/Clicker/Scenes/clicker_m_scene.tscn" id="2_6hqkb"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_v4spl")
+play_scene = ExtResource("2_6hqkb")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 261.0
+offset_top = 23.0
+offset_right = 906.0
+offset_bottom = 640.0
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 68.0
+offset_right = 597.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 60
+text = "MY KEBAB GARDEN"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Container"]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 287.0
+offset_right = 411.0
+offset_bottom = 367.0
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Exit")
+theme_override_font_sizes/font_size = 31
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="Container"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 439.0
+offset_right = 409.0
+offset_bottom = 519.0
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Play")
+theme_override_font_sizes/font_size = 37
+text = "EXIT"
+
+[connection signal="pressed" from="Container/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Container/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2f76wxyv41ef"]
+
+[ext_resource type="Script" uid="uid://bsopm61jyo35k" path="res://Prototypes/Shmup/Player/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://bil3db0tu5eag" path="res://Prototypes/Shmup/Assets/Charas/Player/ship-01.png" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://3t7nrqdnqlnw" path="res://Prototypes/Shmup/Player/integrity_machine.gd" id="2_5248s"]
+[ext_resource type="PackedScene" uid="uid://cylemeqhijr7n" path="res://Prototypes/Shmup/ShotScene/Shot.tscn" id="2_h54ih"]
+[ext_resource type="Script" uid="uid://o5t8d5wpdovg" path="res://Prototypes/Shmup/Player/shot_machine.gd" id="3_whehj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(113, 23)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_kyqiw")
+
+[node name="IntegrityMachine" type="Node2D" parent="."]
+script = ExtResource("2_5248s")
+
+[node name="ShotMachine" type="Node2D" parent="."]
+script = ExtResource("3_whehj")
+shot = ExtResource("2_h54ih")
+ammo = 1000
+cadence = 1.0
+
+[node name="Marker2D" type="Marker2D" parent="ShotMachine"]
+position = Vector2(61, 12)
+metadata/_edit_lock_ = true
+
+[node name="ShotCD" type="Timer" parent="ShotMachine"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_rpqav")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_kyqiw")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -86.0
+offset_right = 58.0
+offset_bottom = -37.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -59.0
+offset_right = 51.0
+offset_bottom = -36.0
+
+[connection signal="timeout" from="ShotMachine/ShotCD" to="ShotMachine" method="_on_cadence_timeout"]
