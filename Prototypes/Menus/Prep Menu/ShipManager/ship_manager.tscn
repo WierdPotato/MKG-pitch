@@ -1,7 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdxuwfu3vc3yd"]
+[gd_scene load_steps=20 format=3 uid="uid://cdxuwfu3vc3yd"]
 
-[ext_resource type="Texture2D" uid="uid://bil3db0tu5eag" path="res://Prototypes/Shmup/Assets/Charas/Player/ship-01.png" id="1_orbld"]
+[ext_resource type="Texture2D" uid="uid://c55tc00e1pbwb" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_00.png" id="2_ivio1"]
 [ext_resource type="Script" uid="uid://ehv0wa470tqs" path="res://Prototypes/Menus/Prep Menu/ShipManager/parts_manager.gd" id="2_iy4ym"]
+[ext_resource type="Texture2D" uid="uid://droojgq3miccl" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_01.png" id="3_c6p46"]
+[ext_resource type="Texture2D" uid="uid://dv5jrv07nq0nu" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_02.png" id="4_3asfh"]
+[ext_resource type="Texture2D" uid="uid://pac6pg2ghtn0" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_03.png" id="5_3ridg"]
+[ext_resource type="Texture2D" uid="uid://dbhf7qfkl618p" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_04.png" id="6_sp3v5"]
+[ext_resource type="Texture2D" uid="uid://c6ak3hovm7hn7" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_05.png" id="7_2tlif"]
+[ext_resource type="Texture2D" uid="uid://dev6xh7q1a2kf" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_06.png" id="8_jhtmw"]
+[ext_resource type="Texture2D" uid="uid://dkce0t3g3otv" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_07.png" id="9_78k33"]
+[ext_resource type="Texture2D" uid="uid://xwqy3a1ptpwe" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_08.png" id="10_lh2sr"]
+[ext_resource type="Texture2D" uid="uid://cxnrmrdv6mew5" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_09.png" id="11_cg1r5"]
+[ext_resource type="Texture2D" uid="uid://bsa44ve5r7fu4" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_10.png" id="12_vc5kw"]
+[ext_resource type="Texture2D" uid="uid://dahrh2jt7nu55" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_11.png" id="13_gwr8n"]
+[ext_resource type="Texture2D" uid="uid://bta7en7wdhxow" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_12.png" id="14_5wgs6"]
+[ext_resource type="Texture2D" uid="uid://dtcxlbi0ql35a" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_13.png" id="15_72g6x"]
+[ext_resource type="Texture2D" uid="uid://xy0h58rpdscx" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_14.png" id="16_psrp4"]
+[ext_resource type="Texture2D" uid="uid://banx41uamtdfa" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_15.png" id="17_mbcyn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08bvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ivio1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6p46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3asfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ridg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sp3v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2tlif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jhtmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_78k33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lh2sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cg1r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vc5kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gwr8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5wgs6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_72g6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_psrp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mbcyn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orbld"]
 bg_color = Color(0.28423044, 0.56925356, 0.8540158, 1)
@@ -17,9 +88,11 @@ offset_right = 306.19995
 offset_bottom = 137.89996
 color = Color(0.17893267, 0.2767049, 0.36791652, 1)
 
-[node name="ShipSprite" type="Sprite2D" parent="."]
-scale = Vector2(3.056198, 2.5550237)
-texture = ExtResource("1_orbld")
+[node name="ShipSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-37.565735, -2.253937)
+scale = Vector2(0.281, 0.235)
+sprite_frames = SubResource("SpriteFrames_08bvd")
+frame_progress = 0.24118832
 
 [node name="PartsManager" type="Node2D" parent="."]
 
@@ -34,16 +107,17 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Body" type="Label" parent="PartsManager"]
-offset_left = -133.0
-offset_top = -141.0
-offset_right = 45.0
-offset_bottom = -79.0
+offset_left = 86.38397
+offset_top = -93.667175
+offset_right = 264.38397
+offset_bottom = -31.667175
 theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Weapon" type="Label" parent="PartsManager"]
+visible = false
 offset_left = 97.0
 offset_top = -93.0
 offset_right = 275.0
@@ -54,26 +128,27 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Cargo" type="Label" parent="PartsManager"]
-offset_left = -281.0
-offset_top = 62.0
-offset_right = -103.0
-offset_bottom = 124.0
+offset_left = -354.63635
+offset_top = 61.090942
+offset_right = -176.63635
+offset_bottom = 123.09094
 theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Shield" type="Label" parent="PartsManager"]
-offset_left = 33.75653
-offset_top = 67.725006
-offset_right = 211.75653
-offset_bottom = 129.725
+offset_left = 65.31171
+offset_top = 60.211853
+offset_right = 243.3117
+offset_bottom = 122.21185
 theme_override_styles/normal = SubResource("StyleBoxFlat_orbld")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Lines" type="Node2D" parent="."]
+visible = false
 
 [node name="Weapon" type="Line2D" parent="Lines"]
 points = PackedVector2Array(116.67859, 28.284332, 221.1062, 28.284332, 243.8996, -23.746826)

@@ -94,6 +94,10 @@ offset_left = 449.0
 offset_top = 603.0
 offset_right = 487.0
 offset_bottom = 640.0
+focus_neighbor_left = NodePath("../PathA/Buttons/Lvl2a")
+focus_neighbor_top = NodePath("../PathA/Buttons/Lvl1a")
+focus_neighbor_right = NodePath("../PathB/Buttons/Lvl2b")
+focus_neighbor_bottom = NodePath("../PathB/Buttons/Lvl1b")
 metadata/_edit_use_anchors_ = true
 
 [node name="PathA" type="Node2D" parent="PathsManager"]
@@ -107,17 +111,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Lvl1a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 488.0
-offset_right = 289.0
-offset_bottom = 523.0
+offset_left = 90.0
+offset_top = 327.0
+offset_right = 128.0
+offset_bottom = 362.0
+focus_neighbor_left = NodePath("../../../PathB/Buttons/Lvl1b")
+focus_neighbor_top = NodePath("../../../Lvl3")
+focus_neighbor_right = NodePath("../../../PathB/Buttons/Lvl1b")
+focus_neighbor_bottom = NodePath("../Lvl2a")
 
 [node name="Lvl2a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
 layout_mode = 0
-offset_left = 89.0
-offset_top = 331.0
-offset_right = 127.0
-offset_bottom = 368.0
+offset_left = 256.0
+offset_top = 496.0
+offset_right = 294.0
+offset_bottom = 533.0
+focus_neighbor_left = NodePath("../../../PathB/Buttons/Lvl2b")
+focus_neighbor_top = NodePath("../Lvl1a")
+focus_neighbor_right = NodePath("../../../PathB/Buttons/Lvl2b")
+focus_neighbor_bottom = NodePath("../../../Lvl3")
 
 [node name="Lines" type="Node2D" parent="PathsManager/PathA"]
 
@@ -145,6 +157,10 @@ offset_left = 727.0
 offset_top = 228.0
 offset_right = 765.0
 offset_bottom = 265.0
+focus_neighbor_left = NodePath("../../../PathA/Buttons/Lvl1a")
+focus_neighbor_top = NodePath("../../../Lvl3")
+focus_neighbor_right = NodePath("../../../PathA/Buttons/Lvl1a")
+focus_neighbor_bottom = NodePath("../Lvl2b")
 
 [node name="Lvl2b" parent="PathsManager/PathB/Buttons" instance=ExtResource("4_gtf88")]
 layout_mode = 0
@@ -152,6 +168,10 @@ offset_left = 594.0
 offset_top = 433.0
 offset_right = 632.0
 offset_bottom = 470.0
+focus_neighbor_left = NodePath("../../../PathA/Buttons/Lvl2a")
+focus_neighbor_top = NodePath("../Lvl1b")
+focus_neighbor_right = NodePath("../../../PathA/Buttons/Lvl2a")
+focus_neighbor_bottom = NodePath("../../../Lvl3")
 
 [node name="Lines" type="Node2D" parent="PathsManager/PathB"]
 

@@ -33,7 +33,8 @@ func _ready() -> void:
 	else:
 		if GLOBAL.selected_path == 0:
 			pass
-		
+	
+	lvl_1a.grab_focus()
 func set_up_info(missions : Array, buttons : Array) -> void:
 	for i in buttons:
 		var current_mission = missions.pick_random()

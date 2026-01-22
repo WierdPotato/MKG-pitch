@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6q62ufk5h678"]
+[gd_scene load_steps=29 format=3 uid="uid://c6q62ufk5h678"]
 
 [ext_resource type="Script" uid="uid://cce3llebno6gj" path="res://Prototypes/Clicker/Scenes/clicker_m_scene.gd" id="1_a80n7"]
 [ext_resource type="PackedScene" uid="uid://b4hyeiu450m0c" path="res://Prototypes/Menus/Prep Menu/Prep Menu.tscn" id="2_0vghb"]
@@ -12,11 +12,219 @@
 [ext_resource type="Texture2D" uid="uid://d0fi4r44h6vso" path="res://Prototypes/Clicker/Assets/DemoUI/time_pill.png" id="6_0rcxh"]
 [ext_resource type="Texture2D" uid="uid://cns10nwkjk5md" path="res://Prototypes/Clicker/Assets/DemoUI/mony_sec_pill.png" id="7_ah3fh"]
 [ext_resource type="Texture2D" uid="uid://c4134wivrg24i" path="res://Prototypes/Clicker/Assets/DemoUI/pill_propiedades.png" id="7_bnjck"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="7_jg11s"]
 [ext_resource type="Texture2D" uid="uid://byosasjcgsk8s" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo_prop.png" id="8_bfq4p"]
 [ext_resource type="Texture2D" uid="uid://dcoah3qlanh0b" path="res://Prototypes/Clicker/Assets/DemoUI/hover_prop_name.png" id="9_gbmv8"]
 [ext_resource type="Texture2D" uid="uid://lfxlfgnb3d3n" path="res://Prototypes/Clicker/Assets/DemoUI/hover_info_prop.png" id="10_y7r7s"]
+[ext_resource type="Script" uid="uid://curh4ugohbtrl" path="res://Prototypes/Clicker/Scenes/perk_details.gd" id="11_ah3fh"]
+[ext_resource type="Texture2D" uid="uid://cer4tlggh4t34" path="res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png" id="14_0wx6y"]
+[ext_resource type="FontFile" uid="uid://calnhu3bc01mv" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/KonkhmerSleokchher-Regular.ttf" id="15_efumb"]
 [ext_resource type="Texture2D" uid="uid://c20043x0snn6p" path="res://Prototypes/Clicker/Assets/DemoUI/footer_big.png" id="16_0rcxh"]
 [ext_resource type="Texture2D" uid="uid://bkq72s2fv0kwk" path="res://Prototypes/Clicker/Assets/DemoUI/footer small.png" id="17_ah3fh"]
+[ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="19_vu5sa"]
+[ext_resource type="Texture2D" uid="uid://b8edd3p0i1ibr" path="res://Prototypes/Clicker/Assets/DemoUI/footer small_buy.png" id="23_l2hx8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg11s"]
+atlas = ExtResource("14_0wx6y")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="Animation" id="Animation_efumb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PerkIconBG:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vu5sa"]
+resource_name = "perk_changed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PerkIconBG:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PerkName/PerkNameBG:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PerkName/PerkNameLBL:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PerkDescription/PerkDescriptionLBL:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PerkDescription/PerkDescriptionBG:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PerkIcon:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PriceLBL:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ah3fh"]
+resource_name = "type_changed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PerkIconBG:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PerkName/PerkNameBG:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PerkName/PerkNameLBL:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PerkDescription/PerkDescriptionLBL:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PerkDescription/PerkDescriptionBG:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PerkIcon:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PriceLBL:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efumb"]
+_data = {
+&"RESET": SubResource("Animation_efumb"),
+&"perk_changed": SubResource("Animation_vu5sa"),
+&"type_changed": SubResource("Animation_ah3fh")
+}
 
 [node name="ClickerMScene" type="Control"]
 layout_mode = 3
@@ -33,10 +241,12 @@ metadata/_edit_lock_ = true
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("3_y7r7s")
+metadata/_edit_lock_ = true
 
 [node name="Footer" type="Sprite2D" parent="."]
 position = Vector2(960, 958)
 texture = ExtResource("4_edn7n")
+metadata/_edit_lock_ = true
 
 [node name="MainClicker" type="TextureButton" parent="."]
 layout_mode = 1
@@ -50,7 +260,10 @@ offset_right = -30.080078
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_lop6x")
+metadata/_edit_lock_ = true
 
 [node name="Countdown" type="Timer" parent="."]
 ignore_time_scale = true
@@ -59,18 +272,22 @@ ignore_time_scale = true
 autostart = true
 
 [node name="DebugLabels" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="DebugLabel2" type="Label" parent="DebugLabels"]
 offset_left = 68.0
 offset_top = 177.0
 offset_right = 129.0
 offset_bottom = 216.0
+metadata/_edit_lock_ = true
 
 [node name="Clock" type="Node2D" parent="."]
 position = Vector2(652, 57)
+metadata/_edit_lock_ = true
 
 [node name="ClockBG" type="Sprite2D" parent="Clock"]
 texture = ExtResource("6_0rcxh")
+metadata/_edit_lock_ = true
 
 [node name="ClockLBL" type="Label" parent="Clock"]
 anchors_preset = 8
@@ -84,16 +301,20 @@ offset_right = 57.0
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("7_jg11s")
+theme_override_font_sizes/font_size = 41
 text = "120"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="MoneyPerSecond" type="Node2D" parent="."]
 position = Vector2(1311, 57)
+metadata/_edit_lock_ = true
 
 [node name="MoneyPerScndBG" type="Sprite2D" parent="MoneyPerSecond"]
 texture = ExtResource("7_ah3fh")
+metadata/_edit_lock_ = true
 
 [node name="MoneyPerSecondLBL" type="Label" parent="MoneyPerSecond"]
 anchors_preset = 8
@@ -108,22 +329,30 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_jg11s")
+theme_override_font_sizes/font_size = 25
 text = "MPS"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="TotalMoney" type="Node2D" parent="."]
 position = Vector2(1667, 57)
+metadata/_edit_lock_ = true
 
 [node name="TotalMoneyBG" type="Sprite2D" parent="TotalMoney"]
 texture = ExtResource("5_bnjck")
+metadata/_edit_lock_ = true
 
 [node name="TotalMoneyLBL" type="Label" parent="TotalMoney"]
-offset_left = -189.0
-offset_top = -18.999985
-offset_right = 198.0
-offset_bottom = 18.000015
-text = "Total Money"
+offset_left = -192.0
+offset_top = -19.999985
+offset_right = 191.0
+offset_bottom = 20.000015
+theme_override_colors/font_color = Color(0.654902, 0.9411765, 0.4392157, 1)
+theme_override_fonts/font = ExtResource("7_jg11s")
+theme_override_font_sizes/font_size = 25
+text = "92103126453287562"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -140,6 +369,8 @@ offset_right = 121.0
 offset_bottom = -86.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
+focus_behavior_recursive = 2
 script = ExtResource("5_qlef0")
 metadata/_edit_lock_ = true
 
@@ -157,77 +388,175 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 120
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer2" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer3" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer4" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer5" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer6" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="PerkDetails" type="Node2D" parent="."]
+script = ExtResource("11_ah3fh")
+metadata/_edit_lock_ = true
 
 [node name="PerkDetailsBackground" type="Sprite2D" parent="PerkDetails"]
 position = Vector2(249, 540)
 texture = ExtResource("7_bnjck")
+metadata/_edit_lock_ = true
 
-[node name="PerkIcon" type="Sprite2D" parent="PerkDetails"]
+[node name="PerkIconBG" type="Sprite2D" parent="PerkDetails"]
 position = Vector2(165.5, 167)
 texture = ExtResource("8_bfq4p")
+metadata/_edit_lock_ = true
+
+[node name="PerkIcon" type="Sprite2D" parent="PerkDetails"]
+visible = false
+position = Vector2(166, 167)
+texture = SubResource("AtlasTexture_jg11s")
+
+[node name="PriceLBL" type="Label" parent="PerkDetails"]
+offset_left = 95.0
+offset_top = 125.0
+offset_right = 235.0
+offset_bottom = 210.0
+pivot_offset = Vector2(70, 45)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_jg11s")
+theme_override_font_sizes/font_size = 37
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PerkName" type="Node2D" parent="PerkDetails"]
 position = Vector2(346, 207)
+metadata/_edit_lock_ = true
 
 [node name="PerkNameBG" type="Sprite2D" parent="PerkDetails/PerkName"]
 texture = ExtResource("9_gbmv8")
+metadata/_edit_lock_ = true
 
 [node name="PerkNameLBL" type="Label" parent="PerkDetails/PerkName"]
-offset_left = -70.0
-offset_top = -33.0
-offset_right = 72.0
-offset_bottom = 32.0
+offset_left = -74.0
+offset_top = -32.0
+offset_right = 74.0
+offset_bottom = 33.0
+pivot_offset = Vector2(70, 34)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("15_efumb")
+theme_override_font_sizes/font_size = 17
+text = "Cientific Cup"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="PerkDescription" type="Node2D" parent="PerkDetails"]
 position = Vector2(241, 435)
+metadata/_edit_lock_ = true
 
 [node name="PerkDescriptionBG" type="Sprite2D" parent="PerkDetails/PerkDescription"]
 position = Vector2(7.666443, 10.66658)
 texture = ExtResource("10_y7r7s")
+metadata/_edit_lock_ = true
 
-[node name="PerkDescriptionLBL" type="Label" parent="PerkDetails/PerkDescription"]
+[node name="PerkDescriptionLBL" type="RichTextLabel" parent="PerkDetails/PerkDescription"]
 offset_left = -160.3333
 offset_top = -135.99982
 offset_right = 176.6667
 offset_bottom = 161.00018
+pivot_offset = Vector2(168.5, 148.5)
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+autowrap_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="PerkTypeSelector" parent="PerkDetails" instance=ExtResource("5_cwjc2")]
 position = Vector2(248, 829)
+metadata/_edit_lock_ = true
+
+[node name="DetailsAnimationPlayer" type="AnimationPlayer" parent="PerkDetails"]
+libraries = {
+&"": SubResource("AnimationLibrary_efumb")
+}
 
 [node name="Joker1" type="Node2D" parent="."]
 position = Vector2(798, 958)
+metadata/_edit_lock_ = true
 
 [node name="Joker1Sprite" type="Sprite2D" parent="Joker1"]
 texture = ExtResource("16_0rcxh")
 metadata/_edit_lock_ = true
 
+[node name="Joker1LBL" type="Label" parent="Joker1"]
+offset_left = -285.0
+offset_top = -78.0
+offset_right = 289.0
+offset_bottom = 76.0
+metadata/_edit_lock_ = true
+
 [node name="Joker2" type="Node2D" parent="."]
 position = Vector2(1330, 958)
+metadata/_edit_lock_ = true
 
 [node name="Joker2Sprite" type="Sprite2D" parent="Joker2"]
 texture = ExtResource("17_ah3fh")
 metadata/_edit_lock_ = true
 
+[node name="Joker2LBL" type="Label" parent="Joker2"]
+offset_left = -175.0
+offset_top = -72.0
+offset_right = 176.0
+offset_bottom = 76.0
+metadata/_edit_lock_ = true
+
+[node name="Pause" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 86.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("19_vu5sa")
+
+[node name="Buy" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 867.0
+offset_right = 1524.0
+offset_bottom = 1048.0
+focus_mode = 1
+texture_normal = ExtResource("23_l2hx8")
+
 [connection signal="button_down" from="MainClicker" to="." method="_on_main_clicker_button_down"]
 [connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="perk_type_1" from="PerkDetails/PerkTypeSelector" to="UpgradesManager" method="_on_perk_type_selector_perk_type_1"]
+[connection signal="perk_type_2" from="PerkDetails/PerkTypeSelector" to="UpgradesManager" method="_on_perk_type_selector_perk_type_2"]
+[connection signal="perk_type_3" from="PerkDetails/PerkTypeSelector" to="UpgradesManager" method="_on_perk_type_selector_perk_type_3"]
+[connection signal="pressed" from="Buy" to="UpgradesManager" method="_on_button_pressed"]

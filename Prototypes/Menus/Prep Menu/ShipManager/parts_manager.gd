@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var progress_bar: ProgressBar = $LoadManager/ProgressBar
+@onready var ship_sprite: AnimatedSprite2D = $ShipSprite
 
 @onready var engine_name: Label = $PartsManager/Engine
 @onready var body_name: Label = $PartsManager/Body
@@ -30,7 +31,7 @@ extends Node2D
 
 func _ready() -> void:
 	preview_stats()
-
+	ship_sprite.play("default")
 func update_load() -> void:
 	var value = PREP.selected_parts_dict.bdy.Capacity
 	progress_bar.max_value = value

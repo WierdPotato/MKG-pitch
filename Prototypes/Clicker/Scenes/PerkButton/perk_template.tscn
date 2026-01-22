@@ -1,14 +1,185 @@
-[gd_scene load_steps=5 format=3 uid="uid://ga4t8twxtuad"]
+[gd_scene load_steps=14 format=3 uid="uid://ga4t8twxtuad"]
 
 [ext_resource type="Script" uid="uid://c85fd43d4yvuv" path="res://Prototypes/Clicker/Scenes/PerkButton/perk_template.gd" id="1_p8r06"]
 [ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="2_p8r06"]
-[ext_resource type="Texture2D" uid="uid://bqmcow8p45mmd" path="res://Prototypes/Clicker/Assets/DemoUI/current_sel.png" id="2_uwbcs"]
+[ext_resource type="Texture2D" uid="uid://b1wmtnpeyt2aj" path="res://Prototypes/Clicker/Assets/DemoUI/current_sel_hover.png" id="2_uwbcs"]
 [ext_resource type="Texture2D" uid="uid://cnm8v50vwwont" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_name.png" id="3_p8r06"]
+[ext_resource type="FontFile" uid="uid://calnhu3bc01mv" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/KonkhmerSleokchher-Regular.ttf" id="5_kf2di"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="6_dkirf"]
+[ext_resource type="Texture2D" uid="uid://c87iw88akgdpm" path="res://Prototypes/Clicker/Assets/DemoUI/blue_spritesheet_V1.1.png" id="7_4ybnm"]
+[ext_resource type="Texture2D" uid="uid://drjqui3xu2qgk" path="res://Prototypes/Clicker/Assets/DemoUI/lockV1.png" id="8_4ybnm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lfv0"]
+resource_local_to_scene = true
+atlas = ExtResource("7_4ybnm")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="Animation" id="Animation_kf2di"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.655]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InfoBG:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Name:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Locked:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_3lfv0"]
+resource_name = "down_flip"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureButton:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.655, 0.0, 0.655]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InfoBG:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Name:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PriceLBL:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Locked:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.9, 0.0, 0.9]
+}
+
+[sub_resource type="Animation" id="Animation_4ybnm"]
+resource_name = "lock_off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Locked:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkirf"]
+_data = {
+&"RESET": SubResource("Animation_kf2di"),
+&"down_flip": SubResource("Animation_3lfv0"),
+&"lock_off": SubResource("Animation_4ybnm")
+}
 
 [node name="PerkTemplate" type="Node2D"]
 script = ExtResource("1_p8r06")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Highlight" type="Sprite2D" parent="."]
 texture = ExtResource("2_uwbcs")
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -23,6 +194,9 @@ offset_right = 50.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+mouse_default_cursor_shape = 2
+toggle_mode = true
 texture_normal = ExtResource("2_p8r06")
 metadata/_edit_use_anchors_ = true
 
@@ -32,7 +206,50 @@ texture = ExtResource("3_p8r06")
 
 [node name="Name" type="Label" parent="."]
 offset_left = 88.0
-offset_top = -20.0
-offset_right = 272.0
-offset_bottom = 20.0
+offset_top = -19.0
+offset_right = 255.0
+offset_bottom = 19.0
+pivot_offset = Vector2(0, 20)
+theme_override_colors/font_color = Color(0.16078432, 0.21176471, 0.43529412, 1)
+theme_override_fonts/font = ExtResource("5_kf2di")
+text = "aaaaaaaaaaaaa"
 vertical_alignment = 1
+
+[node name="PriceLBL" type="Label" parent="."]
+visible = false
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+pivot_offset = Vector2(50, 25)
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_dkirf")
+theme_override_font_sizes/font_size = 30
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.655, 0.655)
+texture = SubResource("AtlasTexture_3lfv0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dkirf")
+}
+
+[node name="Locked" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.3113022e-06, 2.9206276e-06)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_4ybnm")
+
+[connection signal="im_selected" from="." to="." method="_on_im_selected"]
+[connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
+[connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]
