@@ -1,199 +1,367 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0cgidy8ygrkl"]
+[gd_scene format=3 uid="uid://b0cgidy8ygrkl"]
 
 [ext_resource type="Script" uid="uid://d0jhfofya7ao5" path="res://Prototypes/Menus/Missions Menu/missions_menu.gd" id="1_b10sa"]
-[ext_resource type="Texture2D" uid="uid://dr7i7liyldc08" path="res://Prototypes/Shmup/Assets/WorldMaps/WorldMap1.jpg" id="2_1xbc7"]
-[ext_resource type="Script" uid="uid://dldq3heddmsn7" path="res://Prototypes/Menus/Missions Menu/mission_details.gd" id="2_4d1xq"]
+[ext_resource type="Texture2D" uid="uid://djnebf5sl8l7v" path="res://Prototypes/Shmup/Assets/Demo/mapa/background limpio.png" id="2_xy8td"]
 [ext_resource type="Script" uid="uid://41jaf0a1rbtd" path="res://Prototypes/Menus/Missions Menu/paths_manager.gd" id="3_1xbc7"]
-[ext_resource type="PackedScene" uid="uid://c7245n8vadohj" path="res://Prototypes/Menus/Missions Menu/level_button.tscn" id="4_gtf88"]
+[ext_resource type="Texture2D" uid="uid://bwviqahlgadii" path="res://Prototypes/Shmup/Assets/Demo/mapa/Planetas XL/SOL AMARILLO XL.png" id="3_qep0c"]
+[ext_resource type="Texture2D" uid="uid://dxb0t2rpyo0pv" path="res://Prototypes/Shmup/Assets/Demo/mapa/VENTANA.png" id="3_w88qh"]
+[ext_resource type="Texture2D" uid="uid://6py71cxt22bq" path="res://Prototypes/Shmup/Assets/Demo/mapa/MISIONES.png" id="4_qep0c"]
+[ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="6_32x45"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="7_hogos"]
+[ext_resource type="Texture2D" uid="uid://bb0wnrtbymrnb" path="res://Prototypes/Shmup/Assets/Demo/mapa/Otros/ARBOL DE PLANETAS completo.png" id="10_qonik"]
+[ext_resource type="Texture2D" uid="uid://b1wmtnpeyt2aj" path="res://Prototypes/Clicker/Assets/DemoUI/current_sel_hover.png" id="11_hogos"]
+[ext_resource type="Script" uid="uid://bf1flqfvghhtj" path="res://Prototypes/Menus/Missions Menu/demo_planet_button.gd" id="11_o3yeh"]
+[ext_resource type="Texture2D" uid="uid://cg7ppwcjfr342" path="res://Prototypes/Shmup/Assets/Demo/mapa/Otros/mapa completo.png" id="11_rom31"]
+[ext_resource type="Texture2D" uid="uid://dfjhvgfuybrgd" path="res://Prototypes/Clicker/Assets/DemoUI/lock_transparentV1.png" id="12_32x45"]
+[ext_resource type="Texture2D" uid="uid://bdbiiuq2gg5y7" path="res://Prototypes/Shmup/Assets/Charas/gundam/side/naveGundam_side.png" id="13_hogos"]
+[ext_resource type="Texture2D" uid="uid://cduud732wn7yj" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/GO BTN.png" id="16_rom31"]
+[ext_resource type="Texture2D" uid="uid://no122jtltvof" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/BACK BTN.png" id="17_o3yeh"]
 
-[node name="MissionsMenu" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rom31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3yeh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrbcl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6iu0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oplk6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8yqw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjxon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gwg30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0iim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mpb4"]
+
+[node name="MissionsMenu" type="Node2D" unique_id=818084740]
 script = ExtResource("1_b10sa")
 
-[node name="WorldMap" type="Sprite2D" parent="."]
-position = Vector2(425, 371.5)
-scale = Vector2(0.38696292, 0.39778647)
-texture = ExtResource("2_1xbc7")
-
-[node name="MissionDetails" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 839.0
-offset_top = 64.0
-offset_right = 1237.0
-offset_bottom = 676.0
-script = ExtResource("2_4d1xq")
-
-[node name="Background" type="ColorRect" parent="MissionDetails"]
-layout_mode = 0
-offset_right = 397.0
-offset_bottom = 613.0
-color = Color(0.8918124, 0.7989307, 0.6687767, 1)
-
-[node name="Description" type="Label" parent="MissionDetails"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 45.0
-offset_right = 373.0
-offset_bottom = 290.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 23
-text = "Force back the enemy forces to secure a safe landing spot for the infantry."
-autowrap_mode = 2
-
-[node name="MainObjective" type="Label" parent="MissionDetails"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 284.0
-offset_right = 373.0
-offset_bottom = 359.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "- Destroy 10 enemy ships."
-autowrap_mode = 2
-
-[node name="Challenge" type="Label" parent="MissionDetails"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 357.0
-offset_right = 375.0
-offset_bottom = 432.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "- Don´t recieve any damage."
-autowrap_mode = 2
-
-[node name="Button" type="Button" parent="MissionDetails"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 543.0
-offset_right = 388.0
-offset_bottom = 605.0
+[node name="Button" type="Button" parent="." unique_id=1598163161]
+offset_left = 1479.0
+offset_top = 903.0
+offset_right = 1859.0
+offset_bottom = 965.0
 text = "FIGHT"
 
-[node name="Hide" type="Node2D" parent="MissionDetails"]
+[node name="Statics" type="Node2D" parent="." unique_id=672284230]
+metadata/_edit_lock_ = true
 
-[node name="Background2" type="ColorRect" parent="MissionDetails/Hide"]
-offset_right = 397.0
-offset_bottom = 613.0
-color = Color(0.8918124, 0.7989307, 0.6687767, 1)
+[node name="Void" type="Sprite2D" parent="Statics" unique_id=1658256283]
+texture = ExtResource("2_xy8td")
+centered = false
 
-[node name="Label" type="Label" parent="MissionDetails/Hide"]
-offset_right = 397.0
-offset_bottom = 612.0
-theme_override_colors/font_color = Color(1, 0.21176471, 0, 1)
-theme_override_font_sizes/font_size = 68
-text = "CLASSIFIED"
+[node name="Planet" type="Sprite2D" parent="Statics" unique_id=1226823121]
+position = Vector2(751, 837)
+texture = ExtResource("3_qep0c")
+
+[node name="Window" type="Sprite2D" parent="Statics" unique_id=118589725]
+position = Vector2(0, 1)
+texture = ExtResource("3_w88qh")
+centered = false
+
+[node name="MissionsOverlay" type="Sprite2D" parent="Statics" unique_id=615510681]
+position = Vector2(247, 264)
+texture = ExtResource("4_qep0c")
+
+[node name="MissionDetails" type="Control" parent="." unique_id=703821709]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 151.0
+offset_top = 64.0
+offset_right = 549.0
+offset_bottom = 676.0
+
+[node name="Title" type="Label" parent="MissionDetails" unique_id=1277767317]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = 244.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_32x45")
+theme_override_font_sizes/font_size = 14
+text = "SPEARHEAD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PathsManager" type="Node2D" parent="."]
+[node name="Description" type="Label" parent="MissionDetails" unique_id=1769354961]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 72.0
+offset_right = 225.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_fonts/font = ExtResource("7_hogos")
+theme_override_font_sizes/font_size = 14
+text = "Force back the enemy forces to secure a safe landing spot for the infantry."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MainObjective" type="Label" parent="MissionDetails" unique_id=187234194]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 200.0
+offset_right = 245.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_hogos")
+theme_override_font_sizes/font_size = 17
+text = "Destroy 10 enemy ships."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Challenge" type="Label" parent="MissionDetails" unique_id=732570255]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 303.0
+offset_right = 244.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_hogos")
+theme_override_font_sizes/font_size = 16
+text = "Don´t recieve any damage."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PathsManager" type="Node2D" parent="." unique_id=1852772850]
 script = ExtResource("3_1xbc7")
+metadata/_edit_lock_ = true
 
-[node name="Lvl3" parent="PathsManager" instance=ExtResource("4_gtf88")]
-offset_left = 449.0
-offset_top = 603.0
-offset_right = 487.0
-offset_bottom = 640.0
-focus_neighbor_left = NodePath("../PathA/Buttons/Lvl2a")
-focus_neighbor_top = NodePath("../PathA/Buttons/Lvl1a")
-focus_neighbor_right = NodePath("../PathB/Buttons/Lvl2b")
-focus_neighbor_bottom = NodePath("../PathB/Buttons/Lvl1b")
-metadata/_edit_use_anchors_ = true
+[node name="Final" type="Node2D" parent="PathsManager" unique_id=1958789820]
 
-[node name="PathA" type="Node2D" parent="PathsManager"]
-
-[node name="Buttons" type="Control" parent="PathsManager/PathA"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Lvl1a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 327.0
-offset_right = 128.0
-offset_bottom = 362.0
-focus_neighbor_left = NodePath("../../../PathB/Buttons/Lvl1b")
-focus_neighbor_top = NodePath("../../../Lvl3")
-focus_neighbor_right = NodePath("../../../PathB/Buttons/Lvl1b")
-focus_neighbor_bottom = NodePath("../Lvl2a")
-
-[node name="Lvl2a" parent="PathsManager/PathA/Buttons" instance=ExtResource("4_gtf88")]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 496.0
-offset_right = 294.0
-offset_bottom = 533.0
-focus_neighbor_left = NodePath("../../../PathB/Buttons/Lvl2b")
-focus_neighbor_top = NodePath("../Lvl1a")
-focus_neighbor_right = NodePath("../../../PathB/Buttons/Lvl2b")
-focus_neighbor_bottom = NodePath("../../../Lvl3")
-
-[node name="Lines" type="Node2D" parent="PathsManager/PathA"]
-
-[node name="OneA" type="Line2D" parent="PathsManager/PathA/Lines"]
-position = Vector2(22, 136)
-points = PackedVector2Array(419, 467, 277, 404)
-width = 3.0
-
-[node name="TwoA" type="Line2D" parent="PathsManager/PathA/Lines"]
-position = Vector2(-57, 60)
-points = PackedVector2Array(296, 421, 190, 314)
-width = 3.0
-
-[node name="PathB" type="Node2D" parent="PathsManager"]
-
-[node name="Buttons" type="Control" parent="PathsManager/PathB"]
+[node name="Boss" type="Control" parent="PathsManager/Final" unique_id=54635093]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Lvl1b" parent="PathsManager/PathB/Buttons" instance=ExtResource("4_gtf88")]
+[node name="Lvl3" type="Button" parent="PathsManager/Final/Boss" unique_id=1456913998]
 layout_mode = 0
-offset_left = 727.0
-offset_top = 228.0
-offset_right = 765.0
-offset_bottom = 265.0
-focus_neighbor_left = NodePath("../../../PathA/Buttons/Lvl1a")
-focus_neighbor_top = NodePath("../../../Lvl3")
-focus_neighbor_right = NodePath("../../../PathA/Buttons/Lvl1a")
-focus_neighbor_bottom = NodePath("../Lvl2b")
-
-[node name="Lvl2b" parent="PathsManager/PathB/Buttons" instance=ExtResource("4_gtf88")]
-layout_mode = 0
-offset_left = 594.0
-offset_top = 433.0
-offset_right = 632.0
-offset_bottom = 470.0
-focus_neighbor_left = NodePath("../../../PathA/Buttons/Lvl2a")
-focus_neighbor_top = NodePath("../Lvl1b")
+offset_left = 992.0
+offset_top = 221.0
+offset_right = 1093.0
+offset_bottom = 324.0
+focus_neighbor_left = NodePath("../../../../Menus/Back")
 focus_neighbor_right = NodePath("../../../PathA/Buttons/Lvl2a")
-focus_neighbor_bottom = NodePath("../../../Lvl3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o3yeh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrbcl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y6iu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oplk6")
+script = ExtResource("11_o3yeh")
 
-[node name="Lines" type="Node2D" parent="PathsManager/PathB"]
+[node name="Marker2D" type="Marker2D" parent="PathsManager/Final/Boss/Lvl3" unique_id=89789389]
+position = Vector2(49, 51)
 
-[node name="OneB" type="Line2D" parent="PathsManager/PathB/Lines"]
-position = Vector2(226, 0)
-points = PackedVector2Array(266, 595, 365, 479)
-width = 3.0
+[node name="Highlight3" type="Sprite2D" parent="PathsManager/Final/Boss/Lvl3" unique_id=35946239]
+visible = false
+position = Vector2(51.000244, 51.00003)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("11_hogos")
 
-[node name="TwoB" type="Line2D" parent="PathsManager/PathB/Lines"]
-points = PackedVector2Array(637, 426, 736, 278)
-width = 3.0
+[node name="Lock3" type="Sprite2D" parent="PathsManager/Final/Boss/Lvl3" unique_id=836077420]
+z_index = 1
+position = Vector2(50, 51)
+texture = ExtResource("12_32x45")
 
-[connection signal="pressed" from="MissionDetails/Button" to="MissionDetails" method="_on_button_pressed"]
-[connection signal="focus_entered" from="PathsManager/Lvl3" to="." method="_on_lvl_3_focus_entered"]
-[connection signal="mouse_entered" from="PathsManager/Lvl3" to="." method="_on_lvl_3_mouse_entered"]
-[connection signal="focus_entered" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_focus_entered"]
-[connection signal="focus_exited" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_focus_exited"]
-[connection signal="mouse_entered" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_mouse_entered"]
-[connection signal="mouse_exited" from="PathsManager/PathA/Buttons/Lvl1a" to="." method="_on_lvl_1_mouse_exited"]
-[connection signal="focus_entered" from="PathsManager/PathA/Buttons/Lvl2a" to="." method="_on_lvl_2_focus_entered"]
-[connection signal="mouse_entered" from="PathsManager/PathA/Buttons/Lvl2a" to="." method="_on_lvl_2_mouse_entered"]
-[connection signal="focus_entered" from="PathsManager/PathB/Buttons/Lvl1b" to="." method="_on_lvl_1b_focus_entered"]
-[connection signal="mouse_entered" from="PathsManager/PathB/Buttons/Lvl1b" to="." method="_on_lvl_1b_mouse_entered"]
-[connection signal="focus_entered" from="PathsManager/PathB/Buttons/Lvl2b" to="." method="_on_lvl_2b_focus_entered"]
-[connection signal="mouse_entered" from="PathsManager/PathB/Buttons/Lvl2b" to="." method="_on_lvl_2b_mouse_entered"]
+[node name="PathA" type="Node2D" parent="PathsManager" unique_id=1838679329]
+
+[node name="Buttons" type="Control" parent="PathsManager/PathA" unique_id=613112944]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Lvl1a" type="Button" parent="PathsManager/PathA/Buttons" unique_id=2047166180]
+layout_mode = 0
+offset_left = 1629.0
+offset_top = 221.0
+offset_right = 1730.0
+offset_bottom = 324.0
+focus_neighbor_left = NodePath("../Lvl2a")
+focus_neighbor_top = NodePath("../../../PathB/Buttons/Lvl1b")
+focus_neighbor_right = NodePath("../../../Final/Boss/Lvl3")
+focus_neighbor_bottom = NodePath("../../../PathB/Buttons/Lvl1b")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o3yeh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrbcl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y6iu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oplk6")
+script = ExtResource("11_o3yeh")
+
+[node name="Marker2D" type="Marker2D" parent="PathsManager/PathA/Buttons/Lvl1a" unique_id=1708547928]
+position = Vector2(51, 51)
+
+[node name="Highlight1a" type="Sprite2D" parent="PathsManager/PathA/Buttons/Lvl1a" unique_id=1933200828]
+visible = false
+position = Vector2(52.000244, 51.00003)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("11_hogos")
+
+[node name="Lock1a" type="Sprite2D" parent="PathsManager/PathA/Buttons/Lvl1a" unique_id=45794596]
+z_index = 1
+position = Vector2(51.5, 50.5)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("12_32x45")
+
+[node name="Lvl2a" type="Button" parent="PathsManager/PathA/Buttons" unique_id=1048734764]
+layout_mode = 0
+offset_left = 1308.0
+offset_top = 221.0
+offset_right = 1409.0
+offset_bottom = 324.0
+focus_neighbor_left = NodePath("../../../Final/Boss/Lvl3")
+focus_neighbor_top = NodePath("../../../PathB/Buttons/Lvl2b")
+focus_neighbor_right = NodePath("../Lvl1a")
+focus_neighbor_bottom = NodePath("../../../PathB/Buttons/Lvl2b")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o3yeh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrbcl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y6iu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oplk6")
+script = ExtResource("11_o3yeh")
+
+[node name="Marker2D" type="Marker2D" parent="PathsManager/PathA/Buttons/Lvl2a" unique_id=1598454724]
+position = Vector2(50, 48)
+
+[node name="Highlight2a" type="Sprite2D" parent="PathsManager/PathA/Buttons/Lvl2a" unique_id=1079015391]
+visible = false
+position = Vector2(50.000244, 50.00003)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("11_hogos")
+
+[node name="Lock2a" type="Sprite2D" parent="PathsManager/PathA/Buttons/Lvl2a" unique_id=360636864]
+z_index = 1
+position = Vector2(50, 51)
+texture = ExtResource("12_32x45")
+
+[node name="PathB" type="Node2D" parent="PathsManager" unique_id=240269127]
+
+[node name="Buttons" type="Control" parent="PathsManager/PathB" unique_id=75478468]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Lvl1b" type="Button" parent="PathsManager/PathB/Buttons" unique_id=1747713467]
+layout_mode = 0
+offset_left = 1630.0
+offset_top = 362.0
+offset_right = 1731.0
+offset_bottom = 465.0
+focus_neighbor_left = NodePath("../Lvl2b")
+focus_neighbor_top = NodePath("../../../PathA/Buttons/Lvl1a")
+focus_neighbor_right = NodePath("../../../Final/Boss/Lvl3")
+focus_neighbor_bottom = NodePath("../../../../Menus/Go")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o3yeh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrbcl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y6iu0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oplk6")
+script = ExtResource("11_o3yeh")
+
+[node name="Marker2D" type="Marker2D" parent="PathsManager/PathB/Buttons/Lvl1b" unique_id=1114580220]
+position = Vector2(49, 50)
+
+[node name="Highlight1b" type="Sprite2D" parent="PathsManager/PathB/Buttons/Lvl1b" unique_id=1457532130]
+visible = false
+position = Vector2(51.000244, 52)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("11_hogos")
+
+[node name="Lock1b" type="Sprite2D" parent="PathsManager/PathB/Buttons/Lvl1b" unique_id=580784118]
+z_index = 1
+position = Vector2(50.5, 51.5)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("12_32x45")
+
+[node name="Lvl2b" type="Button" parent="PathsManager/PathB/Buttons" unique_id=1197866671]
+layout_mode = 0
+offset_left = 1306.0
+offset_top = 363.0
+offset_right = 1410.0
+offset_bottom = 466.0
+focus_neighbor_left = NodePath("../../../Final/Boss/Lvl3")
+focus_neighbor_top = NodePath("../../../PathA/Buttons/Lvl2a")
+focus_neighbor_right = NodePath("../Lvl1b")
+focus_neighbor_bottom = NodePath("../../../PathA/Buttons/Lvl2a")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o8yqw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cjxon")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gwg30")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q0iim")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1mpb4")
+script = ExtResource("11_o3yeh")
+
+[node name="Marker2D" type="Marker2D" parent="PathsManager/PathB/Buttons/Lvl2b" unique_id=343530102]
+position = Vector2(50, 51)
+
+[node name="Highlight2b" type="Sprite2D" parent="PathsManager/PathB/Buttons/Lvl2b" unique_id=520187909]
+visible = false
+position = Vector2(52.000244, 50)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("11_hogos")
+
+[node name="Lock2b" type="Sprite2D" parent="PathsManager/PathB/Buttons/Lvl2b" unique_id=213090298]
+z_index = 1
+position = Vector2(51, 51)
+texture = ExtResource("12_32x45")
+
+[node name="Overlay" type="Node2D" parent="PathsManager" unique_id=371730999]
+
+[node name="Whole" type="Sprite2D" parent="PathsManager/Overlay" unique_id=1086200182]
+position = Vector2(1369, 375)
+texture = ExtResource("10_qonik")
+
+[node name="Ship" type="Sprite2D" parent="PathsManager/Overlay" unique_id=1273502288]
+z_index = 2
+position = Vector2(1681.0001, 414.00003)
+scale = Vector2(-0.085, 0.085)
+texture = ExtResource("13_hogos")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=74848052]
+visible = false
+self_modulate = Color(1, 1, 1, 0.19800001)
+texture = ExtResource("11_rom31")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Menus" type="Node2D" parent="." unique_id=592813450]
+
+[node name="Go" type="TextureButton" parent="Menus" unique_id=1235771803]
+offset_left = 1611.0
+offset_top = 876.0
+offset_right = 1861.0
+offset_bottom = 1017.0
+focus_neighbor_left = NodePath("../../PathsManager/PathB/Buttons/Lvl1b")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_right = NodePath("../Back")
+focus_neighbor_bottom = NodePath("../../PathsManager/PathA/Buttons/Lvl1a")
+texture_normal = ExtResource("16_rom31")
+
+[node name="Back" type="TextureButton" parent="Menus" unique_id=929686185]
+offset_left = 69.0
+offset_top = 496.0
+offset_right = 319.0
+offset_bottom = 596.0
+focus_neighbor_left = NodePath("../Go")
+focus_neighbor_right = NodePath("../../PathsManager/Final/Boss/Lvl3")
+texture_normal = ExtResource("17_o3yeh")
+
+[connection signal="pressed" from="Button" to="MissionDetails" method="_on_button_pressed"]
+[connection signal="pressed" from="Menus/Go" to="." method="_on_go_pressed"]

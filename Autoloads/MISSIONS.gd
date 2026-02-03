@@ -36,7 +36,8 @@ var descriptions_type_1c : Dictionary = {
 
 var mission_type_1a : Dictionary = { #Destruir X cantidad de enemigos
 	"typeid" : 0,
-	"objective" : "Destroy ",
+	"names" : ["Spearhead", "First Strike", "No Mercy"],
+	"objective" : "Destroy",
 	"goal" : 0,
 	"subject" : " enemy ships.",
 	"challenges" : [challenge_type_1a, challenge_type_1b],
@@ -48,7 +49,8 @@ var mission_type_1a : Dictionary = { #Destruir X cantidad de enemigos
 
 var mission_type_1b : Dictionary = { #Aguantar X cantidad de tiempo
 	"typeid" : 1,
-	"objective" : "Survive for ",
+	"names" : ["Last Bastion", "Hold Them Down", "Last Chance"],
+	"objective" : "Survive for",
 	"goal" : 0,
 	"subject" : " minutes.",
 	"challenges" : [challenge_type_1a, challenge_type_1b, challenge_type_1c],
@@ -59,7 +61,8 @@ var mission_type_1b : Dictionary = { #Aguantar X cantidad de tiempo
 
 var mission_type_1c : Dictionary = { #Destruir una nave enemiga en concreto
 	"typeid" : 2,
-	"objective" : "Destroy ",
+	"names" : ["No Return"],
+	"objective" : "Destroy",
 	"goal" : 0,
 	"subject" : " the designated enemy ship.",
 	"challenges" : [challenge_type_1a, challenge_type_1b],
@@ -80,3 +83,9 @@ var step_2_missions : Array = [
 var step_3_missions : Array = [
 	mission_type_1c
 ]
+
+var processed_missions : Dictionary = {}
+
+func assign_refs(mission : Dictionary, ref : Button)-> void:
+	processed_missions.get_or_add(str(ref))
+	processed_missions.set(str(ref), mission)

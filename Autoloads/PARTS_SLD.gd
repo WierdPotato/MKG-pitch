@@ -56,7 +56,7 @@ var shield_2 : Dictionary = {
 	"Damage" : 0,
 	"Cadence" : 0,
 	"Rounds" : 0,
-	"Size" : 1,
+	"Size" : 0.5,
 	"Price" : 50000,
 	"Unlocked" : true,
 	"Blueprint" : KOKOSLD_1

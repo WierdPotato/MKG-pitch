@@ -1,31 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4hyeiu450m0c"]
+[gd_scene format=3 uid="uid://b4hyeiu450m0c"]
 
 [ext_resource type="Script" uid="uid://b4lwytvc6xrii" path="res://Prototypes/Menus/Prep Menu/prep_menu.gd" id="1_km43s"]
 [ext_resource type="PackedScene" uid="uid://cdxuwfu3vc3yd" path="res://Prototypes/Menus/Prep Menu/ShipManager/ship_manager.tscn" id="3_poovv"]
 [ext_resource type="PackedScene" uid="uid://cc1uv382pou3q" path="res://Prototypes/Menus/Prep Menu/Inventory/full_inventory.tscn" id="4_poovv"]
 [ext_resource type="PackedScene" uid="uid://bleqg07t33uqg" path="res://Prototypes/Menus/Prep Menu/AmmoLoader/AmmoLoader.tscn" id="4_wbgox"]
 
-[node name="PrepMenu" type="Node2D"]
+[node name="PrepMenu" type="Node2D" unique_id=53109806]
 script = ExtResource("1_km43s")
 
-[node name="ShipManager" parent="." instance=ExtResource("3_poovv")]
+[node name="ShipManager" parent="." unique_id=88518976 instance=ExtResource("3_poovv")]
 position = Vector2(962.27, 291.58997)
 
-[node name="AmmoLoader" parent="." instance=ExtResource("4_wbgox")]
+[node name="AmmoLoader" parent="." unique_id=845794956 instance=ExtResource("4_wbgox")]
 offset_left = 595.0
 offset_top = 604.99994
 offset_right = 1016.0
 offset_bottom = 705.99994
 
-[node name="Inventory" parent="." instance=ExtResource("4_poovv")]
+[node name="Inventory" parent="." unique_id=1823674089 instance=ExtResource("4_poovv")]
 offset_left = 24.200012
 offset_top = 95.59
 offset_right = 564.60004
 offset_bottom = 593.58997
 
-[node name="Elements" type="Node2D" parent="."]
+[node name="Elements" type="Node2D" parent="." unique_id=1599686150]
 
-[node name="InventoryAmmo" type="Label" parent="Elements"]
+[node name="InventoryAmmo" type="Label" parent="Elements" unique_id=1321257840]
 offset_left = 594.2847
 offset_top = 567.642
 offset_right = 868.93207
@@ -33,7 +33,7 @@ offset_bottom = 597.642
 theme_override_font_sizes/font_size = 21
 text = "AVAILABLE AMMO: 1000"
 
-[node name="LoadedAmmo" type="Label" parent="Elements"]
+[node name="LoadedAmmo" type="Label" parent="Elements" unique_id=997667701]
 offset_left = 873.7412
 offset_top = 569.36884
 offset_right = 1115.7609
@@ -42,21 +42,21 @@ theme_override_font_sizes/font_size = 21
 text = "LOADED AMMO:"
 vertical_alignment = 1
 
-[node name="Fight" type="Button" parent="Elements"]
+[node name="Fight" type="Button" parent="Elements" unique_id=653956961]
 offset_left = 1052.5609
 offset_top = 610.276
 offset_right = 1242.5609
 offset_bottom = 702.4893
 text = "FIGHT!"
 
-[node name="Equip" type="Button" parent="Elements"]
+[node name="Equip" type="Button" parent="Elements" unique_id=1842489957]
 offset_left = 23.210022
 offset_top = 601.11
 offset_right = 564.0599
 offset_bottom = 642.29004
 text = "EQUIP"
 
-[node name="Label" type="Label" parent="Elements"]
+[node name="Label" type="Label" parent="Elements" unique_id=207861293]
 offset_left = 17.843319
 offset_top = 16.0
 offset_right = 625.8433
@@ -64,7 +64,7 @@ offset_bottom = 72.0
 theme_override_font_sizes/font_size = 36
 text = "PREPARE FOR THE BATTLE!"
 
-[node name="Shop" type="Button" parent="Elements"]
+[node name="Shop" type="Button" parent="Elements" unique_id=1857864396]
 offset_left = 24.200012
 offset_top = 652.19006
 offset_right = 562.62006

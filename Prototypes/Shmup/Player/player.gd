@@ -19,9 +19,9 @@ var Ar : float #Superficie de la nave VALOR BASE: 2
 @onready var shot_machine: Node2D = $ShotMachine
 
 #Archivos con los sprites de la nave
-const ship_normal = preload("uid://bil3db0tu5eag")
-const ship_down = preload("uid://dpimr02fn8pf")
-const ship_up = preload("uid://djpdsrsql7keq")
+const ship_normal = preload("uid://bdbiiuq2gg5y7")
+const ship_down = preload("uid://ch56omju6qjoa")
+const ship_up = preload("uid://bkbcj378k6505")
 
 var axis : Vector2 #Almacena el vector que introduce el jugador
 var Vs : float #Velocidad Vertical

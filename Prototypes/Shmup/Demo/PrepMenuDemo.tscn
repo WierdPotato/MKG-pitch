@@ -1,0 +1,1992 @@
+[gd_scene format=3 uid="uid://csfu8qdajmmwg"]
+
+[ext_resource type="Texture2D" uid="uid://ck6v8i3tf5ha" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/MENU DE PREPARACION done.png" id="1_o46kn"]
+[ext_resource type="Texture2D" uid="uid://dkc5x0kfrexfc" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/MENU DE PREPARACION V1.1.1.png" id="1_s6l8r"]
+[ext_resource type="Script" uid="uid://bgerhqrg6iehs" path="res://Prototypes/Shmup/Demo/prep_menu_demo.gd" id="1_slku0"]
+[ext_resource type="PackedScene" uid="uid://clnwdyxs3ylfj" path="res://Prototypes/Shmup/FightLevel/fight_level.tscn" id="2_1d4b1"]
+[ext_resource type="Texture2D" uid="uid://3dijqotcofun" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/current_sel_section.png" id="2_gbtgt"]
+[ext_resource type="Texture2D" uid="uid://c55tc00e1pbwb" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_00.png" id="2_odrck"]
+[ext_resource type="Texture2D" uid="uid://coh7ymcmtp6ak" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/Rectangle 77.png" id="3_0ctij"]
+[ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="3_snuju"]
+[ext_resource type="Texture2D" uid="uid://droojgq3miccl" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_01.png" id="3_uxb7c"]
+[ext_resource type="Script" uid="uid://ct6d8x347htnb" path="res://Prototypes/Shmup/Demo/inventory.gd" id="4_0e5rj"]
+[ext_resource type="Texture2D" uid="uid://e50gkgj6bkjf" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/ALL.png" id="4_h7d2i"]
+[ext_resource type="Texture2D" uid="uid://dv5jrv07nq0nu" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_02.png" id="4_j74l2"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="4_kxpht"]
+[ext_resource type="Texture2D" uid="uid://pac6pg2ghtn0" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_03.png" id="5_3eavt"]
+[ext_resource type="Texture2D" uid="uid://cyq0c1ho84aq1" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/chasis.png" id="5_fadfv"]
+[ext_resource type="Script" uid="uid://bd4uodvqx2q2c" path="res://Prototypes/Shmup/Demo/highlight_buttons.gd" id="5_slku0"]
+[ext_resource type="Texture2D" uid="uid://flw608pgf2fh" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/pistones.png" id="6_7v7kt"]
+[ext_resource type="Texture2D" uid="uid://dbhf7qfkl618p" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_04.png" id="6_cyiun"]
+[ext_resource type="Texture2D" uid="uid://c6ak3hovm7hn7" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_05.png" id="7_snuju"]
+[ext_resource type="Texture2D" uid="uid://d04fkhiybrctb" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/escudo.png" id="7_v0dy2"]
+[ext_resource type="Texture2D" uid="uid://da1juivoy3bs" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/cofre.png" id="8_ir7w1"]
+[ext_resource type="Texture2D" uid="uid://dev6xh7q1a2kf" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_06.png" id="8_kxpht"]
+[ext_resource type="Texture2D" uid="uid://dkce0t3g3otv" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_07.png" id="9_odx44"]
+[ext_resource type="Texture2D" uid="uid://xwqy3a1ptpwe" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_08.png" id="10_j2oou"]
+[ext_resource type="Texture2D" uid="uid://ejke85aupyyw" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/INVENTORY/current_sel_PIEZAS STATS.png" id="11_4f4l5"]
+[ext_resource type="Texture2D" uid="uid://cxnrmrdv6mew5" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_09.png" id="11_8i1t6"]
+[ext_resource type="Texture2D" uid="uid://baya0rssdcrvj" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/INVENTORY/PIEZAS STATS.png" id="12_d0je2"]
+[ext_resource type="Texture2D" uid="uid://bsa44ve5r7fu4" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_10.png" id="12_o46kn"]
+[ext_resource type="Texture2D" uid="uid://dahrh2jt7nu55" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_11.png" id="13_gbtgt"]
+[ext_resource type="Texture2D" uid="uid://bta7en7wdhxow" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_12.png" id="14_0ctij"]
+[ext_resource type="Script" uid="uid://b45mnhuu4ha1l" path="res://Prototypes/Shmup/Demo/parts_list.gd" id="14_jaxsq"]
+[ext_resource type="Texture2D" uid="uid://dtcxlbi0ql35a" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_13.png" id="15_h7d2i"]
+[ext_resource type="Script" uid="uid://82q3l0vm4xsj" path="res://Prototypes/Shmup/Demo/part_button_det.gd" id="15_mhbv3"]
+[ext_resource type="Texture2D" uid="uid://bqmxjnaqd0wht" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/INVENTORY/current_sel_up_down.png" id="15_sftu4"]
+[ext_resource type="Texture2D" uid="uid://b643bgqj07kof" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/INVENTORY/up.png" id="16_6gd0y"]
+[ext_resource type="Texture2D" uid="uid://xy0h58rpdscx" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_14.png" id="16_fadfv"]
+[ext_resource type="Texture2D" uid="uid://banx41uamtdfa" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_15.png" id="17_7v7kt"]
+[ext_resource type="Texture2D" uid="uid://6fsofyohk0qf" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/INVENTORY/down.png" id="17_fh8rw"]
+[ext_resource type="Script" uid="uid://caco858n8y60q" path="res://Prototypes/Shmup/Demo/stats_comparator.gd" id="20_1d4b1"]
+[ext_resource type="Texture2D" uid="uid://p05splse5b54" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/SHOP & EQUIP/current_sel_shop_equip.png" id="30_eqxh4"]
+[ext_resource type="Texture2D" uid="uid://q1f6v4cpap1t" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/SHOP & EQUIP/shop_btn.png" id="31_ux7tm"]
+[ext_resource type="Texture2D" uid="uid://b5og2uo685ssp" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/SHOP & EQUIP/equip selected_btn.png" id="32_rtutf"]
+[ext_resource type="Texture2D" uid="uid://c0k28s53jemis" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/Rectangle 135.png" id="33_4f4l5"]
+[ext_resource type="Texture2D" uid="uid://cr2px45gle80g" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_x1x10x100.png" id="36_rxsca"]
+[ext_resource type="Script" uid="uid://w8a64p3w8xse" path="res://Prototypes/Shmup/Demo/ammo_selector.gd" id="37_jaxsq"]
+[ext_resource type="Texture2D" uid="uid://d4iaa366euayd" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/TOGGLE X1 X10 X100.png" id="37_wafjj"]
+[ext_resource type="Texture2D" uid="uid://bb0axbcsec57r" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_minus.png" id="38_0e5rj"]
+[ext_resource type="Texture2D" uid="uid://cyo6h762oa5i3" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/minus.png" id="39_1d4b1"]
+[ext_resource type="Texture2D" uid="uid://bdwbl264s48is" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/READY/current_sel_ready.png" id="39_sftu4"]
+[ext_resource type="Texture2D" uid="uid://c268c47vqiffy" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/READY/READY.png" id="40_6gd0y"]
+[ext_resource type="Texture2D" uid="uid://di245dyd8yrja" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_plus.png" id="40_jaxsq"]
+[ext_resource type="Texture2D" uid="uid://7uf5vuwacwlc" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/plus.png" id="41_mhbv3"]
+[ext_resource type="Texture2D" uid="uid://bi0cunocofal7" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/loading ammo counter.png" id="42_ci2ww"]
+[ext_resource type="Texture2D" uid="uid://dux0qci1h2che" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_empty_max.png" id="43_qs1b7"]
+[ext_resource type="Texture2D" uid="uid://bmffqsutf6rr7" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/max.png" id="44_l5ufj"]
+[ext_resource type="Texture2D" uid="uid://cl8h0de27u8pu" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/empty.png" id="45_kkno0"]
+[ext_resource type="Texture2D" uid="uid://cjd3bfq3belbe" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_load.png" id="46_ni7ek"]
+[ext_resource type="Texture2D" uid="uid://yqmdpky0ujac" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/Load.png" id="47_23yb0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0dy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_odrck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uxb7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j74l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3eavt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cyiun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_snuju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kxpht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_odx44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j2oou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8i1t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o46kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gbtgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0ctij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h7d2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fadfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7v7kt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="PrepMenuDemo" type="Control" unique_id=1635350617]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slku0")
+next_screen = ExtResource("2_1d4b1")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1208614911]
+position = Vector2(0.5266113, -2.6333008)
+texture = ExtResource("1_s6l8r")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=925219859]
+visible = false
+self_modulate = Color(1, 1, 1, 0.21100001)
+texture = ExtResource("1_o46kn")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Inventory" type="Control" parent="." unique_id=94374817]
+anchors_preset = 0
+offset_right = 1917.855
+offset_bottom = 1079.9065
+script = ExtResource("4_0e5rj")
+metadata/_edit_lock_ = true
+
+[node name="Tabs" type="Control" parent="Inventory" unique_id=546402882]
+layout_mode = 1
+anchor_left = 0.010000001
+anchor_top = 0.10300001
+anchor_right = 0.409
+anchor_bottom = 0.20400001
+offset_left = 0.30860138
+offset_top = 0.37797546
+offset_right = -0.3470459
+offset_bottom = 0.3983307
+metadata/_edit_lock_ = true
+
+[node name="All" type="Node2D" parent="Inventory/Tabs" unique_id=467408939]
+position = Vector2(13, 6)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Tabs/All" unique_id=1924063950]
+visible = false
+position = Vector2(48.544754, 47.415802)
+texture = ExtResource("2_gbtgt")
+metadata/_edit_lock_ = true
+
+[node name="AllButton" type="TextureButton" parent="Inventory/Tabs/All" unique_id=1052206906]
+offset_right = 96.0
+offset_bottom = 96.0
+focus_neighbor_left = NodePath("../../Cargo/CargoButton")
+focus_neighbor_top = NodePath("../../../../ShopMenuButton/ShopMenu")
+focus_neighbor_right = NodePath("../../Bodies/BodiesButton")
+focus_neighbor_bottom = NodePath("../../../PartsList/Part1/Background")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_0ctij")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_slku0")
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="Inventory/Tabs/All" unique_id=198554232]
+position = Vector2(47.415802, 46.286865)
+texture = ExtResource("4_h7d2i")
+metadata/_edit_lock_ = true
+
+[node name="Bodies" type="Node2D" parent="Inventory/Tabs" unique_id=1197463487]
+position = Vector2(142, 6)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Tabs/Bodies" unique_id=468138186]
+visible = false
+position = Vector2(48.544754, 47.415802)
+texture = ExtResource("2_gbtgt")
+metadata/_edit_lock_ = true
+
+[node name="BodiesButton" type="TextureButton" parent="Inventory/Tabs/Bodies" unique_id=1228353415]
+offset_right = 96.0
+offset_bottom = 96.0
+focus_neighbor_left = NodePath("../../All/AllButton")
+focus_neighbor_top = NodePath("../../../../ShopMenuButton/ShopMenu")
+focus_neighbor_right = NodePath("../../Engines/EnginesButton")
+focus_neighbor_bottom = NodePath("../../../PartsList/Part1/Background")
+texture_normal = ExtResource("3_0ctij")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_slku0")
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="Inventory/Tabs/Bodies" unique_id=71722496]
+position = Vector2(47.92357, 44.681107)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_fadfv")
+metadata/_edit_lock_ = true
+
+[node name="Engines" type="Node2D" parent="Inventory/Tabs" unique_id=789796755]
+position = Vector2(269, 6)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Tabs/Engines" unique_id=224049597]
+visible = false
+position = Vector2(48.544754, 47.415802)
+texture = ExtResource("2_gbtgt")
+metadata/_edit_lock_ = true
+
+[node name="EnginesButton" type="TextureButton" parent="Inventory/Tabs/Engines" unique_id=318667247]
+offset_right = 96.0
+offset_bottom = 96.0
+focus_neighbor_left = NodePath("../../Bodies/BodiesButton")
+focus_neighbor_top = NodePath("../../../../ShopMenuButton/ShopMenu")
+focus_neighbor_right = NodePath("../../Shields/ShieldsButton")
+focus_neighbor_bottom = NodePath("../../../PartsList/Part1/Background")
+texture_normal = ExtResource("3_0ctij")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_slku0")
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="Inventory/Tabs/Engines" unique_id=1217155312]
+position = Vector2(47.923584, 48.68109)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_7v7kt")
+metadata/_edit_lock_ = true
+
+[node name="Shields" type="Node2D" parent="Inventory/Tabs" unique_id=967085614]
+position = Vector2(397, 5)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Tabs/Shields" unique_id=719886775]
+visible = false
+position = Vector2(48.544754, 47.415802)
+texture = ExtResource("2_gbtgt")
+metadata/_edit_lock_ = true
+
+[node name="ShieldsButton" type="TextureButton" parent="Inventory/Tabs/Shields" unique_id=733256392]
+offset_right = 96.0
+offset_bottom = 96.0
+focus_neighbor_left = NodePath("../../Engines/EnginesButton")
+focus_neighbor_top = NodePath("../../../../EquipButton/Equip")
+focus_neighbor_right = NodePath("../../Cargo/CargoButton")
+focus_neighbor_bottom = NodePath("../../../PartsList/Part1/Background")
+texture_normal = ExtResource("3_0ctij")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_slku0")
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="Inventory/Tabs/Shields" unique_id=765941153]
+position = Vector2(47.923584, 48.68109)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_v0dy2")
+metadata/_edit_lock_ = true
+
+[node name="Cargo" type="Node2D" parent="Inventory/Tabs" unique_id=460728200]
+position = Vector2(524, 6)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Tabs/Cargo" unique_id=1459870925]
+visible = false
+position = Vector2(48.544754, 47.415802)
+texture = ExtResource("2_gbtgt")
+metadata/_edit_lock_ = true
+
+[node name="CargoButton" type="TextureButton" parent="Inventory/Tabs/Cargo" unique_id=1733706805]
+offset_right = 96.0
+offset_bottom = 96.0
+focus_neighbor_left = NodePath("../../Shields/ShieldsButton")
+focus_neighbor_top = NodePath("../../../../EquipButton/Equip")
+focus_neighbor_right = NodePath("../../All/AllButton")
+focus_neighbor_bottom = NodePath("../../../PartsList/Part1/Background")
+texture_normal = ExtResource("3_0ctij")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_slku0")
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="Inventory/Tabs/Cargo" unique_id=411408312]
+position = Vector2(47.923584, 48.68109)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("8_ir7w1")
+metadata/_edit_lock_ = true
+
+[node name="PartsList" type="Control" parent="Inventory" unique_id=346315492]
+layout_mode = 1
+anchor_left = 0.018000001
+anchor_top = 0.254
+anchor_right = 0.41200003
+anchor_bottom = 0.83800006
+offset_left = -25.691147
+offset_top = -6.293213
+offset_right = -22.841553
+offset_bottom = -7.0289307
+script = ExtResource("14_jaxsq")
+metadata/_edit_lock_ = true
+
+[node name="Part1" type="Node2D" parent="Inventory/PartsList" unique_id=1094156045]
+position = Vector2(13, 22)
+script = ExtResource("15_mhbv3")
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/PartsList/Part1" unique_id=850834126]
+visible = false
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Background" type="TextureButton" parent="Inventory/PartsList/Part1" unique_id=1469290720]
+z_index = 1
+offset_left = 28.466553
+offset_top = 3.315796
+offset_right = 756.46655
+offset_bottom = 99.315796
+focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../../Tabs/All/AllButton")
+focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../Part2/Background")
+texture_normal = ExtResource("12_d0je2")
+script = ExtResource("5_slku0")
+
+[node name="Highlight2" type="Sprite2D" parent="Inventory/PartsList/Part1" unique_id=706151296]
+visible = false
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Labels" type="Node2D" parent="Inventory/PartsList/Part1" unique_id=236742171]
+z_index = 2
+metadata/_edit_lock_ = true
+
+[node name="PartName" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1393255599]
+offset_left = 49.25936
+offset_top = 4.333008
+offset_right = 187.0635
+offset_bottom = 99.79901
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 23
+text = "KOKO BDY MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=468437938]
+offset_left = 193.16225
+offset_top = 56.305054
+offset_right = 235.34857
+offset_bottom = 100.511154
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Size" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=958775131]
+offset_left = 251.79448
+offset_top = 56.51886
+offset_right = 295.60144
+offset_bottom = 99.76906
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1200091567]
+offset_left = 311.96588
+offset_top = 56.166077
+offset_right = 353.83356
+offset_bottom = 99.734924
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1007741567]
+offset_left = 371.18384
+offset_top = 56.23694
+offset_right = 413.7558
+offset_bottom = 100.25159
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "350"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrust" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1364405795]
+offset_left = 429.9619
+offset_top = 56.054565
+offset_right = 473.51233
+offset_bottom = 99.67349
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=88714274]
+offset_left = 489.20142
+offset_top = 56.353943
+offset_right = 531.0981
+offset_bottom = 100.44412
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1858652451]
+offset_left = 549.97
+offset_top = 55.413513
+offset_right = 591.577
+offset_bottom = 99.21402
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1505403108]
+offset_left = 608.3615
+offset_top = 55.413574
+offset_right = 651.4168
+offset_bottom = 99.50372
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="Inventory/PartsList/Part1/Labels" unique_id=1412044543]
+offset_left = 667.8266
+offset_top = 55.413513
+offset_right = 709.72327
+offset_bottom = 99.21405
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part2" type="Node2D" parent="Inventory/PartsList" unique_id=987698297]
+position = Vector2(13, 133)
+script = ExtResource("15_mhbv3")
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/PartsList/Part2" unique_id=1341643709]
+visible = false
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Background" type="TextureButton" parent="Inventory/PartsList/Part2" unique_id=215477375]
+z_index = 1
+offset_left = 28.466553
+offset_top = 3.315796
+offset_right = 756.46655
+offset_bottom = 99.315796
+focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../Part1/Background")
+focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../Part3/Background")
+texture_normal = ExtResource("12_d0je2")
+script = ExtResource("5_slku0")
+
+[node name="Highlight2" type="Sprite2D" parent="Inventory/PartsList/Part2" unique_id=56445991]
+visible = false
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Labels" type="Node2D" parent="Inventory/PartsList/Part2" unique_id=275689680]
+z_index = 2
+metadata/_edit_lock_ = true
+
+[node name="PartName" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=1424835177]
+offset_left = 49.25936
+offset_top = 4.333008
+offset_right = 187.0635
+offset_bottom = 99.79901
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 23
+text = "KOKO ENG MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=935385188]
+offset_left = 193.16225
+offset_top = 56.305054
+offset_right = 235.34857
+offset_bottom = 100.511154
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Size" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=662491364]
+offset_left = 251.79448
+offset_top = 56.51886
+offset_right = 295.60144
+offset_bottom = 99.76906
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=923167986]
+offset_left = 311.96588
+offset_top = 56.166077
+offset_right = 353.83356
+offset_bottom = 99.734924
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "0.9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=1944683696]
+offset_left = 371.18384
+offset_top = 56.23694
+offset_right = 413.7558
+offset_bottom = 100.25159
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrust" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=519443417]
+offset_left = 429.9619
+offset_top = 56.054565
+offset_right = 473.51233
+offset_bottom = 99.67349
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=1739166221]
+offset_left = 489.20142
+offset_top = 56.353943
+offset_right = 531.0981
+offset_bottom = 100.44412
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=1535699764]
+offset_left = 549.97
+offset_top = 55.413513
+offset_right = 591.577
+offset_bottom = 99.21402
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=243071700]
+offset_left = 608.3615
+offset_top = 55.413574
+offset_right = 651.4168
+offset_bottom = 99.50372
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="Inventory/PartsList/Part2/Labels" unique_id=1770572460]
+offset_left = 667.8266
+offset_top = 55.413513
+offset_right = 709.72327
+offset_bottom = 99.21405
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part3" type="Node2D" parent="Inventory/PartsList" unique_id=1394328226]
+position = Vector2(13, 245)
+script = ExtResource("15_mhbv3")
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/PartsList/Part3" unique_id=1675998604]
+visible = false
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Background" type="TextureButton" parent="Inventory/PartsList/Part3" unique_id=818408147]
+z_index = 1
+offset_left = 28.466553
+offset_top = 3.315796
+offset_right = 756.46655
+offset_bottom = 99.315796
+focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../Part2/Background")
+focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../Part4/Background")
+texture_normal = ExtResource("12_d0je2")
+script = ExtResource("5_slku0")
+
+[node name="Highlight2" type="Sprite2D" parent="Inventory/PartsList/Part3" unique_id=1458287816]
+visible = false
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Labels" type="Node2D" parent="Inventory/PartsList/Part3" unique_id=1987366462]
+z_index = 2
+metadata/_edit_lock_ = true
+
+[node name="PartName" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=164923799]
+offset_left = 49.25936
+offset_top = 4.333008
+offset_right = 187.0635
+offset_bottom = 99.79901
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 23
+text = "KOKO SLD MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=1208611955]
+offset_left = 193.16225
+offset_top = 56.305054
+offset_right = 235.34857
+offset_bottom = 100.511154
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Size" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=505397610]
+offset_left = 251.79448
+offset_top = 56.51886
+offset_right = 295.60144
+offset_bottom = 99.76906
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=1449337652]
+offset_left = 311.96588
+offset_top = 56.166077
+offset_right = 353.83356
+offset_bottom = 99.734924
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "0.2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=1623109292]
+offset_left = 371.18384
+offset_top = 56.23694
+offset_right = 413.7558
+offset_bottom = 100.25159
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrust" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=130180621]
+offset_left = 429.9619
+offset_top = 56.054565
+offset_right = 473.51233
+offset_bottom = 99.67349
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=1074955396]
+offset_left = 489.20142
+offset_top = 56.353943
+offset_right = 531.0981
+offset_bottom = 100.44412
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=789807399]
+offset_left = 549.97
+offset_top = 55.413513
+offset_right = 591.577
+offset_bottom = 99.21402
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=53642002]
+offset_left = 608.3615
+offset_top = 55.413574
+offset_right = 651.4168
+offset_bottom = 99.50372
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="Inventory/PartsList/Part3/Labels" unique_id=1570877650]
+offset_left = 667.8266
+offset_top = 55.413513
+offset_right = 709.72327
+offset_bottom = 99.21405
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part4" type="Node2D" parent="Inventory/PartsList" unique_id=260260643]
+position = Vector2(13, 357)
+script = ExtResource("15_mhbv3")
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/PartsList/Part4" unique_id=1966319051]
+visible = false
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Background" type="TextureButton" parent="Inventory/PartsList/Part4" unique_id=767667841]
+z_index = 1
+offset_left = 28.466553
+offset_top = 3.315796
+offset_right = 756.46655
+offset_bottom = 99.315796
+focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../Part3/Background")
+focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../Part5/Background")
+texture_normal = ExtResource("12_d0je2")
+script = ExtResource("5_slku0")
+
+[node name="Highlight2" type="Sprite2D" parent="Inventory/PartsList/Part4" unique_id=446019377]
+visible = false
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Labels" type="Node2D" parent="Inventory/PartsList/Part4" unique_id=1407112299]
+z_index = 2
+metadata/_edit_lock_ = true
+
+[node name="PartName" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=953630475]
+offset_left = 49.25936
+offset_top = 4.333008
+offset_right = 187.0635
+offset_bottom = 99.79901
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 23
+text = "KOKO CRG MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=1298586003]
+offset_left = 193.16225
+offset_top = 56.305054
+offset_right = 235.34857
+offset_bottom = 100.511154
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Size" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=2084945029]
+offset_left = 251.79448
+offset_top = 56.51886
+offset_right = 295.60144
+offset_bottom = 99.76906
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=86018827]
+offset_left = 311.96588
+offset_top = 56.166077
+offset_right = 353.83356
+offset_bottom = 99.734924
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "0.3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=1462350943]
+offset_left = 371.18384
+offset_top = 56.23694
+offset_right = 413.7558
+offset_bottom = 100.25159
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrust" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=1357456973]
+offset_left = 429.9619
+offset_top = 56.054565
+offset_right = 473.51233
+offset_bottom = 99.67349
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=737693277]
+offset_left = 489.20142
+offset_top = 56.353943
+offset_right = 531.0981
+offset_bottom = 100.44412
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=1891115152]
+offset_left = 549.97
+offset_top = 55.413513
+offset_right = 591.577
+offset_bottom = 99.21402
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=1405862861]
+offset_left = 608.3615
+offset_top = 55.413574
+offset_right = 651.4168
+offset_bottom = 99.50372
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="Inventory/PartsList/Part4/Labels" unique_id=2048394621]
+offset_left = 667.8266
+offset_top = 55.413513
+offset_right = 709.72327
+offset_bottom = 99.21405
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part5" type="Node2D" parent="Inventory/PartsList" unique_id=533581423]
+position = Vector2(13, 469)
+script = ExtResource("15_mhbv3")
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/PartsList/Part5" unique_id=2004909945]
+visible = false
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Background" type="TextureButton" parent="Inventory/PartsList/Part5" unique_id=161234383]
+z_index = 1
+offset_left = 28.466553
+offset_top = 3.315796
+offset_right = 756.46655
+offset_bottom = 99.315796
+focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../Part4/Background")
+focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../../Up/ListUP")
+texture_normal = ExtResource("12_d0je2")
+script = ExtResource("5_slku0")
+
+[node name="Highlight2" type="Sprite2D" parent="Inventory/PartsList/Part5" unique_id=1818175897]
+visible = false
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(391.588, 51.015747)
+texture = ExtResource("11_4f4l5")
+
+[node name="Labels" type="Node2D" parent="Inventory/PartsList/Part5" unique_id=774894357]
+z_index = 2
+metadata/_edit_lock_ = true
+
+[node name="PartName" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=1006149725]
+offset_left = 49.25936
+offset_top = 4.333008
+offset_right = 187.0635
+offset_bottom = 99.79901
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 23
+text = "KOKO BDY MK2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HP" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=1902493419]
+offset_left = 193.16225
+offset_top = 56.305054
+offset_right = 235.34857
+offset_bottom = 100.511154
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Size" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=1652636029]
+offset_left = 251.79448
+offset_top = 56.51886
+offset_right = 295.60144
+offset_bottom = 99.76906
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "1.5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weight" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=1284323171]
+offset_left = 311.96588
+offset_top = 56.166077
+offset_right = 353.83356
+offset_bottom = 99.734924
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "0.8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=846309452]
+offset_left = 371.18384
+offset_top = 56.23694
+offset_right = 413.7558
+offset_bottom = 100.25159
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "360"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrust" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=549741555]
+offset_left = 429.9619
+offset_top = 56.054565
+offset_right = 473.51233
+offset_bottom = 99.67349
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Capacity" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=331304840]
+offset_left = 489.20142
+offset_top = 56.353943
+offset_right = 531.0981
+offset_bottom = 100.44412
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=223104067]
+offset_left = 549.97
+offset_top = 55.413513
+offset_right = 591.577
+offset_bottom = 99.21402
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cadence" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=143904092]
+offset_left = 608.3615
+offset_top = 55.413574
+offset_right = 651.4168
+offset_bottom = 99.50372
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ammo" type="Label" parent="Inventory/PartsList/Part5/Labels" unique_id=665923632]
+offset_left = 667.8266
+offset_top = 55.413513
+offset_right = 709.72327
+offset_bottom = 99.21405
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 21
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Up" type="Node2D" parent="Inventory" unique_id=1690924003]
+position = Vector2(161.97855, 853.40826)
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Up" unique_id=345263358]
+visible = false
+position = Vector2(117.47833, 16.7583)
+texture = ExtResource("15_sftu4")
+
+[node name="ListUP" type="TextureButton" parent="Inventory/Up" unique_id=20014157]
+anchors_preset = -1
+anchor_left = 0.223
+anchor_top = 0.79
+anchor_right = 0.34600002
+anchor_bottom = 0.823
+focus_neighbor_left = NodePath("../../Down/ListDown")
+focus_neighbor_top = NodePath("../../PartsList/Part5/Background")
+focus_neighbor_right = NodePath("../../Down/ListDown")
+focus_neighbor_bottom = NodePath("../../../ShopMenuButton/ShopMenu")
+texture_normal = ExtResource("16_6gd0y")
+script = ExtResource("5_slku0")
+
+[node name="Down" type="Node2D" parent="Inventory" unique_id=807170551]
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Inventory/Down" unique_id=1538889700]
+visible = false
+position = Vector2(545.4607, 870.44147)
+texture = ExtResource("15_sftu4")
+
+[node name="ListDown" type="TextureButton" parent="Inventory/Down" unique_id=1368211903]
+anchors_preset = -1
+anchor_left = 0.08400001
+anchor_top = 0.79
+anchor_right = 0.20600002
+anchor_bottom = 0.823
+offset_left = 427.03177
+offset_top = 853.0873
+offset_right = 662.03174
+offset_bottom = 888.0873
+focus_neighbor_left = NodePath("../../Up/ListUP")
+focus_neighbor_top = NodePath("../../PartsList/Part5/Background")
+focus_neighbor_right = NodePath("../../Up/ListUP")
+focus_neighbor_bottom = NodePath("../../../EquipButton/Equip")
+texture_normal = ExtResource("17_fh8rw")
+script = ExtResource("5_slku0")
+
+[node name="StatsComparator" type="Node2D" parent="." unique_id=129729237]
+position = Vector2(1462.5813, 31.776855)
+script = ExtResource("20_1d4b1")
+metadata/_edit_lock_ = true
+
+[node name="Equiped" type="Node2D" parent="StatsComparator" unique_id=934481916]
+
+[node name="HP" type="Label" parent="StatsComparator/Equiped" unique_id=350415710]
+offset_left = -532.00055
+offset_top = 356.5825
+offset_right = -436.4032
+offset_bottom = 388.5825
+theme_override_colors/font_color = Color(0.102, 0.11, 0.173, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="Size" type="Label" parent="StatsComparator/Equiped" unique_id=780076155]
+offset_left = -532.00055
+offset_top = 452.5825
+offset_right = -436.4032
+offset_bottom = 484.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "9.5"
+
+[node name="Speed" type="Label" parent="StatsComparator/Equiped" unique_id=1842168141]
+offset_left = -348.0005
+offset_top = 356.5825
+offset_right = -252.40314
+offset_bottom = 388.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "360"
+
+[node name="Thrust" type="Label" parent="StatsComparator/Equiped" unique_id=397833269]
+offset_left = -348.0005
+offset_top = 452.5825
+offset_right = -252.40314
+offset_bottom = 484.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "25"
+
+[node name="Damage" type="Label" parent="StatsComparator/Equiped" unique_id=2073371492]
+offset_left = -164.00049
+offset_top = 356.5825
+offset_right = -68.40314
+offset_bottom = 388.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="MaxAmmo" type="Label" parent="StatsComparator/Equiped" unique_id=1789143409]
+offset_left = -164.00049
+offset_top = 452.5825
+offset_right = -68.40314
+offset_bottom = 484.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "30"
+
+[node name="Weight" type="Label" parent="StatsComparator/Equiped" unique_id=1848155456]
+offset_left = -532.00055
+offset_top = 548.5825
+offset_right = -436.4032
+offset_bottom = 580.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "2.2"
+
+[node name="Cargo" type="Label" parent="StatsComparator/Equiped" unique_id=52361782]
+offset_left = -348.0005
+offset_top = 548.5825
+offset_right = -252.40314
+offset_bottom = 580.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "10"
+
+[node name="Cadence" type="Label" parent="StatsComparator/Equiped" unique_id=1609493387]
+offset_left = -164.00049
+offset_top = 548.5825
+offset_right = -68.40314
+offset_bottom = 580.5825
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "2"
+
+[node name="Sim" type="Node2D" parent="StatsComparator" unique_id=1661267872]
+
+[node name="HPSim" type="Label" parent="StatsComparator/Sim" unique_id=819485390]
+offset_left = -531.6578
+offset_top = 388.12906
+offset_right = -436.06042
+offset_bottom = 420.12906
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="SizeSim" type="Label" parent="StatsComparator/Sim" unique_id=630244365]
+offset_left = -531.6578
+offset_top = 484.12903
+offset_right = -436.06042
+offset_bottom = 516.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "10"
+
+[node name="SpeedSim" type="Label" parent="StatsComparator/Sim" unique_id=1380057230]
+offset_left = -347.6577
+offset_top = 388.12906
+offset_right = -252.06036
+offset_bottom = 420.12906
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "350"
+
+[node name="ThrustSim" type="Label" parent="StatsComparator/Sim" unique_id=1134635301]
+offset_left = -347.6577
+offset_top = 484.12903
+offset_right = -252.06036
+offset_bottom = 516.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "25"
+
+[node name="DamageSim" type="Label" parent="StatsComparator/Sim" unique_id=587701119]
+offset_left = -163.65771
+offset_top = 388.12906
+offset_right = -68.06036
+offset_bottom = 420.12906
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="MaxAmmoSim" type="Label" parent="StatsComparator/Sim" unique_id=1192312896]
+offset_left = -163.65771
+offset_top = 484.12903
+offset_right = -68.06036
+offset_bottom = 516.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "30"
+
+[node name="WeightSim" type="Label" parent="StatsComparator/Sim" unique_id=248194504]
+offset_left = -531.6578
+offset_top = 580.129
+offset_right = -436.06042
+offset_bottom = 612.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "2.4"
+
+[node name="CargoSim" type="Label" parent="StatsComparator/Sim" unique_id=720905127]
+offset_left = -347.6577
+offset_top = 580.129
+offset_right = -252.06036
+offset_bottom = 612.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "10"
+
+[node name="CadenceSim" type="Label" parent="StatsComparator/Sim" unique_id=1556283654]
+offset_left = -163.65771
+offset_top = 580.129
+offset_right = -68.06036
+offset_bottom = 612.129
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 25
+text = "2"
+
+[node name="ShipPreview" type="Control" parent="." unique_id=787373342]
+layout_mode = 1
+anchor_left = 0.762
+anchor_top = 0.029000001
+anchor_right = 0.984
+anchor_bottom = 0.70500004
+offset_left = -0.45874023
+offset_top = 0.45685387
+offset_right = -0.025268555
+offset_bottom = 0.11187744
+metadata/_edit_lock_ = true
+
+[node name="Rotator" type="Node2D" parent="ShipPreview" unique_id=1889147457]
+
+[node name="GIFBackground" type="Sprite2D" parent="ShipPreview/Rotator" unique_id=870076447]
+
+[node name="ShipGIF" type="AnimatedSprite2D" parent="ShipPreview/Rotator" unique_id=111984426]
+position = Vector2(211.89844, 210.1134)
+scale = Vector2(0.37, 0.37)
+sprite_frames = SubResource("SpriteFrames_v0dy2")
+autoplay = "default"
+frame_progress = 0.8785893
+
+[node name="EquipedParts" type="Node2D" parent="ShipPreview" unique_id=2115500006]
+
+[node name="Body" type="Label" parent="ShipPreview/EquipedParts" unique_id=1207262254]
+offset_left = 13.393188
+offset_top = 532.8977
+offset_right = 191.84045
+offset_bottom = 600.2159
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 22
+text = "KOKO BDY MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Engine" type="Label" parent="ShipPreview/EquipedParts" unique_id=132435013]
+offset_left = 233.22778
+offset_top = 532.8977
+offset_right = 411.67505
+offset_bottom = 600.2159
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 22
+text = "KOKO ENG MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Shield" type="Label" parent="ShipPreview/EquipedParts" unique_id=1703301145]
+offset_left = 13.393188
+offset_top = 644.4679
+offset_right = 191.84045
+offset_bottom = 711.7861
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 22
+text = "KOKO SLD MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Cargo" type="Label" parent="ShipPreview/EquipedParts" unique_id=1554821661]
+offset_left = 233.2279
+offset_top = 645.2944
+offset_right = 411.67517
+offset_bottom = 712.61255
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 22
+text = "KOKO CRG MK1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AmmoSelector" type="Control" parent="." unique_id=917530698]
+custom_minimum_size = Vector2(10.43, 0)
+anchors_preset = 0
+offset_left = 823.0552
+offset_top = 735.52795
+offset_right = 1659.0531
+offset_bottom = 1047.1257
+script = ExtResource("37_jaxsq")
+metadata/_edit_lock_ = true
+
+[node name="Loaded" type="Label" parent="AmmoSelector" unique_id=33802478]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.009627797
+anchor_bottom = -0.009627797
+offset_left = 542.62976
+offset_top = 0.7894287
+offset_right = 606.9391
+offset_bottom = 40.352905
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 20
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Available" type="Label" parent="AmmoSelector" unique_id=486098033]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.009627797
+anchor_bottom = -0.009627797
+offset_left = 222.90112
+offset_top = 0.98724365
+offset_right = 289.9131
+offset_bottom = 40.55078
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_snuju")
+theme_override_font_sizes/font_size = 20
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Node2D" parent="AmmoSelector" unique_id=170279441]
+
+[node name="Toggle" type="Node2D" parent="AmmoSelector/Buttons" unique_id=403281971]
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/Toggle" unique_id=33230807]
+visible = false
+position = Vector2(66.25226, 183.09668)
+texture = ExtResource("36_rxsca")
+
+[node name="Toggle" type="TextureButton" parent="AmmoSelector/Buttons/Toggle" unique_id=1539936840]
+offset_left = 34.106506
+offset_top = 86.6969
+offset_right = 98.10651
+offset_bottom = 277.6969
+focus_neighbor_left = NodePath("../../../../EquipButton/Equip")
+focus_neighbor_right = NodePath("../../Less/Less")
+texture_normal = ExtResource("37_wafjj")
+script = ExtResource("5_slku0")
+
+[node name="Hundred" type="Label" parent="AmmoSelector/Buttons/Toggle" unique_id=48542342]
+offset_left = 32.81897
+offset_top = 108.97174
+offset_right = 97.03491
+offset_bottom = 131.97174
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+text = "x100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tens" type="Label" parent="AmmoSelector/Buttons/Toggle" unique_id=2007626395]
+offset_left = 32.81897
+offset_top = 171.97174
+offset_right = 97.03491
+offset_bottom = 194.97174
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+text = "x10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ones" type="Label" parent="AmmoSelector/Buttons/Toggle" unique_id=1392461103]
+offset_left = 32.81897
+offset_top = 234.97174
+offset_right = 97.03491
+offset_bottom = 257.97174
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+text = "x1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Less" type="Node2D" parent="AmmoSelector/Buttons" unique_id=647247930]
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/Less" unique_id=1363221305]
+visible = false
+position = Vector2(173.54547, 241)
+texture = ExtResource("38_0e5rj")
+
+[node name="Less" type="TextureButton" parent="AmmoSelector/Buttons/Less" unique_id=1587311219]
+offset_left = 128.84082
+offset_top = 202.08087
+offset_right = 216.84082
+offset_bottom = 280.08087
+focus_neighbor_left = NodePath("../../Toggle/Toggle")
+focus_neighbor_right = NodePath("../../More/More")
+texture_normal = ExtResource("39_1d4b1")
+script = ExtResource("5_slku0")
+
+[node name="More" type="Node2D" parent="AmmoSelector/Buttons" unique_id=966514163]
+position = Vector2(118, 0)
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/More" unique_id=1625324419]
+visible = false
+position = Vector2(173.54547, 241)
+texture = ExtResource("40_jaxsq")
+
+[node name="More" type="TextureButton" parent="AmmoSelector/Buttons/More" unique_id=989291585]
+offset_left = 128.84082
+offset_top = 202.08087
+offset_right = 216.84082
+offset_bottom = 280.08087
+focus_neighbor_left = NodePath("../../Less/Less")
+focus_neighbor_right = NodePath("../../Max/Max")
+texture_normal = ExtResource("41_mhbv3")
+script = ExtResource("5_slku0")
+
+[node name="Counter" type="Node2D" parent="AmmoSelector/Buttons" unique_id=913381039]
+
+[node name="Counter" type="Sprite2D" parent="AmmoSelector/Buttons/Counter" unique_id=523103031]
+position = Vector2(231.99878, 127.00659)
+texture = ExtResource("42_ci2ww")
+
+[node name="Label" type="Label" parent="AmmoSelector/Buttons/Counter" unique_id=2130970669]
+offset_left = 149.44653
+offset_top = 103.0
+offset_right = 316.5276
+offset_bottom = 152.17102
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 35
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Max" type="Node2D" parent="AmmoSelector/Buttons" unique_id=1730210870]
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/Max" unique_id=1229292794]
+visible = false
+position = Vector2(472.82568, 127.72351)
+texture = ExtResource("43_qs1b7")
+
+[node name="Max" type="TextureButton" parent="AmmoSelector/Buttons/Max" unique_id=424839202]
+offset_left = 370.03015
+offset_top = 88.245605
+offset_right = 575.03015
+offset_bottom = 166.2456
+focus_neighbor_left = NodePath("../../More/More")
+focus_neighbor_top = NodePath("../../Empty/Empty")
+focus_neighbor_right = NodePath("../../Load/Load")
+focus_neighbor_bottom = NodePath("../../Empty/Empty")
+texture_normal = ExtResource("44_l5ufj")
+script = ExtResource("5_slku0")
+
+[node name="Empty" type="Node2D" parent="AmmoSelector/Buttons" unique_id=999080347]
+position = Vector2(0, 112)
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/Empty" unique_id=1392907658]
+visible = false
+position = Vector2(472.82568, 127.72351)
+texture = ExtResource("43_qs1b7")
+
+[node name="Empty" type="TextureButton" parent="AmmoSelector/Buttons/Empty" unique_id=1970794240]
+offset_left = 370.03015
+offset_top = 88.245605
+offset_right = 575.03015
+offset_bottom = 166.2456
+focus_neighbor_left = NodePath("../../More/More")
+focus_neighbor_top = NodePath("../../Max/Max")
+focus_neighbor_right = NodePath("../../Load/Load")
+focus_neighbor_bottom = NodePath("../../Max/Max")
+texture_normal = ExtResource("45_kkno0")
+script = ExtResource("5_slku0")
+
+[node name="Load" type="Node2D" parent="AmmoSelector/Buttons" unique_id=54925162]
+position = Vector2(704, 184)
+
+[node name="Highlight" type="Sprite2D" parent="AmmoSelector/Buttons/Load" unique_id=1778492064]
+visible = false
+texture = ExtResource("46_ni7ek")
+
+[node name="Load" type="TextureButton" parent="AmmoSelector/Buttons/Load" unique_id=1947560700]
+offset_left = -98.10553
+offset_top = -95.621826
+offset_right = 98.89447
+offset_bottom = 95.378174
+focus_neighbor_left = NodePath("../../Max/Max")
+focus_neighbor_right = NodePath("../../../../Ready/ReadyButton")
+texture_normal = ExtResource("47_23yb0")
+script = ExtResource("5_slku0")
+
+[node name="ShopMenuButton" type="Node2D" parent="." unique_id=1414435349]
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="ShopMenuButton" unique_id=792901614]
+visible = false
+position = Vector2(217.64957, 990.68115)
+texture = ExtResource("30_eqxh4")
+
+[node name="ShopMenu" type="TextureButton" parent="ShopMenuButton" unique_id=1420593655]
+anchors_preset = -1
+anchor_left = 0.018000001
+anchor_top = 0.86600006
+anchor_right = 0.20600002
+anchor_bottom = 0.97
+offset_left = 33.659653
+offset_top = 935.38434
+offset_right = 397.65967
+offset_bottom = 1047.3843
+focus_neighbor_left = NodePath("../../Ready/ReadyButton")
+focus_neighbor_top = NodePath("../../Inventory/Up/ListUP")
+focus_neighbor_right = NodePath("../../EquipButton/Equip")
+focus_neighbor_bottom = NodePath("../../Inventory/Tabs/All/AllButton")
+texture_normal = ExtResource("31_ux7tm")
+script = ExtResource("5_slku0")
+
+[node name="EquipButton" type="Node2D" parent="." unique_id=1234377007]
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="EquipButton" unique_id=1258347024]
+visible = false
+position = Vector2(609.64954, 990.68115)
+texture = ExtResource("30_eqxh4")
+
+[node name="Equip" type="TextureButton" parent="EquipButton" unique_id=162878639]
+anchors_preset = -1
+anchor_left = 0.22200002
+anchor_top = 0.864
+anchor_right = 0.41200003
+anchor_bottom = 0.97
+offset_left = 426.94623
+offset_top = 933.6128
+offset_right = 790.9462
+offset_bottom = 1045.6128
+focus_neighbor_left = NodePath("../../ShopMenuButton/ShopMenu")
+focus_neighbor_top = NodePath("../../Inventory/Down/ListDown")
+focus_neighbor_right = NodePath("../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_bottom = NodePath("../../Inventory/Tabs/Cargo/CargoButton")
+texture_normal = ExtResource("32_rtutf")
+script = ExtResource("5_slku0")
+
+[node name="Ready" type="Node2D" parent="." unique_id=751326694]
+metadata/_edit_lock_ = true
+
+[node name="Highlight" type="Sprite2D" parent="Ready" unique_id=400402452]
+visible = false
+position = Vector2(1790.2024, 920.61414)
+texture = ExtResource("39_sftu4")
+
+[node name="ReadyButton" type="TextureButton" parent="Ready" unique_id=436447878]
+offset_left = 1691.0356
+offset_top = 791.54193
+offset_right = 1888.0356
+offset_bottom = 1048.2173
+focus_neighbor_left = NodePath("../../AmmoSelector/Buttons/Load/Load")
+focus_neighbor_right = NodePath("../../ShopMenuButton/ShopMenu")
+texture_normal = ExtResource("40_6gd0y")
+script = ExtResource("5_slku0")
+
+[node name="ShipLoad" type="Node2D" parent="." unique_id=1129695587]
+metadata/_edit_lock_ = true
+
+[node name="LoadProgressBar" type="TextureProgressBar" parent="ShipLoad" unique_id=1201481485]
+anchors_preset = -1
+anchor_left = 0.52900004
+anchor_top = 0.165
+anchor_right = 0.74500006
+anchor_bottom = 0.202
+offset_left = 1021.58997
+offset_top = 179.58844
+offset_right = 1425.59
+offset_bottom = 209.58844
+step = 0.1
+value = 100.0
+texture_progress = ExtResource("33_4f4l5")
+
+[node name="LoadNmb" type="Label" parent="ShipLoad" unique_id=77008807]
+offset_left = 1037.4236
+offset_top = 182.31543
+offset_right = 1106.9694
+offset_bottom = 210.31543
+theme_override_colors/font_color = Color(0.16078432, 0.21176471, 0.43529412, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.21176471, 0.43529412, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_kxpht")
+theme_override_font_sizes/font_size = 22
+text = "100%"
+vertical_alignment = 1
+
+[connection signal="focus_entered" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Tabs/All/AllButton" to="Inventory" method="_on_all_button_pressed"]
+[connection signal="toggled" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_toggled"]
+[connection signal="focus_entered" from="Inventory/Tabs/Bodies/BodiesButton" to="Inventory/Tabs/Bodies/BodiesButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Tabs/Bodies/BodiesButton" to="Inventory/Tabs/Bodies/BodiesButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Tabs/Bodies/BodiesButton" to="Inventory/Tabs/Bodies/BodiesButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Tabs/Bodies/BodiesButton" to="Inventory/Tabs/Bodies/BodiesButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Tabs/Bodies/BodiesButton" to="Inventory" method="_on_bodies_button_pressed"]
+[connection signal="focus_entered" from="Inventory/Tabs/Engines/EnginesButton" to="Inventory/Tabs/Engines/EnginesButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Tabs/Engines/EnginesButton" to="Inventory/Tabs/Engines/EnginesButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Tabs/Engines/EnginesButton" to="Inventory/Tabs/Engines/EnginesButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Tabs/Engines/EnginesButton" to="Inventory/Tabs/Engines/EnginesButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Tabs/Engines/EnginesButton" to="Inventory" method="_on_engines_button_pressed"]
+[connection signal="focus_entered" from="Inventory/Tabs/Shields/ShieldsButton" to="Inventory/Tabs/Shields/ShieldsButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Tabs/Shields/ShieldsButton" to="Inventory/Tabs/Shields/ShieldsButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Tabs/Shields/ShieldsButton" to="Inventory/Tabs/Shields/ShieldsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Tabs/Shields/ShieldsButton" to="Inventory/Tabs/Shields/ShieldsButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Tabs/Shields/ShieldsButton" to="Inventory" method="_on_shields_button_pressed"]
+[connection signal="focus_entered" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory" method="_on_cargo_button_pressed"]
+[connection signal="focus_entered" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="Inventory/PartsList/Part2/Background" to="Inventory/PartsList/Part2/Background" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/PartsList/Part2/Background" to="Inventory/PartsList/Part2/Background" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/PartsList/Part2/Background" to="Inventory/PartsList/Part2/Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/PartsList/Part2/Background" to="Inventory/PartsList/Part2/Background" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="Inventory/PartsList/Part3/Background" to="Inventory/PartsList/Part3/Background" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/PartsList/Part3/Background" to="Inventory/PartsList/Part3/Background" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/PartsList/Part3/Background" to="Inventory/PartsList/Part3/Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/PartsList/Part3/Background" to="Inventory/PartsList/Part3/Background" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="Inventory/PartsList/Part4/Background" to="Inventory/PartsList/Part4/Background" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/PartsList/Part4/Background" to="Inventory/PartsList/Part4/Background" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/PartsList/Part4/Background" to="Inventory/PartsList/Part4/Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/PartsList/Part4/Background" to="Inventory/PartsList/Part4/Background" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="Inventory/PartsList/Part5/Background" to="Inventory/PartsList/Part5/Background" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/PartsList/Part5/Background" to="Inventory/PartsList/Part5/Background" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/PartsList/Part5/Background" to="Inventory/PartsList/Part5/Background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/PartsList/Part5/Background" to="Inventory/PartsList/Part5/Background" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="Inventory/Up/ListUP" to="Inventory/Up/ListUP" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Up/ListUP" to="Inventory/Up/ListUP" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Up/ListUP" to="Inventory/Up/ListUP" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Up/ListUP" to="Inventory/Up/ListUP" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Up/ListUP" to="Inventory/PartsList" method="_on_list_up_pressed"]
+[connection signal="focus_entered" from="Inventory/Down/ListDown" to="Inventory/Down/ListDown" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Inventory/Down/ListDown" to="Inventory/Down/ListDown" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Inventory/Down/ListDown" to="Inventory/Down/ListDown" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/Down/ListDown" to="Inventory/Down/ListDown" method="_on_mouse_exited"]
+[connection signal="pressed" from="Inventory/Down/ListDown" to="Inventory/PartsList" method="_on_list_down_pressed"]
+[connection signal="disable_empty" from="AmmoSelector" to="AmmoSelector" method="_on_disable_empty"]
+[connection signal="disable_less" from="AmmoSelector" to="AmmoSelector" method="_on_disable_less"]
+[connection signal="disable_load" from="AmmoSelector" to="AmmoSelector" method="_on_disable_load"]
+[connection signal="disable_max" from="AmmoSelector" to="AmmoSelector" method="_on_disable_max"]
+[connection signal="disable_more" from="AmmoSelector" to="AmmoSelector" method="_on_disable_more"]
+[connection signal="enable_empty" from="AmmoSelector" to="AmmoSelector" method="_on_enable_empty"]
+[connection signal="enable_less" from="AmmoSelector" to="AmmoSelector" method="_on_enable_less"]
+[connection signal="enable_load" from="AmmoSelector" to="AmmoSelector" method="_on_enable_load"]
+[connection signal="enable_max" from="AmmoSelector" to="AmmoSelector" method="_on_enable_max"]
+[connection signal="enable_more" from="AmmoSelector" to="AmmoSelector" method="_on_enable_more"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/Toggle/Toggle" to="AmmoSelector/Buttons/Toggle/Toggle" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/Toggle/Toggle" to="AmmoSelector/Buttons/Toggle/Toggle" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/Toggle/Toggle" to="AmmoSelector/Buttons/Toggle/Toggle" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/Toggle/Toggle" to="AmmoSelector/Buttons/Toggle/Toggle" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/Toggle/Toggle" to="AmmoSelector" method="_on_toggle_pressed"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/Less/Less" to="AmmoSelector/Buttons/Less/Less" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/Less/Less" to="AmmoSelector/Buttons/Less/Less" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/Less/Less" to="AmmoSelector/Buttons/Less/Less" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/Less/Less" to="AmmoSelector/Buttons/Less/Less" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/Less/Less" to="AmmoSelector" method="_on_less_pressed"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/More/More" to="AmmoSelector/Buttons/More/More" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/More/More" to="AmmoSelector/Buttons/More/More" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/More/More" to="AmmoSelector/Buttons/More/More" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/More/More" to="AmmoSelector/Buttons/More/More" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/More/More" to="AmmoSelector" method="_on_more_pressed"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/Max/Max" to="AmmoSelector/Buttons/Max/Max" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/Max/Max" to="AmmoSelector/Buttons/Max/Max" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/Max/Max" to="AmmoSelector/Buttons/Max/Max" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/Max/Max" to="AmmoSelector/Buttons/Max/Max" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/Max/Max" to="AmmoSelector" method="_on_max_pressed"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/Empty/Empty" to="AmmoSelector/Buttons/Empty/Empty" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/Empty/Empty" to="AmmoSelector/Buttons/Empty/Empty" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/Empty/Empty" to="AmmoSelector/Buttons/Empty/Empty" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/Empty/Empty" to="AmmoSelector/Buttons/Empty/Empty" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/Empty/Empty" to="AmmoSelector" method="_on_empty_pressed"]
+[connection signal="focus_entered" from="AmmoSelector/Buttons/Load/Load" to="AmmoSelector/Buttons/Load/Load" method="_on_focus_entered"]
+[connection signal="focus_exited" from="AmmoSelector/Buttons/Load/Load" to="AmmoSelector/Buttons/Load/Load" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="AmmoSelector/Buttons/Load/Load" to="AmmoSelector/Buttons/Load/Load" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AmmoSelector/Buttons/Load/Load" to="AmmoSelector/Buttons/Load/Load" method="_on_mouse_exited"]
+[connection signal="pressed" from="AmmoSelector/Buttons/Load/Load" to="AmmoSelector" method="_on_load_pressed"]
+[connection signal="focus_entered" from="ShopMenuButton/ShopMenu" to="ShopMenuButton/ShopMenu" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ShopMenuButton/ShopMenu" to="ShopMenuButton/ShopMenu" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="ShopMenuButton/ShopMenu" to="ShopMenuButton/ShopMenu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ShopMenuButton/ShopMenu" to="ShopMenuButton/ShopMenu" method="_on_mouse_exited"]
+[connection signal="pressed" from="ShopMenuButton/ShopMenu" to="." method="_on_shop_menu_pressed"]
+[connection signal="focus_entered" from="EquipButton/Equip" to="EquipButton/Equip" method="_on_focus_entered"]
+[connection signal="focus_exited" from="EquipButton/Equip" to="EquipButton/Equip" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="EquipButton/Equip" to="EquipButton/Equip" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="EquipButton/Equip" to="EquipButton/Equip" method="_on_mouse_exited"]
+[connection signal="pressed" from="EquipButton/Equip" to="." method="_on_equip_pressed"]
+[connection signal="focus_entered" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Ready/ReadyButton" to="." method="_on_ready_button_pressed"]

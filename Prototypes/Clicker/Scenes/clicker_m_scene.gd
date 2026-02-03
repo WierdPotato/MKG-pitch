@@ -10,6 +10,8 @@ extends Control
 @onready var perk_type_selector: Node2D = $PerkDetails/PerkTypeSelector
 @onready var upgrades_manager: Control = $UpgradesManager
 @onready var buy: TextureButton = $Buy
+@onready var main_clicker: TextureButton = $MainClicker
+@onready var main_clicker_aux: Sprite2D = $MainClickerAux
 
 @export var cheat : bool
 
@@ -41,11 +43,19 @@ func _on_main_clicker_button_down() -> void:
 	update_click_points()
 	
 func _on_timer_timeout() -> void:
-	float_points += GLOBAL.total_red
+	timer.wait_time = 1 - GLOBAL.total_red_cd_reduction
+	float_points += GLOBAL.total_red + (GLOBAL.total_red * GLOBAL.total_pcn_red)
 	
 func update_click_points() -> void:
-	float_points += (points_per_click + GLOBAL.total_yellow)
-
+	float_points += points_per_click + GLOBAL.total_yellow + (GLOBAL.total_yellow * GLOBAL.total_pcn_yellow) + (GLOBAL.money * GLOBAL.total_gen_pcn_yellow)
+	
+	var tween : Tween = get_tree().create_tween() #Creamos el tween
+	tween.tween_property(main_clicker_aux,"scale", Vector2(0, 0), 0.05) #Y cambiamos la velocidad en base al tiempo obtenido en la formula.
+	tween.play()
+	await tween.finished
+	tween.stop()
+	tween.tween_property(main_clicker_aux,"scale", Vector2(1, 1), 0.05)
+	tween.play()
 func autopoints_percentage(percentage : int) -> void:
 	auto_percentage_amm += percentage 
 	print("Porcentaje aumentado: ", auto_percentage_amm / 100)
@@ -59,12 +69,8 @@ func clicks_percentage(percentage : int) -> void:
 ###################
 #Gestiona los puntos
 func manage_points() -> void:
-	#Aplica las bonificaciones por porcentaje a cada tipo de 
-	points_per_second = auto_point_value + (auto_percentage_amm / 100)
-	points_per_click = click_point_value + (click_percentage_amm / 100)
-	#Redondea los puntos reales hacia abajo y le muestra el redondeo al jugador
 	total_points = floori(float_points)
-	
+	GLOBAL.money = total_points
 #######################################
 #Timer de PPS
 
@@ -72,10 +78,10 @@ func manage_points() -> void:
 #Timer con la duración del clicker
 func _on_countdown_timeout() -> void:
 	pass
-	#timer.stop()
-	#get_tree().change_scene_to_packed(prep_menu)
+	timer.stop()
+	get_tree().change_scene_to_packed(prep_menu)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_pressed("Change") and perk_type_selector.button.disabled == false:
 		perk_type_selector._on_button_pressed()
@@ -87,8 +93,9 @@ func _input(event: InputEvent) -> void:
 		upgrades_manager._on_button_pressed()
 
 func _process(_delta: float) -> void:
-	GLOBAL.money = total_points
+	$Joker1/Joker1LBL.text =  str(GLOBAL.total_yellow) + "//" + str((GLOBAL.total_yellow * GLOBAL.total_pcn_yellow)) +"//" + str((GLOBAL.money * GLOBAL.total_gen_pcn_yellow))
 	manage_points()
+	$Joker1/Label.text = str(GLOBAL.ignore_call)
 	money_per_second_lbl.text = str(GLOBAL.total_red)
 	total_money_lbl.text = str(total_points)
 	clock.text = str(int(round(countdown.time_left)))

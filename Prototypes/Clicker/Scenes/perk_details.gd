@@ -13,12 +13,11 @@ extends Node2D
 
 var yellow_type : Texture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo_prop.png")
 var blue_type : Texture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_azul_prop.png")
-var green_type : Texture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_verde_prop.png")
+var red_type : Texture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_verde_prop.png")
 
 func change_perk() -> void:
 	var perk = upgrades_manager.prev_selected_perk
 	details_animation_player.play("perk_changed")
-	await get_tree().create_timer(0.1).timeout
 	if perk:
 		perk_name_lbl.text = perk.my_name
 		perk_description_lbl.text = perk.my_current_description
@@ -46,7 +45,6 @@ func clear_info() -> void:
 func change_icon(type_id : int)-> void:
 	if type_id == 0:
 		perk_icon_bg.texture = yellow_type
-		perk_icon.texture.set_atlas(yellow_atlas)
 		price_lbl.add_theme_color_override("font_color", Color8(26, 28, 44, 255))
 		price_lbl.add_theme_color_override("font_outline_color", Color8(26, 28, 44, 255))
 
@@ -56,7 +54,7 @@ func change_icon(type_id : int)-> void:
 		price_lbl.add_theme_color_override("font_outline_color", Color8(244, 244, 244, 255))
 
 	elif type_id == 2:
-		perk_icon_bg.texture = green_type
+		perk_icon_bg.texture = red_type
 		price_lbl.add_theme_color_override("font_color", Color8(244, 244, 244, 255))
 		price_lbl.add_theme_color_override("font_outline_color", Color8(244, 244, 244, 255))
 

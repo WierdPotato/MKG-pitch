@@ -7,8 +7,8 @@ var integrity : float #Almacena la vida del jugador
 var shield : float #Almacena la integridad de los escudos
 
 func _ready() -> void:
-	integrity = PREP.selected_parts_dict["bdy"].get("HP")
-	shield = PREP.selected_parts_dict["sld"].get("HP")
+	integrity = PREP.ship_hp
+	shield = PREP.equiped_parts["sld"].get("HP")
 	print(integrity)
 	
 func _process(_delta: float) -> void:

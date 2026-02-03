@@ -1,115 +1,210 @@
-[gd_scene load_steps=8 format=3 uid="uid://clnwdyxs3ylfj"]
+[gd_scene format=3 uid="uid://clnwdyxs3ylfj"]
 
 [ext_resource type="Script" uid="uid://cbwkvhjm11imo" path="res://Prototypes/Shmup/FightLevel/fight_level.gd" id="1_cn8b7"]
 [ext_resource type="PackedScene" uid="uid://d2f76wxyv41ef" path="res://Prototypes/Shmup/Player/Player.tscn" id="2_jf8sv"]
 [ext_resource type="PackedScene" uid="uid://ckpmoplqy60qo" path="res://Prototypes/Shmup/WaspScene/enemy.tscn" id="2_mhro8"]
-[ext_resource type="Texture2D" uid="uid://cifjqrh550pcp" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/bg.png" id="2_xrwtx"]
-[ext_resource type="Texture2D" uid="uid://cn8osauwtbo1s" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/buildings.png" id="3_mhro8"]
-[ext_resource type="Texture2D" uid="uid://du52iclrsm1k" path="res://Prototypes/Shmup/Assets/Backgrounds/ParallaxIndustrial/far-buildings.png" id="4_jf8sv"]
+[ext_resource type="Texture2D" uid="uid://qjksfv8cl481" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_20.png" id="5_j8xdr"]
+[ext_resource type="Texture2D" uid="uid://rdsxrej2aa6o" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_21.png" id="6_p2rt2"]
+[ext_resource type="Texture2D" uid="uid://dxhm845piafku" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_22.png" id="7_4dgjn"]
+[ext_resource type="Texture2D" uid="uid://nyom0byllit8" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_23.png" id="8_xwdlm"]
+[ext_resource type="Texture2D" uid="uid://bq5cldt7ad5y3" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/UI Overlay footer.png" id="9_xwdlm"]
+[ext_resource type="Texture2D" uid="uid://bk5mmwsi0gx86" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Health bar.png" id="10_c6qik"]
+[ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="10_uiq5e"]
+[ext_resource type="Texture2D" uid="uid://oos4pw65ufa5" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/misiones.png" id="11_uiq5e"]
+[ext_resource type="FontFile" uid="uid://calnhu3bc01mv" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/KonkhmerSleokchher-Regular.ttf" id="13_uiq5e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6qik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j8xdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p2rt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4dgjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xwdlm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_cn8b7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1184.1249, 130.14285, 0, 0, 0, 0, 1186.7499, 564.2, 0, 0, 0, 0, 1188.9374, 561.22675, 0, 0, 0, 0, 1189.7395, 130.10536, 0, 0, 0, 0, 1185.8749, 129.11429)
+"points": PackedVector2Array(0, 0, 0, 0, 1166.4064, 2.893324, 0, 0, 0, 0, 1160.0754, 530.35223, 0, 0, 0, 0, 1194.8176, 530.35223, 0, 0, 0, 0, 1189.7395, 130.10536, 0, 0, 0, 0, 1191.3436, -3.690918, 0, 0, 0, 0, 1166.4064, 1.7959499)
 }
-point_count = 5
+point_count = 6
 
-[node name="FightLevel" type="Node2D" groups=["Level"]]
+[node name="FightLevel" type="Node2D" unique_id=1227256553 groups=["Level"]]
 script = ExtResource("1_cn8b7")
 player = ExtResource("2_jf8sv")
 enemy = ExtResource("2_mhro8")
 path_speed = 500
-points_goal = 50
+points_goal = 10
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=178112183]
 
-[node name="Back" type="Parallax2D" parent="Background"]
+[node name="Back" type="Parallax2D" parent="Background" unique_id=1872964206]
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-200, 0)
+autoscroll = Vector2(-500, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Back"]
-position = Vector2(0, 1.5258789e-05)
-scale = Vector2(4.757353, 2.0984375)
-texture = ExtResource("2_xrwtx")
-centered = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/Back" unique_id=310579847]
+position = Vector2(960, 541)
+sprite_frames = SubResource("SpriteFrames_c6qik")
+autoplay = "default"
+frame_progress = 0.0012072073
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background/Back"]
-position = Vector2(1287.4028, 722.43854)
-rotation = 3.1415927
-scale = Vector2(4.733099, 2.45151)
-texture = ExtResource("2_xrwtx")
-centered = false
+[node name="Mid" type="Parallax2D" parent="Background" unique_id=1659071991]
+autoscroll = Vector2(-3.175, 0)
 
-[node name="Mid" type="Parallax2D" parent="Background"]
-repeat_size = Vector2(2254, 0)
-autoscroll = Vector2(-1000, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Mid"]
-position = Vector2(1, 243)
-scale = Vector2(4.698, 4.3099995)
-texture = ExtResource("3_mhro8")
-centered = false
-
-[node name="Sprite2D4" type="Sprite2D" parent="Background/Mid"]
-position = Vector2(994, 245)
-scale = Vector2(4.698, 4.31)
-texture = ExtResource("3_mhro8")
-centered = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background/Mid"]
-position = Vector2(1060.6277, 408.99997)
-rotation = 3.1415927
-scale = Vector2(4.698, 4.31)
-texture = ExtResource("3_mhro8")
-centered = false
-
-[node name="Sprite2D3" type="Sprite2D" parent="Background/Mid"]
-position = Vector2(1814.9999, 503.99997)
-rotation = 3.1415927
-scale = Vector2(4.698, 4.31)
-texture = ExtResource("3_mhro8")
-centered = false
-
-[node name="Top" type="Parallax2D" parent="Background"]
+[node name="Top" type="Parallax2D" parent="Background" unique_id=695874891]
 z_index = 1
 scroll_offset = Vector2(-1898, 0)
 repeat_size = Vector2(100000, 0)
 autoscroll = Vector2(-3000, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background/Top"]
-position = Vector2(-3.9999998, -96.999985)
-scale = Vector2(5.417841, 5.8380284)
-texture = ExtResource("4_jf8sv")
-centered = false
-
-[node name="Sprite2D3" type="Sprite2D" parent="Background/Top"]
-position = Vector2(10044, 767.99994)
-rotation = 3.1415927
-scale = Vector2(5.417841, 5.4577465)
-texture = ExtResource("4_jf8sv")
-centered = false
-
-[node name="SpawnPoints" type="Path2D" parent="."]
+[node name="SpawnPoints" type="Path2D" parent="." unique_id=956690859]
 z_index = 1
-position = Vector2(-133.31168, 12.724123)
-scale = Vector2(1.2467533, 1.0089966)
+position = Vector2(1309.1849, 208.16748)
+scale = Vector2(0.57566524, 1.1291223)
 curve = SubResource("Curve2D_cn8b7")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="SpawnPoints"]
-position = Vector2(1184.1249, 130.14285)
-rotation = 1.5647488
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnPoints" unique_id=24719938]
+position = Vector2(1166.4064, 2.893324)
+rotation = 1.5827985
 
-[node name="EnemySpawnTimer" type="Timer" parent="."]
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1696463506]
 wait_time = 3.0
 autostart = true
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(241, 327)
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1009700412]
+position = Vector2(225, 502)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 1046.0
-offset_top = 10.0
-offset_right = 1251.0
-offset_bottom = 56.0
-text = "POINTS: "
+[node name="UI" type="Control" parent="." unique_id=1651417103]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Footer" type="Node2D" parent="UI" unique_id=78034054]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Footer" unique_id=1904726443]
+texture = ExtResource("9_xwdlm")
+centered = false
+
+[node name="Ammo" type="Label" parent="UI/Footer" unique_id=1286683222]
+offset_left = 640.0
+offset_top = 1011.0
+offset_right = 743.0
+offset_bottom = 1066.0
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("10_uiq5e")
+theme_override_font_sizes/font_size = 44
+text = "450"
+vertical_alignment = 1
+
+[node name="Shield" type="Label" parent="UI/Footer" unique_id=419148294]
+offset_left = 813.0
+offset_top = 1011.0
+offset_right = 916.0
+offset_bottom = 1065.0
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("10_uiq5e")
+theme_override_font_sizes/font_size = 44
+text = "100"
+vertical_alignment = 1
+
+[node name="HP Diff" type="TextureProgressBar" parent="UI/Footer" unique_id=232135487]
+offset_left = 51.0
+offset_top = 958.0
+offset_right = 525.0
+offset_bottom = 1032.0
+value = 100.0
+allow_lesser = true
+nine_patch_stretch = true
+texture_progress = ExtResource("10_c6qik")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="HP" type="TextureProgressBar" parent="UI/Footer" unique_id=898762032]
+offset_left = 51.0
+offset_top = 958.0
+offset_right = 525.0
+offset_bottom = 1032.0
+value = 55.0
+allow_lesser = true
+nine_patch_stretch = true
+texture_progress = ExtResource("10_c6qik")
+
+[node name="Missions" type="Node2D" parent="UI" unique_id=375307056]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Missions" unique_id=1115546177]
+texture = ExtResource("11_uiq5e")
+centered = false
+
+[node name="Mission" type="HBoxContainer" parent="UI/Missions" unique_id=1594512499]
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 462.0
+offset_bottom = 96.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Detail" type="Label" parent="UI/Missions/Mission" unique_id=682308790]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_uiq5e")
+theme_override_font_sizes/font_size = 19
+text = "Enemy ships destroyed:"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="UI/Missions/Mission" unique_id=1509997245]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8351109, 0, 0.038051788, 1)
+theme_override_colors/font_outline_color = Color(0.8352941, 0, 0.039215688, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("10_uiq5e")
+theme_override_font_sizes/font_size = 20
+text = "4/10"
+vertical_alignment = 1
+
+[node name="Challenge" type="HBoxContainer" parent="UI/Missions" unique_id=102324803]
+offset_left = 564.0
+offset_top = 32.0
+offset_right = 922.0
+offset_bottom = 96.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Detail" type="Label" parent="UI/Missions/Challenge" unique_id=388744979]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_uiq5e")
+theme_override_font_sizes/font_size = 19
+text = "Hits recieved:"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="UI/Missions/Challenge" unique_id=103194266]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14117648, 0.827451, 0.23137255, 1)
+theme_override_colors/font_outline_color = Color(0.14117648, 0.827451, 0.23137255, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("10_uiq5e")
+theme_override_font_sizes/font_size = 20
+text = "0/3"
+vertical_alignment = 1
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="value_changed" from="UI/Footer/HP" to="." method="_on_hp_value_changed"]

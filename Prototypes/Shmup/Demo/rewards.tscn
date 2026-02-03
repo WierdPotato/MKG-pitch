@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://bva28wmvhyqmt"]
+
+[ext_resource type="Texture2D" uid="uid://gddk5d7gf5fu" path="res://Prototypes/Shmup/Assets/MEJORAS_pantalla.png" id="1_bj7k8"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="2_vvdwg"]
+[ext_resource type="Texture2D" uid="uid://cer4tlggh4t34" path="res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png" id="3_ldu5n"]
+[ext_resource type="Texture2D" uid="uid://c87iw88akgdpm" path="res://Prototypes/Clicker/Assets/DemoUI/blue_spritesheet_V1.1.png" id="4_qoigh"]
+[ext_resource type="Texture2D" uid="uid://r68yuec8afdc" path="res://Prototypes/Clicker/Assets/DemoUI/passives_spritesheet_BW_v1.png" id="5_apxx0"]
+[ext_resource type="Texture2D" uid="uid://drjqui3xu2qgk" path="res://Prototypes/Clicker/Assets/DemoUI/lockV1.png" id="6_lf36y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm37x"]
+atlas = ExtResource("3_ldu5n")
+region = Rect2(320, 640, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmfyn"]
+atlas = ExtResource("4_qoigh")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqr1"]
+atlas = ExtResource("5_apxx0")
+region = Rect2(800, 480, 160, 160)
+
+[node name="Node2D" type="Node2D" unique_id=824460593]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=296864224]
+texture = ExtResource("1_bj7k8")
+centered = false
+
+[node name="TotalMoneyLBL" type="Label" parent="." unique_id=1180175176]
+offset_left = 1570.0
+offset_top = 50.0
+offset_right = 1886.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.654902, 0.9411765, 0.4392157, 1)
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "200495"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D1" type="Sprite2D" parent="." unique_id=963058169]
+position = Vector2(276, 437)
+texture = SubResource("AtlasTexture_rm37x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2138031294]
+position = Vector2(538, 438)
+texture = SubResource("AtlasTexture_nmfyn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1419361837]
+position = Vector2(805, 440)
+texture = SubResource("AtlasTexture_rfqr1")
+
+[node name="Lock1" type="Sprite2D" parent="." unique_id=1290535634]
+position = Vector2(1331, 439)
+scale = Vector2(1.465, 1.465)
+texture = ExtResource("6_lf36y")
+
+[node name="Lock3" type="Sprite2D" parent="." unique_id=1373821475]
+position = Vector2(1067.9999, 437)
+scale = Vector2(1.465, 1.465)
+texture = ExtResource("6_lf36y")
+
+[node name="Lock2" type="Sprite2D" parent="." unique_id=1974002075]
+position = Vector2(1595, 439)
+scale = Vector2(1.465, 1.465)
+texture = ExtResource("6_lf36y")
+
+[node name="Label" type="Label" parent="." unique_id=731774440]
+offset_left = 193.0
+offset_top = 651.0
+offset_right = 359.0
+offset_bottom = 831.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "+10% to click value"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=612326225]
+offset_left = 455.0
+offset_top = 650.0
+offset_right = 621.0
+offset_bottom = 830.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "All your shields obtain +10 HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="." unique_id=1155567379]
+offset_left = 721.0
+offset_top = 651.0
+offset_right = 887.0
+offset_bottom = 831.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "You get passive points 10% faster"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="." unique_id=757551837]
+offset_left = 985.0
+offset_top = 650.0
+offset_right = 1151.0
+offset_bottom = 830.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="." unique_id=442173272]
+offset_left = 1249.0
+offset_top = 651.0
+offset_right = 1415.0
+offset_bottom = 831.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="." unique_id=1307036095]
+offset_left = 1513.0
+offset_top = 651.0
+offset_right = 1679.0
+offset_bottom = 831.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vvdwg")
+theme_override_font_sizes/font_size = 25
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -30,7 +30,7 @@ var engine_1 : Dictionary = {
 	"Area" : 0,
 	"Weight" : 0.9,
 	"Speed" : 0,
-	"Force" : 25,
+	"Force" : 30,
 	"HP" : 0,
 	"Capacity" : 0,
 	"Damage" : 0,

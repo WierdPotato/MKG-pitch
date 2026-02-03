@@ -13,22 +13,18 @@ signal im_deselected
 @onready var icon: Sprite2D = $Icon
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
-
 @onready var hover_texture : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/current_sel_hover.png")
 @onready var selected_texture : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/current_sel.png")
 
 @onready var yellow_perk : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png")
 @onready var blue_perk : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_azul.png")
-@onready var green_perk : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_verde.png")
+@onready var red_perk : Texture = preload("res://Prototypes/Clicker/Assets/DemoUI/bubble_verde.png")
 
 @onready var yellow_atlas : CompressedTexture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png")
 @onready var red_atlas : CompressedTexture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/passives_spritesheet_BW_v1.png")
 @onready var blue_atlas : CompressedTexture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/blue_spritesheet_V1.1.png")
 
 @onready var locked: Sprite2D = $Locked
-
-
 
 var my_key : int
 var my_dict : Dictionary
@@ -42,6 +38,8 @@ var my_texture_region : Rect2
 var my_atlas : Texture2D
 var my_position : int
 var my_bg : Texture
+var im_available : bool
+var im_bought : bool
 
 var unlocked : bool = false
 
@@ -49,9 +47,10 @@ var im_connected : bool
 var selected : bool
 var hovered : bool
 
+
 func _ready() -> void:
 	im_connected = false
-
+	
 func update_global_name(input : String) -> void:
 	name_lbl.text = input
 
@@ -64,6 +63,7 @@ func update_info(grid_position : int, type_id : int) -> void: #Cambiar atlas y d
 		set_info(my_dict)
 		my_type = type_id
 		my_bg = yellow_perk
+		await get_tree().create_timer(0.1).timeout
 		price_lbl.add_theme_color_override("font_color", Color8(26, 28, 44, 255))
 		price_lbl.add_theme_color_override("font_outline_color", Color8(26, 28, 44, 255))
 		
@@ -73,6 +73,7 @@ func update_info(grid_position : int, type_id : int) -> void: #Cambiar atlas y d
 		set_info(my_dict)
 		my_type = type_id
 		my_bg = blue_perk
+		await get_tree().create_timer(0.1).timeout
 		price_lbl.add_theme_color_override("font_color", Color8(244, 244, 244, 255))
 		price_lbl.add_theme_color_override("font_outline_color", Color8(244, 244, 244, 255))
 		
@@ -81,13 +82,13 @@ func update_info(grid_position : int, type_id : int) -> void: #Cambiar atlas y d
 		my_dict = GLOBAL.red_perks_info.get(key_number)
 		set_info(my_dict)
 		my_type = type_id
-		my_bg = green_perk
+		my_bg = red_perk
+		await get_tree().create_timer(0.1).timeout
 		price_lbl.add_theme_color_override("font_color", Color8(244, 244, 244, 255))
 		price_lbl.add_theme_color_override("font_outline_color", Color8(244, 244, 244, 255))
 	
 	if my_key == 1:
 		texture_button.grab_focus()
-		print("sup")
 	else:
 		pass
 	
@@ -97,29 +98,34 @@ func set_info(dict : Dictionary) -> void:
 	my_name = dict.get("name")
 	var region = dict.get("region")
 	my_texture_region = Rect2(region.get("x"), region.get("y"), region.get("w"), region.get("h"))
-	my_price = dict.get("price")
 	my_description = dict.get("description")
-	manage_unlocked()
-	
-	
+	await get_tree().create_timer(0.1).timeout
+	im_available = dict.get("available")
+	im_bought = my_dict.get("bought")
+	my_price = dict.get("price")
+
 func change_textures(animated)-> void:
 	if animated:
+		GLOBAL.ignore_call = true
 		animation_player.play("down_flip")
 		await get_tree().create_timer(0.1).timeout
-		manage_available()
+		GLOBAL.ignore_call = false
 		texture_button.texture_normal = my_bg
 		name_lbl.text = my_name
 		price_lbl.text = str(my_price)
 		icon.texture.set_atlas(my_atlas)
 		icon.texture.set_region(my_texture_region)
+		manage_available()
+		manage_unlocked()
+		
 	else:
-		manage_available()
 		texture_button.texture_normal = my_bg
 		name_lbl.text = my_name
 		price_lbl.text = str(my_price)
 		icon.texture.set_atlas(my_atlas)
 		icon.texture.set_region(my_texture_region)
-
+		manage_available()
+		manage_unlocked()
 func _on_texture_button_mouse_entered() -> void:
 	hovered = true
 
@@ -155,7 +161,6 @@ func manage_unlocked() -> void: #Gestiona si la mejora está comprada o no
 		icon.visible = false
 		price_lbl.visible = true
 		my_current_description = "Who knows..."
-	
 	else:
 		icon.visible = true
 		price_lbl.visible = false
@@ -170,25 +175,23 @@ func manage_available() -> void: #Gestiona si la mejora está disponible para co
 		locked.visible = true
 
 func animate_lock() -> void:
-	print("YOOOW", my_name)
 	animation_player.play("lock_off")
 	await animation_player.animation_finished
 	locked.visible = false
 	texture_button.disabled = false
 	locked.set_scale(Vector2(0.9, 0.9))
-
-func check_price()-> void:
-	if my_price <= GLOBAL.money and my_dict.get("available") or my_dict.get("bought"):
-		texture_button.self_modulate = Color8(255, 255, 255, 255)
+	
+func check_price() -> void:
+	if GLOBAL.ignore_call:
+		pass
 	else:
-		texture_button.self_modulate = Color8(179, 179, 179, 255)
+		if my_price <= GLOBAL.money and my_dict.get("available") or my_dict.get("bought"):
+			texture_button.self_modulate = Color8(255, 255, 255, 255)
+		else:
+			texture_button.self_modulate = Color8(179, 179, 179, 255)
 
 func _process(_delta: float) -> void:
-	if my_price <= GLOBAL.money and my_dict.get("available") or my_dict.get("bought"):
-		texture_button.self_modulate = Color8(255, 255, 255, 255)
-	else:
-		texture_button.self_modulate = Color8(179, 179, 179, 255)
-		
+	check_price()
 	if hovered == true or selected == true:
 		highlight.visible = true
 	else:

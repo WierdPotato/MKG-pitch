@@ -149,18 +149,23 @@ func update_active_effects() -> void:
 		for i in GLOBAL.active_red_perks:
 			GLOBAL.total_red += i
 	
-	elif prev_selected_perk.my_type == 3:
-		var perk_subtype : int = prev_selected_perk.my_dict.get("subtype")
-		if perk_subtype == 1:
-			GLOBAL.total_yellow += (GLOBAL.total_yellow * prev_selected_perk.my_dict.get("value"))
+	elif prev_selected_perk.my_type == 1:
+		var perk_subtype : String = prev_selected_perk.my_dict.get("subtype")
+		if perk_subtype == "1a":
+			GLOBAL.total_pcn_yellow += prev_selected_perk.my_dict.get("value")
+		elif perk_subtype == "1b":
+			GLOBAL.total_gen_pcn_yellow += prev_selected_perk.my_dict.get("value")
 			
-		elif perk_subtype == 2:
-			GLOBAL.total_red += (GLOBAL.total_red * prev_selected_perk.my_dict.get("value"))
+		elif perk_subtype == "2a":
+			GLOBAL.total_pcn_red += prev_selected_perk.my_dict.get("value")
 			
-		elif perk_subtype == 3:
+		elif perk_subtype == "2b":
+			GLOBAL.total_red_cd_reduction += prev_selected_perk.my_dict.get("value")
+			
+		elif perk_subtype == "3a":
 			pass #mejora estadisticas de las piezas de las naves
 		
-		elif perk_subtype == 4:
+		elif perk_subtype == "4a":
 			pass #desbloquea una pieza para la nave
 
 func _process(delta: float) -> void:

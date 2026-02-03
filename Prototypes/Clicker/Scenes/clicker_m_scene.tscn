@@ -1,7 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6q62ufk5h678"]
+[gd_scene format=3 uid="uid://c6q62ufk5h678"]
 
 [ext_resource type="Script" uid="uid://cce3llebno6gj" path="res://Prototypes/Clicker/Scenes/clicker_m_scene.gd" id="1_a80n7"]
-[ext_resource type="PackedScene" uid="uid://b4hyeiu450m0c" path="res://Prototypes/Menus/Prep Menu/Prep Menu.tscn" id="2_0vghb"]
+[ext_resource type="PackedScene" uid="uid://csfu8qdajmmwg" path="res://Prototypes/Shmup/Demo/PrepMenuDemo.tscn" id="2_l2hx8"]
 [ext_resource type="Texture2D" uid="uid://clm146m01o2ff" path="res://Prototypes/Clicker/Assets/DemoUI/click_here.png" id="3_lop6x"]
 [ext_resource type="Texture2D" uid="uid://c2qe2q4nxpwpp" path="res://Prototypes/Clicker/Assets/DemoUI/background.png" id="3_y7r7s"]
 [ext_resource type="Texture2D" uid="uid://drik8qoapk3qo" path="res://Prototypes/Clicker/Assets/DemoUI/footer_bg.png" id="4_edn7n"]
@@ -226,7 +226,7 @@ _data = {
 &"type_changed": SubResource("Animation_ah3fh")
 }
 
-[node name="ClickerMScene" type="Control"]
+[node name="ClickerMScene" type="Control" unique_id=1872346178]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,21 +234,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a80n7")
-prep_menu = ExtResource("2_0vghb")
+prep_menu = ExtResource("2_l2hx8")
 clicker_minutes = 1.0
 metadata/_edit_lock_ = true
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1517376632]
 position = Vector2(960, 540)
 texture = ExtResource("3_y7r7s")
 metadata/_edit_lock_ = true
 
-[node name="Footer" type="Sprite2D" parent="."]
+[node name="Footer" type="Sprite2D" parent="." unique_id=869394437]
 position = Vector2(960, 958)
 texture = ExtResource("4_edn7n")
 metadata/_edit_lock_ = true
 
-[node name="MainClicker" type="TextureButton" parent="."]
+[node name="MainClicker" type="TextureButton" parent="." unique_id=584404422]
+self_modulate = Color(0.38039216, 0.38039216, 0.38039216, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.002
@@ -260,36 +261,41 @@ offset_right = -30.080078
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(162, 90.5)
 focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_lop6x")
 metadata/_edit_lock_ = true
 
-[node name="Countdown" type="Timer" parent="."]
+[node name="MainClickerAux" type="Sprite2D" parent="." unique_id=129490069]
+position = Vector2(1727, 957)
+texture = ExtResource("3_lop6x")
+
+[node name="Countdown" type="Timer" parent="." unique_id=872059134]
 ignore_time_scale = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=332476274]
 autostart = true
 
-[node name="DebugLabels" type="Node2D" parent="."]
+[node name="DebugLabels" type="Node2D" parent="." unique_id=1283482341]
 metadata/_edit_lock_ = true
 
-[node name="DebugLabel2" type="Label" parent="DebugLabels"]
+[node name="DebugLabel2" type="Label" parent="DebugLabels" unique_id=2142948966]
 offset_left = 68.0
 offset_top = 177.0
 offset_right = 129.0
 offset_bottom = 216.0
 metadata/_edit_lock_ = true
 
-[node name="Clock" type="Node2D" parent="."]
+[node name="Clock" type="Node2D" parent="." unique_id=1903258223]
 position = Vector2(652, 57)
 metadata/_edit_lock_ = true
 
-[node name="ClockBG" type="Sprite2D" parent="Clock"]
+[node name="ClockBG" type="Sprite2D" parent="Clock" unique_id=689879483]
 texture = ExtResource("6_0rcxh")
 metadata/_edit_lock_ = true
 
-[node name="ClockLBL" type="Label" parent="Clock"]
+[node name="ClockLBL" type="Label" parent="Clock" unique_id=1335799028]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -308,15 +314,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="MoneyPerSecond" type="Node2D" parent="."]
+[node name="MoneyPerSecond" type="Node2D" parent="." unique_id=1216866290]
 position = Vector2(1311, 57)
 metadata/_edit_lock_ = true
 
-[node name="MoneyPerScndBG" type="Sprite2D" parent="MoneyPerSecond"]
+[node name="MoneyPerScndBG" type="Sprite2D" parent="MoneyPerSecond" unique_id=477958823]
 texture = ExtResource("7_ah3fh")
 metadata/_edit_lock_ = true
 
-[node name="MoneyPerSecondLBL" type="Label" parent="MoneyPerSecond"]
+[node name="MoneyPerSecondLBL" type="Label" parent="MoneyPerSecond" unique_id=909915338]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -336,15 +342,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="TotalMoney" type="Node2D" parent="."]
+[node name="TotalMoney" type="Node2D" parent="." unique_id=1536460832]
 position = Vector2(1667, 57)
 metadata/_edit_lock_ = true
 
-[node name="TotalMoneyBG" type="Sprite2D" parent="TotalMoney"]
+[node name="TotalMoneyBG" type="Sprite2D" parent="TotalMoney" unique_id=1503421401]
 texture = ExtResource("5_bnjck")
 metadata/_edit_lock_ = true
 
-[node name="TotalMoneyLBL" type="Label" parent="TotalMoney"]
+[node name="TotalMoneyLBL" type="Label" parent="TotalMoney" unique_id=797899583]
 offset_left = -192.0
 offset_top = -19.999985
 offset_right = 191.0
@@ -356,7 +362,7 @@ text = "92103126453287562"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradesManager" type="Control" parent="."]
+[node name="UpgradesManager" type="Control" parent="." unique_id=2077586272]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -374,7 +380,7 @@ focus_behavior_recursive = 2
 script = ExtResource("5_qlef0")
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesManager"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesManager" unique_id=1174898119]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -390,50 +396,50 @@ grow_vertical = 2
 theme_override_constants/separation = 120
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer" parent="UpgradesManager/VBoxContainer" unique_id=1124662783 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer2" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer2" parent="UpgradesManager/VBoxContainer" unique_id=364304428 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer3" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer3" parent="UpgradesManager/VBoxContainer" unique_id=2012683003 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer4" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer4" parent="UpgradesManager/VBoxContainer" unique_id=1361994858 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer5" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer5" parent="UpgradesManager/VBoxContainer" unique_id=1409476923 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer6" parent="UpgradesManager/VBoxContainer" instance=ExtResource("4_xqyea")]
+[node name="HBoxContainer6" parent="UpgradesManager/VBoxContainer" unique_id=482377332 instance=ExtResource("4_xqyea")]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="PerkDetails" type="Node2D" parent="."]
+[node name="PerkDetails" type="Node2D" parent="." unique_id=609172696]
 script = ExtResource("11_ah3fh")
 metadata/_edit_lock_ = true
 
-[node name="PerkDetailsBackground" type="Sprite2D" parent="PerkDetails"]
+[node name="PerkDetailsBackground" type="Sprite2D" parent="PerkDetails" unique_id=644317209]
 position = Vector2(249, 540)
 texture = ExtResource("7_bnjck")
 metadata/_edit_lock_ = true
 
-[node name="PerkIconBG" type="Sprite2D" parent="PerkDetails"]
+[node name="PerkIconBG" type="Sprite2D" parent="PerkDetails" unique_id=2089589065]
 position = Vector2(165.5, 167)
 texture = ExtResource("8_bfq4p")
 metadata/_edit_lock_ = true
 
-[node name="PerkIcon" type="Sprite2D" parent="PerkDetails"]
+[node name="PerkIcon" type="Sprite2D" parent="PerkDetails" unique_id=1777694867]
 visible = false
 position = Vector2(166, 167)
 texture = SubResource("AtlasTexture_jg11s")
 
-[node name="PriceLBL" type="Label" parent="PerkDetails"]
+[node name="PriceLBL" type="Label" parent="PerkDetails" unique_id=1181604314]
 offset_left = 95.0
 offset_top = 125.0
 offset_right = 235.0
@@ -449,15 +455,15 @@ theme_override_font_sizes/font_size = 37
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PerkName" type="Node2D" parent="PerkDetails"]
+[node name="PerkName" type="Node2D" parent="PerkDetails" unique_id=1781085962]
 position = Vector2(346, 207)
 metadata/_edit_lock_ = true
 
-[node name="PerkNameBG" type="Sprite2D" parent="PerkDetails/PerkName"]
+[node name="PerkNameBG" type="Sprite2D" parent="PerkDetails/PerkName" unique_id=971046397]
 texture = ExtResource("9_gbmv8")
 metadata/_edit_lock_ = true
 
-[node name="PerkNameLBL" type="Label" parent="PerkDetails/PerkName"]
+[node name="PerkNameLBL" type="Label" parent="PerkDetails/PerkName" unique_id=1593860917]
 offset_left = -74.0
 offset_top = -32.0
 offset_right = 74.0
@@ -471,16 +477,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PerkDescription" type="Node2D" parent="PerkDetails"]
+[node name="PerkDescription" type="Node2D" parent="PerkDetails" unique_id=1583212356]
 position = Vector2(241, 435)
 metadata/_edit_lock_ = true
 
-[node name="PerkDescriptionBG" type="Sprite2D" parent="PerkDetails/PerkDescription"]
+[node name="PerkDescriptionBG" type="Sprite2D" parent="PerkDetails/PerkDescription" unique_id=1418515040]
 position = Vector2(7.666443, 10.66658)
 texture = ExtResource("10_y7r7s")
 metadata/_edit_lock_ = true
 
-[node name="PerkDescriptionLBL" type="RichTextLabel" parent="PerkDetails/PerkDescription"]
+[node name="PerkDescriptionLBL" type="RichTextLabel" parent="PerkDetails/PerkDescription" unique_id=1772100634]
 offset_left = -160.3333
 offset_top = -135.99982
 offset_right = 176.6667
@@ -495,46 +501,52 @@ bbcode_enabled = true
 autowrap_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="PerkTypeSelector" parent="PerkDetails" instance=ExtResource("5_cwjc2")]
+[node name="PerkTypeSelector" parent="PerkDetails" unique_id=798092773 instance=ExtResource("5_cwjc2")]
 position = Vector2(248, 829)
 metadata/_edit_lock_ = true
 
-[node name="DetailsAnimationPlayer" type="AnimationPlayer" parent="PerkDetails"]
-libraries = {
-&"": SubResource("AnimationLibrary_efumb")
-}
+[node name="DetailsAnimationPlayer" type="AnimationPlayer" parent="PerkDetails" unique_id=1360482036]
+libraries/ = SubResource("AnimationLibrary_efumb")
 
-[node name="Joker1" type="Node2D" parent="."]
+[node name="Joker1" type="Node2D" parent="." unique_id=1066239853]
 position = Vector2(798, 958)
 metadata/_edit_lock_ = true
 
-[node name="Joker1Sprite" type="Sprite2D" parent="Joker1"]
+[node name="Joker1Sprite" type="Sprite2D" parent="Joker1" unique_id=765180439]
 texture = ExtResource("16_0rcxh")
 metadata/_edit_lock_ = true
 
-[node name="Joker1LBL" type="Label" parent="Joker1"]
+[node name="Joker1LBL" type="Label" parent="Joker1" unique_id=628549246]
+visible = false
 offset_left = -285.0
 offset_top = -78.0
 offset_right = 289.0
 offset_bottom = 76.0
 metadata/_edit_lock_ = true
 
-[node name="Joker2" type="Node2D" parent="."]
+[node name="Label" type="Label" parent="Joker1" unique_id=502712979]
+offset_left = -261.0
+offset_top = 15.0
+offset_right = -171.0
+offset_bottom = 38.0
+
+[node name="Joker2" type="Node2D" parent="." unique_id=693281022]
 position = Vector2(1330, 958)
 metadata/_edit_lock_ = true
 
-[node name="Joker2Sprite" type="Sprite2D" parent="Joker2"]
+[node name="Joker2Sprite" type="Sprite2D" parent="Joker2" unique_id=1499856465]
 texture = ExtResource("17_ah3fh")
 metadata/_edit_lock_ = true
 
-[node name="Joker2LBL" type="Label" parent="Joker2"]
+[node name="Joker2LBL" type="Label" parent="Joker2" unique_id=865770238]
+visible = false
 offset_left = -175.0
 offset_top = -72.0
 offset_right = 176.0
 offset_bottom = 76.0
 metadata/_edit_lock_ = true
 
-[node name="Pause" type="TextureButton" parent="."]
+[node name="Pause" type="TextureButton" parent="." unique_id=1425849474]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -544,7 +556,7 @@ focus_mode = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("19_vu5sa")
 
-[node name="Buy" type="TextureButton" parent="."]
+[node name="Buy" type="TextureButton" parent="." unique_id=63871166]
 layout_mode = 0
 offset_left = 1136.0
 offset_top = 867.0

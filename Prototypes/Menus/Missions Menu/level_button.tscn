@@ -1,10 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7245n8vadohj"]
+[gd_scene format=3 uid="uid://c7245n8vadohj"]
 
-[ext_resource type="Script" uid="uid://clthj002d10kq" path="res://Prototypes/Menus/Missions Menu/level_button.gd" id="1_ce3gg"]
-
-[node name="LevelButton" type="Button"]
+[node name="LevelButton" type="Button" unique_id=1107454300]
 offset_left = -1.0
 offset_top = -2.0
 offset_right = 37.0
 offset_bottom = 35.0
-script = ExtResource("1_ce3gg")

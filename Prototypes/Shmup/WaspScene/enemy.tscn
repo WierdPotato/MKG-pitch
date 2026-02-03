@@ -1,49 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckpmoplqy60qo"]
+[gd_scene format=3 uid="uid://ckpmoplqy60qo"]
 
 [ext_resource type="Script" uid="uid://b0nv6w2vn4nqm" path="res://Prototypes/Shmup/WaspScene/enemy.gd" id="1_e8ufc"]
-[ext_resource type="Texture2D" uid="uid://crnauf8pkjfrs" path="res://Prototypes/Shmup/Assets/Charas/Enemy 1/vehicle-1.png" id="2_g682x"]
-[ext_resource type="Texture2D" uid="uid://dh86k66ahm2ht" path="res://Prototypes/Shmup/Assets/Charas/Enemy 1/vehicle-2.png" id="3_2o2rl"]
-[ext_resource type="Texture2D" uid="uid://bofxi7r6rls5f" path="res://Prototypes/Shmup/Assets/Charas/Enemy 1/vehicle-3.png" id="4_ttj1i"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ifvj2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_g682x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_2o2rl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ttj1i")
-}],
-"loop": true,
-"name": &"default",
-"speed": 30.0
-}]
+[ext_resource type="Texture2D" uid="uid://t72nsf78yil1" path="res://Prototypes/Shmup/Assets/Charas/Saeta/enemigoSaeta_side.png" id="2_yfjh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ofbd"]
-size = Vector2(123, 56)
+size = Vector2(184, 29)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" unique_id=128278813]
 scale = Vector2(-1, 1)
 script = ExtResource("1_e8ufc")
-speed = 400
+speed = 1500
 hp = 100.0
 
-[node name="Area2D" type="Area2D" parent="." groups=["Enemies"]]
-position = Vector2(1.1904762, -7.9365044)
+[node name="Area2D" type="Area2D" parent="." unique_id=1544301371 groups=["Enemies"]]
+position = Vector2(1.1904762, -0.93650436)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D"]
-sprite_frames = SubResource("SpriteFrames_ifvj2")
-frame_progress = 0.75817984
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=301491320]
+scale = Vector2(-0.2, 0.2)
+texture = ExtResource("2_yfjh5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(9.309524, 2.9365053)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1429331236]
+position = Vector2(1.8095257, 2.4365044)
 shape = SubResource("RectangleShape2D_2ofbd")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
-rect = Rect2(-81.690475, -25.563496, 153, 62.5)
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=817744587]
+rect = Rect2(-92.63152, -13.68236, 188.76428, 32.664803)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

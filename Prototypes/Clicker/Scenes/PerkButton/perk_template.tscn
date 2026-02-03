@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ga4t8twxtuad"]
+[gd_scene format=3 uid="uid://ga4t8twxtuad"]
 
 [ext_resource type="Script" uid="uid://c85fd43d4yvuv" path="res://Prototypes/Clicker/Scenes/PerkButton/perk_template.gd" id="1_p8r06"]
 [ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="2_p8r06"]
@@ -176,13 +176,13 @@ _data = {
 &"lock_off": SubResource("Animation_4ybnm")
 }
 
-[node name="PerkTemplate" type="Node2D"]
+[node name="PerkTemplate" type="Node2D" unique_id=1977247688]
 script = ExtResource("1_p8r06")
 
-[node name="Highlight" type="Sprite2D" parent="."]
+[node name="Highlight" type="Sprite2D" parent="." unique_id=1889645220]
 texture = ExtResource("2_uwbcs")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=442792513]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -200,11 +200,11 @@ toggle_mode = true
 texture_normal = ExtResource("2_p8r06")
 metadata/_edit_use_anchors_ = true
 
-[node name="InfoBG" type="Sprite2D" parent="."]
+[node name="InfoBG" type="Sprite2D" parent="." unique_id=767338631]
 position = Vector2(172, 0)
 texture = ExtResource("3_p8r06")
 
-[node name="Name" type="Label" parent="."]
+[node name="Name" type="Label" parent="." unique_id=438204363]
 offset_left = 88.0
 offset_top = -19.0
 offset_right = 255.0
@@ -215,7 +215,7 @@ theme_override_fonts/font = ExtResource("5_kf2di")
 text = "aaaaaaaaaaaaa"
 vertical_alignment = 1
 
-[node name="PriceLBL" type="Label" parent="."]
+[node name="PriceLBL" type="Label" parent="." unique_id=1231558214]
 visible = false
 offset_left = -50.0
 offset_top = -25.0
@@ -231,16 +231,14 @@ text = "2000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="." unique_id=1822694508]
 scale = Vector2(0.655, 0.655)
 texture = SubResource("AtlasTexture_3lfv0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dkirf")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1634355068]
+libraries/ = SubResource("AnimationLibrary_dkirf")
 
-[node name="Locked" type="Sprite2D" parent="."]
+[node name="Locked" type="Sprite2D" parent="." unique_id=1480810839]
 visible = false
 position = Vector2(-1.3113022e-06, 2.9206276e-06)
 scale = Vector2(0.9, 0.9)

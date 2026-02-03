@@ -1,5 +1,5 @@
 extends Node
-
+var ship_hp : int = 150
 var ship_mass : float = 3 #Masa VALOR BASE: 3
 var ship_force : int = 40 #Fuerza de empuje VALOR BASE: 25
 var ship_area : float = 2 #Superficie de la nave VALOR BASE: 2
@@ -9,26 +9,31 @@ var ship_load : float
 var ship_max_speed : int = 500 #Velocidad maxima VALOR BASE: 350
 var ship_cadence : int = 1
 var air_density : float = 1.2 #Densidad del aire VALOR BASE: 1.2
+var ship_damage : int = 100
 
-var inventory_ammo : int = 5
+var sim_ship_hp : int = 150
+var sim_ship_mass : float = 3 
+var sim_ship_force : int = 40 
+var sim_ship_area : float = 2 
+var sim_ship_ammo : int = 0
+var sim_ship_max_ammo : int = 30
+var sim_ship_load : float
+var sim_ship_max_speed : int = 500
+var sim_ship_cadence : int = 1
+var sim_ship_damage : int = 100
 
-var current_button_bdy : Button
-var current_button_crg : Button
-var current_button_eng : Button
-var current_button_sld : Button
-var current_button_wpn : Button
-
-var current_buttons_list : Array 
+var inventory_ammo : int = 50
 
 var full_inventory : Array = [
 	PARTS_BDY.body_1,
 	PARTS_CRG.cargo_1,
 	PARTS_ENG.engine_1,
-	PARTS_SLD.shield_1,
-	PARTS_WPN.weapon_1,
+	PARTS_SLD.shield_1, 
+	PARTS_CRG.cargo_2, 
+	PARTS_SLD.shield_2
 ]
 
-var selected_parts_dict : Dictionary = {
+var equiped_parts : Dictionary = {
 	"bdy" : PARTS_BDY.body_1,
 	"crg" : PARTS_CRG.cargo_1,
 	"eng" : PARTS_ENG.engine_1,
@@ -36,162 +41,87 @@ var selected_parts_dict : Dictionary = {
 	"wpn" : PARTS_WPN.weapon_1
 }
 
-var selected_parts_list : Array = [
-	PARTS_BDY.body_1,
-	PARTS_CRG.cargo_1,
-	PARTS_ENG.engine_1,
-	PARTS_SLD.shield_1,
-	PARTS_WPN.weapon_1
-]
-
-var preselected_parts_dict : Dictionary = {
-	"bdy" : PARTS_BDY.body_0,
-	"crg" : PARTS_CRG.cargo_0,
-	"eng" : PARTS_ENG.engine_0,
-	"sld" : PARTS_SLD.shield_0,
-	"wpn" : PARTS_WPN.weapon_0
-	
+var sim_parts : Dictionary = {
+	"bdy" : PARTS_BDY.body_1,
+	"crg" : PARTS_CRG.cargo_1,
+	"eng" : PARTS_ENG.engine_1,
+	"sld" : PARTS_SLD.shield_1,
+	"wpn" :PARTS_WPN.weapon_1
 }
-
-var preselected_parts_list : Array = [
-	PARTS_BDY.body_0,
-	PARTS_CRG.cargo_0,
-	PARTS_ENG.engine_0, 
-	PARTS_SLD.shield_0, 
-	PARTS_WPN.weapon_0
-]
-
-var default_preselected_dict : Dictionary = {
-	"bdy" : PARTS_BDY.body_0,
-	"crg" : PARTS_CRG.cargo_0,
-	"eng" : PARTS_ENG.engine_0,
-	"sld" : PARTS_SLD.shield_0,
-	"wpn" : PARTS_WPN.weapon_0
-}
-
-var default_preselected_list : Array = [
-	PARTS_BDY.body_0,
-	PARTS_CRG.cargo_0,
-	PARTS_ENG.engine_0, 
-	PARTS_SLD.shield_0, 
-	PARTS_WPN.weapon_0
-]
-
 
 func _ready() -> void:
-	update_ship_stats()
+	update_real_stats()
+	simulate_stats()
 
-func part_changed(part) -> void: 
-	print("part changed called")
-	selected_parts_list[part.TypeID - 1] = part
-	selected_parts_dict[part.Type] = part
-	update_ship_stats()
-	reset_preselected()
-	pass
-
-func parts_changed() -> void:
-	for i in preselected_parts_list:
-		if i.ID == 0:
-			pass
-		else:
-			selected_parts_list[i.TypeID - 1] = i
-			
-	for i in preselected_parts_dict:
-		if preselected_parts_dict[i].ID == 0:
-			pass
-		else:
-			selected_parts_dict[i] = preselected_parts_dict[i]
-	update_ship_stats()
-	await get_tree().process_frame
-	reset_preselected()
-
-func selected_button(button):
-	if button.my_part.TypeID == 1:
-		if current_button_bdy != null and current_button_bdy != button:
-			current_button_bdy.do_empty_deselect()
-			current_button_bdy = button
-		elif current_button_bdy != null and current_button_bdy == button:
-			pass
-		elif current_button_bdy == null:
-			current_button_bdy = button
-		
-	elif button.my_part.TypeID == 2:
-		if current_button_crg != null and current_button_crg != button:
-			current_button_crg.do_empty_deselect()
-			current_button_crg = button
-		elif current_button_crg != null and current_button_crg == button:
-			pass
-		elif current_button_crg == null:
-			current_button_crg = button
-	
-	elif button.my_part.TypeID == 3:
-		if current_button_eng != null and current_button_eng != button:
-			current_button_eng.do_empty_deselect()
-			current_button_eng = button
-		elif current_button_eng != null and current_button_eng == button:
-			pass
-		elif current_button_eng == null:
-			current_button_eng = button
-	
-	elif button.my_part.TypeID == 4:
-		if current_button_sld != null and current_button_sld != button:
-			current_button_sld.do_empty_deselect()
-			current_button_sld = button
-		elif current_button_sld != null and current_button_sld == button:
-			pass
-		elif current_button_sld == null:
-			current_button_sld = button
-	
-	elif button.my_part.TypeID == 5:
-		if current_button_wpn != null and current_button_wpn != button:
-			current_button_wpn.do_empty_deselect()
-			current_button_wpn = button
-		elif current_button_wpn != null and current_button_wpn == button:
-			pass
-		elif current_button_wpn == null:
-			current_button_wpn = button
-	
-	part_preselected(button.my_part)
-	
-	pass
-
-func part_preselected(part) -> void:
-	preselected_parts_list[part.TypeID - 1] = part
-	preselected_parts_dict[part.Type] = part
-
-func reset_preselected():
-	#print("Reset called")
-	
-	#preselected_parts_dict.clear()
-	preselected_parts_dict = default_preselected_dict
-	#preselected_parts_list.clear()
-	preselected_parts_list = default_preselected_list
-	#print(current_buttons_list)
-	for i in current_buttons_list:
-		if i == null:
-			pass
-		else:
-			i.do_deselected()
-			#print(i, "DESELECTED FFS")
-
-func update_ship_stats() -> void:
+func update_real_stats() -> void:
+	ship_hp = 0
 	ship_mass = 0
 	ship_force = 0
 	ship_area = 0
-	#ship_ammo = 0
 	ship_load = 0
 	ship_max_ammo = 0
 	ship_max_speed = 0
 	ship_cadence = 0
+	ship_damage = 0
 	
-	for i in selected_parts_list:
-		ship_mass += i.Weight
-		ship_force += i.Force
-		ship_area += i.Area
-		ship_load += i.Size
-		ship_max_ammo += i.Rounds
-		ship_max_speed += i.Speed
-		ship_cadence += i.Cadence
+	for i in equiped_parts:
+		ship_hp += equiped_parts.get(i).get("HP")
+		ship_mass += equiped_parts.get(i).get("Weight")
+		ship_force += equiped_parts.get(i).get("Force")
+		ship_area += equiped_parts.get(i).get("Size")
+		ship_load += equiped_parts.get(i).get("Capacity")
+		ship_max_ammo += equiped_parts.get(i).get("Rounds")
+		ship_max_speed += equiped_parts.get(i).get("Speed")
+		ship_cadence += equiped_parts.get(i).get("Cadence")
+		ship_damage += equiped_parts.get(i).get("Damage")
+		
+	if ship_ammo > ship_max_ammo:
+		var diff = ship_ammo - ship_max_ammo
+		ship_ammo = ship_max_ammo
+		inventory_ammo += diff
+		sim_ship_ammo = 0
+	ship_mass += 0.01 * ship_ammo
 
-func _process(_delta: float) -> void:
-	current_buttons_list = [current_button_bdy, current_button_crg, current_button_eng, current_button_sld,current_button_wpn]
+func simulate_stats()-> void:
+	sim_ship_hp = 0
+	sim_ship_mass = 0
+	sim_ship_force = 0
+	sim_ship_area = 0
+	sim_ship_load = 0
+	sim_ship_max_ammo = 0
+	sim_ship_max_speed = 0
+	sim_ship_cadence = 0
+	sim_ship_damage = 0
+	for i in sim_parts:
+		sim_ship_hp += sim_parts.get(i).get("HP")
+		sim_ship_mass += sim_parts.get(i).get("Weight")
+		sim_ship_force += sim_parts.get(i).get("Force")
+		sim_ship_area += sim_parts.get(i).get("Size")
+		sim_ship_load += sim_parts.get(i).get("Capacity")
+		sim_ship_max_ammo += sim_parts.get(i).get("Rounds")
+		sim_ship_max_speed += sim_parts.get(i).get("Speed")
+		sim_ship_cadence += sim_parts.get(i).get("Cadence")
+		sim_ship_damage += sim_parts.get(i).get("Damage")
+		
+	sim_ship_mass += 0.01 * (sim_ship_ammo + ship_ammo)
+	
+func reset_sim() -> void:
+	sim_parts.clear()
+	sim_parts = equiped_parts.duplicate()
+	simulate_stats()
+
+func part_selected(part)-> void:
+	if part == equiped_parts.get(part.get("Type")):
+		pass
+	else:
+		sim_parts.set(part.get("Type"), part)
+		simulate_stats()
+
+func equip_pressed() -> void:
+	equiped_parts.clear() 
+	equiped_parts = sim_parts.duplicate()
+	update_real_stats()
+	reset_sim()
+	
+	
+	
