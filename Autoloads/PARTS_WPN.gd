@@ -29,7 +29,7 @@ var weapon_1 : Dictionary = {
 	"Type" : "wpn",
 	"Name" : "KOKO WPN MK1",
 	"Area" : 0,
-	"Weight" : 0.3,
+	"Weight" : 0, #0.3
 	"Speed" : 0,
 	"Force" : 0,
 	"HP" : 0,
@@ -49,7 +49,7 @@ var weapon_2 : Dictionary = {
 	"Type" : "wpn",
 	"Name" : "KOKO WPN MK2",
 	"Area" : 0,
-	"Weight" : 0.4,
+	"Weight" : 0, #0.4
 	"Speed" : 0,
 	"Force" : 0,
 	"HP" : 0,

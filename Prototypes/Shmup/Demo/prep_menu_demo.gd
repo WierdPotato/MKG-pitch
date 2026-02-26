@@ -1,20 +1,31 @@
 extends Control
+
 @onready var all_filter: TextureButton = $Inventory/Tabs/All/AllButton
 @onready var stats_comparator: Node2D = $StatsComparator
 @onready var equiped_parts: Node2D = $ShipPreview/EquipedParts
 
 @onready var load_progress_bar: TextureProgressBar = $ShipLoad/LoadProgressBar
 @onready var load_nmb: Label = $ShipLoad/LoadNmb
+@onready var inventory: Control = $Inventory
 
 
 @export var next_screen : PackedScene
 
 
-var current_selected_button
+var current_selected_button 
 
 func _ready() -> void:
 	all_filter.grab_focus()
+	inventory.tab_id = 0
 	update_load_bar()
+	
+func _on_tree_entered() -> void:
+	PREP.reset_sim()
+	await get_tree().process_frame
+	update_parts_label()
+	update_load_bar()
+	stats_comparator.update_texts()
+
 
 func deselect_prev_button(button : TextureButton)-> void:
 	if current_selected_button:
@@ -24,8 +35,9 @@ func deselect_prev_button(button : TextureButton)-> void:
 	current_selected_button = button
 
 
+
 func _on_shop_menu_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Prototypes/Menus/Store Menu/StoreMenu.tscn")
 
 func _on_equip_pressed() -> void:
 	PREP.equip_pressed()
@@ -35,6 +47,7 @@ func _on_equip_pressed() -> void:
 	stats_comparator.update_texts()
 
 func update_parts_label() -> void:
+	print(PREP.equiped_parts)
 	equiped_parts.get_child(0).text = PREP.equiped_parts.get("bdy").get("Name")
 	equiped_parts.get_child(1).text = PREP.equiped_parts.get("eng").get("Name")
 	equiped_parts.get_child(2).text = PREP.equiped_parts.get("sld").get("Name")

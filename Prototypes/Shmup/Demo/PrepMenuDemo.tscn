@@ -116,6 +116,7 @@ animations = [{
 }]
 
 [node name="PrepMenuDemo" type="Control" unique_id=1635350617]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1879,6 +1880,7 @@ theme_override_font_sizes/font_size = 22
 text = "100%"
 vertical_alignment = 1
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="focus_entered" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_mouse_entered"]
@@ -1905,6 +1907,7 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory/Tabs/Cargo/CargoButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Inventory/Tabs/Cargo/CargoButton" to="Inventory" method="_on_cargo_button_pressed"]
+[connection signal="tree_entered" from="Inventory/PartsList" to="Inventory/PartsList" method="_on_tree_entered"]
 [connection signal="focus_entered" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Inventory/PartsList/Part1/Background" to="Inventory/PartsList/Part1/Background" method="_on_mouse_entered"]

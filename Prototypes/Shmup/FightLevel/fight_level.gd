@@ -3,13 +3,14 @@ extends Node2D
 @export var player : PackedScene
 @export var enemy : PackedScene
 @export var path_speed : int 
-
 @export var points_goal : int
+
+@onready var pause_menu: Control = $"../PauseMenu"
+
 
 @onready var spawn_points: Path2D = $SpawnPoints
 @onready var spawn_coords: PathFollow2D = $SpawnPoints/PathFollow2D
 @onready var player_spawn: Marker2D = $PlayerSpawn
-
 @onready var progress_bar: TextureProgressBar = $UI/Footer/HP
 @onready var hp_diff: TextureProgressBar = $"UI/Footer/HP Diff"
 
@@ -36,6 +37,7 @@ func _ready() -> void:
 	hp_diff.max_value = progress_bar.max_value
 	
 func _on_enemy_spawn_timer_timeout() -> void:
+	print("spawning")
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.global_position = spawn_coords.global_position
 	add_child(enemy_instance)
@@ -47,6 +49,16 @@ func _on_hp_value_changed(value: float) -> void:
 	tween.tween_property(hp_diff, "value", value, 0.4)
 	tween.play()
 
+func _on_pause_pressed() -> void:
+	get_tree().paused = true
+	pause_menu.opened("flight")
+
+func _on_pause_menu_visibility_changed() -> void:
+	if pause_menu.visible == true:
+		pass
+	else:
+		get_tree().paused = false
+	
 func _process(delta: float) -> void:
 	progress_bar.value = player_instance.integrity_machine.integrity
 	ammo.text = str(player_instance.shot_machine.ammo)

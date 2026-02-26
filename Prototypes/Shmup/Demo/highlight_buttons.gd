@@ -6,6 +6,7 @@ extends TextureButton
 
 var hovered : bool
 var selected : bool 
+
 func _ready() -> void:
 	self.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	hovered = false

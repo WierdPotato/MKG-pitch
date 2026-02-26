@@ -37,7 +37,7 @@ var equiped_parts : Dictionary = {
 	"bdy" : PARTS_BDY.body_1,
 	"crg" : PARTS_CRG.cargo_1,
 	"eng" : PARTS_ENG.engine_1,
-	"sld" : PARTS_SLD.shield_1,
+	"sld" : PARTS_SLD.shield_1, 
 	"wpn" : PARTS_WPN.weapon_1
 }
 
@@ -45,13 +45,14 @@ var sim_parts : Dictionary = {
 	"bdy" : PARTS_BDY.body_1,
 	"crg" : PARTS_CRG.cargo_1,
 	"eng" : PARTS_ENG.engine_1,
-	"sld" : PARTS_SLD.shield_1,
-	"wpn" :PARTS_WPN.weapon_1
+	"sld" : PARTS_SLD.shield_1, 
+	"wpn" : PARTS_WPN.weapon_1
 }
 
 func _ready() -> void:
 	update_real_stats()
 	simulate_stats()
+
 
 func update_real_stats() -> void:
 	ship_hp = 0
@@ -122,6 +123,3 @@ func equip_pressed() -> void:
 	equiped_parts = sim_parts.duplicate()
 	update_real_stats()
 	reset_sim()
-	
-	
-	

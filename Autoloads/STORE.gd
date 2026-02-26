@@ -29,87 +29,139 @@ var all_parts : Dictionary = {
 	"bdy" : all_bodies_list,
 	"crg" : all_cargo_list,
 	"eng" : all_engines_list,
-	"sld" : all_shields_list,
-	"wpn" : all_weapons_list
+	"sld" : all_shields_list
 }
 
-var selected_parts : Array
-var selected_total_price : int
-var cart : Array = []
-var cart_total_price : int
 
-var previewing : bool
-var preview_blueprint
-var preview_name : String
-var preview_type : String
-var preview_area : String
-var preview_weight : String
-var preview_speed : String
-var preview_force : String
-var preview_hp : String
-var preview_capacity : String
-var preview_damage : String
-var preview_cadence : String
-var preview_rounds : String
-var preview_size : String
+var sim_parts : Dictionary = {
+	"bdy" : PARTS_BDY.body_1,
+	"crg" : PARTS_CRG.cargo_1,
+	"eng" : PARTS_ENG.engine_1,
+	"sld" : PARTS_SLD.shield_1
+}
 
+var equiped_parts : Dictionary
+
+var ship_hp
+var ship_mass 
+var ship_force 
+var ship_area 
+var ship_load
+var ship_max_ammo 
+var ship_max_speed 
+var ship_cadence
+var ship_damage
+
+var sim_ship_hp 
+var sim_ship_mass 
+var sim_ship_force 
+var sim_ship_area 
+var sim_ship_load 
+var sim_ship_max_ammo 
+var sim_ship_max_speed 
+var sim_ship_cadence 
+var sim_ship_damage 
+
+var selected_part 
+
+var store_list : Array
 
 func _ready() -> void:
-	cart_total_price = 0
+	pass
+	
+func on_ready() -> void:
+	print("On ready called")
+	equiped_parts.clear()
+	equiped_parts = PREP.equiped_parts.duplicate()
+	prepare_store_list()
+	part_deselected()
+	update_real_stats()
+	reset_sim()
+
+func prepare_store_list()->void:
+	print("Prepare list called")
+	store_list.clear()
+	for k in all_parts:
+		for i in all_parts.get(k):
+			if PREP.full_inventory.has(i) or store_list.has(i):
+				pass
+			else:
+				store_list.append(i)
+	for p in store_list:
+		print("Elemento:", p)
+
 
 func part_selected(part) -> void:
-	selected_parts.append(part) 
-	selected_total_price += part.Price
+	part_deselected()
+	reset_sim()
+	selected_part = part
+	sim_parts.set(part.get("Type"), part)
+	simulate_stats()
 	
-func part_deselected(part) -> void:
-	selected_parts.erase(part)
-	selected_total_price -= part.Price
 	
-func add_to_cart() -> void:
-	for i in selected_parts:
-		cart.append(i)
-		cart_total_price += i.Price	
-	
-	print(cart)
-	selected_parts.clear()
+func part_deselected() -> void:
+	selected_part = null
+	reset_sim()
+	simulate_stats()
 
-func add_part_to_cart(part) -> void:
-	cart.append(part)
-	cart_total_price += part.Price
+func update_real_stats() -> void:
+	ship_hp = 0
+	ship_mass = 0
+	ship_force = 0
+	ship_area = 0
+	ship_load = 0
+	ship_max_ammo = 0
+	ship_max_speed = 0
+	ship_cadence = 0
+	ship_damage = 0
 	
-func quit_from_cart(part):
-	cart.erase(part)
-	cart_total_price -= part.Price
+	for i in equiped_parts:
+		ship_hp += equiped_parts.get(i).get("HP")
+		ship_mass += equiped_parts.get(i).get("Weight")
+		ship_force += equiped_parts.get(i).get("Force")
+		ship_area += equiped_parts.get(i).get("Size")
+		ship_load += equiped_parts.get(i).get("Capacity")
+		ship_max_ammo += equiped_parts.get(i).get("Rounds")
+		ship_max_speed += equiped_parts.get(i).get("Speed")
+		ship_cadence += equiped_parts.get(i).get("Cadence")
+		ship_damage += equiped_parts.get(i).get("Damage")
 
-func preview_part(part) -> void:
-	if part == null:
-		previewing = false
-		
-	else:
-		preview_blueprint = part.Blueprint
-		preview_name = part.Name
-		preview_type = process_type(part.Type)
-		preview_area = process_text(part.Area)
-		preview_weight = process_text(part.Weight)
-		preview_speed = process_text(part.Speed)
-		preview_force = process_text(part.Force)
-		preview_hp = process_text(part.HP)
-		preview_capacity = process_text(part.Capacity)
-		preview_damage = process_text(part.Damage)
-		preview_cadence = process_text(part.Cadence)
-		preview_rounds = process_text(part.Rounds)
-		preview_size = process_text(part.Size)
-		previewing = true
+func simulate_stats()-> void:
+	sim_ship_hp = 0
+	sim_ship_mass = 0
+	sim_ship_force = 0
+	sim_ship_area = 0
+	sim_ship_load = 0
+	sim_ship_max_ammo = 0
+	sim_ship_max_speed = 0
+	sim_ship_cadence = 0
+	sim_ship_damage = 0
+	
+	for i in sim_parts:
+		sim_ship_hp += sim_parts.get(i).get("HP")
+		sim_ship_mass += sim_parts.get(i).get("Weight")
+		sim_ship_force += sim_parts.get(i).get("Force")
+		sim_ship_area += sim_parts.get(i).get("Size")
+		sim_ship_load += sim_parts.get(i).get("Capacity")
+		sim_ship_max_ammo += sim_parts.get(i).get("Rounds")
+		sim_ship_max_speed += sim_parts.get(i).get("Speed")
+		sim_ship_cadence += sim_parts.get(i).get("Cadence")
+		sim_ship_damage += sim_parts.get(i).get("Damage")
+
+func reset_sim() -> void:
+	sim_parts.clear()
+	sim_parts = equiped_parts.duplicate()
+
 
 func buy() -> void:
-	print("SELECTED PARTS: ", selected_parts)
-	GLOBAL.money -= selected_total_price
-	for i in selected_parts:
-		print("I = ",i)
-		PREP.full_inventory.append(i)
-	await get_tree().process_frame
-	selected_parts.clear()
-	selected_total_price = 0
+	print("Le doy a comprar")
+	if selected_part:
+		print("COMPRO ALGO")
+		GLOBAL.money -= selected_part.get("Price")
+		PREP.full_inventory.append(selected_part)
+		on_ready()
+	else:
+		pass
 
 func process_type(type : String):
 	if type == "bdy":

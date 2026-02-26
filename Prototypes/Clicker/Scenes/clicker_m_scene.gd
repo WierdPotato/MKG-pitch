@@ -12,8 +12,9 @@ extends Control
 @onready var buy: TextureButton = $Buy
 @onready var main_clicker: TextureButton = $MainClicker
 @onready var main_clicker_aux: Sprite2D = $MainClickerAux
+@onready var pause_menu: Control = $"../PauseMenu"
 
-@export var cheat : bool
+@export var cheat : bool 
 
 @export var prep_menu : PackedScene
 @export var clicker_minutes : float = 2
@@ -77,7 +78,6 @@ func manage_points() -> void:
 
 #Timer con la duración del clicker
 func _on_countdown_timeout() -> void:
-	pass
 	timer.stop()
 	get_tree().change_scene_to_packed(prep_menu)
 
@@ -91,6 +91,17 @@ func _input(_event: InputEvent) -> void:
 		
 	elif Input.is_action_pressed("Buy") and buy.disabled == false:
 		upgrades_manager._on_button_pressed()
+		
+func _on_pause_pressed() -> void:
+	get_tree().paused = true
+	pause_menu.opened("clicker")
+	
+func _on_pause_menu_visibility_changed() -> void:
+	if pause_menu.visible == true:
+		pass
+	else:
+		get_tree().paused = false
+		upgrades_manager.get_child(0).get_child(0).get_child(0).get_child(0).get_child(1).grab_focus()
 
 func _process(_delta: float) -> void:
 	$Joker1/Joker1LBL.text =  str(GLOBAL.total_yellow) + "//" + str((GLOBAL.total_yellow * GLOBAL.total_pcn_yellow)) +"//" + str((GLOBAL.money * GLOBAL.total_gen_pcn_yellow))

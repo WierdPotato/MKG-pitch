@@ -15,16 +15,24 @@ var current_pg : int
 var current_filter : Array
 
 func _ready() -> void:
-	current_pg = 0
-	current_filter = PREP.full_inventory.duplicate()
-	for i in self.get_child_count():
-		self.get_child(i).update_details(current_filter[i])
-		
+	
+	on_ready()
 	part_1.get_child(1).pressed.connect(self._part_1_pressed) 
 	part_2.get_child(1).pressed.connect(self._part_2_pressed) 
 	part_3.get_child(1).pressed.connect(self._part_3_pressed) 
 	part_4.get_child(1).pressed.connect(self._part_4_pressed) 
 	part_5.get_child(1).pressed.connect(self._part_5_pressed) 
+
+func _on_tree_entered() -> void:
+	await get_tree().process_frame
+	on_ready()
+
+func on_ready() -> void:
+	current_pg = 0
+	current_filter = PREP.full_inventory.duplicate()
+	for i in self.get_child_count():
+		self.get_child(i).update_details(current_filter[i])
+	print(current_filter.size())
 
 func update_filtered() -> void:
 	current_pg = 0
@@ -47,7 +55,7 @@ func _on_list_up_pressed() -> void:
 		move_list()
 
 func _on_list_down_pressed() -> void:
-	if (current_filter.size()-1) + current_pg >= current_filter.size() or current_filter.size() < self.get_child_count():
+	if self.get_child_count() + current_pg >= current_filter.size():
 		pass
 	else:
 		current_pg += 1

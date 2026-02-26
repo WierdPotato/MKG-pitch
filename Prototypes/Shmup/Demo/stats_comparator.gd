@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var equiped: Node2D = $Equiped
+
 @onready var hp: Label = $Equiped/HP
 @onready var size: Label = $Equiped/Size
 @onready var speed: Label = $Equiped/Speed
@@ -12,6 +13,7 @@ extends Node2D
 @onready var cadence: Label = $Equiped/Cadence
 
 @onready var sim: Node2D = $Sim
+
 @onready var hp_sim: Label = $Sim/HPSim
 @onready var size_sim: Label = $Sim/SizeSim
 @onready var speed_sim: Label = $Sim/SpeedSim

@@ -38,6 +38,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mpb4"]
 
 [node name="MissionsMenu" type="Node2D" unique_id=818084740]
+process_mode = 1
 script = ExtResource("1_b10sa")
 
 [node name="Button" type="Button" parent="." unique_id=1598163161]

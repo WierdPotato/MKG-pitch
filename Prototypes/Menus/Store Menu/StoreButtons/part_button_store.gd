@@ -53,7 +53,7 @@ func do_deselected() -> void:
 	selected = false
 	var stylebox : StyleBoxFlat = $".".get_theme_stylebox("normal")
 	stylebox.bg_color = Color8(27, 104, 104, 86)
-	STORE.part_deselected(my_part)
+	STORE.part_deselected()
 
 func do_empty_deselect() -> void:
 	selected = false
