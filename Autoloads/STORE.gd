@@ -2,22 +2,36 @@ extends Node
 
 var all_bodies_list : Array = [
 	PARTS_BDY.body_1, 
-	PARTS_BDY.body_2
+	PARTS_BDY.body_2, 
+	PARTS_BDY.body_3, 
+	PARTS_BDY.body_4
 ]
 
 var all_cargo_list : Array = [
 	PARTS_CRG.cargo_1, 
-	PARTS_CRG.cargo_2
+	PARTS_CRG.cargo_2, 
+	PARTS_CRG.cargo_3, 
+	PARTS_CRG.cargo_4
 ]
 
 var all_engines_list : Array = [
 	PARTS_ENG.engine_1,
-	PARTS_ENG.engine_2
+	PARTS_ENG.engine_2,
+	PARTS_ENG.engine_3,
+	PARTS_ENG.engine_4,
+	PARTS_ENG.engine_5,
+	PARTS_ENG.engine_6,
+	PARTS_ENG.engine_7
 ]
 
 var all_shields_list : Array = [
 	PARTS_SLD.shield_1,
-	PARTS_SLD.shield_2
+	PARTS_SLD.shield_2,
+	PARTS_SLD.shield_3,
+	PARTS_SLD.shield_4,
+	PARTS_SLD.shield_5,
+	PARTS_SLD.shield_6,
+	PARTS_SLD.shield_7
 ]
 
 var all_weapons_list : Array = [
