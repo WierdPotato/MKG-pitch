@@ -96,6 +96,12 @@ func update_mission_details() -> void:
 	challenge.text = selected_mission.get("challenge")
 
 func _on_go_pressed() -> void:
+	get_tree().change_scene_to_file("res://Prototypes/Shmup/FightLevel/fight_level.tscn")
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://Prototypes/Shmup/Demo/PrepMenuDemo.tscn")
+
+func debug_progress_sim() -> void:
 	_ready()
 	GLOBAL.selected_mission = selected_mission
 	GLOBAL.current_path = current_planet.my_info.get("path")

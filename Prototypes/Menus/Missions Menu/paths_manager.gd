@@ -15,10 +15,12 @@ extends Node2D
 
 func _ready() -> void:
 	if GLOBAL.current_step == 0:
+		print("current step: ", GLOBAL.current_step)
 		lvl_1a.grab_focus()
 		move_ship(lvl_1a.get_child(0).global_position)
 		
 	else:
+		print("current step: ", GLOBAL.current_step)
 		missions_menu.current_planet.grab_focus()
 		move_ship(missions_menu.current_planet.get_child(0).global_position)
 	

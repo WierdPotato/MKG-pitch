@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ck6v8i3tf5ha" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/MENU DE PREPARACION done.png" id="1_o46kn"]
 [ext_resource type="Texture2D" uid="uid://dkc5x0kfrexfc" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/MENU DE PREPARACION V1.1.1.png" id="1_s6l8r"]
 [ext_resource type="Script" uid="uid://bgerhqrg6iehs" path="res://Prototypes/Shmup/Demo/prep_menu_demo.gd" id="1_slku0"]
-[ext_resource type="PackedScene" uid="uid://clnwdyxs3ylfj" path="res://Prototypes/Shmup/FightLevel/fight_level.tscn" id="2_1d4b1"]
 [ext_resource type="Texture2D" uid="uid://3dijqotcofun" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/current_sel_section.png" id="2_gbtgt"]
+[ext_resource type="PackedScene" uid="uid://b0cgidy8ygrkl" path="res://Prototypes/Menus/Missions Menu/missions_menu.tscn" id="2_mhbv3"]
 [ext_resource type="Texture2D" uid="uid://c55tc00e1pbwb" path="res://Prototypes/Shmup/Assets/Charas/gundam/isometric/naveGundam_00.png" id="2_odrck"]
 [ext_resource type="Texture2D" uid="uid://coh7ymcmtp6ak" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/Rectangle 77.png" id="3_0ctij"]
 [ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="3_snuju"]
@@ -124,7 +124,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_slku0")
-next_screen = ExtResource("2_1d4b1")
+next_screen = ExtResource("2_mhbv3")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1208614911]
