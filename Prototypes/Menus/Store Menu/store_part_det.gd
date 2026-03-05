@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var store_menu: Node2D = $"../../.."
+
 @onready var labels: Node2D = $Labels
 @onready var part_name: Label = $Labels/PartName
 @onready var hp: Label = $Labels/HP
@@ -45,8 +47,16 @@ func check_selected():
 	
 	if STORE.selected_part == my_current_part:
 		STORE.part_deselected()
+		store_menu.current_part_price = 0
+		store_menu.disable_purchase = true
 	else:
 		STORE.part_selected(my_current_part)
+		store_menu.current_part_price = my_current_part.get("Price")
+		store_menu.disable_purchase = false
 
 func _process(_delta: float) -> void:
+	pass
+
+
+func _on_background_pressed() -> void:
 	pass

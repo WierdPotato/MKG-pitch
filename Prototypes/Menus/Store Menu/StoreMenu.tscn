@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://flb4cuiaue5i" path="res://Prototypes/Menus/Store Menu/store_menu.gd" id="1_oamnr"]
 [ext_resource type="PackedScene" uid="uid://b4hyeiu450m0c" path="res://Prototypes/Menus/Prep Menu/Prep Menu.tscn" id="2_yttvm"]
 [ext_resource type="Texture2D" uid="uid://dl8wkmf1vqgfj" path="res://Prototypes/Shmup/Assets/Demo/Tienda/Background v2.png" id="3_kkvcs"]
-[ext_resource type="Texture2D" uid="uid://dkpvnudjlf3lm" path="res://Prototypes/Shmup/Assets/Demo/Tienda/Mockup.png" id="3_yttvm"]
 [ext_resource type="Texture2D" uid="uid://dxienrrajf0oy" path="res://Prototypes/Shmup/Assets/Demo/Tienda/Revisión/header_bg.png" id="4_jl2yj"]
 [ext_resource type="Texture2D" uid="uid://3dijqotcofun" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/current_sel_section.png" id="4_kkvcs"]
 [ext_resource type="Texture2D" uid="uid://qrq03saytk1j" path="res://Prototypes/Shmup/Assets/Demo/Tienda/Circles.png" id="5_gs6fw"]
@@ -11,6 +10,7 @@
 [ext_resource type="Script" uid="uid://y4ml4sb40len" path="res://Prototypes/Menus/Store Menu/store.gd" id="5_ijuh8"]
 [ext_resource type="Script" uid="uid://bd4uodvqx2q2c" path="res://Prototypes/Shmup/Demo/highlight_buttons.gd" id="6_ijuh8"]
 [ext_resource type="Texture2D" uid="uid://e50gkgj6bkjf" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/ALL.png" id="7_lxex0"]
+[ext_resource type="Texture2D" uid="uid://cjx25mntooaew" path="res://Prototypes/Shmup/Assets/Demo/Tienda/referencia.png" id="7_nd1q8"]
 [ext_resource type="Texture2D" uid="uid://cyq0c1ho84aq1" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/chasis.png" id="8_k0ueg"]
 [ext_resource type="Texture2D" uid="uid://flw608pgf2fh" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/pistones.png" id="9_2m70t"]
 [ext_resource type="Texture2D" uid="uid://d04fkhiybrctb" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/HEADER/escudo.png" id="10_jl2yj"]
@@ -42,6 +42,10 @@
 [ext_resource type="Texture2D" uid="uid://b71by5d7xk3ym" path="res://Prototypes/Shmup/Assets/Demo/Tienda/ammo/Toggle.png" id="34_nd1q8"]
 [ext_resource type="Texture2D" uid="uid://btfeejeulunp0" path="res://Prototypes/Shmup/Assets/Demo/Tienda/ammo/hover buy.png" id="35_ajtve"]
 [ext_resource type="Texture2D" uid="uid://vyw5w8nmek6d" path="res://Prototypes/Shmup/Assets/Demo/Tienda/ammo/BuyAmmo.png" id="36_1kuaf"]
+[ext_resource type="Texture2D" uid="uid://byuya65jqlw1c" path="res://Prototypes/Shmup/Assets/Demo/Tienda/ammo/cannot_buy.png" id="40_nhfgl"]
+[ext_resource type="Texture2D" uid="uid://bvj1g01t28y3d" path="res://Prototypes/Shmup/Assets/Demo/Tienda/back purchase/equip selected_btn.png" id="42_uopbw"]
+[ext_resource type="Texture2D" uid="uid://lh8ub5iodi6d" path="res://Prototypes/Shmup/Assets/Demo/Tienda/mony_amt_pill.png" id="43_iig18"]
+[ext_resource type="Texture2D" uid="uid://dkyohsrlk304i" path="res://Prototypes/Shmup/Assets/Demo/Tienda/cart_value_pill.png" id="44_1kuaf"]
 
 [node name="StoreMenu" type="Node2D" unique_id=1958367525]
 process_mode = 1
@@ -83,8 +87,7 @@ texture = ExtResource("5_gs6fw")
 
 [node name="Guía" type="Sprite2D" parent="." unique_id=286061339]
 visible = false
-self_modulate = Color(1, 1, 1, 0.11372549)
-texture = ExtResource("3_yttvm")
+texture = ExtResource("7_nd1q8")
 centered = false
 
 [node name="TotalPrice" type="Label" parent="." unique_id=508866170]
@@ -1711,6 +1714,7 @@ focus_neighbor_top = NodePath("../../../../Store/Down/ListDown")
 focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../../../Store/Tabs/Cargo/CargoButton")
 texture_normal = ExtResource("36_1kuaf")
+texture_disabled = ExtResource("40_nhfgl")
 script = ExtResource("6_ijuh8")
 
 [node name="Purchase" type="Node2D" parent="." unique_id=747607216]
@@ -1729,6 +1733,7 @@ offset_bottom = 1047.0
 focus_neighbor_left = NodePath("../../Ammo/Buyer/BuyAmmo/Buy")
 focus_neighbor_right = NodePath("../../Prep/PrepButton")
 texture_normal = ExtResource("24_2m70t")
+texture_disabled = ExtResource("42_uopbw")
 script = ExtResource("6_ijuh8")
 
 [node name="Prep" type="Node2D" parent="." unique_id=1900661367]
@@ -1750,11 +1755,63 @@ focus_neighbor_bottom = NodePath("../../Store/Tabs/All/AllButton")
 texture_normal = ExtResource("25_jl2yj")
 script = ExtResource("6_ijuh8")
 
-[node name="wallet" type="Label" parent="." unique_id=1135054928]
-offset_left = 668.0
-offset_top = 139.0
-offset_right = 1135.0
-offset_bottom = 216.0
+[node name="Wallet" type="Node2D" parent="." unique_id=666736214]
+
+[node name="BG" type="Sprite2D" parent="Wallet" unique_id=555937025]
+position = Vector2(967, 204)
+texture = ExtResource("43_iig18")
+
+[node name="Text" type="Label" parent="Wallet" unique_id=1135054928]
+offset_left = 815.0
+offset_top = 179.0
+offset_right = 1120.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0.14509805, 0.44313726, 0.4745098, 1)
+theme_override_colors/font_outline_color = Color(0.14509805, 0.44313726, 0.4745098, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("17_r578w")
+theme_override_font_sizes/font_size = 23
+text = "29999999999999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cart" type="Node2D" parent="." unique_id=1244113697]
+
+[node name="BG" type="Sprite2D" parent="Cart" unique_id=1676118603]
+modulate = Color(1, 1, 1, 0.5176471)
+position = Vector2(1306, 261)
+texture = ExtResource("44_1kuaf")
+
+[node name="Title" type="Label" parent="Cart" unique_id=156618371]
+offset_left = 1184.0
+offset_top = 226.0
+offset_right = 1431.0
+offset_bottom = 258.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("17_r578w")
+theme_override_font_sizes/font_size = 25
+text = "CART VALUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Cart" unique_id=285956018]
+offset_left = 1182.0
+offset_top = 264.0
+offset_right = 1429.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("17_r578w")
+theme_override_font_sizes/font_size = 25
+text = "209090909809"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="focus_entered" from="Store/Tabs/All/AllButton" to="Store/Tabs/All/AllButton" method="_on_focus_entered"]
@@ -1787,23 +1844,27 @@ offset_bottom = 216.0
 [connection signal="focus_exited" from="Store/PartsList/Part1/Background" to="Store/PartsList/Part1/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/PartsList/Part1/Background" to="Store/PartsList/Part1/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Store/PartsList/Part1/Background" to="Store/PartsList/Part1/Background" method="_on_mouse_exited"]
-[connection signal="pressed" from="Store/PartsList/Part1/Background" to="Store" method="_on_background_pressed"]
+[connection signal="pressed" from="Store/PartsList/Part1/Background" to="Store/PartsList/Part1" method="_on_background_pressed"]
 [connection signal="focus_entered" from="Store/PartsList/Part2/Background" to="Store/PartsList/Part2/Background" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/PartsList/Part2/Background" to="Store/PartsList/Part2/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/PartsList/Part2/Background" to="Store/PartsList/Part2/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Store/PartsList/Part2/Background" to="Store/PartsList/Part2/Background" method="_on_mouse_exited"]
+[connection signal="pressed" from="Store/PartsList/Part2/Background" to="Store/PartsList/Part2" method="_on_background_pressed"]
 [connection signal="focus_entered" from="Store/PartsList/Part3/Background" to="Store/PartsList/Part3/Background" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/PartsList/Part3/Background" to="Store/PartsList/Part3/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/PartsList/Part3/Background" to="Store/PartsList/Part3/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Store/PartsList/Part3/Background" to="Store/PartsList/Part3/Background" method="_on_mouse_exited"]
+[connection signal="pressed" from="Store/PartsList/Part3/Background" to="Store/PartsList/Part3" method="_on_background_pressed"]
 [connection signal="focus_entered" from="Store/PartsList/Part4/Background" to="Store/PartsList/Part4/Background" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/PartsList/Part4/Background" to="Store/PartsList/Part4/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/PartsList/Part4/Background" to="Store/PartsList/Part4/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Store/PartsList/Part4/Background" to="Store/PartsList/Part4/Background" method="_on_mouse_exited"]
+[connection signal="pressed" from="Store/PartsList/Part4/Background" to="Store/PartsList/Part4" method="_on_background_pressed"]
 [connection signal="focus_entered" from="Store/PartsList/Part5/Background" to="Store/PartsList/Part5/Background" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/PartsList/Part5/Background" to="Store/PartsList/Part5/Background" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/PartsList/Part5/Background" to="Store/PartsList/Part5/Background" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Store/PartsList/Part5/Background" to="Store/PartsList/Part5/Background" method="_on_mouse_exited"]
+[connection signal="pressed" from="Store/PartsList/Part5/Background" to="Store/PartsList/Part5" method="_on_background_pressed"]
 [connection signal="focus_entered" from="Store/Up/ListUP" to="Store/Up/ListUP" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/Up/ListUP" to="Store/Up/ListUP" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Store/Up/ListUP" to="Store/Up/ListUP" method="_on_mouse_entered"]

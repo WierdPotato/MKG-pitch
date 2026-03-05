@@ -15,20 +15,23 @@ extends Node2D
 
 func _ready() -> void:
 	if GLOBAL.current_step == 0:
-		lvl_1a.grab_focus()
+		#print("current step: ", GLOBAL.current_step)
 		move_ship(lvl_1a.get_child(0).global_position)
 		
 	else:
-		missions_menu.current_planet.grab_focus()
-		move_ship(missions_menu.current_planet.get_child(0).global_position)
+		pass
+		#await get_tree().process_frame
+		#move_ship(missions_menu.current_planet.get_child(0).global_position)
 	
 func lock_missions(missions: Array)-> void:
 	for i in missions:
+		#pass
 		i.disabled = true
 		i.get_child(2).visible = true
 		
 func unlock_missions(missions : Array)-> void:
 	for i in missions:
+		#pass
 		i.disabled = false
 		i.get_child(2).visible = false
 

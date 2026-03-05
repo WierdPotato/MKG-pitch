@@ -14,7 +14,7 @@ var Ms : float #Masa VALOR BASE: 3
 var Ar : float #Superficie de la nave VALOR BASE: 2
 
 @onready var screensize = get_viewport_rect().size #Obtiene el tamaño de la pantalla
-@onready var sprite: Sprite2D = $Sprite #Nodo sprites de la nave
+@onready var sprite: Sprite2D = $ShipSprite #Nodo sprites de la nave
 @onready var integrity_machine: Node2D = $IntegrityMachine
 @onready var shot_machine: Node2D = $ShotMachine
 
@@ -54,19 +54,19 @@ func check_vectors(input) -> void:
 		
 		if vectors[0].x != vectors[1].x and axis.x != 0: #Si las componentes x del primer y segundo vector son diferentes y vector.x no es 0
 			accel_tween(2) #Detecta que se debe de cambiar de velocidad x y llama al metodo que gestiona el cambio
-			print("X CHANGED")
+			#print("X CHANGED")
 			
 		elif vectors[0].x != vectors[1].x and axis.x == 0: #Si las componentes x son diferentes pero vector.x es 0, reduce la velocidad a 0
 			stop_tween(2) 
-			print("X STOP")
+			#print("X STOP")
 			
 		if vectors[0].y != vectors[1].y and axis.y != 0: 
 			accel_tween(1)
-			print("Y CHANGED")
+			#print("Y CHANGED")
 			
 		elif vectors[0].y != vectors[1].y and axis.y == 0:
 			stop_tween(1)
-			print("Y STOP")
+			#print("Y STOP")
 	
 
 func time_sim(comp : float, Ax : String) -> float: #Ejecuta la formula que determina el tiempo que tarda la nave en cambiar de velocidad
@@ -82,7 +82,7 @@ func time_sim(comp : float, Ax : String) -> float: #Ejecuta la formula que deter
 		
 		Tm = (((Vf-Vix)*(Ms + (Mu*Ar)))/(Fz*Fz*Fz))*(Ms*Ms)
 		#Tm = (((Vf-Vix)/(Fz*Fz))*Mu)*Ms 
-		if Tm < 0: #Si el tiempo es negativo la formula pierde valor, así que si ocurre, la hacemos positiva. 
+		if Tm < 0: #Si el tiempo es negativo la formula se vuelve inutil así que si ocurre, la hacemos positiva. 
 			Tm = -Tm 
 		
 	elif Ax == "y":
@@ -168,5 +168,3 @@ func _process(delta: float) -> void:
 	update_vi() #Llama cada frame a que se actualicen las velocidades iniciales
 	manage_mov() #Gestiona cada frame el movimiento
 	update_weight()
-	$Label.text = "Weight: " + str(Ms)
-	$Label2.text = str($ShotMachine.ammo)

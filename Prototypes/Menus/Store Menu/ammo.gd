@@ -64,8 +64,12 @@ func change_font_color(target: Label, color : Color)-> void:
 func check_less() -> void:
 	if selected_ammo > 0:
 		emit_signal("enable_less")
+	
 	else:
-		emit_signal("disable_less")
+		if increments > PREP.inventory_ammo or -selected_ammo + increments > PREP.inventory_ammo:
+			emit_signal("disable_less")
+		else:
+			emit_signal("enable_less")
 
 func _on_less_pressed() -> void:
 	selected_ammo -= increments
@@ -77,7 +81,7 @@ func _on_disable_less() -> void:
 	less.disabled = true
 
 func check_more() -> void:
-	if price > GLOBAL.money:
+	if price + (increments * ammo_price) > GLOBAL.money:
 		emit_signal("disable_more")
 	else:
 		emit_signal("enable_more")
@@ -97,7 +101,7 @@ func _on_buy_pressed() -> void:
 	selected_ammo = 0
 
 func check_buy() -> void:
-	if price > GLOBAL.money:
+	if price > GLOBAL.money or selected_ammo == 0:
 		emit_signal("disable_buy")
 	else:
 		emit_signal("enable_buy")

@@ -380,6 +380,8 @@ var money : int = 0 #Almacena los puntos obtenidos en el clicker
 var current_step : int = 0
 var current_path : int = 1
 var selected_mission : Dictionary
+var selected_planet : Dictionary
+var map_button_ref : Button
 var mission_goal : int = 0
 
 var active_yellow_perks : Array
