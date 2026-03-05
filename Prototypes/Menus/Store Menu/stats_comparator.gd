@@ -74,7 +74,7 @@ func process_text() -> void:
 	
 	for i in equiped_list.size():
 		
-		if i == 6:
+		if i== 6 or i == 7:
 			if equiped_list[i].text > sim_list[i].text:
 				sim_list[i].set("theme_override_colors/font_color", green_text)
 				sim_list[i].set("theme_override_colors/font_outline_color", green_text)

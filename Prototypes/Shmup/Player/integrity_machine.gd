@@ -9,7 +9,7 @@ var shield : float #Almacena la integridad de los escudos
 func _ready() -> void:
 	integrity = PREP.ship_hp
 	shield = PREP.equiped_parts["sld"].get("HP")
-	print(integrity)
+	#print(integrity)
 	
 func _process(_delta: float) -> void:
 	if integrity <= 0:

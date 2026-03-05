@@ -7,13 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://rdsxrej2aa6o" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_21.png" id="6_p2rt2"]
 [ext_resource type="Texture2D" uid="uid://dxhm845piafku" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_22.png" id="7_4dgjn"]
 [ext_resource type="Texture2D" uid="uid://nyom0byllit8" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_23.png" id="8_xwdlm"]
+[ext_resource type="Script" uid="uid://dxl4i2hrptd6k" path="res://Prototypes/Shmup/FightLevel/reload_machine.gd" id="9_dfv4o"]
+[ext_resource type="Texture2D" uid="uid://dtgf63koqghse" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/reload bg.png" id="9_up5ui"]
 [ext_resource type="Texture2D" uid="uid://bq5cldt7ad5y3" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/UI Overlay footer.png" id="9_xwdlm"]
 [ext_resource type="Texture2D" uid="uid://bk5mmwsi0gx86" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Health bar.png" id="10_c6qik"]
+[ext_resource type="Texture2D" uid="uid://d1pjqyv31ese" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/reaload line.png" id="10_onhs5"]
 [ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="10_uiq5e"]
+[ext_resource type="Texture2D" uid="uid://drq6jhe71ckq7" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/pointer.png" id="11_dfv4o"]
+[ext_resource type="Texture2D" uid="uid://dggtdrag0pswt" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/sweetspot S.png" id="11_onhs5"]
 [ext_resource type="Texture2D" uid="uid://oos4pw65ufa5" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/misiones.png" id="11_uiq5e"]
 [ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="13_2y6e2"]
 [ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="13_jt5yc"]
 [ext_resource type="FontFile" uid="uid://calnhu3bc01mv" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/KonkhmerSleokchher-Regular.ttf" id="13_uiq5e"]
+[ext_resource type="Texture2D" uid="uid://8rn114gniaiw" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/ingame reload.png" id="18_we8h7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6qik"]
 animations = [{
@@ -41,7 +47,23 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfv4o"]
+size = Vector2(30, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6in1"]
+size = Vector2(4, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onhs5"]
+size = Vector2(267, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we8h7"]
+size = Vector2(110, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbgic"]
+size = Vector2(5, 4)
+
 [node name="FightLevel" type="Node2D" unique_id=1227256553]
+position = Vector2(0, 1)
 
 [node name="PauseMenu" parent="." unique_id=131753112 instance=ExtResource("13_jt5yc")]
 visible = false
@@ -52,7 +74,7 @@ script = ExtResource("1_cn8b7")
 player = ExtResource("2_jf8sv")
 enemy = ExtResource("2_mhro8")
 path_speed = 500
-points_goal = 10
+points_goal = 1
 
 [node name="Background" type="Node2D" parent="Level" unique_id=178112183]
 
@@ -98,6 +120,76 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ReloadMachine" type="Node2D" parent="Level/UI" unique_id=1354012020]
+script = ExtResource("9_dfv4o")
+
+[node name="BG" type="Sprite2D" parent="Level/UI/ReloadMachine" unique_id=1617993890]
+position = Vector2(1673, 1037)
+texture = ExtResource("9_up5ui")
+
+[node name="Bar" type="Sprite2D" parent="Level/UI/ReloadMachine" unique_id=1264989754]
+position = Vector2(1675, 1038)
+texture = ExtResource("10_onhs5")
+
+[node name="Target" type="Area2D" parent="Level/UI/ReloadMachine" unique_id=762760610]
+position = Vector2(1755, 1038)
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Level/UI/ReloadMachine/Target" unique_id=39136926]
+texture = ExtResource("11_onhs5")
+metadata/_edit_lock_ = true
+
+[node name="TargetCollision" type="CollisionShape2D" parent="Level/UI/ReloadMachine/Target" unique_id=550713506]
+shape = SubResource("RectangleShape2D_dfv4o")
+debug_color = Color(0, 0.6313726, 0.47058824, 0.69411767)
+metadata/_edit_lock_ = true
+
+[node name="Pointer" type="Area2D" parent="Level/UI/ReloadMachine" unique_id=633264020 groups=["Pointer"]]
+position = Vector2(1470, 1038)
+
+[node name="Sprite" type="Sprite2D" parent="Level/UI/ReloadMachine/Pointer" unique_id=650404083]
+texture = ExtResource("11_dfv4o")
+metadata/_edit_lock_ = true
+
+[node name="PointerCollision" type="CollisionShape2D" parent="Level/UI/ReloadMachine/Pointer" unique_id=1658612796]
+shape = SubResource("RectangleShape2D_u6in1")
+metadata/_edit_lock_ = true
+
+[node name="Early" type="Area2D" parent="Level/UI/ReloadMachine" unique_id=723928948]
+metadata/_edit_lock_ = true
+
+[node name="EarlyCollision" type="CollisionShape2D" parent="Level/UI/ReloadMachine/Early" unique_id=1655172960]
+position = Vector2(1605.5, 1038)
+shape = SubResource("RectangleShape2D_onhs5")
+debug_color = Color(0.5735647, 0.54264295, 0.33358654, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Late" type="Area2D" parent="Level/UI/ReloadMachine" unique_id=2083759402]
+metadata/_edit_lock_ = true
+
+[node name="LateCollision" type="CollisionShape2D" parent="Level/UI/ReloadMachine/Late" unique_id=1166989729]
+position = Vector2(1826, 1038)
+shape = SubResource("RectangleShape2D_we8h7")
+debug_color = Color(0.7079999, 0.37720996, 0.79284996, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Missed" type="Area2D" parent="Level/UI/ReloadMachine" unique_id=1279152886]
+position = Vector2(3, 0)
+metadata/_edit_lock_ = true
+
+[node name="MissedCollision" type="CollisionShape2D" parent="Level/UI/ReloadMachine/Missed" unique_id=1305139873]
+position = Vector2(1880.5, 1038)
+shape = SubResource("RectangleShape2D_mbgic")
+debug_color = Color(0.785126, 0, 0.10446743, 0.73333335)
+metadata/_edit_lock_ = true
+
+[node name="Start" type="Marker2D" parent="Level/UI/ReloadMachine" unique_id=1404258463]
+position = Vector2(1470, 1038)
+metadata/_edit_lock_ = true
+
+[node name="Finish" type="Marker2D" parent="Level/UI/ReloadMachine" unique_id=181580881]
+position = Vector2(1880, 1038)
 
 [node name="Footer" type="Node2D" parent="Level/UI" unique_id=78034054]
 
@@ -153,6 +245,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("10_c6qik")
 
 [node name="Missions" type="Node2D" parent="Level/UI" unique_id=375307056]
+position = Vector2(0, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Level/UI/Missions" unique_id=1115546177]
 texture = ExtResource("11_uiq5e")
@@ -222,7 +315,26 @@ offset_right = 1905.0
 offset_bottom = 87.0
 texture_normal = ExtResource("13_2y6e2")
 
+[node name="GUía" type="Sprite2D" parent="." unique_id=1388561858]
+visible = false
+modulate = Color(1, 1, 1, 0.49803922)
+texture = ExtResource("18_we8h7")
+centered = false
+metadata/_edit_lock_ = true
+
 [connection signal="visibility_changed" from="PauseMenu" to="Level" method="_on_pause_menu_visibility_changed"]
 [connection signal="timeout" from="Level/EnemySpawnTimer" to="Level" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="early_reload" from="Level/UI/ReloadMachine" to="Level" method="_on_reload_machine_early_reload"]
+[connection signal="late_reload" from="Level/UI/ReloadMachine" to="Level" method="_on_reload_machine_late_reload"]
+[connection signal="missed_reload" from="Level/UI/ReloadMachine" to="Level" method="_on_reload_machine_missed_reload"]
+[connection signal="perfect_reload" from="Level/UI/ReloadMachine" to="Level" method="_on_reload_machine_perfect_reload"]
+[connection signal="area_entered" from="Level/UI/ReloadMachine/Target" to="Level/UI/ReloadMachine" method="_on_target_area_entered"]
+[connection signal="area_exited" from="Level/UI/ReloadMachine/Target" to="Level/UI/ReloadMachine" method="_on_target_area_exited"]
+[connection signal="area_entered" from="Level/UI/ReloadMachine/Early" to="Level/UI/ReloadMachine" method="_on_early_area_entered"]
+[connection signal="area_exited" from="Level/UI/ReloadMachine/Early" to="Level/UI/ReloadMachine" method="_on_early_area_exited"]
+[connection signal="area_entered" from="Level/UI/ReloadMachine/Late" to="Level/UI/ReloadMachine" method="_on_late_area_entered"]
+[connection signal="area_exited" from="Level/UI/ReloadMachine/Late" to="Level/UI/ReloadMachine" method="_on_late_area_exited"]
+[connection signal="area_entered" from="Level/UI/ReloadMachine/Missed" to="Level/UI/ReloadMachine" method="_on_missed_area_entered"]
+[connection signal="area_exited" from="Level/UI/ReloadMachine/Missed" to="Level/UI/ReloadMachine" method="_on_missed_area_exited"]
 [connection signal="value_changed" from="Level/UI/Footer/HP" to="Level" method="_on_hp_value_changed"]
 [connection signal="pressed" from="Level/UI/Pause" to="Level" method="_on_pause_pressed"]

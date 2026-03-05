@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cylemeqhijr7n" path="res://Prototypes/Shmup/ShotScene/Shot.tscn" id="2_h54ih"]
 [ext_resource type="Script" uid="uid://o5t8d5wpdovg" path="res://Prototypes/Shmup/Player/shot_machine.gd" id="3_whehj"]
 [ext_resource type="Texture2D" uid="uid://bdbiiuq2gg5y7" path="res://Prototypes/Shmup/Assets/Charas/gundam/side/naveGundam_side.png" id="5_5248s"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="6_tvdbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(112, 25)
@@ -21,13 +22,48 @@ script = ExtResource("3_whehj")
 shot = ExtResource("2_h54ih")
 ammo = 1000
 cadence = 1.0
+chamber = 5
 
 [node name="Marker2D" type="Marker2D" parent="ShotMachine" unique_id=1614483570]
 position = Vector2(68, 5)
 
 [node name="ShotCD" type="Timer" parent="ShotMachine" unique_id=1897897998]
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=438143573]
+[node name="Label" type="Label" parent="ShotMachine" unique_id=916285370]
+offset_left = -60.0
+offset_top = -79.0
+offset_right = 61.0
+offset_bottom = -55.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_tvdbg")
+theme_override_font_sizes/font_size = 19
+text = "RELOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReloadTimeLbl" type="Label" parent="ShotMachine" unique_id=1590710997]
+visible = false
+offset_left = -60.0
+offset_top = -55.0
+offset_right = 61.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_tvdbg")
+theme_override_font_sizes/font_size = 19
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReloadTimer" type="Timer" parent="ShotMachine" unique_id=352236586]
+one_shot = true
+
+[node name="ShipSprite" type="Sprite2D" parent="." unique_id=438143573]
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("5_5248s")
 
@@ -37,13 +73,6 @@ position = Vector2(7, 9.5)
 shape = SubResource("RectangleShape2D_kyqiw")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=916285370]
-visible = false
-offset_left = -63.0
-offset_top = -86.0
-offset_right = 58.0
-offset_bottom = -37.0
-
 [node name="Label2" type="Label" parent="." unique_id=1667100895]
 visible = false
 offset_left = -50.0
@@ -52,3 +81,4 @@ offset_right = 51.0
 offset_bottom = -36.0
 
 [connection signal="timeout" from="ShotMachine/ShotCD" to="ShotMachine" method="_on_cadence_timeout"]
+[connection signal="timeout" from="ShotMachine/ReloadTimer" to="ShotMachine" method="_on_reload_timer_timeout"]

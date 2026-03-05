@@ -18,7 +18,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Shot"):
 		hp -= PREP.equiped_parts["wpn"].get("Damage")
-		get_parent().current_points += hit_points_value
+		get_parent().add_points(hit_points_value)
 		self.queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

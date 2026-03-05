@@ -3,6 +3,7 @@ extends Control
 @onready var grafismos: Node2D = $Grafismos
 @onready var botones: Node2D = $Botones
 
+
 var called_from
 
 func opened(id : String) -> void:

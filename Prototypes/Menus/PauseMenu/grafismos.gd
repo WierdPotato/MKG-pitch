@@ -51,16 +51,16 @@ func animate_change(grafismo : Sprite2D, reduce : bool) -> bool:
 	var tween : Tween = get_tree().create_tween() #Creamos el tween
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	if reduce:
-		tween.tween_property(grafismo, "scale", Vector2(0, 0), 0.1)
+		tween.tween_property(grafismo, "scale", Vector2(0.90, 0.90), 0.15).set_trans(Tween.TRANS_SPRING)
 	else:
-		tween.tween_property(grafismo, "scale", Vector2(1, 1), 0.1)
+		tween.tween_property(grafismo, "scale", Vector2(1, 1), 0.15).set_trans(Tween.TRANS_SPRING)
 		
 	tween.play()
 	await tween.finished
 	return true
 
 func manage_grafismo(grafismo)-> void:
-	grafismo.scale = Vector2(0,0)
+	grafismo.scale = Vector2(0.90,0.90)
 	grafismo.visible = true
 	animate_change(grafismo, false)
 	current_grafismo = grafismo
