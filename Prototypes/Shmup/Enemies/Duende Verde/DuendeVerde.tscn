@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://mtdi8bvv3t06"]
+
+[ext_resource type="Script" uid="uid://cwqrgkq2ddi11" path="res://Prototypes/Shmup/Enemies/Duende Verde/duende_verde.gd" id="1_0wylg"]
+[ext_resource type="Texture2D" uid="uid://ch6mfxgn2ytmk" path="res://Prototypes/Shmup/Assets/Charas/Duende Verde/side.png" id="1_15t5d"]
+[ext_resource type="Script" uid="uid://bq028wdb37f1k" path="res://Prototypes/Shmup/Enemies/Duende Verde/duende_shoot_machine.gd" id="1_o48u0"]
+[ext_resource type="PackedScene" uid="uid://deyy70pfo1rb5" path="res://Prototypes/Shmup/ShotScene/EnemyShots/EnemyShot1/EnemyShot1.tscn" id="2_qe6on"]
+
+[node name="DuendeVerde" type="CharacterBody2D" unique_id=1335598091]
+motion_mode = 1
+script = ExtResource("1_0wylg")
+speed = 15000
+hp = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682198224]
+position = Vector2(1.1904297, -0.9364929)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_15t5d")
+
+[node name="MoveCD" type="Timer" parent="." unique_id=1322103190]
+one_shot = true
+
+[node name="ShootMachine" type="Node2D" parent="." unique_id=1598815285]
+position = Vector2(-84, 42)
+script = ExtResource("1_o48u0")
+shot = ExtResource("2_qe6on")
+my_hit_dmg = 40
+
+[node name="Marker2D" type="Marker2D" parent="ShootMachine" unique_id=1481677935]
+position = Vector2(-31, 9)
+
+[node name="ShotCD" type="Timer" parent="ShootMachine" unique_id=1996445787]
+wait_time = 2.0
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="ShootMachine" unique_id=1678065176]
+visible = false
+position = Vector2(0, 8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShootMachine/DetectionArea" unique_id=685419839]
+polygon = PackedVector2Array(-1, 1, -2022, -364, -2023, 320)
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1708266644 groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=415358010]
+position = Vector2(15.5, 3.5)
+polygon = PackedVector2Array(38.5, -55.5, 28.5, -55.5, -94.5, 7.5, -31.5, 36.5, -134.5, 47.5, 70.5, 55.5, 102.5, 10.5, 102.5, -22.5)
+
+[connection signal="timeout" from="MoveCD" to="." method="_on_move_cd_timeout"]
+[connection signal="timeout" from="ShootMachine/ShotCD" to="ShootMachine" method="_on_shot_cd_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -8,6 +8,7 @@ extends Control
 @onready var load_nmb: Label = $ShipLoad/LoadNmb
 @onready var inventory: Control = $Inventory
 
+@onready var pause_menu: Control = $PauseMenu
 
 @export var next_screen : PackedScene
 
@@ -34,8 +35,6 @@ func deselect_prev_button(button : TextureButton)-> void:
 			
 	current_selected_button = button
 
-
-
 func _on_shop_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Prototypes/Menus/Store Menu/StoreMenu.tscn")
 
@@ -57,6 +56,15 @@ func update_load_bar() -> void:
 	load_progress_bar.max_value = PREP.ship_load
 	load_progress_bar.value = PREP.ship_area
 	load_nmb.text = str(int(lerpf(0, PREP.ship_load, PREP.ship_area))) + "%"
+
+func _on_pause_menu_visibility_changed() -> void:
+	if pause_menu.visible == true:
+		pass
+	else:
+		all_filter.grab_focus()
+
+func _on_pause_pressed() -> void:
+	pause_menu.opened("prep")
 
 func _on_ready_button_pressed() -> void:
 	get_tree().change_scene_to_packed(next_screen)

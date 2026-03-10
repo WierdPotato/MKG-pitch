@@ -47,7 +47,7 @@ func get_axis() -> Vector2:
 func check_vectors(input) -> void:
 	if vectors[vectors.size()-1] == input: #Comprueba si el vector recibido es igual al ultimo almacenado
 		pass
-	else: #Si es diferente:dw
+	else: #Si es diferente:
 		vectors.append(input) #Añade el vector al array
 		if vectors.size() > 2: #Si la lista tiene más de 2 entradas, elimina la más antigua
 			vectors.erase(vectors[0])
@@ -143,7 +143,7 @@ func manage_mov() -> void: #Gestiona el movimiento de la nave
 		sprite.texture = ship_up
 	else:
 		sprite.texture = ship_normal
-		
+
 	velocity.x = Hs #Igualamos velocity a la velocidad que está alterando el tween.
 	velocity.y = Vs
 	
@@ -164,7 +164,10 @@ func manage_mov() -> void: #Gestiona el movimiento de la nave
 func update_weight() -> void:
 	Ms = PREP.ship_mass + (shot_machine.ammo * 0.01)
 
-func _process(delta: float) -> void:
-	update_vi() #Llama cada frame a que se actualicen las velocidades iniciales
+func _physics_process(delta: float) -> void:
 	manage_mov() #Gestiona cada frame el movimiento
+
+func _process(_delta: float) -> void:
+	update_vi() #Llama cada frame a que se actualicen las velocidades iniciales
+	
 	update_weight()

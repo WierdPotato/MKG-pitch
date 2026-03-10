@@ -93,14 +93,13 @@ func _input(_event: InputEvent) -> void:
 		upgrades_manager._on_button_pressed()
 		
 func _on_pause_pressed() -> void:
-	get_tree().paused = true
 	pause_menu.opened("clicker")
 	
 func _on_pause_menu_visibility_changed() -> void:
 	if pause_menu.visible == true:
 		pass
 	else:
-		get_tree().paused = false
+		#get_tree().paused = false
 		upgrades_manager.get_child(0).get_child(0).get_child(0).get_child(0).get_child(1).grab_focus()
 
 func _process(_delta: float) -> void:

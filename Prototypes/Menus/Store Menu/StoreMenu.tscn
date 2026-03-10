@@ -46,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://bvj1g01t28y3d" path="res://Prototypes/Shmup/Assets/Demo/Tienda/back purchase/equip selected_btn.png" id="42_uopbw"]
 [ext_resource type="Texture2D" uid="uid://lh8ub5iodi6d" path="res://Prototypes/Shmup/Assets/Demo/Tienda/mony_amt_pill.png" id="43_iig18"]
 [ext_resource type="Texture2D" uid="uid://dkyohsrlk304i" path="res://Prototypes/Shmup/Assets/Demo/Tienda/cart_value_pill.png" id="44_1kuaf"]
+[ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="47_m71vd"]
+[ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="48_28620"]
 
 [node name="StoreMenu" type="Node2D" unique_id=1958367525]
 process_mode = 1
@@ -301,9 +303,9 @@ offset_left = 28.466553
 offset_top = 3.315796
 offset_right = 756.46655
 offset_bottom = 99.315796
-focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_left = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_top = NodePath("../../../Tabs/All/AllButton")
-focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../Part2/Background")
 texture_normal = ExtResource("15_v2e1h")
 script = ExtResource("6_ijuh8")
@@ -480,9 +482,9 @@ offset_left = 28.466553
 offset_top = 3.315796
 offset_right = 756.46655
 offset_bottom = 99.315796
-focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_left = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_top = NodePath("../../Part1/Background")
-focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../Part3/Background")
 texture_normal = ExtResource("15_v2e1h")
 script = ExtResource("6_ijuh8")
@@ -660,9 +662,9 @@ offset_left = 28.466553
 offset_top = 3.315796
 offset_right = 756.46655
 offset_bottom = 99.315796
-focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_left = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_top = NodePath("../../Part2/Background")
-focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../Part4/Background")
 texture_normal = ExtResource("15_v2e1h")
 script = ExtResource("6_ijuh8")
@@ -840,9 +842,9 @@ offset_left = 28.466553
 offset_top = 3.315796
 offset_right = 756.46655
 offset_bottom = 99.315796
-focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_left = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_top = NodePath("../../Part3/Background")
-focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../Part5/Background")
 texture_normal = ExtResource("15_v2e1h")
 script = ExtResource("6_ijuh8")
@@ -1020,9 +1022,9 @@ offset_left = 28.466553
 offset_top = 3.315796
 offset_right = 756.46655
 offset_bottom = 99.315796
-focus_neighbor_left = NodePath("../../../../Ready/ReadyButton")
+focus_neighbor_left = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_top = NodePath("../../Part4/Background")
-focus_neighbor_right = NodePath("../../../../AmmoSelector/Buttons/Toggle/Toggle")
+focus_neighbor_right = NodePath("../../../../Purchase/PurchaseButton")
 focus_neighbor_bottom = NodePath("../../../Up/ListUP")
 texture_normal = ExtResource("15_v2e1h")
 script = ExtResource("6_ijuh8")
@@ -1813,6 +1815,19 @@ text = "209090909809"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Pause" type="TextureButton" parent="." unique_id=495605304]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 86.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("47_m71vd")
+
+[node name="PauseMenu" parent="." unique_id=131753112 instance=ExtResource("48_28620")]
+visible = false
+z_index = 10
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="focus_entered" from="Store/Tabs/All/AllButton" to="Store/Tabs/All/AllButton" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Store/Tabs/All/AllButton" to="Store/Tabs/All/AllButton" method="_on_focus_exited"]
@@ -1912,3 +1927,5 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Prep/PrepButton" to="Prep/PrepButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Prep/PrepButton" to="Prep/PrepButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Prep/PrepButton" to="." method="_on_prep_button_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="visibility_changed" from="PauseMenu" to="." method="_on_pause_menu_visibility_changed"]

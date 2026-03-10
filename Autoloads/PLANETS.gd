@@ -52,9 +52,9 @@ var planet_5 : Dictionary = {
 
 @onready var planets : Array = [planet_1, planet_2, planet_3, planet_4, planet_5]
 
-var processed_planets : Dictionary = {}
+var referenced_planets : Dictionary = {}
 
 func assign_refs(planet : Dictionary, ref : String)-> void:
 	print("refs assigned")
-	processed_planets.get_or_add(str(ref))
-	processed_planets.set(str(ref), planet)
+	referenced_planets.get_or_add(str(ref))
+	referenced_planets.set(str(ref), planet)

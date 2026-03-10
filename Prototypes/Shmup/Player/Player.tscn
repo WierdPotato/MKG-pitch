@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bsopm61jyo35k" path="res://Prototypes/Shmup/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Script" uid="uid://3t7nrqdnqlnw" path="res://Prototypes/Shmup/Player/integrity_machine.gd" id="2_5248s"]
-[ext_resource type="PackedScene" uid="uid://cylemeqhijr7n" path="res://Prototypes/Shmup/ShotScene/Shot.tscn" id="2_h54ih"]
+[ext_resource type="PackedScene" uid="uid://cylemeqhijr7n" path="res://Prototypes/Shmup/ShotScene/PlayerShot/Shot1.tscn" id="2_h54ih"]
 [ext_resource type="Script" uid="uid://o5t8d5wpdovg" path="res://Prototypes/Shmup/Player/shot_machine.gd" id="3_whehj"]
 [ext_resource type="Texture2D" uid="uid://bdbiiuq2gg5y7" path="res://Prototypes/Shmup/Assets/Charas/gundam/side/naveGundam_side.png" id="5_5248s"]
 [ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="6_tvdbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
-size = Vector2(112, 25)
+size = Vector2(126, 37)
 
 [node name="Player" type="CharacterBody2D" unique_id=97374817]
 motion_mode = 1
@@ -68,8 +68,7 @@ scale = Vector2(0.16, 0.16)
 texture = ExtResource("5_5248s")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1414151434]
-visible = false
-position = Vector2(7, 9.5)
+position = Vector2(8, -5.5)
 shape = SubResource("RectangleShape2D_kyqiw")
 metadata/_edit_lock_ = true
 

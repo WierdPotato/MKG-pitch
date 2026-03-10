@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bf1flqfvghhtj" path="res://Prototypes/Menus/Missions Menu/demo_planet_button.gd" id="11_o3yeh"]
 [ext_resource type="Texture2D" uid="uid://cg7ppwcjfr342" path="res://Prototypes/Shmup/Assets/Demo/mapa/Otros/mapa completo.png" id="11_rom31"]
 [ext_resource type="Texture2D" uid="uid://dfjhvgfuybrgd" path="res://Prototypes/Clicker/Assets/DemoUI/lock_transparentV1.png" id="12_32x45"]
-[ext_resource type="Texture2D" uid="uid://bdbiiuq2gg5y7" path="res://Prototypes/Shmup/Assets/Charas/gundam/side/naveGundam_side.png" id="13_hogos"]
+[ext_resource type="Texture2D" uid="uid://beu2njtxvvj6h" path="res://Prototypes/Shmup/Assets/Demo/mapa/Nave icon.png" id="13_yrbcl"]
 [ext_resource type="Texture2D" uid="uid://ckmvourxauqvd" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/current_sel_go.png" id="15_o3yeh"]
 [ext_resource type="Texture2D" uid="uid://d0isiqb6bj1ik" path="res://Prototypes/Shmup/Assets/Demo/mapa/Otros/LINEAS NAVEGACIαN.png" id="15_q0iim"]
 [ext_resource type="Texture2D" uid="uid://bdwwjo6s4sta1" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/current_sel_back.png" id="15_rom31"]
@@ -203,7 +203,7 @@ offset_top = 221.0
 offset_right = 1730.0
 offset_bottom = 324.0
 focus_neighbor_left = NodePath("../Lvl2a")
-focus_neighbor_top = NodePath("../../../PathB/Buttons/Lvl1b")
+focus_neighbor_top = NodePath("../../../../Menus/Go/Go")
 focus_neighbor_right = NodePath("../../../Final/Boss/Lvl3")
 focus_neighbor_bottom = NodePath("../../../PathB/Buttons/Lvl1b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
@@ -321,7 +321,7 @@ offset_bottom = 466.0
 focus_neighbor_left = NodePath("../../../Final/Boss/Lvl3")
 focus_neighbor_top = NodePath("../../../PathA/Buttons/Lvl2a")
 focus_neighbor_right = NodePath("../Lvl1b")
-focus_neighbor_bottom = NodePath("../../../PathA/Buttons/Lvl2a")
+focus_neighbor_bottom = NodePath("../../../../Menus/Go/Go")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_o8yqw")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_cjxon")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_gwg30")
@@ -357,8 +357,8 @@ texture = ExtResource("15_q0iim")
 [node name="Ship" type="Sprite2D" parent="PathsManager/Overlay" unique_id=1273502288]
 z_index = 2
 position = Vector2(1681.0001, 414.00003)
-scale = Vector2(-0.085, 0.085)
-texture = ExtResource("13_hogos")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("13_yrbcl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=74848052]
 visible = false
@@ -381,7 +381,7 @@ offset_top = 876.0
 offset_right = 1861.0
 offset_bottom = 1017.0
 focus_neighbor_left = NodePath("../../../PathsManager/PathB/Buttons/Lvl1b")
-focus_neighbor_top = NodePath("../../Back/Back")
+focus_neighbor_top = NodePath("../../../PathsManager/PathB/Buttons/Lvl1b")
 focus_neighbor_right = NodePath("../../Back/Back")
 focus_neighbor_bottom = NodePath("../../../PathsManager/PathA/Buttons/Lvl1a")
 texture_normal = ExtResource("16_rom31")

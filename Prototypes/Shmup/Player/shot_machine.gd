@@ -31,6 +31,7 @@ func process_shot() -> void:
 	if Input.is_action_pressed("Shoot"):
 		if can_shoot == true and ammo > 0 and cadence > 0 and chamber > 0:
 			var shot_instance = shot.instantiate() #Instancia la escena con el disparo
+			shot_instance.player_node = get_parent()
 			shot_instance.global_position = shot_spawn.global_position #Establece la posición del disparo a la del marcador. 
 			get_tree().call_group("Level", "add_child", shot_instance) #Añade el disparo a la escena que está en el grupo Level.
 			#Así las balas se mueven solo hacia alante y no se desplazan cuando movemos la nave. 
@@ -63,7 +64,7 @@ func reload(tier : int) -> void:
 		can_shoot = false
 		await get_tree().create_timer(early_reload).timeout
 		can_shoot = true
-		chamber = 5
+		apply_reload()
 		reloading = false
 
 	elif tier == 2: #Recarga perfecta
@@ -71,7 +72,7 @@ func reload(tier : int) -> void:
 		can_shoot = false
 		await get_tree().create_timer(perfect_reload).timeout
 		can_shoot = true
-		chamber = 5
+		apply_reload()
 		reloading = false
 
 	elif tier == 3: #Recarga lenta
@@ -79,7 +80,7 @@ func reload(tier : int) -> void:
 		can_shoot = false
 		await get_tree().create_timer(late_reload).timeout
 		can_shoot = true
-		chamber = 5
+		apply_reload()
 		reloading = false
 
 	else: #Se te caen las balar
@@ -87,8 +88,17 @@ func reload(tier : int) -> void:
 		can_shoot = false
 		await get_tree().create_timer(missed_reload).timeout
 		can_shoot = true
-		chamber = 5
+		apply_reload()
 		reloading = false
+
+func apply_reload() -> void:
+	if ammo >= 5:
+		chamber = 5
+	else:
+		chamber = ammo
+
+func add_ammo(ammount) -> void:
+	ammo += ammount
 
 func manage_info(message_id : int) -> void:
 	if message_id == 1:

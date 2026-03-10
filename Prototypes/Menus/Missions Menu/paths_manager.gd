@@ -16,13 +16,10 @@ extends Node2D
 func _ready() -> void:
 	if GLOBAL.current_step == 0:
 		#print("current step: ", GLOBAL.current_step)
-		move_ship(lvl_1a.get_child(0).global_position)
-		
+		ship.global_position = lvl_1a.get_child(0).global_position
 	else:
-		pass
-		#await get_tree().process_frame
-		#move_ship(missions_menu.current_planet.get_child(0).global_position)
-	
+		print(GLOBAL.ship_icon_coords)
+		ship.global_position = GLOBAL.ship_icon_coords
 func lock_missions(missions: Array)-> void:
 	for i in missions:
 		#pass
@@ -34,8 +31,6 @@ func unlock_missions(missions : Array)-> void:
 		#pass
 		i.disabled = false
 		i.get_child(2).visible = false
-
-
 
 func move_ship(target) -> void:
 	var tween : Tween = get_tree().create_tween() #Creamos el tween

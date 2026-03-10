@@ -10,6 +10,8 @@ extends Node2D
 @onready var wallet: Label = $Wallet/Text
 @onready var ammo: Node2D = $Ammo
 @onready var cart_value: Label = $Cart/Value
+@onready var pause_menu: Control = $PauseMenu
+
 
 var total_price : int
 var current_selected_button
@@ -39,7 +41,25 @@ func _on_purchase_button_pressed() -> void:
 	STORE.buy()
 	parts_list.prepare_list()
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_released("Back"):
+		if !pause_menu.visible:
+			go_to_prep()
+
+func _on_pause_menu_visibility_changed() -> void:
+	if pause_menu.visible == true:
+		pass
+	else:
+		all_filter.grab_focus()
+
+
+func _on_pause_pressed() -> void:
+	pause_menu.opened("store")
+
 func _on_prep_button_pressed() -> void:
+	go_to_prep()
+
+func go_to_prep() -> void:
 	get_tree().change_scene_to_file("res://Prototypes/Shmup/Demo/PrepMenuDemo.tscn")
 
 func update_cart_price()-> void:

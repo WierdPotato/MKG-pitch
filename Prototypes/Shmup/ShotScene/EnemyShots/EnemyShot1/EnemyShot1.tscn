@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://deyy70pfo1rb5"]
+
+[ext_resource type="Texture2D" uid="uid://y1x86w4ex1fw" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/proyectilesV1 94x46.png" id="1_nwcy3"]
+[ext_resource type="Script" uid="uid://m6ey72qhmf6c" path="res://Prototypes/Shmup/ShotScene/EnemyShots/EnemyShot1/enemy_shot_1.gd" id="1_xikp6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xikp6"]
+atlas = ExtResource("1_nwcy3")
+region = Rect2(0, 0, 94, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80tmu"]
+atlas = ExtResource("1_nwcy3")
+region = Rect2(0, 46, 94, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlbk5"]
+atlas = ExtResource("1_nwcy3")
+region = Rect2(0, 92, 94, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lav4"]
+atlas = ExtResource("1_nwcy3")
+region = Rect2(0, 138, 94, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7ssv"]
+atlas = ExtResource("1_nwcy3")
+region = Rect2(0, 184, 94, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xikp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xikp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80tmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlbk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lav4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7ssv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80tmu"]
+size = Vector2(94, 42)
+
+[node name="EnemyShot1" type="Area2D" unique_id=283403721 groups=["EnemyShot"]]
+scale = Vector2(-0.5, 0.5)
+script = ExtResource("1_xikp6")
+speed = 1200
+hit_damage = 100
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1860978434]
+sprite_frames = SubResource("SpriteFrames_xikp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1787880921]
+shape = SubResource("RectangleShape2D_80tmu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=416036788]
+rect = Rect2(-47, -21, 94, 42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

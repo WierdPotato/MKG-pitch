@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c6cuavmfy8ujx" path="res://Prototypes/Menus/PauseMenu/Assets/botones/Return.png" id="15_y863m"]
 [ext_resource type="Theme" uid="uid://crgkpa4i67yfb" path="res://Theme 1.tres" id="17_6gyrr"]
 [ext_resource type="Texture2D" uid="uid://q5lsav1yk62c" path="res://Prototypes/Shmup/Assets/Demo/main menu/current_sel_button.png" id="22_0taw2"]
+[ext_resource type="Texture2D" uid="uid://bfooxurlnw2bw" path="res://Prototypes/Menus/PauseMenu/Assets/botones/boton prompts mando.png" id="22_neqph"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yf8f"]
 
@@ -189,6 +190,10 @@ offset_left = 319.0
 offset_top = 64.0
 offset_right = 1462.0
 offset_bottom = 231.0
+focus_neighbor_left = NodePath("../../Return/TextureButton")
+focus_neighbor_top = NodePath("../../Exit/ExitButton")
+focus_neighbor_right = NodePath("../../Return/TextureButton")
+focus_neighbor_bottom = NodePath("../../SFX/SfxButton")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0yf8f")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_k5a3t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ailbm")
@@ -201,8 +206,9 @@ offset_left = 367.0
 offset_top = 157.0
 offset_right = 1381.0
 offset_bottom = 217.0
-focus_neighbor_top = NodePath("../../Return/TextureButton")
-focus_neighbor_bottom = NodePath("../../SFX/SfxHSlider")
+focus_neighbor_top = NodePath("../../Exit/ExitButton")
+focus_neighbor_bottom = NodePath("../../SFX/SfxButton")
+mouse_default_cursor_shape = 2
 theme = ExtResource("17_6gyrr")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Music" unique_id=1106722509]
@@ -233,6 +239,10 @@ offset_left = 321.0
 offset_top = 66.0
 offset_right = 1381.0
 offset_bottom = 233.0
+focus_neighbor_left = NodePath("../../Controls/ControlsButton")
+focus_neighbor_top = NodePath("../../Music/MusicButton")
+focus_neighbor_right = NodePath("../../Controls/ControlsButton")
+focus_neighbor_bottom = NodePath("../../Language/LangButton")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lxkeg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_aya5v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_agpvp")
@@ -245,8 +255,9 @@ offset_left = 367.0
 offset_top = 161.0
 offset_right = 1305.0
 offset_bottom = 221.0
-focus_neighbor_top = NodePath("../../Music/MusicHSlider")
+focus_neighbor_top = NodePath("../../Music/MusicButton")
 focus_neighbor_bottom = NodePath("../../Language/LangButton")
+mouse_default_cursor_shape = 2
 theme = ExtResource("17_6gyrr")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/SFX" unique_id=905365593]
@@ -276,8 +287,9 @@ offset_left = 322.0
 offset_top = 64.0
 offset_right = 1298.0
 offset_bottom = 237.0
-focus_neighbor_top = NodePath("../../SFX/SfxHSlider")
+focus_neighbor_top = NodePath("../../SFX/SfxButton")
 focus_neighbor_bottom = NodePath("../../Main/MainButton")
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b828c")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dq1kr")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nclhp")
@@ -319,6 +331,7 @@ offset_right = 1214.0
 offset_bottom = 234.0
 focus_neighbor_top = NodePath("../../Language/LangButton")
 focus_neighbor_bottom = NodePath("../../Exit/ExitButton")
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jxrjy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_cg66w")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_njif2")
@@ -355,7 +368,8 @@ offset_top = 66.0
 offset_right = 1130.0
 offset_bottom = 237.0
 focus_neighbor_top = NodePath("../../Main/MainButton")
-focus_neighbor_bottom = NodePath("../../Return/TextureButton")
+focus_neighbor_bottom = NodePath("../../Music/MusicButton")
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6gyrr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_wcqu6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ucf80")
@@ -372,8 +386,11 @@ position = Vector2(1631, 32)
 [node name="TextureButton" type="TextureButton" parent="Botones/Return" unique_id=1180843658]
 offset_right = 256.0
 offset_bottom = 82.0
-focus_neighbor_top = NodePath("../../Exit/ExitButton")
-focus_neighbor_bottom = NodePath("../../Music/MusicHSlider")
+focus_neighbor_left = NodePath("../../Music/MusicButton")
+focus_neighbor_top = NodePath("../../Controls/ControlsButton")
+focus_neighbor_right = NodePath("../../Music/MusicButton")
+focus_neighbor_bottom = NodePath("../../Controls/ControlsButton")
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("15_y863m")
 
 [node name="Label" type="Label" parent="Botones/Return" unique_id=1039210267]
@@ -395,19 +412,41 @@ vertical_alignment = 1
 [node name="Marker2D" type="Marker2D" parent="Botones/Return" unique_id=2074509011]
 position = Vector2(132, 106)
 
+[node name="Controls" type="Node2D" parent="Botones" unique_id=1991705346]
+position = Vector2(1632, 263)
+
+[node name="ControlsButton" type="TextureButton" parent="Botones/Controls" unique_id=627272611]
+offset_right = 256.0
+offset_bottom = 82.0
+focus_neighbor_left = NodePath("../../SFX/SfxButton")
+focus_neighbor_top = NodePath("../../Return/TextureButton")
+focus_neighbor_right = NodePath("../../SFX/SfxButton")
+focus_neighbor_bottom = NodePath("../../Return/TextureButton")
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("22_neqph")
+
+[node name="Marker2D" type="Marker2D" parent="Botones/Controls" unique_id=1870022730]
+position = Vector2(132, 209)
+
 [node name="Indicator" type="Sprite2D" parent="Botones" unique_id=1504983519]
 position = Vector2(1504, 147)
 texture = ExtResource("22_0taw2")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_focus_entered"]
+[connection signal="focus_exited" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_focus_exited"]
 [connection signal="mouse_entered" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_mouse_entered"]
 [connection signal="mouse_exited" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_mouse_exited"]
+[connection signal="pressed" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_pressed"]
 [connection signal="focus_entered" from="Botones/Music/MusicHSlider" to="Botones" method="_on_music_h_slider_focus_entered"]
 [connection signal="focus_exited" from="Botones/Music/MusicHSlider" to="Botones" method="_on_music_h_slider_focus_exited"]
 [connection signal="mouse_entered" from="Botones/Music/MusicHSlider" to="Botones" method="_on_music_h_slider_mouse_entered"]
 [connection signal="mouse_exited" from="Botones/Music/MusicHSlider" to="Botones" method="_on_music_h_slider_mouse_exited"]
+[connection signal="focus_entered" from="Botones/SFX/SfxButton" to="Botones" method="_on_sfx_button_focus_entered"]
+[connection signal="focus_exited" from="Botones/SFX/SfxButton" to="Botones" method="_on_sfx_button_focus_exited"]
 [connection signal="mouse_entered" from="Botones/SFX/SfxButton" to="Botones" method="_on_sfx_button_mouse_entered"]
 [connection signal="mouse_exited" from="Botones/SFX/SfxButton" to="Botones" method="_on_sfx_button_mouse_exited"]
+[connection signal="pressed" from="Botones/SFX/SfxButton" to="Botones" method="_on_sfx_button_pressed"]
 [connection signal="focus_entered" from="Botones/SFX/SfxHSlider" to="Botones" method="_on_sfx_h_slider_focus_entered"]
 [connection signal="focus_exited" from="Botones/SFX/SfxHSlider" to="Botones" method="_on_sfx_h_slider_focus_exited"]
 [connection signal="mouse_entered" from="Botones/SFX/SfxHSlider" to="Botones" method="_on_sfx_h_slider_mouse_entered"]
@@ -431,3 +470,7 @@ texture = ExtResource("22_0taw2")
 [connection signal="mouse_entered" from="Botones/Return/TextureButton" to="Botones" method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="Botones/Return/TextureButton" to="Botones" method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="Botones/Return/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="focus_entered" from="Botones/Controls/ControlsButton" to="Botones" method="_on_controls_button_focus_entered"]
+[connection signal="focus_exited" from="Botones/Controls/ControlsButton" to="Botones" method="_on_controls_button_focus_exited"]
+[connection signal="mouse_entered" from="Botones/Controls/ControlsButton" to="Botones" method="_on_controls_button_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/Controls/ControlsButton" to="Botones" method="_on_controls_button_mouse_exited"]

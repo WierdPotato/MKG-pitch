@@ -381,7 +381,10 @@ var current_step : int = 0
 var current_path : int = 1
 var selected_mission : Dictionary
 var selected_planet : Dictionary
-var map_button_ref : Button
+var map_button_ref : String
+var ship_icon_coords : Vector2
+
+
 var mission_goal : int = 0
 
 var active_yellow_perks : Array
@@ -405,6 +408,9 @@ func _ready() -> void:
 
 func mission_manager(current_mission : Dictionary) -> void: 
 	mission_goal = current_mission.get("goal")
+
+func manage_current_planet() -> void:
+	pass
 
 func scale_goal(current_mission : Dictionary) -> void:
 	var processed_goal : int

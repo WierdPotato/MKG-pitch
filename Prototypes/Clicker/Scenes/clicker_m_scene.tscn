@@ -242,9 +242,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_a80n7")
-cheat = true
 prep_menu = ExtResource("2_t2f2w")
-clicker_minutes = 0.1
+clicker_minutes = 0.75
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Clicker_gameplay" unique_id=1517376632]

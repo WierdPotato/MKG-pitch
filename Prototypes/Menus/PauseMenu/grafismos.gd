@@ -47,7 +47,6 @@ func change_grafismo(id : int) -> void:
 		manage_grafismo(my_grafismo)
 
 func animate_change(grafismo : Sprite2D, reduce : bool) -> bool:
-	
 	var tween : Tween = get_tree().create_tween() #Creamos el tween
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	if reduce:

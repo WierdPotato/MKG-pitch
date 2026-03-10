@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cl6036bjsptdw"]
+
+[ext_resource type="Texture2D" uid="uid://dier2k0870pxp" path="res://Prototypes/Shmup/Assets/Charas/Chonky/side/side.png" id="1_pyido"]
+[ext_resource type="Script" uid="uid://2eaqe7m83xmp" path="res://Prototypes/Shmup/Enemies/Chonky/chonky.gd" id="1_vmhqt"]
+[ext_resource type="PackedScene" uid="uid://deyy70pfo1rb5" path="res://Prototypes/Shmup/ShotScene/EnemyShots/EnemyShot1/EnemyShot1.tscn" id="3_ewlrx"]
+[ext_resource type="Script" uid="uid://d13tnp74trpy8" path="res://Prototypes/Shmup/Enemies/Chonky/chonky_shoot_machine.gd" id="3_pyido"]
+
+[node name="Chonky" type="CharacterBody2D" unique_id=254536739]
+motion_mode = 1
+script = ExtResource("1_vmhqt")
+speed = 7000
+hp = 400.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097270696]
+position = Vector2(1.1904297, -0.9364929)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_pyido")
+
+[node name="MoveCD" type="Timer" parent="." unique_id=1963158993]
+one_shot = true
+
+[node name="ShootMachine" type="Node2D" parent="." unique_id=1167242357]
+position = Vector2(-78, 4)
+script = ExtResource("3_pyido")
+shot = ExtResource("3_ewlrx")
+my_hit_dmg = 40
+
+[node name="Marker2D" type="Marker2D" parent="ShootMachine" unique_id=1634561135]
+position = Vector2(-31, 9)
+
+[node name="ShotCD" type="Timer" parent="ShootMachine" unique_id=536555936]
+wait_time = 2.0
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="ShootMachine" unique_id=274406918]
+position = Vector2(-30, 9)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShootMachine/DetectionArea" unique_id=1063132122]
+polygon = PackedVector2Array(-1, 1, -2023, -95, -2023, 116)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1696700873 groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1276515531]
+position = Vector2(15.5, 3.5)
+polygon = PackedVector2Array(-3.5, -48.5, -15.5, -32.5, -60.5, -32.5, -105.5, -17.5, -120.5, 14.5, 12.5, 32.5, 90.5, 32.5, 85.5, -46.5)
+
+[connection signal="timeout" from="MoveCD" to="." method="_on_move_cd_timeout"]
+[connection signal="timeout" from="ShootMachine/ShotCD" to="ShootMachine" method="_on_shot_cd_timeout"]
+[connection signal="body_entered" from="ShootMachine/DetectionArea" to="ShootMachine" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="ShootMachine/DetectionArea" to="ShootMachine" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

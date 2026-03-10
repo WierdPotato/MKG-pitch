@@ -58,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://cl8h0de27u8pu" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/empty.png" id="45_kkno0"]
 [ext_resource type="Texture2D" uid="uid://cjd3bfq3belbe" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/current_sel_load.png" id="46_ni7ek"]
 [ext_resource type="Texture2D" uid="uid://yqmdpky0ujac" path="res://Prototypes/Shmup/Assets/Demo/Shmup Preparacion/AMMO/Load.png" id="47_23yb0"]
+[ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="59_qs1b7"]
+[ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="60_l5ufj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v0dy2"]
 animations = [{
@@ -1880,6 +1882,21 @@ theme_override_font_sizes/font_size = 22
 text = "100%"
 vertical_alignment = 1
 
+[node name="Pause" type="TextureButton" parent="." unique_id=1255273086]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 86.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("59_qs1b7")
+
+[node name="PauseMenu" parent="." unique_id=131753112 instance=ExtResource("60_l5ufj")]
+visible = false
+z_index = 10
+layout_mode = 1
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="focus_entered" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Inventory/Tabs/All/AllButton" to="Inventory/Tabs/All/AllButton" method="_on_focus_exited"]
@@ -1993,3 +2010,5 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Ready/ReadyButton" to="Ready/ReadyButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Ready/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="visibility_changed" from="PauseMenu" to="." method="_on_pause_menu_visibility_changed"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ckpmoplqy60qo"]
+
+[ext_resource type="Script" uid="uid://b0nv6w2vn4nqm" path="res://Prototypes/Shmup/Enemies/Saeta/saeta.gd" id="1_e8ufc"]
+[ext_resource type="Texture2D" uid="uid://t72nsf78yil1" path="res://Prototypes/Shmup/Assets/Charas/Saeta/enemigoSaeta_side.png" id="2_yfjh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ofbd"]
+size = Vector2(184, 29)
+
+[node name="Enemy" type="Node2D" unique_id=128278813]
+scale = Vector2(-1, 1)
+script = ExtResource("1_e8ufc")
+speed = 1000
+hp = 100.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1544301371 groups=["Enemies"]]
+position = Vector2(1.1904762, -0.93650436)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=301491320]
+scale = Vector2(-0.2, 0.2)
+texture = ExtResource("2_yfjh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1429331236]
+position = Vector2(1.8095257, 2.4365044)
+shape = SubResource("RectangleShape2D_2ofbd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=817744587]
+rect = Rect2(-92.63152, -13.68236, 188.76428, 32.664803)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
