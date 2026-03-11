@@ -82,7 +82,7 @@ func manage_death() -> void:
 func _physics_process(delta: float) -> void:
 	if !ignore_clamps:
 		position.x = clamp(position.x, screensize.x/2 , screensize.x - 80)
-		position.y = clamp(position.y, 54, screensize.y - screensize.y/7)
+		position.y = clamp(position.y, screensize.y/7, screensize.y - screensize.y/6)
 	if smoothing:
 		current_vector = current_vector.lerp(next_vector, delta*0.5)
 	else:

@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cbwkvhjm11imo" path="res://Prototypes/Shmup/FightLevel/fight_level.gd" id="1_cn8b7"]
 [ext_resource type="PackedScene" uid="uid://d2f76wxyv41ef" path="res://Prototypes/Shmup/Player/Player.tscn" id="2_jf8sv"]
-[ext_resource type="Texture2D" uid="uid://qjksfv8cl481" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_20.png" id="5_j8xdr"]
+[ext_resource type="Texture2D" uid="uid://d1ejdwiwfp0op" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/normal BG para tilear.png" id="5_dfv4o"]
 [ext_resource type="Script" uid="uid://bjomhrl4wapws" path="res://Prototypes/Shmup/FightLevel/enemies_engine.gd" id="5_u6in1"]
-[ext_resource type="Texture2D" uid="uid://rdsxrej2aa6o" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_21.png" id="6_p2rt2"]
-[ext_resource type="Texture2D" uid="uid://dxhm845piafku" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_22.png" id="7_4dgjn"]
-[ext_resource type="Texture2D" uid="uid://nyom0byllit8" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/boss_bg_23.png" id="8_xwdlm"]
 [ext_resource type="Script" uid="uid://dxl4i2hrptd6k" path="res://Prototypes/Shmup/FightLevel/reload_machine.gd" id="9_dfv4o"]
 [ext_resource type="Texture2D" uid="uid://dtgf63koqghse" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/reload bg.png" id="9_up5ui"]
 [ext_resource type="Texture2D" uid="uid://bq5cldt7ad5y3" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/UI Overlay footer.png" id="9_xwdlm"]
@@ -32,26 +29,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1166.4064, 2.893324, 0, 0, 0, 0, 1160.0754, 530.35223, 0, 0, 0, 0, 1194.8176, 530.35223, 0, 0, 0, 0, 1189.7395, 130.10536, 0, 0, 0, 0, 1191.3436, -3.690918, 0, 0, 0, 0, 1166.4064, 1.7959499)
 }
 point_count = 6
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_c6qik"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_j8xdr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_p2rt2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_4dgjn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xwdlm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfv4o"]
 bg_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
@@ -96,7 +73,8 @@ position = Vector2(225, 502)
 
 [node name="EnemiesEngine" type="Node" parent="Level" unique_id=179190672]
 script = ExtResource("5_u6in1")
-max_chonky = 2
+max_duendes = 1
+max_chonky = 1
 
 [node name="Enemies" type="Node" parent="Level/EnemiesEngine" unique_id=598574663]
 
@@ -171,22 +149,20 @@ rotation = 1.5827985
 metadata/_edit_lock_ = true
 
 [node name="Back" type="Parallax2D" parent="Level/Background" unique_id=1872964206]
-repeat_size = Vector2(1280, 0)
+repeat_size = Vector2(13343, 0)
 autoscroll = Vector2(-500, 0)
 metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Background/Back" unique_id=310579847]
-position = Vector2(960, 541)
-sprite_frames = SubResource("SpriteFrames_c6qik")
-autoplay = "default"
-frame_progress = 0.0012072073
-metadata/_edit_lock_ = true
+[node name="Sprite2D" type="Sprite2D" parent="Level/Background/Back" unique_id=928533913]
+texture = ExtResource("5_dfv4o")
+centered = false
 
 [node name="Mid" type="Parallax2D" parent="Level/Background" unique_id=1659071991]
-autoscroll = Vector2(-3.175, 0)
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="Top" type="Parallax2D" parent="Level/Background" unique_id=695874891]
+visible = false
 z_index = 1
 scroll_offset = Vector2(-1898, 0)
 repeat_size = Vector2(100000, 0)
