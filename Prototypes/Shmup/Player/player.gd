@@ -30,7 +30,10 @@ var vectors : Array = [Vector2(0,0), Vector2(0,0)] #Almacena los dos ultimos vec
 var current_x_tween : Tween #Almacena el último tween de velocidad.x que se ha ejecutado 
 var current_y_tween : Tween #Almacena el último tween de velocidad.y que se ha ejecutado 
 
+var alive : bool = true
+
 func _ready() -> void:
+	alive = true
 	Vmn = 0
 	Vmx = PREP.ship_max_speed
 	Fz = PREP.ship_force
@@ -38,11 +41,13 @@ func _ready() -> void:
 	Ar = PREP.ship_area
 
 func get_axis() -> Vector2:
-	axis.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left")) #Obtiene el vector en base a los inputs
-	axis.y = int(Input.is_action_pressed("Down")) - int(Input.is_action_pressed("Up"))
+	if alive:
+		axis.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left")) #Obtiene el vector en base a los inputs
+		axis.y = int(Input.is_action_pressed("Down")) - int(Input.is_action_pressed("Up"))
 
-	check_vectors(axis) #Llama al método que comprueba si se ha cambiado de vector
+		check_vectors(axis) #Llama al método que comprueba si se ha cambiado de vector
 	return axis #Devuelve el vector cuando get_axis() es llamado
+
 
 func check_vectors(input) -> void:
 	if vectors[vectors.size()-1] == input: #Comprueba si el vector recibido es igual al ultimo almacenado
@@ -166,8 +171,12 @@ func update_weight() -> void:
 
 func _physics_process(delta: float) -> void:
 	manage_mov() #Gestiona cada frame el movimiento
-
+	
 func _process(_delta: float) -> void:
 	update_vi() #Llama cada frame a que se actualicen las velocidades iniciales
-	
 	update_weight()
+
+
+func _on_integrity_machine_player_dead() -> void:
+	alive = false
+	shot_machine.alive = false

@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var chonky: CharacterBody2D = $".."
 @export var shot : PackedScene
 @export var my_hit_dmg : int
 
@@ -34,7 +35,7 @@ func _on_shot_cd_timeout() -> void:
 	shot_cd.start(5)
 
 func shoot() ->void:
-	if can_shoot:
+	if can_shoot and chonky.alive:
 		var shot_instance1 = shot.instantiate() #Instancia la escena con el disparo
 		var shot_instance2 = shot.instantiate()
 		var shot_instance3 = shot.instantiate()

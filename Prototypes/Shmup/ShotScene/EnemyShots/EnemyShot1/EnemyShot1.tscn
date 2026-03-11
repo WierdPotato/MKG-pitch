@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://y1x86w4ex1fw" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/proyectilesV1 94x46.png" id="1_nwcy3"]
 [ext_resource type="Script" uid="uid://m6ey72qhmf6c" path="res://Prototypes/Shmup/ShotScene/EnemyShots/EnemyShot1/enemy_shot_1.gd" id="1_xikp6"]
+[ext_resource type="Texture2D" uid="uid://cm75xnmsdyj5x" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Spritesheet Bullet Collision V1.png" id="3_80tmu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xikp6"]
 atlas = ExtResource("1_nwcy3")
@@ -46,6 +47,49 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tnj3"]
+atlas = ExtResource("3_80tmu")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gguuj"]
+atlas = ExtResource("3_80tmu")
+region = Rect2(0, 600, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mgha"]
+atlas = ExtResource("3_80tmu")
+region = Rect2(0, 1200, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbq3b"]
+atlas = ExtResource("3_80tmu")
+region = Rect2(0, 1800, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iun27"]
+atlas = ExtResource("3_80tmu")
+region = Rect2(0, 2400, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltnse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tnj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gguuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mgha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbq3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iun27")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80tmu"]
 size = Vector2(94, 42)
 
@@ -57,6 +101,13 @@ hit_damage = 100
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1860978434]
 sprite_frames = SubResource("SpriteFrames_xikp6")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=792270310]
+visible = false
+position = Vector2(45.999996, 0)
+rotation = 1.5707964
+scale = Vector2(0.4, -0.4)
+sprite_frames = SubResource("SpriteFrames_ltnse")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1787880921]
 shape = SubResource("RectangleShape2D_80tmu")

@@ -5,6 +5,7 @@ extends Node2D
 @onready var language: Sprite2D = $Language
 @onready var main: Sprite2D = $Main
 @onready var exit: Sprite2D = $Exit
+@onready var controls: Sprite2D = $Controls
 @onready var neutral: Sprite2D = $Neutral
 @onready var return_graf: Sprite2D = $Return
 
@@ -38,6 +39,9 @@ func change_grafismo(id : int) -> void:
 	
 	elif id == 7:
 		my_grafismo = neutral
+	
+	elif id == 8:
+		my_grafismo = controls
 	
 	if current_grafismo == my_grafismo or ignore_exit == true:
 		pass

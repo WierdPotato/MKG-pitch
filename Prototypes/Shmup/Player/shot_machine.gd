@@ -10,8 +10,10 @@ extends Node
 @export var shot : PackedScene
 @export var ammo : int 
 @export var cadence : float
-
+@export var max_chamber : int
 @export var chamber : int
+
+signal reload_started
 
 var reload_machine
 var reloading : bool
@@ -22,14 +24,18 @@ var perfect_reload : float = 0.1
 var late_reload : float = 1.25
 var missed_reload : float = 2
 
+var alive : bool
+
 func _ready() -> void:
+	alive = true
 	ammo = PREP.ship_ammo
 	cadence = PREP.ship_cadence
+
 	manage_info(1)
 
 func process_shot() -> void:
 	if Input.is_action_pressed("Shoot"):
-		if can_shoot == true and ammo > 0 and cadence > 0 and chamber > 0:
+		if can_shoot == true and ammo > 0 and cadence > 0 and chamber > 0 and alive:
 			var shot_instance = shot.instantiate() #Instancia la escena con el disparo
 			shot_instance.player_node = get_parent()
 			shot_instance.global_position = shot_spawn.global_position #Establece la posición del disparo a la del marcador. 
@@ -43,7 +49,7 @@ func process_shot() -> void:
 			pass
 
 func check_reload() -> void:
-	if Input.is_action_just_pressed("Reload") and reloading == false:
+	if Input.is_action_just_pressed("Reload") and reloading == false and alive:
 		chamber = 0
 		reload_machine.reload_pressed()
 		manage_info(2)
@@ -92,8 +98,8 @@ func reload(tier : int) -> void:
 		reloading = false
 
 func apply_reload() -> void:
-	if ammo >= 5:
-		chamber = 5
+	if ammo >= max_chamber:
+		chamber = max_chamber
 	else:
 		chamber = ammo
 
@@ -134,13 +140,14 @@ func manage_timer_info(message_id : int) -> void:
 		reload_timer.wait_time = late_reload
 		reload_timer.start()
 	
-	elif message_id == 6: #Perfect reload
+	elif message_id == 6: #Missed reload
 		print("6 called")
 		reload_time_lbl.visible = true
 		label.text = "MISSED"
 		print(label.text)
 		reload_timer.wait_time = missed_reload
 		reload_timer.start()
+	reload_started.emit()
 
 func _on_reload_timer_timeout() -> void:
 	reload_time_lbl.visible = false
@@ -158,4 +165,3 @@ func shot_cadence() -> float:
 func _process(_delta: float) -> void:
 	process_shot()
 	check_reload()
-	reload_time_lbl.text = "%.2f" % reload_timer.time_left

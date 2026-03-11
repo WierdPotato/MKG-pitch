@@ -163,19 +163,21 @@ func _on_texture_button_focus_exited() -> void:
 ##########################################################
 
 func _on_controls_button_focus_entered() -> void:
+	grafismos.change_grafismo(8)
 	move_indicator(controls.get_child(1).global_position)
 
 
 func _on_controls_button_focus_exited() -> void:
-	pass # Replace with function body.
+	grafismos.change_grafismo(7)
 
 
 func _on_controls_button_mouse_entered() -> void:
+	grafismos.change_grafismo(8)
 	move_indicator(controls.get_child(1).global_position)
 
 
 func _on_controls_button_mouse_exited() -> void:
-	pass # Replace with function body.
+	grafismos.change_grafismo(7)
 
 func move_indicator(coords) -> void:
 	var tween : Tween = get_tree().create_tween() #Creamos el tween

@@ -15,6 +15,7 @@ extends Node2D
 
 
 @onready var reload_machine: Node2D = $UI/ReloadMachine
+@onready var ammo_indicator: Node = $UI/AmmoIndicator
 
 @onready var ammo: Label = $UI/Footer/Ammo
 @onready var shield: Label = $UI/Footer/Shield
@@ -35,6 +36,9 @@ func _ready() -> void:
 	player_instance = player.instantiate()
 	player_instance.global_position = player_spawn.global_position
 	add_child(player_instance)
+	ammo_indicator.player_ref = player_instance
+	ammo_indicator.connect_player()
+	ammo_indicator.set_progress_donut("bullets")
 	progress_bar.max_value = player_instance.integrity_machine.integrity
 	hp_diff.max_value = progress_bar.max_value
 	player_instance.get_child(1).reload_machine = reload_machine

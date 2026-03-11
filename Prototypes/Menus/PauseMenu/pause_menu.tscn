@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://bpeyqs2poxgkh"]
 
 [ext_resource type="Script" uid="uid://d1m61501w2igh" path="res://Prototypes/Menus/PauseMenu/pause_menu.gd" id="1_agpvp"]
-[ext_resource type="Texture2D" uid="uid://cqgmfotr3577q" path="res://Prototypes/Menus/PauseMenu/Assets/background settings.png" id="1_f6tos"]
-[ext_resource type="Texture2D" uid="uid://n6iwc6nrasn5" path="res://Prototypes/Menus/PauseMenu/Assets/Frame 1.png" id="2_voulx"]
-[ext_resource type="Texture2D" uid="uid://bo0qhfphjrw77" path="res://Prototypes/Menus/PauseMenu/Assets/icons/ICON MUSIC.png" id="3_sajiu"]
-[ext_resource type="Texture2D" uid="uid://b1jam7nvpmpos" path="res://Prototypes/Menus/PauseMenu/Assets/icons/ICON SFX.png" id="4_b7bgy"]
-[ext_resource type="Texture2D" uid="uid://ntnkwxupltcv" path="res://Prototypes/Menus/PauseMenu/Assets/icons/ICON LANG.png" id="5_w6ba0"]
-[ext_resource type="Texture2D" uid="uid://1c8gubywg5vx" path="res://Prototypes/Menus/PauseMenu/Assets/icons/ICON MENU.png" id="6_agvlm"]
-[ext_resource type="Texture2D" uid="uid://cl4sx664f4qkq" path="res://Prototypes/Menus/PauseMenu/Assets/icons/ICON EXIT.png" id="7_cof03"]
+[ext_resource type="Texture2D" uid="uid://brm4ql1warxx3" path="res://Prototypes/Menus/PauseMenu/Assets/Background transparent.png" id="2_6gyrr"]
 [ext_resource type="Script" uid="uid://cwepsel7domjq" path="res://Prototypes/Menus/PauseMenu/grafismos.gd" id="8_aya5v"]
 [ext_resource type="Texture2D" uid="uid://dltck1jo5jgpd" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/grafismo musica vol.png" id="8_sajiu"]
 [ext_resource type="Texture2D" uid="uid://cgd00avxtayhf" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/grafismo main menu.png" id="9_b7bgy"]
 [ext_resource type="Texture2D" uid="uid://xpk7ly3rp4gf" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/Grafismo SFX vol.png" id="9_w6ba0"]
 [ext_resource type="Texture2D" uid="uid://1gmwwcvec6ik" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/grafismo lang.png" id="10_agvlm"]
+[ext_resource type="Texture2D" uid="uid://crs0rgh160wfo" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/grafismo controles.png" id="12_agpvp"]
 [ext_resource type="Texture2D" uid="uid://b5u01cbghlrph" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/Grafismo exit.png" id="12_cof03"]
 [ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="13_cof03"]
 [ext_resource type="Texture2D" uid="uid://c7dfn1gcd6vjs" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/menu grafismo.png" id="13_ucf80"]
@@ -21,8 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://5t5w4f3edhy3" path="res://Prototypes/Menus/PauseMenu/Assets/grafismos esquinas settings/return grafismo.png" id="15_wcqu6"]
 [ext_resource type="Texture2D" uid="uid://c6cuavmfy8ujx" path="res://Prototypes/Menus/PauseMenu/Assets/botones/Return.png" id="15_y863m"]
 [ext_resource type="Theme" uid="uid://crgkpa4i67yfb" path="res://Theme 1.tres" id="17_6gyrr"]
-[ext_resource type="Texture2D" uid="uid://q5lsav1yk62c" path="res://Prototypes/Shmup/Assets/Demo/main menu/current_sel_button.png" id="22_0taw2"]
-[ext_resource type="Texture2D" uid="uid://bfooxurlnw2bw" path="res://Prototypes/Menus/PauseMenu/Assets/botones/boton prompts mando.png" id="22_neqph"]
+[ext_resource type="Texture2D" uid="uid://cywks2sw5en4q" path="res://Prototypes/Menus/PauseMenu/Assets/botones/controller type bg.png" id="18_wcqu6"]
+[ext_resource type="Texture2D" uid="uid://dmlaxml2mjejq" path="res://Prototypes/Menus/PauseMenu/Assets/Indicator.png" id="19_6gyrr"]
+[ext_resource type="Texture2D" uid="uid://dh4ps4wxp6abg" path="res://Prototypes/Menus/PauseMenu/Assets/botones/both.png" id="19_ucf80"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yf8f"]
 
@@ -86,38 +82,15 @@ script = ExtResource("1_agpvp")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=474351346]
-texture = ExtResource("1_f6tos")
+texture = ExtResource("2_6gyrr")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="Guía" type="Sprite2D" parent="." unique_id=1478777351]
 visible = false
 modulate = Color(1, 1, 1, 0.19215687)
-texture = ExtResource("2_voulx")
 centered = false
 metadata/_edit_lock_ = true
-
-[node name="Icons" type="Node2D" parent="." unique_id=96602520]
-
-[node name="Music" type="Sprite2D" parent="Icons" unique_id=680843254]
-position = Vector2(160, 147)
-texture = ExtResource("3_sajiu")
-
-[node name="SFX" type="Sprite2D" parent="Icons" unique_id=1939011253]
-position = Vector2(160, 344)
-texture = ExtResource("4_b7bgy")
-
-[node name="Language" type="Sprite2D" parent="Icons" unique_id=446138992]
-position = Vector2(162, 542)
-texture = ExtResource("5_w6ba0")
-
-[node name="Main" type="Sprite2D" parent="Icons" unique_id=1367502253]
-position = Vector2(160, 736)
-texture = ExtResource("6_agvlm")
-
-[node name="Exit" type="Sprite2D" parent="Icons" unique_id=1996339008]
-position = Vector2(160, 935)
-texture = ExtResource("7_cof03")
 
 [node name="Grafismos" type="Node2D" parent="." unique_id=38491040]
 script = ExtResource("8_aya5v")
@@ -163,15 +136,20 @@ position = Vector2(1920, 1080)
 texture = ExtResource("9_b7bgy")
 offset = Vector2(-191.495, -209.205)
 
+[node name="Controls" type="Sprite2D" parent="Grafismos" unique_id=1313071189]
+visible = false
+position = Vector2(1650, 878)
+texture = ExtResource("12_agpvp")
+
 [node name="Botones" type="Node2D" parent="." unique_id=627314560]
 script = ExtResource("14_agpvp")
 
 [node name="Music" type="Node2D" parent="Botones" unique_id=1132370517]
 
 [node name="Label" type="Label" parent="Botones/Music" unique_id=1478729600]
-offset_left = 603.0
+offset_left = 334.0
 offset_top = 86.0
-offset_right = 1141.0
+offset_right = 872.0
 offset_bottom = 160.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -186,9 +164,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MusicButton" type="Button" parent="Botones/Music" unique_id=1393751092]
-offset_left = 319.0
+offset_left = 32.0
 offset_top = 64.0
-offset_right = 1462.0
+offset_right = 1111.0
 offset_bottom = 231.0
 focus_neighbor_left = NodePath("../../Return/TextureButton")
 focus_neighbor_top = NodePath("../../Exit/ExitButton")
@@ -199,29 +177,28 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_k5a3t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ailbm")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_k75le")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_58yks")
-metadata/_edit_lock_ = true
 
 [node name="MusicHSlider" type="HSlider" parent="Botones/Music" unique_id=642508412]
-offset_left = 367.0
-offset_top = 157.0
-offset_right = 1381.0
-offset_bottom = 217.0
+offset_left = 205.0
+offset_top = 159.0
+offset_right = 1028.0
+offset_bottom = 219.0
 focus_neighbor_top = NodePath("../../Exit/ExitButton")
 focus_neighbor_bottom = NodePath("../../SFX/SfxButton")
 mouse_default_cursor_shape = 2
 theme = ExtResource("17_6gyrr")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Music" unique_id=1106722509]
-position = Vector2(1504, 147)
+position = Vector2(1149, 150)
 
 [node name="SFX" type="Node2D" parent="Botones" unique_id=843569992]
 position = Vector2(0, 194)
 
 [node name="Label" type="Label" parent="Botones/SFX" unique_id=1657098522]
-offset_left = 656.0
-offset_top = 97.0
-offset_right = 1042.0
-offset_bottom = 171.0
+offset_left = 330.0
+offset_top = 89.0
+offset_right = 716.0
+offset_bottom = 163.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_constants/shadow_offset_x = 0
@@ -235,9 +212,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SfxButton" type="Button" parent="Botones/SFX" unique_id=1233660844]
-offset_left = 321.0
+offset_left = 31.0
 offset_top = 66.0
-offset_right = 1381.0
+offset_right = 962.0
 offset_bottom = 233.0
 focus_neighbor_left = NodePath("../../Controls/ControlsButton")
 focus_neighbor_top = NodePath("../../Music/MusicButton")
@@ -248,12 +225,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_aya5v")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_agpvp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_xur8t")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vnetg")
-metadata/_edit_lock_ = true
 
 [node name="SfxHSlider" type="HSlider" parent="Botones/SFX" unique_id=1862737433]
-offset_left = 367.0
+offset_left = 205.0
 offset_top = 161.0
-offset_right = 1305.0
+offset_right = 881.0
 offset_bottom = 221.0
 focus_neighbor_top = NodePath("../../Music/MusicButton")
 focus_neighbor_bottom = NodePath("../../Language/LangButton")
@@ -261,15 +237,15 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("17_6gyrr")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/SFX" unique_id=905365593]
-position = Vector2(1421, 152)
+position = Vector2(996, 153)
 
 [node name="Language" type="Node2D" parent="Botones" unique_id=1952299224]
 position = Vector2(0, 391)
 
 [node name="Label" type="Label" parent="Botones/Language" unique_id=1885786570]
-offset_left = 513.0
+offset_left = 217.0
 offset_top = 82.0
-offset_right = 849.0
+offset_right = 553.0
 offset_bottom = 218.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -283,10 +259,10 @@ text = "LANGUAGE"
 vertical_alignment = 1
 
 [node name="LangButton" type="Button" parent="Botones/Language" unique_id=269789359]
-offset_left = 322.0
-offset_top = 64.0
-offset_right = 1298.0
-offset_bottom = 237.0
+offset_left = 33.0
+offset_top = 68.0
+offset_right = 871.0
+offset_bottom = 232.0
 focus_neighbor_top = NodePath("../../SFX/SfxButton")
 focus_neighbor_bottom = NodePath("../../Main/MainButton")
 mouse_default_cursor_shape = 2
@@ -295,22 +271,21 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_dq1kr")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nclhp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_cgt5h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qqq46")
-metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Botones/Language" unique_id=258935263]
-position = Vector2(1132, 149)
+position = Vector2(708, 149)
 texture = ExtResource("14_gcma6")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Language" unique_id=412879613]
-position = Vector2(1338, 146)
+position = Vector2(904, 150)
 
 [node name="Main" type="Node2D" parent="Botones" unique_id=1828442379]
 position = Vector2(0, 588)
 
 [node name="Label" type="Label" parent="Botones/Main" unique_id=1516078568]
-offset_left = 495.0
+offset_left = 191.0
 offset_top = 80.0
-offset_right = 1033.0
+offset_right = 729.0
 offset_bottom = 216.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -325,10 +300,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MainButton" type="Button" parent="Botones/Main" unique_id=2119253342]
-offset_left = 321.0
-offset_top = 64.0
-offset_right = 1214.0
-offset_bottom = 234.0
+offset_left = 32.0
+offset_top = 66.0
+offset_right = 812.0
+offset_bottom = 232.0
 focus_neighbor_top = NodePath("../../Language/LangButton")
 focus_neighbor_bottom = NodePath("../../Exit/ExitButton")
 mouse_default_cursor_shape = 2
@@ -337,18 +312,17 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_cg66w")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_njif2")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_kdi6u")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nk8tx")
-metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Main" unique_id=1079740051]
-position = Vector2(1255, 150)
+position = Vector2(841, 147)
 
 [node name="Exit" type="Node2D" parent="Botones" unique_id=1947189318]
 position = Vector2(0, 783)
 
 [node name="Label" type="Label" parent="Botones/Exit" unique_id=946241017]
-offset_left = 459.0
+offset_left = 203.0
 offset_top = 83.0
-offset_right = 997.0
+offset_right = 741.0
 offset_bottom = 219.0
 theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
 theme_override_colors/font_outline_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
@@ -363,10 +337,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitButton" type="Button" parent="Botones/Exit" unique_id=72446107]
-offset_left = 319.0
-offset_top = 66.0
-offset_right = 1130.0
-offset_bottom = 237.0
+offset_left = 32.0
+offset_top = 70.0
+offset_right = 782.0
+offset_bottom = 234.0
 focus_neighbor_top = NodePath("../../Main/MainButton")
 focus_neighbor_bottom = NodePath("../../Music/MusicButton")
 mouse_default_cursor_shape = 2
@@ -375,10 +349,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wcqu6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ucf80")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0taw2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_neqph")
-metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Exit" unique_id=547714427]
-position = Vector2(1171, 151)
+position = Vector2(815, 151)
 
 [node name="Return" type="Node2D" parent="Botones" unique_id=261706747]
 position = Vector2(1631, 32)
@@ -423,14 +396,19 @@ focus_neighbor_top = NodePath("../../Return/TextureButton")
 focus_neighbor_right = NodePath("../../SFX/SfxButton")
 focus_neighbor_bottom = NodePath("../../Return/TextureButton")
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("22_neqph")
+texture_normal = ExtResource("18_wcqu6")
 
 [node name="Marker2D" type="Marker2D" parent="Botones/Controls" unique_id=1870022730]
 position = Vector2(132, 209)
 
+[node name="Sprite2D" type="Sprite2D" parent="Botones/Controls" unique_id=573578318]
+position = Vector2(128.99998, 81.99999)
+scale = Vector2(0.215, 0.215)
+texture = ExtResource("19_ucf80")
+
 [node name="Indicator" type="Sprite2D" parent="Botones" unique_id=1504983519]
-position = Vector2(1504, 147)
-texture = ExtResource("22_0taw2")
+position = Vector2(1148, 150)
+texture = ExtResource("19_6gyrr")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="focus_entered" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_focus_entered"]

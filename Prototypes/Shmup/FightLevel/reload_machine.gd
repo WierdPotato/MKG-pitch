@@ -2,6 +2,8 @@ extends Node2D
 
 @export var pointer_speed : float #Lo que tarda el pointer en ir de un lado a otro.
 
+@onready var ammo_indicator: Node = $"../AmmoIndicator"
+
 @onready var target: Area2D = $Target
 @onready var pointer: Area2D = $Pointer
 @onready var early: Area2D = $Early
@@ -38,6 +40,7 @@ func reload_attempt() -> void:
 		elif bad and perfect == false:
 			reset_pointer()
 			emit_signal("late_reload")
+		await get_tree().process_frame
 	else:
 		pass
 
@@ -56,7 +59,8 @@ func call_reload() -> bool:
 
 func move_pointer() -> bool:
 	tween = get_tree().create_tween() #Creamos el tween
-	tween.tween_property(pointer,"global_position", finish.global_position, 1)
+	
+	tween.tween_property(pointer,"global_position", finish.global_position, 1.6).set_trans(Tween.TRANS_SINE)
 	tween.play()
 	pointer_moving = true
 	await tween.finished
