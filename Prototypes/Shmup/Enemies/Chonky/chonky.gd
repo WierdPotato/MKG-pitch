@@ -24,6 +24,10 @@ var next_vector : Vector2
 var alive : bool
 var smoothing : bool
 
+const ship_normal = preload("res://Prototypes/Shmup/Assets/Charas/Chonky/side/side.png")
+const ship_down = preload("res://Prototypes/Shmup/Assets/Charas/Chonky/side/down.png")
+const ship_up = preload("res://Prototypes/Shmup/Assets/Charas/Chonky/side/up.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	smoothing = false
@@ -79,14 +83,27 @@ func manage_death() -> void:
 	await explosion.animation_finished
 	self.queue_free()
 
+func manage_sprites() -> void:
+	if current_vector.y > 0.2:
+		sprite_2d.texture = ship_up
+	elif current_vector.y < -0.2:
+		sprite_2d.texture = ship_down
+	else:
+		sprite_2d.texture = ship_normal
+
 func _physics_process(delta: float) -> void:
 	if !ignore_clamps:
 		position.x = clamp(position.x, screensize.x/2 , screensize.x - 80)
 		position.y = clamp(position.y, screensize.y/7, screensize.y - screensize.y/6)
+		if position.y < screensize.y -880 and current_vector.y < 0:
+			current_vector.y = -current_vector.y/2
+		elif position.y > screensize.y - 200 and current_vector.y > 0:
+			current_vector.y = -current_vector.y/2
+			
 	if smoothing:
 		current_vector = current_vector.lerp(next_vector, delta*0.5)
 	else:
 		pass
-		
 	velocity = current_vector * speed * delta
+	manage_sprites()
 	move_and_slide()

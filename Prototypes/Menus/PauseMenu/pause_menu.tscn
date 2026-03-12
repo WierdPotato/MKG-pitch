@@ -147,9 +147,9 @@ script = ExtResource("14_agpvp")
 [node name="Music" type="Node2D" parent="Botones" unique_id=1132370517]
 
 [node name="Label" type="Label" parent="Botones/Music" unique_id=1478729600]
-offset_left = 334.0
+offset_left = 367.0
 offset_top = 86.0
-offset_right = 872.0
+offset_right = 905.0
 offset_bottom = 160.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -195,9 +195,9 @@ position = Vector2(1149, 150)
 position = Vector2(0, 194)
 
 [node name="Label" type="Label" parent="Botones/SFX" unique_id=1657098522]
-offset_left = 330.0
+offset_left = 372.0
 offset_top = 89.0
-offset_right = 716.0
+offset_right = 758.0
 offset_bottom = 163.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -243,9 +243,9 @@ position = Vector2(996, 153)
 position = Vector2(0, 391)
 
 [node name="Label" type="Label" parent="Botones/Language" unique_id=1885786570]
-offset_left = 217.0
+offset_left = 339.0
 offset_top = 82.0
-offset_right = 553.0
+offset_right = 675.0
 offset_bottom = 218.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -273,6 +273,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_cgt5h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qqq46")
 
 [node name="Sprite2D" type="Sprite2D" parent="Botones/Language" unique_id=258935263]
+visible = false
 position = Vector2(708, 149)
 texture = ExtResource("14_gcma6")
 
@@ -283,9 +284,9 @@ position = Vector2(904, 150)
 position = Vector2(0, 588)
 
 [node name="Label" type="Label" parent="Botones/Main" unique_id=1516078568]
-offset_left = 191.0
+offset_left = 216.0
 offset_top = 80.0
-offset_right = 729.0
+offset_right = 754.0
 offset_bottom = 216.0
 theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 theme_override_colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
@@ -320,9 +321,9 @@ position = Vector2(841, 147)
 position = Vector2(0, 783)
 
 [node name="Label" type="Label" parent="Botones/Exit" unique_id=946241017]
-offset_left = 203.0
+offset_left = 168.0
 offset_top = 83.0
-offset_right = 741.0
+offset_right = 706.0
 offset_bottom = 219.0
 theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
 theme_override_colors/font_outline_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
@@ -409,6 +410,12 @@ texture = ExtResource("19_ucf80")
 [node name="Indicator" type="Sprite2D" parent="Botones" unique_id=1504983519]
 position = Vector2(1148, 150)
 texture = ExtResource("19_6gyrr")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=735038115]
+visible = false
+position = Vector2(-132, 0)
+points = PackedVector2Array(463, 1082, 630, -7)
+default_color = Color(1, 1, 0, 1)
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="focus_entered" from="Botones/Music/MusicButton" to="Botones" method="_on_music_button_focus_entered"]

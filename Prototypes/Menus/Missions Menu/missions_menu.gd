@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var pause_menu: Control = $PauseMenu
+
+
 @onready var paths_manager: Node2D = $PathsManager
 
 @onready var lvl_1a: Button = $PathsManager/PathA/Buttons/Lvl1a
@@ -131,3 +134,11 @@ func deselect_prev_button(button : TextureButton)-> void:
 	if current_selected_button:
 		if current_selected_button != button:
 			current_selected_button.deselect_button()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_released("Back"):
+		if !pause_menu.visible:
+			_on_back_pressed()
+
+func _on_pause_pressed() -> void:
+	pause_menu.opened("planets_map")

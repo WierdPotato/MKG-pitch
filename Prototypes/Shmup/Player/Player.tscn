@@ -67,7 +67,6 @@ shot = ExtResource("2_h54ih")
 ammo = 1000
 cadence = 1.0
 max_chamber = 5
-chamber = 5
 
 [node name="Marker2D" type="Marker2D" parent="ShotMachine" unique_id=1614483570]
 position = Vector2(68, 5)

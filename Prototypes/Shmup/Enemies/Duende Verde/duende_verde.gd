@@ -12,8 +12,11 @@ extends CharacterBody2D
 @onready var explosion: AnimatedSprite2D = $Explosion
 @onready var collision_shape_2d: CollisionPolygon2D = $Area2D/CollisionShape2D
 
-
 @onready var ignore_clamps : bool = true
+
+const ship_normal = preload("res://Prototypes/Shmup/Assets/Charas/Duende Verde/side.png")
+const ship_down = preload("res://Prototypes/Shmup/Assets/Charas/Duende Verde/down.png")
+const ship_up = preload("res://Prototypes/Shmup/Assets/Charas/Duende Verde/up.png")
 
 var crash_damage : float = 90
 var hit_points_value = 1
@@ -79,17 +82,30 @@ func manage_death() -> void:
 	await explosion.animation_finished
 	self.queue_free()
 
+func manage_sprites() -> void:
+	if current_vector.y > 0.4:
+		sprite_2d.texture = ship_up
+	elif current_vector.y < -0.4:
+		sprite_2d.texture = ship_down
+	else:
+		sprite_2d.texture = ship_normal
+	$Label.text = str(velocity.y)
 
 func _physics_process(delta: float) -> void:
 	if !ignore_clamps:
 		position.x = clamp(position.x, screensize.x/2 , screensize.x - 80)
 		position.y = clamp(position.y, screensize.y/7, screensize.y - screensize.y/6)
 		
+		if position.y < screensize.y -880 and current_vector.y < 0:
+			current_vector.y = -current_vector.y/2
+		elif position.y > screensize.y - 200 and current_vector.y > 0:
+			current_vector.y = -current_vector.y/2
+
 	if smoothing:
 		current_vector = current_vector.lerp(next_vector, delta*0.5)
 	else:
 		pass
-		
 	velocity = current_vector * speed * delta
+	manage_sprites()
 	#$Label.text = str(current_vector)
 	move_and_slide()

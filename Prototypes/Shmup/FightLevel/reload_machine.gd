@@ -12,6 +12,8 @@ extends Node2D
 @onready var start: Marker2D = $Start
 @onready var finish: Marker2D = $Finish
 
+@onready var border_feedback: Sprite2D = $"../BorderFeedback"
+
 signal early_reload
 signal perfect_reload
 signal late_reload
@@ -58,8 +60,8 @@ func call_reload() -> bool:
 		return false
 
 func move_pointer() -> bool:
+	border_feedback.manage_behaviour("starting")
 	tween = get_tree().create_tween() #Creamos el tween
-	
 	tween.tween_property(pointer,"global_position", finish.global_position, 1.6).set_trans(Tween.TRANS_SINE)
 	tween.play()
 	pointer_moving = true

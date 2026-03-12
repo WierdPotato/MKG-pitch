@@ -11,7 +11,7 @@ extends Node
 @export var ammo : int 
 @export var cadence : float
 @export var max_chamber : int
-@export var chamber : int
+var chamber : int
 
 signal reload_started
 
@@ -30,7 +30,10 @@ func _ready() -> void:
 	alive = true
 	ammo = PREP.ship_ammo
 	cadence = PREP.ship_cadence
-
+	if ammo >= max_chamber:
+		chamber = max_chamber
+	else:
+		chamber = ammo
 	manage_info(1)
 
 func process_shot() -> void:
@@ -49,14 +52,14 @@ func process_shot() -> void:
 			pass
 
 func check_reload() -> void:
-	if Input.is_action_just_pressed("Reload") and reloading == false and alive:
+	if Input.is_action_just_pressed("Reload") and reloading == false and alive and ammo > 0:
 		chamber = 0
 		reload_machine.reload_pressed()
 		manage_info(2)
 
 func manage_chamber()-> void:
 	chamber -= 1
-	if chamber == 0:
+	if chamber == 0 and ammo > 0:
 		reload_machine.reload_pressed()
 		manage_info(2)
 	else:
@@ -96,7 +99,7 @@ func reload(tier : int) -> void:
 		can_shoot = true
 		apply_reload()
 		reloading = false
-
+ 
 func apply_reload() -> void:
 	if ammo >= max_chamber:
 		chamber = max_chamber
@@ -105,6 +108,9 @@ func apply_reload() -> void:
 
 func add_ammo(ammount) -> void:
 	ammo += ammount
+	if ammo == ammount:
+		print("Autoload")
+		reload_machine.reload_pressed()
 
 func manage_info(message_id : int) -> void:
 	if message_id == 1:
@@ -117,7 +123,7 @@ func manage_timer_info(message_id : int) -> void:
 	print("manage timer info called ", message_id)
 	if message_id == 3: #Early reload
 		print("3 called")
-		reload_time_lbl.visible = true
+		#reload_time_lbl.visible = true
 		await get_tree().process_frame
 		label.text = "TOO SOON"
 		print(label.text)
@@ -126,14 +132,14 @@ func manage_timer_info(message_id : int) -> void:
 		
 	elif message_id == 4: #Perfect reload
 		print("4 called")
-		reload_time_lbl.visible = true
+		#reload_time_lbl.visible = true
 		#label.text = "PERFECT!"
 		reload_timer.wait_time = perfect_reload
 		reload_timer.start()
 		
 	elif message_id == 5: #Late reload
 		print("5 called")
-		reload_time_lbl.visible = true
+		#reload_time_lbl.visible = true
 		await get_tree().process_frame
 		label.text = "TOO LATE"
 		print(label.text)
@@ -142,7 +148,7 @@ func manage_timer_info(message_id : int) -> void:
 	
 	elif message_id == 6: #Missed reload
 		print("6 called")
-		reload_time_lbl.visible = true
+		#reload_time_lbl.visible = true
 		label.text = "MISSED"
 		print(label.text)
 		reload_timer.wait_time = missed_reload

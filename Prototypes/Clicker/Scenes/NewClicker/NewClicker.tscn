@@ -1,0 +1,369 @@
+[gd_scene format=3 uid="uid://vi0rdfsolkip"]
+
+[ext_resource type="Script" uid="uid://dnr7kp0oo1iqj" path="res://Prototypes/Clicker/Scenes/NewClicker/AllPerks.gd" id="1_4s7m0"]
+[ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="2_tsy80"]
+[ext_resource type="Texture2D" uid="uid://drjqui3xu2qgk" path="res://Prototypes/Clicker/Assets/DemoUI/lockV1.png" id="3_xhmrh"]
+[ext_resource type="Script" uid="uid://cgv2ntsoyfg4o" path="res://Prototypes/Clicker/Scenes/NewClicker/perk_button.gd" id="4_lmxu5"]
+[ext_resource type="Texture2D" uid="uid://clm146m01o2ff" path="res://Prototypes/Clicker/Assets/DemoUI/click_here.png" id="5_xhmrh"]
+[ext_resource type="Texture2D" uid="uid://b8edd3p0i1ibr" path="res://Prototypes/Clicker/Assets/DemoUI/footer small_buy.png" id="6_lmxu5"]
+
+[node name="NewClicker" type="Control" unique_id=876232663]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AllPerks" type="VBoxContainer" parent="." unique_id=901820518]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 104.0
+offset_right = 1832.0
+offset_bottom = 984.0
+theme_override_constants/separation = 30
+script = ExtResource("1_4s7m0")
+
+[node name="Fila1" type="HBoxContainer" parent="AllPerks" unique_id=557031104]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila1" unique_id=345428083]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Perk7")
+focus_neighbor_top = NodePath("../../Fila7/Perk1")
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila1" unique_id=1909605477]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila1" unique_id=851078464]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila1" unique_id=803526163]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila1" unique_id=1300923974]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila1" unique_id=1428895185]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila1" unique_id=759439735]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Fila7/Perk7")
+focus_neighbor_right = NodePath("../Perk1")
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila2" type="HBoxContainer" parent="AllPerks" unique_id=1220831082]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila2" unique_id=1271492584]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila2" unique_id=593437306]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila2" unique_id=1957241466]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila2" unique_id=1775839601]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila2" unique_id=1994109923]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila2" unique_id=456190849]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila2" unique_id=553186317]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila3" type="HBoxContainer" parent="AllPerks" unique_id=749632285]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila3" unique_id=814501466]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila3" unique_id=201378774]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila3" unique_id=759701053]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila3" unique_id=1865947882]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila3" unique_id=1563028024]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila3" unique_id=1655467381]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila3" unique_id=1317928061]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila4" type="HBoxContainer" parent="AllPerks" unique_id=705773558]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila4" unique_id=1557116383]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila4" unique_id=24432625]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila4" unique_id=597006799]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila4" unique_id=972265344]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila4" unique_id=1701599739]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila4" unique_id=969152701]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila4" unique_id=220972631]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila5" type="HBoxContainer" parent="AllPerks" unique_id=643287961]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila5" unique_id=238017579]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila5" unique_id=1177590982]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila5" unique_id=607612869]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila5" unique_id=697445194]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila5" unique_id=754927007]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila5" unique_id=1997280242]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila5" unique_id=726328573]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila6" type="HBoxContainer" parent="AllPerks" unique_id=1681263023]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila6" unique_id=1319913703]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila6" unique_id=1662795994]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila6" unique_id=1608587379]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila6" unique_id=1364387248]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila6" unique_id=1422920236]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila6" unique_id=1222377184]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila6" unique_id=1837279418]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Fila7" type="HBoxContainer" parent="AllPerks" unique_id=815283698]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Perk1" type="TextureButton" parent="AllPerks/Fila7" unique_id=1786126304]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk2" type="TextureButton" parent="AllPerks/Fila7" unique_id=375334876]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk3" type="TextureButton" parent="AllPerks/Fila7" unique_id=501729266]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk4" type="TextureButton" parent="AllPerks/Fila7" unique_id=1850760737]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk5" type="TextureButton" parent="AllPerks/Fila7" unique_id=2009348900]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk6" type="TextureButton" parent="AllPerks/Fila7" unique_id=1287337973]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Perk7" type="TextureButton" parent="AllPerks/Fila7" unique_id=721112073]
+layout_mode = 2
+texture_normal = ExtResource("2_tsy80")
+texture_disabled = ExtResource("3_xhmrh")
+script = ExtResource("4_lmxu5")
+
+[node name="Clicker" type="TextureButton" parent="." unique_id=267823673]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 781.0
+offset_right = 551.0
+offset_bottom = 962.0
+texture_normal = ExtResource("5_xhmrh")
+
+[node name="Buy" type="TextureButton" parent="." unique_id=72092081]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 533.0
+offset_right = 583.0
+offset_bottom = 714.0
+texture_normal = ExtResource("6_lmxu5")
+
+[connection signal="pressed" from="Buy" to="AllPerks" method="_on_buy_pressed"]

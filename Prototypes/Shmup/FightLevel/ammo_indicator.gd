@@ -3,6 +3,7 @@ extends Node
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var label: Label = $Label
+@onready var border_feedback: Sprite2D = $"../BorderFeedback"
 
 var player_ref
 var bullets_mode : bool = true
@@ -32,7 +33,6 @@ func set_progress_donut(type : String) -> void:
 		texture_progress_bar.step = 0.01
 		texture_progress_bar.max_value = player_ref.get_child(1).reload_timer.wait_time
 		texture_progress_bar.tint_progress = Color8(167, 0, 0)
-		
 	ignore_process = false
 
 func update_progress_bar() -> void:
@@ -43,11 +43,13 @@ func update_progress_bar() -> void:
 
 func reload_started() -> void:
 	set_progress_donut("load")
+	border_feedback.manage_behaviour("reloading")
 
 func reload_finished() -> void:
 	ignore_process = true
 	await get_tree().process_frame
 	set_progress_donut("bullets")
+	border_feedback.manage_behaviour("reloaded")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

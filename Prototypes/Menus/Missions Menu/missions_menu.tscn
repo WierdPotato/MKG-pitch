@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://cduud732wn7yj" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/GO BTN.png" id="16_rom31"]
 [ext_resource type="Texture2D" uid="uid://no122jtltvof" path="res://Prototypes/Shmup/Assets/Demo/mapa/Go back botones/BACK BTN.png" id="17_o3yeh"]
 [ext_resource type="Script" uid="uid://bd4uodvqx2q2c" path="res://Prototypes/Shmup/Demo/highlight_buttons.gd" id="17_yrbcl"]
+[ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="20_y6iu0"]
+[ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="21_oplk6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rom31"]
 
@@ -403,6 +405,19 @@ focus_neighbor_right = NodePath("../../../PathsManager/Final/Boss/Lvl3")
 texture_normal = ExtResource("17_o3yeh")
 script = ExtResource("17_yrbcl")
 
+[node name="PauseMenu" parent="." unique_id=131753112 instance=ExtResource("20_y6iu0")]
+visible = false
+z_index = 2
+
+[node name="Pause" type="TextureButton" parent="." unique_id=472046455]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 86.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("21_oplk6")
+
 [connection signal="pressed" from="Button" to="MissionDetails" method="_on_button_pressed"]
 [connection signal="focus_entered" from="Menus/Go/Go" to="Menus/Go/Go" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Menus/Go/Go" to="Menus/Go/Go" method="_on_focus_exited"]
@@ -414,3 +429,4 @@ script = ExtResource("17_yrbcl")
 [connection signal="mouse_entered" from="Menus/Back/Back" to="Menus/Back/Back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Menus/Back/Back" to="Menus/Back/Back" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menus/Back/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
