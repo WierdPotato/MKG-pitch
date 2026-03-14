@@ -156,13 +156,15 @@ func manage_mov() -> void: #Gestiona el movimiento de la nave
 	
 	#Establece los límites de la pantalla y evita que la nave supere esos limites.
 	position.x = clamp(position.x, 40, screensize.x - 40)
-	position.y = clamp(position.y, 20, screensize.y - 20)
+	position.y = clamp(position.y, screensize.y/7.5, screensize.y - screensize.y/6)
 	
-	if position.x == screensize.x - 40 or position.x == 40: #Comprueba si ela nave se encuentra en los limites
+	if position.x == screensize.x - 40 or position.x == 40: #Comprueba si la nave se encuentra en los limites
+		print("yeeeee")
 		if velocity.x != 0: #Si velocity no es ya 0
 			Hs = 0 #Asegura que velocity concuerde con lo que ve el jugador. 
 	
-	if position.y == screensize.y - 20 or position.y == 20:
+	if position.y == screensize.y/7.5 or position.y == (screensize.y - screensize.y/6):
+		print("yooo")
 		if velocity.y != 0:
 			Vs = 0
 

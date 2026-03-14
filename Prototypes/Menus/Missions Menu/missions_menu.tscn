@@ -353,7 +353,8 @@ metadata/_edit_lock_ = true
 [node name="Overlay" type="Node2D" parent="PathsManager" unique_id=371730999]
 
 [node name="Whole" type="Sprite2D" parent="PathsManager/Overlay" unique_id=1086200182]
-position = Vector2(1358, 348)
+visible = false
+position = Vector2(1358, 344)
 texture = ExtResource("15_q0iim")
 
 [node name="Ship" type="Sprite2D" parent="PathsManager/Overlay" unique_id=1273502288]

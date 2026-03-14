@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cbitd0pevftkx"]
+
+[node name="Fila1" type="HBoxContainer" unique_id=474853791]
+theme_override_constants/separation = 32

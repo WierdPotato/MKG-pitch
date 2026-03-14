@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bh7yvriibqyke"]
+
+[ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="1_eekm3"]
+[ext_resource type="Texture2D" uid="uid://drjqui3xu2qgk" path="res://Prototypes/Clicker/Assets/DemoUI/lockV1.png" id="2_vhsxs"]
+[ext_resource type="Script" uid="uid://cgv2ntsoyfg4o" path="res://Prototypes/Clicker/Scenes/NewClicker/perk_button.gd" id="3_l7r7h"]
+[ext_resource type="Script" uid="uid://skmbgy5bal6y" path="res://Prototypes/Clicker/Scenes/NewClicker/perk_button_setup.gd" id="4_y4ui1"]
+[ext_resource type="Texture2D" uid="uid://cer4tlggh4t34" path="res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png" id="5_y03f4"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="6_0e8al"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvw6y"]
+resource_local_to_scene = true
+atlas = ExtResource("5_y03f4")
+region = Rect2(0, 0, 160, 160)
+
+[node name="Perk1" type="TextureButton" unique_id=1697736367]
+texture_normal = ExtResource("1_eekm3")
+texture_disabled = ExtResource("2_vhsxs")
+script = ExtResource("3_l7r7h")
+
+[node name="SetUp" type="Node" parent="." unique_id=409974108]
+script = ExtResource("4_y4ui1")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=195681956]
+visible = false
+z_index = 1
+position = Vector2(50, 50)
+scale = Vector2(0.655, 0.655)
+texture = SubResource("AtlasTexture_qvw6y")
+
+[node name="PriceTag" type="Label" parent="." unique_id=671234755]
+visible = false
+layout_mode = 0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 75.0
+pivot_offset = Vector2(50, 25)
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_0e8al")
+theme_override_font_sizes/font_size = 30
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="perk_available" from="." to="." method="_on_perk_available"]
+[connection signal="perk_bought" from="." to="." method="_on_perk_bought"]
+[connection signal="all_set" from="SetUp" to="." method="_on_set_up_all_set"]

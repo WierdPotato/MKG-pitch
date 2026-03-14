@@ -392,6 +392,7 @@ var total_yellow : int = 0
 var total_pcn_yellow : float = 0
 var total_gen_pcn_yellow : float = 0
 
+var simulated_points : float
 var auto_points_cd : float = 1
 var active_red_perks : Array
 var total_red : int = 0

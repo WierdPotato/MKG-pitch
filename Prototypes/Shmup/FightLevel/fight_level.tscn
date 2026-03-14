@@ -74,8 +74,6 @@ position = Vector2(225, 502)
 
 [node name="EnemiesEngine" type="Node" parent="Level" unique_id=179190672]
 script = ExtResource("5_u6in1")
-max_duendes = 1
-max_chonky = 1
 
 [node name="Enemies" type="Node" parent="Level/EnemiesEngine" unique_id=598574663]
 

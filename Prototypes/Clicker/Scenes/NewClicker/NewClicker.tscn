@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://vi0rdfsolkip"]
 
+[ext_resource type="Texture2D" uid="uid://bqa2a2bb001ut" path="res://Prototypes/Shmup/Assets/Demo/main menu/main_menu_bg.png" id="1_3q3cn"]
 [ext_resource type="Script" uid="uid://dnr7kp0oo1iqj" path="res://Prototypes/Clicker/Scenes/NewClicker/AllPerks.gd" id="1_4s7m0"]
-[ext_resource type="Texture2D" uid="uid://irr0ffukfmyc" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_amarillo.png" id="2_tsy80"]
-[ext_resource type="Texture2D" uid="uid://drjqui3xu2qgk" path="res://Prototypes/Clicker/Assets/DemoUI/lockV1.png" id="3_xhmrh"]
-[ext_resource type="Script" uid="uid://cgv2ntsoyfg4o" path="res://Prototypes/Clicker/Scenes/NewClicker/perk_button.gd" id="4_lmxu5"]
+[ext_resource type="Script" uid="uid://ce0jsad7c2wlj" path="res://Prototypes/Clicker/Scenes/NewClicker/new_clicker.gd" id="1_6ekff"]
 [ext_resource type="Texture2D" uid="uid://clm146m01o2ff" path="res://Prototypes/Clicker/Assets/DemoUI/click_here.png" id="5_xhmrh"]
 [ext_resource type="Texture2D" uid="uid://b8edd3p0i1ibr" path="res://Prototypes/Clicker/Assets/DemoUI/footer small_buy.png" id="6_lmxu5"]
+[ext_resource type="Script" uid="uid://c4bgum4hjl06x" path="res://Prototypes/Clicker/Scenes/NewClicker/timer_engine.gd" id="7_iv6rg"]
+[ext_resource type="Texture2D" uid="uid://6py71cxt22bq" path="res://Prototypes/Shmup/Assets/Demo/mapa/MISIONES.png" id="7_k0e2p"]
+[ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="8_4diut"]
+[ext_resource type="Texture2D" uid="uid://bd68ds1r6mfc2" path="res://Prototypes/Clicker/Assets/DemoUI/mony_amt_pill.png" id="9_6ekff"]
+[ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="10_6ekff"]
+[ext_resource type="Script" uid="uid://cm1yhytj42e7m" path="res://Prototypes/Clicker/Scenes/NewClicker/points_manager.gd" id="11_3q3cn"]
+[ext_resource type="Texture2D" uid="uid://bpy1nm0omdr45" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/DONUT indicador recarga.png" id="11_iv6rg"]
+[ext_resource type="Texture2D" uid="uid://c20043x0snn6p" path="res://Prototypes/Clicker/Assets/DemoUI/footer_big.png" id="12_iv6rg"]
 
 [node name="NewClicker" type="Control" unique_id=876232663]
 layout_mode = 3
@@ -14,6 +21,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6ekff")
+clicker_minutes = 1.0
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1617760963]
+position = Vector2(0, 1)
+texture = ExtResource("1_3q3cn")
+centered = false
 
 [node name="AllPerks" type="VBoxContainer" parent="." unique_id=901820518]
 layout_mode = 0
@@ -21,349 +35,117 @@ offset_left = 952.0
 offset_top = 104.0
 offset_right = 1832.0
 offset_bottom = 984.0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 32
 script = ExtResource("1_4s7m0")
+dinamic_size = true
+rows = 7
+columns = 7
+yellow_prob = 65.0
+red_prob = 25.0
+blue_prob = 10.0
 
-[node name="Fila1" type="HBoxContainer" parent="AllPerks" unique_id=557031104]
-layout_mode = 2
-theme_override_constants/separation = 30
+[node name="PerkInfoBG" type="Sprite2D" parent="." unique_id=1174668955]
+position = Vector2(338, 436.99997)
+scale = Vector2(1.6618055, 1.3512499)
+texture = ExtResource("7_k0e2p")
 
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila1" unique_id=345428083]
-layout_mode = 2
-focus_neighbor_left = NodePath("../Perk7")
-focus_neighbor_top = NodePath("../../Fila7/Perk1")
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
+[node name="TimerEngine" type="Control" parent="." unique_id=661737904]
+anchors_preset = 0
+offset_left = -13.0
+offset_right = -13.0
+script = ExtResource("7_iv6rg")
 
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila1" unique_id=1909605477]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
+[node name="ClickerTimer" type="Timer" parent="TimerEngine" unique_id=25686515]
+one_shot = true
 
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila1" unique_id=851078464]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila1" unique_id=803526163]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila1" unique_id=1300923974]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila1" unique_id=1428895185]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila1" unique_id=759439735]
-layout_mode = 2
-focus_neighbor_top = NodePath("../../Fila7/Perk7")
-focus_neighbor_right = NodePath("../Perk1")
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila2" type="HBoxContainer" parent="AllPerks" unique_id=1220831082]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila2" unique_id=1271492584]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila2" unique_id=593437306]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila2" unique_id=1957241466]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila2" unique_id=1775839601]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila2" unique_id=1994109923]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila2" unique_id=456190849]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila2" unique_id=553186317]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila3" type="HBoxContainer" parent="AllPerks" unique_id=749632285]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila3" unique_id=814501466]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila3" unique_id=201378774]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila3" unique_id=759701053]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila3" unique_id=1865947882]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila3" unique_id=1563028024]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila3" unique_id=1655467381]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila3" unique_id=1317928061]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila4" type="HBoxContainer" parent="AllPerks" unique_id=705773558]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila4" unique_id=1557116383]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila4" unique_id=24432625]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila4" unique_id=597006799]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila4" unique_id=972265344]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila4" unique_id=1701599739]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila4" unique_id=969152701]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila4" unique_id=220972631]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila5" type="HBoxContainer" parent="AllPerks" unique_id=643287961]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila5" unique_id=238017579]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila5" unique_id=1177590982]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila5" unique_id=607612869]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila5" unique_id=697445194]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila5" unique_id=754927007]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila5" unique_id=1997280242]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila5" unique_id=726328573]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila6" type="HBoxContainer" parent="AllPerks" unique_id=1681263023]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila6" unique_id=1319913703]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila6" unique_id=1662795994]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila6" unique_id=1608587379]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila6" unique_id=1364387248]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila6" unique_id=1422920236]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila6" unique_id=1222377184]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila6" unique_id=1837279418]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Fila7" type="HBoxContainer" parent="AllPerks" unique_id=815283698]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Perk1" type="TextureButton" parent="AllPerks/Fila7" unique_id=1786126304]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk2" type="TextureButton" parent="AllPerks/Fila7" unique_id=375334876]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk3" type="TextureButton" parent="AllPerks/Fila7" unique_id=501729266]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk4" type="TextureButton" parent="AllPerks/Fila7" unique_id=1850760737]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk5" type="TextureButton" parent="AllPerks/Fila7" unique_id=2009348900]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk6" type="TextureButton" parent="AllPerks/Fila7" unique_id=1287337973]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Perk7" type="TextureButton" parent="AllPerks/Fila7" unique_id=721112073]
-layout_mode = 2
-texture_normal = ExtResource("2_tsy80")
-texture_disabled = ExtResource("3_xhmrh")
-script = ExtResource("4_lmxu5")
-
-[node name="Clicker" type="TextureButton" parent="." unique_id=267823673]
+[node name="TimerProgressDonut" type="TextureProgressBar" parent="TimerEngine" unique_id=1219243808]
 layout_mode = 0
-offset_left = 227.0
-offset_top = 781.0
-offset_right = 551.0
-offset_bottom = 962.0
-texture_normal = ExtResource("5_xhmrh")
+offset_left = 714.0
+offset_top = 422.0
+offset_right = 813.0
+offset_bottom = 521.0
+scale = Vector2(2, 2)
+step = 0.1
+fill_mode = 5
+texture_under = ExtResource("11_iv6rg")
+texture_progress = ExtResource("11_iv6rg")
+tint_under = Color(0.2, 0.23529412, 0.34117648, 1)
+tint_progress = Color(0.95686275, 0.95686275, 0.95686275, 1)
+
+[node name="SecondsLabel" type="Label" parent="TimerEngine" unique_id=710973036]
+layout_mode = 0
+offset_left = 751.0
+offset_top = 481.0
+offset_right = 812.0
+offset_bottom = 521.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("10_6ekff")
+theme_override_font_sizes/font_size = 33
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Joker1Sprite" type="Sprite2D" parent="." unique_id=1436383037]
+position = Vector2(339, 883)
+scale = Vector2(1, 1.6491712)
+texture = ExtResource("12_iv6rg")
+
+[node name="Pause" type="TextureButton" parent="." unique_id=1194523441]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 85.0
+texture_normal = ExtResource("8_4diut")
 
 [node name="Buy" type="TextureButton" parent="." unique_id=72092081]
 layout_mode = 0
-offset_left = 195.0
-offset_top = 533.0
-offset_right = 583.0
-offset_bottom = 714.0
+offset_left = 889.0
+offset_top = 647.0
+offset_right = 1277.0
+offset_bottom = 828.0
+rotation = 1.5707964
 texture_normal = ExtResource("6_lmxu5")
 
+[node name="PointsManager" type="Node" parent="." unique_id=1181534600]
+script = ExtResource("11_3q3cn")
+cheat = true
+
+[node name="Clicker" type="TextureButton" parent="PointsManager" unique_id=267823673]
+offset_left = 895.0
+offset_top = 67.0
+offset_right = 1219.0
+offset_bottom = 248.0
+rotation = 1.5707964
+texture_normal = ExtResource("5_xhmrh")
+
+[node name="AutopointsTimer" type="Timer" parent="PointsManager" unique_id=1256499041]
+
+[node name="PointsBG" type="Sprite2D" parent="PointsManager" unique_id=109396317]
+position = Vector2(393, 113)
+texture = ExtResource("9_6ekff")
+
+[node name="TotalMoneyLBL" type="Label" parent="PointsManager/PointsBG" unique_id=581955624]
+offset_left = -193.34981
+offset_top = -16.5
+offset_right = 182.92015
+offset_bottom = 15.5
+theme_override_colors/font_color = Color(0.654902, 0.9411765, 0.4392157, 1)
+theme_override_fonts/font = ExtResource("10_6ekff")
+theme_override_font_sizes/font_size = 25
+text = "92103126453287562"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="resume_time" from="." to="." method="_on_resume_time"]
+[connection signal="resume_time" from="." to="TimerEngine" method="_on_new_clicker_resume_time"]
+[connection signal="resume_time" from="." to="PointsManager" method="_on_new_clicker_resume_time"]
+[connection signal="stop_time" from="." to="." method="_on_stop_time"]
+[connection signal="stop_time" from="." to="TimerEngine" method="_on_new_clicker_stop_time"]
+[connection signal="stop_time" from="." to="PointsManager" method="_on_new_clicker_stop_time"]
+[connection signal="timeout" from="TimerEngine/ClickerTimer" to="TimerEngine" method="_on_clicker_timer_timeout"]
 [connection signal="pressed" from="Buy" to="AllPerks" method="_on_buy_pressed"]
+[connection signal="pressed" from="PointsManager/Clicker" to="PointsManager" method="_on_clicker_pressed"]

@@ -205,6 +205,7 @@ position = Vector2(172, 0)
 texture = ExtResource("3_p8r06")
 
 [node name="Name" type="Label" parent="." unique_id=438204363]
+visible = false
 offset_left = 88.0
 offset_top = -19.0
 offset_right = 255.0

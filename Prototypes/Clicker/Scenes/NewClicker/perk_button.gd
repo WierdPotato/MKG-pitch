@@ -1,85 +1,100 @@
 extends TextureButton
 
+signal perk_bought
+signal perk_available
+
 @onready var all_perks: VBoxContainer = $"../.."
 
+@onready var normal_bought_texture 
+@onready var normal_available_texture
 
-var im_center : bool
-var im_unlocked : bool
-var my_friend_top 
-var my_friend_bot
-var my_friend_left
-var my_friend_right
+@onready var price_tag: Label = $PriceTag
+@onready var ready_price_color : Color = Color(0.957, 0.957, 0.957)
+@onready var red_price_color : Color = Color(1.0, 0.141, 0.122)
+
+@onready var icon: Sprite2D = $Icon
+
+var points_input : float
+
+var my_texture_region : Rect2
 const PAUSE_BTN = preload("uid://dhmckdb42fsea")
 
-var my_x : int
-var my_y : int
-var friends : Array = []
+var im_set : bool
+var my_perk_dict : Dictionary 
+var my_atlas : CompressedTexture2D
+var my_type : String
+
+var im_bought : bool
+var im_ready_to_buy : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	disabled = true
+	im_set = false
+	im_bought = false
+	im_ready_to_buy = false
 	self.pressed.connect(self._im_pressed)
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	texture_focused = PAUSE_BTN
 	disabled = true
 
-func im_set() -> void:
-	if my_x == 4 and my_y == 4:
-		im_center = true
-		im_unlocked = true
-		disabled = false
-		grab_focus()
-
-func get_my_friends(array):
-	for i in array:
-		if i.my_x == my_x:
-			if i.my_y == my_y-1:
-				my_friend_left = i
-				focus_neighbor_top= i.get_path()
-			if i.my_y == my_y+1:
-				my_friend_right = i
-				focus_neighbor_bottom = i.get_path()
-		if i.my_y == my_y:
-			if i.my_x == my_x-1:
-				my_friend_top = i
-				focus_neighbor_left = i.get_path()
-			if i.my_x == my_x+1:
-				my_friend_bot = i
-				focus_neighbor_right = i.get_path()
-				
-	friends = [my_friend_bot, my_friend_top, my_friend_left, my_friend_right]
-	fill_neighbours(array)
-	show_friends()
-	
-func show_friends()-> void:
-	if im_unlocked:
-		all_perks.show_perks(friends)
-
-func fill_neighbours(array)-> void:
-	
-	if !focus_neighbor_top:
-		for i in array:
-			if i.my_x == my_x and i.my_y == 7:
-				focus_neighbor_top = i.get_path()
-				
-	if !focus_neighbor_bottom:
-		for i in array:
-			if i.my_x == my_x and i.my_y == 1:
-				focus_neighbor_bottom = i.get_path()
-	
-	if !focus_neighbor_left:
-		for i in array:
-			if i.my_y == my_y and i.my_x == 7:
-				focus_neighbor_left = i.get_path()
-	
-	if !focus_neighbor_right:
-		for i in array:
-			if i.my_y == my_y and i.my_x == 1:
-				focus_neighbor_right = i.get_path()
-
 func _im_pressed()->void:
-	print("im pressed", self)
 	all_perks.current_button = self
+
+func _on_set_up_all_set() -> void:
+	var region = my_perk_dict.get("region")
+	my_texture_region = Rect2(region.get("x"), region.get("y"), region.get("w"), region.get("h"))
+	im_set = true
+	icon.texture.set_atlas(my_atlas)
+	icon.texture.set_region(my_texture_region)
+
+	if im_bought:
+		icon.visible = true
+	
+func _on_perk_bought() -> void:
+	im_bought = true
+	icon.visible = true
+	price_tag.visible = false
+	if my_type == "yellow":
+		GLOBAL.total_yellow += my_perk_dict.get("value")
+	elif my_type == "red":
+		GLOBAL.total_red += my_perk_dict.get("value")
+	else:
+		pass
+
+func _on_perk_available() -> void:
+	adapt_price()
+	disabled = false
+	price_tag.text = str(my_perk_dict.get("price"))
+	price_tag.visible = true
+	im_ready_to_buy = true
+
+func adapt_price() -> void:
+	if points_input < 10:
+		if my_perk_dict.get("price") <= 100:
+			pass
+		elif my_perk_dict.get("price") > 100 and my_perk_dict.get("price") <= 400:
+			var og_price = my_perk_dict.get("price")
+			my_perk_dict.set("price", int(round(og_price/1.5)))
+			
+		elif my_perk_dict.get("price") > 400 and my_perk_dict.get("price") <= 600:
+			var og_price = my_perk_dict.get("price")
+			my_perk_dict.set("price", round(og_price/2))
+		
+		elif my_perk_dict.get("price") > 600 and my_perk_dict.get("price") <= 1000:
+			var og_price = my_perk_dict.get("price")
+			my_perk_dict.set("price", round(og_price/2.5))
+			
+		elif my_perk_dict.get("price") > 1000 and my_perk_dict.get("price") <= 5000:
+			var og_price = my_perk_dict.get("price")
+			my_perk_dict.set("price", round(og_price/4))
+
+		elif my_perk_dict.get("price") > 5000 and my_perk_dict.get("price") <= 10000:
+			var og_price = my_perk_dict.get("price")
+			my_perk_dict.set("price", round(og_price/7))
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	points_input = GLOBAL.simulated_points
