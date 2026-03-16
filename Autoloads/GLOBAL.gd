@@ -27,7 +27,7 @@ var pointing = load("res://Prototypes/Clicker/Assets/clickable.png")
 	"1" = {"ID" : 6, "name" : "Driving Aid Liquid", 
 		"description" : "Unlock all your cognitive capacities by getting wasted.[br][br]Increases your click points by 1", 
 		"region" : {"x" : 800, "w": 160, "y" : 0, "h" : 160}, "price" : 10, 
-		"value" : 1, "bought" : true, "available" : true}, 
+		"value" : 1, "bought" : false, "available" : true}, 
 	"8" = {"ID" : 7, "name" : "Industrial DIY Burger", 
 		"description" : "Press your smash burgers to an atomic level![br][br]Increases your click points by 8", 
 		"region" : {"x" : 0, "w": 160, "y" : 160, "h" : 160}, "price" : 410, 
@@ -366,14 +366,11 @@ var pointing = load("res://Prototypes/Clicker/Assets/clickable.png")
 		"description" : "Two kids made this and forgot about it at the end of summer.", 
 		"region" : {"x" : 0, "w": 160, "y" : 160, "h" : 160}, "price" : 3210, 
 		"value" : 24, "bought" : false, "available" : false, "subtype" : "4",
-		"my_button" : null},
-	"25" = {"ID" : 24, "name" : "joker", 
-		"description" : "Two kids made this and forgot about it at the end of summer.", 
-		"region" : {"x" : 800, "w": 160, "y" : 480, "h" : 160}, "price" : 3210, 
-		"value" : 24, "bought" : false, "available" : false, "subtype" : "4",
-		"my_button" : null},  
+		"my_button" : null}
 }
 
+var last_focused_perk : String
+var picked_run_perks : Dictionary = {}
 
 var money : int = 0 #Almacena los puntos obtenidos en el clicker
 

@@ -30,6 +30,7 @@ var auto_percentage_amm : float
 
 
 func _ready() -> void:
+	print("Step count: ", GLOBAL.current_step)
 	if cheat:
 		float_points = 99999
 	else:

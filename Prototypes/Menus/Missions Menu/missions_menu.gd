@@ -135,7 +135,7 @@ func deselect_prev_button(button : TextureButton)-> void:
 		if current_selected_button != button:
 			current_selected_button.deselect_button()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("Back"):
 		if !pause_menu.visible:
 			_on_back_pressed()

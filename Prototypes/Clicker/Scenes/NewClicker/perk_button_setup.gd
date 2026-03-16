@@ -26,10 +26,24 @@ func set_up()->void:
 	pass
 	
 func im_set() -> void:
-	if my_x == 1 and my_y == 1:
-		im_center = true
-		texture_button.perk_available.emit()
-		texture_button.grab_focus()
+	if GLOBAL.current_step == 0:
+		if my_x == 1 and my_y == 1:
+			apply_starter()
+			await get_tree().process_frame
+			texture_button.grab_focus()
+			all_perks.current_button = texture_button
+		elif my_x == all_perks.columns and my_y == all_perks.rows:
+			apply_starter()
+		elif my_x == all_perks.columns and my_y == 1:
+			apply_starter()
+		elif my_x == 1 and my_y == all_perks.rows:
+			apply_starter()
+
+func apply_starter()->void:
+	all_perks.starters.append(texture_button)
+	im_center = true
+	texture_button.unhide()
+	texture_button.perk_available.emit()
 
 func get_my_friends(array):
 	for button in array:
@@ -84,7 +98,3 @@ func fill_neighbours(array)-> void:
 func show_friends()-> void:
 	if texture_button.im_bought:
 		all_perks.show_perks(friends)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

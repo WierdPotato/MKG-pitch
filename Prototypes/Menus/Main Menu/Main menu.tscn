@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddvv7tij5cilm"]
 
 [ext_resource type="Script" uid="uid://b27d03hrhkmm8" path="res://Prototypes/Menus/Main Menu/main_menu.gd" id="1_v4spl"]
-[ext_resource type="PackedScene" uid="uid://c6q62ufk5h678" path="res://Prototypes/Clicker/Scenes/clicker_m_scene.tscn" id="2_6hqkb"]
+[ext_resource type="PackedScene" uid="uid://vi0rdfsolkip" path="res://Prototypes/Clicker/Scenes/NewClicker/NewClicker.tscn" id="2_wj63d"]
 [ext_resource type="Texture2D" uid="uid://dbf2n277mjacr" path="res://Prototypes/Shmup/Assets/Demo/main menu/main_menu_bg 2.png" id="3_pq152"]
 [ext_resource type="Texture2D" uid="uid://bhq41at1kkl52" path="res://Prototypes/Shmup/Assets/Demo/main menu/5C logo square.png" id="4_urq66"]
 [ext_resource type="Texture2D" uid="uid://d35xlhmdxb3ef" path="res://Prototypes/Shmup/Assets/Demo/main menu/mask.png" id="5_qwvkh"]
@@ -26,7 +26,7 @@
 
 [node name="MainMenu" type="Node2D" unique_id=484857900]
 script = ExtResource("1_v4spl")
-play_scene = ExtResource("2_6hqkb")
+play_scene = ExtResource("2_wj63d")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=785724737]
 texture = ExtResource("3_pq152")
@@ -136,7 +136,8 @@ offset_left = 534.0
 offset_top = 912.0
 offset_right = 968.0
 offset_bottom = 1047.0
-theme_override_colors/font_outline_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("9_dbg78")
 theme_override_font_sizes/font_size = 50

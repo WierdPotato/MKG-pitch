@@ -1,12 +1,17 @@
 extends Node
 
+signal start_game
+signal hide_unchosen
+
 @onready var new_clicker: Control = $".."
+@onready var all_perks: VBoxContainer = $"../AllPerks"
 
 @export var cheat : bool = false
+@export var autopoints_cd : float = 1
 
 @onready var clicker: TextureButton = $Clicker
 @onready var autopoints_timer: Timer = $AutopointsTimer
-@onready var total_money_lbl: Label = $PointsBG/TotalMoneyLBL
+@onready var total_money_lbl: Label = $TotalMoneyLBL
 
 
 var float_points : float
@@ -29,25 +34,40 @@ func _ready() -> void:
 	points_per_second = 0
 	auto_percentage_amm = 0
 
+func _on_start_game() -> void:
+	new_clicker.game_started = true
+	all_perks.current_button.grab_focus()
+	hide_unchosen.emit()
+	autopoints_timer.start(autopoints_cd)
+	print(autopoints_timer.wait_time)
+
 func _on_clicker_pressed() -> void:
-	print(new_clicker.time_stopped)
+	manage_click()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Click"):
+		manage_click()
+
+func manage_click() -> void:
+	if !new_clicker.game_started and all_perks.current_button != null:
+		start_game.emit()
+		
 	if !new_clicker.time_stopped:
 		add_click_points()
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Click") and !new_clicker.time_stopped:
-		add_click_points()
-
 func add_click_points() -> void:
-	float_points += points_per_click + GLOBAL.total_yellow + (GLOBAL.total_yellow * GLOBAL.total_pcn_yellow) + (GLOBAL.money * GLOBAL.total_gen_pcn_yellow)
+	if new_clicker.game_started:
+		float_points += points_per_click + GLOBAL.total_yellow + (GLOBAL.total_yellow * GLOBAL.total_pcn_yellow) + (GLOBAL.money * GLOBAL.total_gen_pcn_yellow)
 
 func clicks_percentage(percentage : int) -> void:
 	click_percentage_amm += percentage
 	print("Porcentaje aumentado: ", auto_percentage_amm / 100)
 
-func _on_timer_timeout() -> void:
-	autopoints_timer.wait_time = 1 - GLOBAL.total_red_cd_reduction
+func _on_autopoints_timer_timeout() -> void:
+	autopoints_timer.wait_time = autopoints_cd - GLOBAL.total_red_cd_reduction
 	float_points += GLOBAL.total_red + (GLOBAL.total_red * GLOBAL.total_pcn_red)
+	print(GLOBAL.total_red)
+	
 	
 func _on_new_clicker_stop_time() -> void:
 	autopoints_timer.paused = true
@@ -64,6 +84,6 @@ func manage_points() -> void:
 	GLOBAL.money = total_points
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	manage_points()
 	total_money_lbl.text = str(total_points)

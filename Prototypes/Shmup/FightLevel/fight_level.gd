@@ -4,6 +4,8 @@ extends Node2D
 
 @export var points_goal : int
 
+@export var clicker_scene : PackedScene
+
 @onready var pause_menu: Control = $"../PauseMenu"
 
 @onready var enemy_timers: Node = $EnemiesEngine/Timers
@@ -72,7 +74,7 @@ func manage_win() -> void:
 	PREP.ship_ammo = player_instance.shot_machine.ammo
 	await get_tree().create_timer(1).timeout
 	GLOBAL.current_step += 1
-	get_tree().change_scene_to_file("res://Prototypes/Clicker/Scenes/clicker_m_scene.tscn")
+	get_tree().change_scene_to_file("res://Prototypes/Clicker/Scenes/NewClicker/NewClicker.tscn")
 
 func stop_spawn_timers() -> void:
 	for i in enemy_timers.get_children():
@@ -92,7 +94,7 @@ func _on_reload_machine_missed_reload() -> void:
 	player_instance.shot_machine.reload(4)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress_bar.value = player_instance.integrity_machine.integrity
 	ammo.text = str(player_instance.shot_machine.ammo)
 	shield.text = str(player_instance.integrity_machine.shield)

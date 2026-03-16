@@ -16,8 +16,15 @@ func _ready() -> void:
 	initiate_timer()
 
 func initiate_timer() -> void:
-	clicker_timer.start(time)
-	timer_progress_donut.max_value = time
+	var time_debuff : float = 0
+	if GLOBAL.current_step == 2:
+		time_debuff = 15
+	elif GLOBAL.current_step == 3:
+		time_debuff = 30
+	clicker_timer.wait_time = time - time_debuff
+	timer_progress_donut.max_value = time - time_debuff
+	clicker_timer.start()
+	clicker_timer.paused = true
 
 func _on_new_clicker_stop_time() -> void:
 	clicker_timer.paused = true
@@ -27,7 +34,10 @@ func _on_new_clicker_resume_time() -> void:
 
 func _on_clicker_timer_timeout() -> void:
 	clicker_ended.emit()
-	
+
+func _on_points_manager_start_game() -> void:
+	clicker_timer.paused = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	timer_progress_donut.value = clicker_timer.time_left

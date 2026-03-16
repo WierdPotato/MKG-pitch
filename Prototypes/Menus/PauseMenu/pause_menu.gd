@@ -12,7 +12,7 @@ func opened(id : String) -> void:
 	called_from = id
 	botones.get_focus()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("Pause"):
 		if self.visible == false:
 			opened("self")

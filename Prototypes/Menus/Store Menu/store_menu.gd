@@ -41,7 +41,7 @@ func _on_purchase_button_pressed() -> void:
 	STORE.buy()
 	parts_list.prepare_list()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("Back"):
 		if !pause_menu.visible:
 			go_to_prep()

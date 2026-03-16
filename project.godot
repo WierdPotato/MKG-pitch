@@ -58,6 +58,10 @@ MovementRefs=""
 EnemyShot=""
 Positions=""
 
+[gui]
+
+common/snap_controls_to_pixels=false
+
 [input]
 
 ui_accept={
@@ -213,11 +217,10 @@ Back={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=1
 2d/shadow_atlas/size=128
-reflections/sky_reflections/roughness_layers=1
-reflections/sky_reflections/texture_array_reflections=false
-reflections/reflection_atlas/reflection_size=64
-reflections/reflection_atlas/reflection_size.mobile=32
-reflections/reflection_atlas/reflection_count=16
 reflections/specular_occlusion/enabled=false
-environment/volumetric_fog/use_filter=0
+textures/default_filters/anisotropic_filtering_level=1
+anti_aliasing/quality/msaa_2d=1
+viewport/transparent_background=true
+anti_aliasing/quality/screen_space_aa=1

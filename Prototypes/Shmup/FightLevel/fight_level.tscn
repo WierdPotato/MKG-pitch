@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbwkvhjm11imo" path="res://Prototypes/Shmup/FightLevel/fight_level.gd" id="1_cn8b7"]
 [ext_resource type="PackedScene" uid="uid://d2f76wxyv41ef" path="res://Prototypes/Shmup/Player/Player.tscn" id="2_jf8sv"]
+[ext_resource type="PackedScene" uid="uid://vi0rdfsolkip" path="res://Prototypes/Clicker/Scenes/NewClicker/NewClicker.tscn" id="4_u6in1"]
 [ext_resource type="Texture2D" uid="uid://d1ejdwiwfp0op" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/normal BG para tilear.png" id="5_dfv4o"]
 [ext_resource type="Script" uid="uid://bjomhrl4wapws" path="res://Prototypes/Shmup/FightLevel/enemies_engine.gd" id="5_u6in1"]
 [ext_resource type="Texture2D" uid="uid://bhdwhm84kkjg1" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/marco borde blanco para tint.png" id="6_dfv4o"]
@@ -67,7 +68,8 @@ z_index = 3
 [node name="Level" type="Node2D" parent="." unique_id=2085977771 groups=["Level"]]
 script = ExtResource("1_cn8b7")
 player = ExtResource("2_jf8sv")
-points_goal = 10
+points_goal = 2
+clicker_scene = ExtResource("4_u6in1")
 
 [node name="PlayerSpawn" type="Marker2D" parent="Level" unique_id=1009700412]
 position = Vector2(225, 502)

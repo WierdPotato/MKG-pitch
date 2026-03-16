@@ -1,18 +1,33 @@
 [gd_scene format=3 uid="uid://vi0rdfsolkip"]
 
-[ext_resource type="Texture2D" uid="uid://bqa2a2bb001ut" path="res://Prototypes/Shmup/Assets/Demo/main menu/main_menu_bg.png" id="1_3q3cn"]
 [ext_resource type="Script" uid="uid://dnr7kp0oo1iqj" path="res://Prototypes/Clicker/Scenes/NewClicker/AllPerks.gd" id="1_4s7m0"]
 [ext_resource type="Script" uid="uid://ce0jsad7c2wlj" path="res://Prototypes/Clicker/Scenes/NewClicker/new_clicker.gd" id="1_6ekff"]
-[ext_resource type="Texture2D" uid="uid://clm146m01o2ff" path="res://Prototypes/Clicker/Assets/DemoUI/click_here.png" id="5_xhmrh"]
-[ext_resource type="Texture2D" uid="uid://b8edd3p0i1ibr" path="res://Prototypes/Clicker/Assets/DemoUI/footer small_buy.png" id="6_lmxu5"]
+[ext_resource type="PackedScene" uid="uid://csfu8qdajmmwg" path="res://Prototypes/Shmup/Demo/PrepMenuDemo.tscn" id="2_3q3cn"]
+[ext_resource type="Texture2D" uid="uid://dy8b4xlo800xh" path="res://Prototypes/Clicker/Assets/Overhaul/background V1.png" id="2_4diut"]
+[ext_resource type="Texture2D" uid="uid://b1md2vni2fmko" path="res://Prototypes/Clicker/Assets/Overhaul/DONUT indicador recarga x8 res.png" id="6_3q3cn"]
 [ext_resource type="Script" uid="uid://c4bgum4hjl06x" path="res://Prototypes/Clicker/Scenes/NewClicker/timer_engine.gd" id="7_iv6rg"]
-[ext_resource type="Texture2D" uid="uid://6py71cxt22bq" path="res://Prototypes/Shmup/Assets/Demo/mapa/MISIONES.png" id="7_k0e2p"]
 [ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="8_4diut"]
-[ext_resource type="Texture2D" uid="uid://bd68ds1r6mfc2" path="res://Prototypes/Clicker/Assets/DemoUI/mony_amt_pill.png" id="9_6ekff"]
+[ext_resource type="Texture2D" uid="uid://bmgii0wmyo5e2" path="res://Prototypes/Clicker/Assets/Overhaul/click btn.png" id="8_6ekff"]
 [ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="10_6ekff"]
+[ext_resource type="Texture2D" uid="uid://b34cj02qi4rjv" path="res://Prototypes/Clicker/Assets/Overhaul/test botones spritesheet x4.png" id="10_7uajt"]
+[ext_resource type="Texture2D" uid="uid://5ob6a38si7v2" path="res://Prototypes/Clicker/Assets/Overhaul/buy btn.png" id="10_iv6rg"]
 [ext_resource type="Script" uid="uid://cm1yhytj42e7m" path="res://Prototypes/Clicker/Scenes/NewClicker/points_manager.gd" id="11_3q3cn"]
-[ext_resource type="Texture2D" uid="uid://bpy1nm0omdr45" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/DONUT indicador recarga.png" id="11_iv6rg"]
-[ext_resource type="Texture2D" uid="uid://c20043x0snn6p" path="res://Prototypes/Clicker/Assets/DemoUI/footer_big.png" id="12_iv6rg"]
+[ext_resource type="Texture2D" uid="uid://cer4tlggh4t34" path="res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png" id="11_qvw6y"]
+[ext_resource type="Texture2D" uid="uid://boo8vel51qop6" path="res://Prototypes/Clicker/Assets/Overhaul/test botones spritesheet V1.png" id="12_iv6rg"]
+[ext_resource type="Texture2D" uid="uid://cyv8vh4b4v4ik" path="res://Prototypes/Clicker/Assets/Overhaul/reference.png" id="13_7uajt"]
+[ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="16_qvw6y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o1f1"]
+atlas = ExtResource("10_7uajt")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xno3"]
+atlas = ExtResource("11_qvw6y")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q3cn"]
+atlas = ExtResource("12_iv6rg")
+region = Rect2(300, 0, 100, 100)
 
 [node name="NewClicker" type="Control" unique_id=876232663]
 layout_mode = 3
@@ -22,37 +37,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ekff")
-clicker_minutes = 1.0
+clicker_minutes = 1.25
+prep_menu = ExtResource("2_3q3cn")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1617760963]
 position = Vector2(0, 1)
-texture = ExtResource("1_3q3cn")
+texture = ExtResource("2_4diut")
 centered = false
 
 [node name="AllPerks" type="VBoxContainer" parent="." unique_id=901820518]
 layout_mode = 0
-offset_left = 952.0
-offset_top = 104.0
-offset_right = 1832.0
-offset_bottom = 984.0
-theme_override_constants/separation = 32
+offset_left = 651.0
+offset_top = 95.0
+offset_right = 1577.0
+offset_bottom = 1019.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/separation = 128
 script = ExtResource("1_4s7m0")
+real_random = true
 dinamic_size = true
 rows = 7
 columns = 7
-yellow_prob = 65.0
-red_prob = 25.0
-blue_prob = 10.0
-
-[node name="PerkInfoBG" type="Sprite2D" parent="." unique_id=1174668955]
-position = Vector2(338, 436.99997)
-scale = Vector2(1.6618055, 1.3512499)
-texture = ExtResource("7_k0e2p")
+yellow_prob = 45.0
+red_prob = 40.0
+blue_prob = 15.0
+metadata/_edit_lock_ = true
 
 [node name="TimerEngine" type="Control" parent="." unique_id=661737904]
 anchors_preset = 0
-offset_left = -13.0
-offset_right = -13.0
+offset_left = 949.0
+offset_top = -364.0
+offset_right = 949.0
+offset_bottom = -364.0
 script = ExtResource("7_iv6rg")
 
 [node name="ClickerTimer" type="Timer" parent="TimerEngine" unique_id=25686515]
@@ -60,24 +76,24 @@ one_shot = true
 
 [node name="TimerProgressDonut" type="TextureProgressBar" parent="TimerEngine" unique_id=1219243808]
 layout_mode = 0
-offset_left = 714.0
-offset_top = 422.0
-offset_right = 813.0
-offset_bottom = 521.0
-scale = Vector2(2, 2)
+offset_left = 687.0
+offset_top = 395.99997
+offset_right = 786.0
+offset_bottom = 494.99997
+scale = Vector2(0.12, 0.12)
 step = 0.1
 fill_mode = 5
-texture_under = ExtResource("11_iv6rg")
-texture_progress = ExtResource("11_iv6rg")
-tint_under = Color(0.2, 0.23529412, 0.34117648, 1)
+texture_under = ExtResource("6_3q3cn")
+texture_progress = ExtResource("6_3q3cn")
+tint_under = Color(0.101960786, 0.10980392, 0.17254902, 1)
 tint_progress = Color(0.95686275, 0.95686275, 0.95686275, 1)
 
 [node name="SecondsLabel" type="Label" parent="TimerEngine" unique_id=710973036]
 layout_mode = 0
-offset_left = 751.0
-offset_top = 481.0
-offset_right = 812.0
-offset_bottom = 521.0
+offset_left = 736.0
+offset_top = 478.0
+offset_right = 807.0
+offset_bottom = 518.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
 theme_override_colors/font_outline_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
@@ -88,51 +104,24 @@ text = "999"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Joker1Sprite" type="Sprite2D" parent="." unique_id=1436383037]
-position = Vector2(339, 883)
-scale = Vector2(1, 1.6491712)
-texture = ExtResource("12_iv6rg")
-
-[node name="Pause" type="TextureButton" parent="." unique_id=1194523441]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 15.0
-offset_right = 90.0
-offset_bottom = 85.0
-texture_normal = ExtResource("8_4diut")
-
-[node name="Buy" type="TextureButton" parent="." unique_id=72092081]
-layout_mode = 0
-offset_left = 889.0
-offset_top = 647.0
-offset_right = 1277.0
-offset_bottom = 828.0
-rotation = 1.5707964
-texture_normal = ExtResource("6_lmxu5")
-
 [node name="PointsManager" type="Node" parent="." unique_id=1181534600]
 script = ExtResource("11_3q3cn")
-cheat = true
 
 [node name="Clicker" type="TextureButton" parent="PointsManager" unique_id=267823673]
-offset_left = 895.0
-offset_top = 67.0
-offset_right = 1219.0
-offset_bottom = 248.0
-rotation = 1.5707964
-texture_normal = ExtResource("5_xhmrh")
+offset_left = 1636.0
+offset_top = 739.0
+offset_right = 1888.0
+offset_bottom = 1049.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_6ekff")
 
 [node name="AutopointsTimer" type="Timer" parent="PointsManager" unique_id=1256499041]
 
-[node name="PointsBG" type="Sprite2D" parent="PointsManager" unique_id=109396317]
-position = Vector2(393, 113)
-texture = ExtResource("9_6ekff")
-
-[node name="TotalMoneyLBL" type="Label" parent="PointsManager/PointsBG" unique_id=581955624]
-offset_left = -193.34981
-offset_top = -16.5
-offset_right = 182.92015
-offset_bottom = 15.5
+[node name="TotalMoneyLBL" type="Label" parent="PointsManager" unique_id=581955624]
+offset_left = 157.0
+offset_top = 52.0
+offset_right = 533.26996
+offset_bottom = 84.0
 theme_override_colors/font_color = Color(0.654902, 0.9411765, 0.4392157, 1)
 theme_override_fonts/font = ExtResource("10_6ekff")
 theme_override_font_sizes/font_size = 25
@@ -140,12 +129,99 @@ text = "92103126453287562"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Details" type="Control" parent="." unique_id=1205195731]
+anchors_preset = 0
+offset_left = 31.0
+offset_top = 135.0
+offset_right = 556.0
+offset_bottom = 708.0
+metadata/_edit_lock_ = true
+
+[node name="IconBG" type="Sprite2D" parent="Details" unique_id=1087923852]
+position = Vector2(115, 112)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_7o1f1")
+
+[node name="Icon" type="Sprite2D" parent="Details" unique_id=1302867066]
+position = Vector2(115, 112)
+texture = SubResource("AtlasTexture_8xno3")
+
+[node name="Name" type="Label" parent="Details" unique_id=1512834354]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 50.0
+offset_right = 481.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0.09803922, 0.105882354, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0.09803922, 0.105882354, 0.16470589, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("10_6ekff")
+theme_override_font_sizes/font_size = 35
+text = "Your Daddy's Quarry"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Details" unique_id=1207892896]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 247.0
+offset_right = 464.0
+offset_bottom = 510.0
+theme_override_colors/default_color = Color(0.09803922, 0.105882354, 0.16470589, 1)
+theme_override_fonts/normal_font = ExtResource("10_6ekff")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Some kids made this and forgot about it by the end of summer"
+
+[node name="Pause" type="TextureButton" parent="." unique_id=1194523441]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 85.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_4diut")
+
+[node name="Buy" type="TextureButton" parent="." unique_id=72092081]
+layout_mode = 0
+offset_left = 1637.0
+offset_top = 424.0
+offset_right = 1889.0
+offset_bottom = 708.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_iv6rg")
+
+[node name="Guide" type="Sprite2D" parent="." unique_id=205200500]
+visible = false
+self_modulate = Color(1, 1, 1, 0.16862746)
+texture = ExtResource("13_7uajt")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Ring" type="Sprite2D" parent="." unique_id=1980673611]
+visible = false
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_3q3cn")
+
+[node name="PauseMenu" parent="." unique_id=131753112 instance=ExtResource("16_qvw6y")]
+visible = false
+z_index = 3
+layout_mode = 1
+
 [connection signal="resume_time" from="." to="." method="_on_resume_time"]
 [connection signal="resume_time" from="." to="TimerEngine" method="_on_new_clicker_resume_time"]
 [connection signal="resume_time" from="." to="PointsManager" method="_on_new_clicker_resume_time"]
 [connection signal="stop_time" from="." to="." method="_on_stop_time"]
 [connection signal="stop_time" from="." to="TimerEngine" method="_on_new_clicker_stop_time"]
 [connection signal="stop_time" from="." to="PointsManager" method="_on_new_clicker_stop_time"]
+[connection signal="clicker_ended" from="TimerEngine" to="." method="_on_timer_engine_clicker_ended"]
 [connection signal="timeout" from="TimerEngine/ClickerTimer" to="TimerEngine" method="_on_clicker_timer_timeout"]
-[connection signal="pressed" from="Buy" to="AllPerks" method="_on_buy_pressed"]
+[connection signal="hide_unchosen" from="PointsManager" to="AllPerks" method="_on_points_manager_hide_unchosen"]
+[connection signal="start_game" from="PointsManager" to="TimerEngine" method="_on_points_manager_start_game"]
+[connection signal="start_game" from="PointsManager" to="PointsManager" method="_on_start_game"]
 [connection signal="pressed" from="PointsManager/Clicker" to="PointsManager" method="_on_clicker_pressed"]
+[connection signal="timeout" from="PointsManager/AutopointsTimer" to="PointsManager" method="_on_autopoints_timer_timeout"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Buy" to="AllPerks" method="_on_buy_pressed"]
+[connection signal="visibility_changed" from="PauseMenu" to="." method="_on_pause_menu_visibility_changed"]

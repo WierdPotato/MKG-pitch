@@ -171,7 +171,7 @@ func manage_mov() -> void: #Gestiona el movimiento de la nave
 func update_weight() -> void:
 	Ms = PREP.ship_mass + (shot_machine.ammo * 0.01)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	manage_mov() #Gestiona cada frame el movimiento
 	
 func _process(_delta: float) -> void:

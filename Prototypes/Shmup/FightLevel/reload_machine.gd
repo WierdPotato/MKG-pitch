@@ -110,5 +110,5 @@ func _on_late_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Pointer"):
 		bad = false
 
-func _on_missed_area_exited(area: Area2D) -> void:
+func _on_missed_area_exited(_area: Area2D) -> void:
 	pass

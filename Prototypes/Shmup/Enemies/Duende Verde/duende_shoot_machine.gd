@@ -26,8 +26,3 @@ func _on_shot_cd_timeout() -> void:
 		shot_instance.hit_damage = my_hit_dmg
 		get_tree().call_group("Level", "add_child", shot_instance)
 		shot_cd.start(randf_range(0.5, 2))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

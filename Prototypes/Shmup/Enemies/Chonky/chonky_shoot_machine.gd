@@ -56,7 +56,3 @@ func shoot() ->void:
 			await get_tree().process_frame
 			get_tree().call_group("Level", "add_child", i)
 		can_shoot = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
