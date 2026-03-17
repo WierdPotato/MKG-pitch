@@ -108,12 +108,30 @@ func set_up_buttons() -> void:
 	var list : Array = [yellow_perk_param, red_perk_param, blue_perk_param]
 	var weights = PackedFloat32Array([yellow_prob, red_prob, blue_prob])
 	var hbox_iter = 1
+	var yellow_count : int = 0
+	var red_count : int = 0
+	var blue_count : int = 0
 	if real_random:
 		for row in get_children():
 			var iter : int = 1
 			for b in row.get_children():
 				var my_pick = list[rng.rand_weighted(weights)]
 				var my_dict_pick = my_pick.get("dictionary").keys().pick_random()
+				if my_pick.get("type") == "yellow":
+					if my_pick.get("dictionary").size() == 1:
+						list.erase(yellow_perk_param)
+					yellow_count += 1
+					
+				elif my_pick.get("type") == "red":
+					if my_pick.get("dictionary").size() == 1:
+						list.erase(red_perk_param)
+					red_count += 1
+					
+				else:
+					if my_pick.get("dictionary").size() == 1:
+						list.erase(blue_perk_param)
+					blue_count += 1
+					
 				b.my_perk_dict = my_pick.get("dictionary").get(my_dict_pick)
 				b.my_bought_region = my_pick.get("bought_reg")
 				b.my_pressed_region = my_pick.get("pressed_reg")
@@ -133,9 +151,10 @@ func set_up_buttons() -> void:
 				iter += 1
 			hbox_iter += 1
 
+
 	for i in all_buttons:
 		i.get_child(0).get_my_friends(all_buttons)
-		
+	print("Yellow: ", yellow_count, " Red: ", red_count, " Blue: ", blue_count)
 	#new_clicker.sim_points_per_second()
 func recover_perks():
 	var hbox_iter = 1

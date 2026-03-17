@@ -66,8 +66,6 @@ func clicks_percentage(percentage : int) -> void:
 func _on_autopoints_timer_timeout() -> void:
 	autopoints_timer.wait_time = autopoints_cd - GLOBAL.total_red_cd_reduction
 	float_points += GLOBAL.total_red + (GLOBAL.total_red * GLOBAL.total_pcn_red)
-	print(GLOBAL.total_red)
-	
 	
 func _on_new_clicker_stop_time() -> void:
 	autopoints_timer.paused = true

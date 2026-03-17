@@ -58,8 +58,8 @@ real_random = true
 dinamic_size = true
 rows = 7
 columns = 7
-yellow_prob = 45.0
-red_prob = 40.0
+yellow_prob = 42.5
+red_prob = 42.5
 blue_prob = 15.0
 metadata/_edit_lock_ = true
 
@@ -169,10 +169,12 @@ offset_top = 247.0
 offset_right = 464.0
 offset_bottom = 510.0
 theme_override_colors/default_color = Color(0.09803922, 0.105882354, 0.16470589, 1)
+theme_override_constants/paragraph_separation = 28
 theme_override_fonts/normal_font = ExtResource("10_6ekff")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Some kids made this and forgot about it by the end of summer"
+scroll_active = false
 
 [node name="Pause" type="TextureButton" parent="." unique_id=1194523441]
 layout_mode = 0
