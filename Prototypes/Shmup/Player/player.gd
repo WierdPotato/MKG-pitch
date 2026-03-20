@@ -141,7 +141,7 @@ func stop_tween(id) -> void: #Igual que accel_tween, pero la velocidad objetivo 
 		tween.play()
 		current_x_tween = tween
 
-func manage_mov() -> void: #Gestiona el movimiento de la nave
+func manage_mov(delta) -> void: #Gestiona el movimiento de la nave
 	if get_axis().y > 0: #Comprueba el la dirección en la que se mueve la nave y cambia el sprite acorde. 
 		sprite.texture = ship_down
 	elif get_axis().y < 0:
@@ -159,20 +159,18 @@ func manage_mov() -> void: #Gestiona el movimiento de la nave
 	position.y = clamp(position.y, screensize.y/7.5, screensize.y - screensize.y/6)
 	
 	if position.x == screensize.x - 40 or position.x == 40: #Comprueba si la nave se encuentra en los limites
-		print("yeeeee")
 		if velocity.x != 0: #Si velocity no es ya 0
 			Hs = 0 #Asegura que velocity concuerde con lo que ve el jugador. 
 	
 	if position.y == screensize.y/7.5 or position.y == (screensize.y - screensize.y/6):
-		print("yooo")
 		if velocity.y != 0:
 			Vs = 0
 
 func update_weight() -> void:
 	Ms = PREP.ship_mass + (shot_machine.ammo * 0.01)
 
-func _physics_process(_delta: float) -> void:
-	manage_mov() #Gestiona cada frame el movimiento
+func _physics_process(delta: float) -> void:
+	manage_mov(delta) #Gestiona cada frame el movimiento
 	
 func _process(_delta: float) -> void:
 	update_vi() #Llama cada frame a que se actualicen las velocidades iniciales

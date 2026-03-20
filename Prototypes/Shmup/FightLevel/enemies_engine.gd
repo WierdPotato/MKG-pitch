@@ -24,15 +24,14 @@ extends Node
 
 @onready var placements: Node = $Placements
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(2).timeout
-	saeta_spawn_timer.start(randf_range(1.5, 2))
+	#saeta_spawn_timer.start(randf_range(1.5, 2)) 
 	duende_spawn_timer.start(randf_range(1.5, 2))
 	chonky_spawn_timer.start(randf_range(8, 10))
 	
+
 func _on_saeta_spawn_timer_timeout() -> void:
 	var saeta_instance = saeta.instantiate()
 	saeta_instance.global_position = spawn_coords.global_position
@@ -57,10 +56,8 @@ func _on_chonky_spawn_timer_timeout() -> void:
 	
 	chonky_spawn_timer.start(randf_range(10, 20))
 
-
 func get_enemies() -> void:
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

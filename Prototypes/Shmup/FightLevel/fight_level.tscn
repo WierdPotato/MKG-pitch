@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ejdwiwfp0op" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/normal BG para tilear.png" id="5_dfv4o"]
 [ext_resource type="Script" uid="uid://bjomhrl4wapws" path="res://Prototypes/Shmup/FightLevel/enemies_engine.gd" id="5_u6in1"]
 [ext_resource type="Texture2D" uid="uid://bhdwhm84kkjg1" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/marco borde blanco para tint.png" id="6_dfv4o"]
+[ext_resource type="PackedScene" uid="uid://cml14pxkaqu1g" path="res://Prototypes/Shmup/Enemies/ButanoBoss/butano_boss.tscn" id="6_mbgic"]
 [ext_resource type="Script" uid="uid://cvkndk7b2v4hj" path="res://Prototypes/Shmup/FightLevel/border_feedback.gd" id="7_we8h7"]
 [ext_resource type="Script" uid="uid://dxl4i2hrptd6k" path="res://Prototypes/Shmup/FightLevel/reload_machine.gd" id="9_dfv4o"]
 [ext_resource type="Texture2D" uid="uid://dtgf63koqghse" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Reload/reload bg.png" id="9_up5ui"]
@@ -76,6 +77,7 @@ position = Vector2(225, 502)
 
 [node name="EnemiesEngine" type="Node" parent="Level" unique_id=179190672]
 script = ExtResource("5_u6in1")
+max_chonky = 0
 
 [node name="Enemies" type="Node" parent="Level/EnemiesEngine" unique_id=598574663]
 
@@ -145,6 +147,9 @@ curve = SubResource("Curve2D_cn8b7")
 [node name="PathFollow2D" type="PathFollow2D" parent="Level/EnemiesEngine/SpawnPoints" unique_id=24719938]
 position = Vector2(1166.4064, 2.893324)
 rotation = 1.5827985
+
+[node name="ButanoBoss" parent="Level/EnemiesEngine" unique_id=1654836878 instance=ExtResource("6_mbgic")]
+position = Vector2(1, 0)
 
 [node name="Background" type="Node2D" parent="Level" unique_id=178112183]
 metadata/_edit_lock_ = true

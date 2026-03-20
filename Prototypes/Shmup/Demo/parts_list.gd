@@ -31,8 +31,11 @@ func on_ready() -> void:
 	current_pg = 0
 	current_filter = PREP.full_inventory.duplicate()
 	for i in self.get_child_count():
-		self.get_child(i).update_details(current_filter[i])
-	print(current_filter.size())
+		if i >= current_filter.size():
+			self.get_child(i).visible = false
+		else:
+			self.get_child(i).update_details(current_filter[i])
+			self.get_child(i).visible = true
 
 func update_filtered() -> void:
 	current_pg = 0

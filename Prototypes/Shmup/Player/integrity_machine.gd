@@ -17,11 +17,12 @@ var one_time_call : int = 1
 func _ready() -> void:
 	integrity = PREP.ship_hp
 	shield = PREP.equiped_parts["sld"].get("HP")
-	#print(integrity)
 	
 func shot_hit(impact : float) -> void:
 	var burst : float = 0
 	burst = impact - shield
+	if burst < 0:
+		burst = 0
 	shield -= impact
 	integrity -= burst
 	if shield < 0:

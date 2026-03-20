@@ -4,14 +4,20 @@ var all_bodies_list : Array = [
 	PARTS_BDY.body_1, 
 	PARTS_BDY.body_2, 
 	PARTS_BDY.body_3, 
-	PARTS_BDY.body_4
+	PARTS_BDY.body_4, 
+	PARTS_BDY.body_5, 
+	PARTS_BDY.body_6, 
+	PARTS_BDY.body_7
 ]
 
 var all_cargo_list : Array = [
 	PARTS_CRG.cargo_1, 
 	PARTS_CRG.cargo_2, 
 	PARTS_CRG.cargo_3, 
-	PARTS_CRG.cargo_4
+	PARTS_CRG.cargo_4, 
+	PARTS_CRG.cargo_5, 
+	PARTS_CRG.cargo_6, 
+	PARTS_CRG.cargo_7
 ]
 
 var all_engines_list : Array = [

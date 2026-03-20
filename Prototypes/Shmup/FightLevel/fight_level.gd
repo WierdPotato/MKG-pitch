@@ -45,6 +45,8 @@ func _ready() -> void:
 	hp_diff.max_value = progress_bar.max_value
 	player_instance.get_child(1).reload_machine = reload_machine
 	
+	$EnemiesEngine/ButanoBoss.player = player_instance
+	$EnemiesEngine/ButanoBoss.activate_systems()
 
 
 func _on_hp_value_changed(value: float) -> void:

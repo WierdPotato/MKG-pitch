@@ -17,7 +17,9 @@ func _on_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("EnemyShot"):
 		player_node.get_child(1).add_ammo(3)
 		start_explosion()
-
+	elif area.is_in_group("Inmune"):
+		start_explosion()
+ 
 func start_explosion() -> void:
 	collision_shape_2d.call_deferred("set_disabled", true)
 	speed = -500

@@ -54,7 +54,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
 size = Vector2(126, 37)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gx5hc"]
+radius = 121.20231
+
 [node name="Player" type="CharacterBody2D" unique_id=97374817]
+collision_layer = 5
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 
@@ -130,6 +135,14 @@ offset_left = -50.0
 offset_top = -59.0
 offset_right = 51.0
 offset_bottom = -36.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2100732621]
+collision_layer = 2
+collision_mask = 2
+
+[node name="MissedArea" type="CollisionShape2D" parent="Area2D" unique_id=755205089 groups=["PlayerArea"]]
+shape = SubResource("CircleShape2D_gx5hc")
+debug_color = Color(0.78266615, 0.40057313, 0.4620679, 0.41960785)
 
 [connection signal="player_dead" from="IntegrityMachine" to="." method="_on_integrity_machine_player_dead"]
 [connection signal="timeout" from="ShotMachine/ShotCD" to="ShotMachine" method="_on_cadence_timeout"]

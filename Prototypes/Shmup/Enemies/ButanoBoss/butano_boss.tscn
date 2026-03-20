@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://cml14pxkaqu1g"]
+
+[ext_resource type="Script" uid="uid://hv53alsiqr1r" path="res://Prototypes/Shmup/Enemies/ButanoBoss/butano_boss.gd" id="1_a2ey5"]
+[ext_resource type="Texture2D" uid="uid://3hq2btu7e08g" path="res://Prototypes/Shmup/Assets/Charas/ButanosBoss/boss body.png" id="1_hrupa"]
+[ext_resource type="Texture2D" uid="uid://deelqeg0b1l5w" path="res://Prototypes/Shmup/Assets/Charas/ButanosBoss/turret.png" id="2_52lk7"]
+[ext_resource type="Texture2D" uid="uid://cbq7bqursjfan" path="res://Prototypes/Shmup/Assets/Charas/ButanosBoss/force shield.png" id="3_3t1xo"]
+[ext_resource type="Script" uid="uid://dcw1q6f0vm0y7" path="res://Prototypes/Shmup/Enemies/ButanoBoss/turrets.gd" id="3_52lk7"]
+[ext_resource type="Script" uid="uid://bdwavdk5m0kqc" path="res://Prototypes/Shmup/Enemies/ButanoBoss/turrets_shot_machine.gd" id="4_3t1xo"]
+[ext_resource type="Texture2D" uid="uid://d38mykdqrtsno" path="res://Prototypes/Shmup/Assets/Charas/ButanosBoss/guide.png" id="4_kb6d1"]
+[ext_resource type="PackedScene" uid="uid://deyy70pfo1rb5" path="res://Prototypes/Shmup/ShotScene/EnemyShots/EnemyShot1/EnemyShot1.tscn" id="5_kb6d1"]
+[ext_resource type="Script" uid="uid://ciltqtgjfh335" path="res://Prototypes/Shmup/Enemies/ButanoBoss/swarm_machine.gd" id="6_021m3"]
+[ext_resource type="PackedScene" uid="uid://dm41jbvjxdgx" path="res://Prototypes/Shmup/Enemies/Swarm1/swarm_1.tscn" id="8_roswq"]
+[ext_resource type="Script" uid="uid://c04iaaybmyje2" path="res://Prototypes/Shmup/Enemies/ButanoBoss/shield.gd" id="9_58irs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_021m3"]
+size = Vector2(155, 826)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ey5"]
+size = Vector2(94, 89)
+
+[node name="ButanoBoss" type="Node2D" unique_id=1654836878]
+script = ExtResource("1_a2ey5")
+
+[node name="MainBody" type="Area2D" parent="." unique_id=82197443 groups=["Boss", "Enemies"]]
+
+[node name="Sprite" type="Sprite2D" parent="MainBody" unique_id=652429138]
+position = Vector2(1830, 540)
+texture = ExtResource("1_hrupa")
+
+[node name="BodyCollision" type="CollisionShape2D" parent="MainBody" unique_id=1088296506]
+position = Vector2(1844.5, 541)
+shape = SubResource("RectangleShape2D_021m3")
+
+[node name="Turret1" type="Sprite2D" parent="." unique_id=1568529745]
+position = Vector2(1722, 458)
+texture = ExtResource("2_52lk7")
+offset = Vector2(-17.88, 0)
+script = ExtResource("3_52lk7")
+
+[node name="ShotMachine" type="Node2D" parent="Turret1" unique_id=1167365004]
+script = ExtResource("4_3t1xo")
+shot = ExtResource("5_kb6d1")
+my_hit_dmg = 5
+shot_cd = 4.0
+
+[node name="ShotSpawn" type="Marker2D" parent="Turret1/ShotMachine" unique_id=1129486896]
+position = Vector2(-74, -1)
+
+[node name="ShotCD" type="Timer" parent="Turret1/ShotMachine" unique_id=1434254790]
+one_shot = true
+
+[node name="Rotator" type="Marker2D" parent="Turret1" unique_id=380232326]
+metadata/_edit_lock_ = true
+
+[node name="Area" type="Area2D" parent="Turret1" unique_id=1287154533 groups=["Enemies"]]
+position = Vector2(-13, 0)
+metadata/_edit_lock_ = true
+
+[node name="Turret1Collision" type="CollisionShape2D" parent="Turret1/Area" unique_id=1790284184]
+position = Vector2(13, -0.5)
+shape = SubResource("RectangleShape2D_a2ey5")
+metadata/_edit_lock_ = true
+
+[node name="Turret2" type="Sprite2D" parent="." unique_id=1946166159]
+position = Vector2(1731, 621)
+texture = ExtResource("2_52lk7")
+offset = Vector2(-17.88, 0)
+script = ExtResource("3_52lk7")
+
+[node name="ShotMachine" type="Node2D" parent="Turret2" unique_id=287241379]
+script = ExtResource("4_3t1xo")
+shot = ExtResource("5_kb6d1")
+my_hit_dmg = 5
+shot_cd = 4.0
+
+[node name="ShotSpawn" type="Marker2D" parent="Turret2/ShotMachine" unique_id=1843601035]
+position = Vector2(-74, -1)
+
+[node name="ShotCD" type="Timer" parent="Turret2/ShotMachine" unique_id=154984532]
+one_shot = true
+
+[node name="Rotator" type="Marker2D" parent="Turret2" unique_id=1253259390]
+metadata/_edit_lock_ = true
+
+[node name="Area" type="Area2D" parent="Turret2" unique_id=563581507 groups=["Boss", "Enemies"]]
+position = Vector2(-13, 0)
+metadata/_edit_lock_ = true
+
+[node name="Turret1Collision" type="CollisionShape2D" parent="Turret2/Area" unique_id=1974538600]
+position = Vector2(13, -0.5)
+shape = SubResource("RectangleShape2D_a2ey5")
+metadata/_edit_lock_ = true
+
+[node name="Swarm1" type="Node2D" parent="." unique_id=1668033802]
+script = ExtResource("6_021m3")
+swarm = ExtResource("8_roswq")
+
+[node name="Spawn" type="Marker2D" parent="Swarm1" unique_id=656028945]
+position = Vector2(1738, 294)
+
+[node name="ShotCD" type="Timer" parent="Swarm1" unique_id=1372411559]
+
+[node name="Targets" type="Node2D" parent="Swarm1" unique_id=1398722092]
+position = Vector2(1377, 254)
+
+[node name="Target1" type="Marker2D" parent="Swarm1/Targets" unique_id=1151260427]
+position = Vector2(72, -152)
+
+[node name="Target2" type="Marker2D" parent="Swarm1/Targets" unique_id=899985558]
+
+[node name="Target3" type="Marker2D" parent="Swarm1/Targets" unique_id=1689209181]
+position = Vector2(-64, 152)
+
+[node name="Swarm2" type="Node2D" parent="." unique_id=1606012871]
+position = Vector2(0, 486)
+script = ExtResource("6_021m3")
+swarm = ExtResource("8_roswq")
+
+[node name="Spawn" type="Marker2D" parent="Swarm2" unique_id=802629464]
+position = Vector2(1738, 294)
+
+[node name="ShotCD" type="Timer" parent="Swarm2" unique_id=1807941535]
+one_shot = true
+
+[node name="Targets" type="Node2D" parent="Swarm2" unique_id=1275490328]
+position = Vector2(1377, 254)
+
+[node name="Target1" type="Marker2D" parent="Swarm2/Targets" unique_id=325112168]
+position = Vector2(68, 172)
+
+[node name="Target2" type="Marker2D" parent="Swarm2/Targets" unique_id=243892120]
+position = Vector2(0, -15)
+
+[node name="Target3" type="Marker2D" parent="Swarm2/Targets" unique_id=1453678377]
+position = Vector2(-64, -187)
+
+[node name="Shield" type="Area2D" parent="." unique_id=1908508510 groups=["Inmune"]]
+position = Vector2(1526, 538)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("9_58irs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shield" unique_id=1620455945]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3_3t1xo")
+metadata/_edit_lock_ = true
+
+[node name="ShieldCollision" type="CollisionPolygon2D" parent="Shield" unique_id=1764583371]
+position = Vector2(412, 5)
+polygon = PackedVector2Array(-351, 460, -446, 298, -488, -9, -455, -273, -352, -469, -427, -281, -467, -4, -429, 291)
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="ShieldActive" type="Timer" parent="Shield" unique_id=55230056]
+one_shot = true
+
+[node name="ShieldInactive" type="Timer" parent="Shield" unique_id=1269954873]
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="Shield" unique_id=122941204]
+wait_time = 0.1
+autostart = true
+
+[node name="Guide" type="Sprite2D" parent="." unique_id=1016247090]
+visible = false
+modulate = Color(1, 1, 1, 0.30588236)
+texture = ExtResource("4_kb6d1")
+centered = false
+metadata/_edit_lock_ = true
+
+[connection signal="cleared" from="." to="Swarm1" method="_on_butano_boss_cleared"]
+[connection signal="cleared" from="." to="Swarm2" method="_on_butano_boss_cleared"]
+[connection signal="intruder" from="." to="Swarm1" method="_on_butano_boss_intruder"]
+[connection signal="intruder" from="." to="Swarm2" method="_on_butano_boss_intruder"]
+[connection signal="phase_2" from="." to="Swarm1" method="_on_butano_boss_phase_2"]
+[connection signal="phase_2" from="." to="Swarm2" method="_on_butano_boss_phase_2"]
+[connection signal="area_entered" from="MainBody" to="." method="_on_main_body_area_entered"]
+[connection signal="body_entered" from="MainBody" to="." method="_on_main_body_body_entered"]
+[connection signal="timeout" from="Turret1/ShotMachine/ShotCD" to="Turret1/ShotMachine" method="_on_shot_cd_timeout"]
+[connection signal="timeout" from="Turret2/ShotMachine/ShotCD" to="Turret2/ShotMachine" method="_on_shot_cd_timeout"]
+[connection signal="timeout" from="Swarm1/ShotCD" to="Swarm1" method="_on_shot_cd_timeout"]
+[connection signal="timeout" from="Swarm2/ShotCD" to="Swarm2" method="_on_shot_cd_timeout"]
+[connection signal="body_entered" from="Shield" to="Shield" method="_on_body_entered"]
+[connection signal="body_exited" from="Shield" to="Shield" method="_on_body_exited"]
+[connection signal="timeout" from="Shield/ShieldActive" to="Shield" method="_on_shield_active_timeout"]
+[connection signal="timeout" from="Shield/ShieldInactive" to="Shield" method="_on_shield_inactive_timeout"]
+[connection signal="timeout" from="Shield/HurtTimer" to="Shield" method="_on_hurt_timer_timeout"]

@@ -28,9 +28,7 @@ var full_inventory : Array = [
 	PARTS_BDY.body_1,
 	PARTS_CRG.cargo_1,
 	PARTS_ENG.engine_1,
-	PARTS_SLD.shield_1, 
-	PARTS_CRG.cargo_2, 
-	PARTS_SLD.shield_2
+	PARTS_SLD.shield_1
 ]
 
 var equiped_parts : Dictionary = {

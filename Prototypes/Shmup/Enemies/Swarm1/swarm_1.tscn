@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dm41jbvjxdgx"]
+
+[ext_resource type="Script" uid="uid://cu8gwwyce43x8" path="res://Prototypes/Shmup/Enemies/Swarm1/swarm_1.gd" id="1_0qdw0"]
+[ext_resource type="Texture2D" uid="uid://db3dai88tedl0" path="res://Prototypes/Shmup/Assets/Charas/Swarm1/bala swarm.png" id="1_0v7rm"]
+[ext_resource type="Texture2D" uid="uid://cm75xnmsdyj5x" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/Spritesheet Bullet Collision V1.png" id="2_0qdw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm4ms"]
+atlas = ExtResource("2_0qdw0")
+region = Rect2(800, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubgue"]
+atlas = ExtResource("2_0qdw0")
+region = Rect2(800, 600, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6hot"]
+atlas = ExtResource("2_0qdw0")
+region = Rect2(800, 1200, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8dly"]
+atlas = ExtResource("2_0qdw0")
+region = Rect2(800, 1800, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5hkc"]
+atlas = ExtResource("2_0qdw0")
+region = Rect2(800, 2400, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0rh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm4ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubgue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6hot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8dly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5hkc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8d8wa"]
+radius = 38.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qdw0"]
+radius = 38.36955
+
+[node name="Swarm1" type="CharacterBody2D" unique_id=2124488940]
+scale = Vector2(0.6, 0.6)
+motion_mode = 1
+script = ExtResource("1_0qdw0")
+speed = 30000
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1956475815]
+position = Vector2(0.19042969, 0.06350702)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_0v7rm")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=1533873718]
+visible = false
+position = Vector2(2, -3)
+scale = Vector2(-0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_p0rh8")
+frame = 4
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1560788748 groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1820289989]
+shape = SubResource("CircleShape2D_8d8wa")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=681324716]
+rect = Rect2(-38, -38, 77, 76)
+
+[node name="LockTimer" type="Timer" parent="." unique_id=1306395025]
+
+[node name="AuxArea" type="Area2D" parent="." unique_id=1969082528]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AuxArea" unique_id=420563005]
+shape = SubResource("CircleShape2D_0qdw0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="LockTimer" to="." method="_on_lock_timer_timeout"]
+[connection signal="area_entered" from="AuxArea" to="." method="_on_aux_area_area_entered"]
