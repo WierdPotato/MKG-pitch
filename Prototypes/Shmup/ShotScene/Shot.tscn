@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cylemeqhijr7n"]
 
-[ext_resource type="Script" uid="uid://ch872mni1et0o" path="res://Prototypes/Shmup/ShotScene/Shot.gd" id="1_iym3s"]
+[ext_resource type="Script" uid="uid://ch872mni1et0o" path="res://Prototypes/Shmup/ShotScene/PlayerShot/Shot1.gd" id="1_tsqg5"]
 [ext_resource type="Texture2D" uid="uid://y1x86w4ex1fw" path="res://Prototypes/Shmup/Assets/Demo/PlayScreen/proyectilesV1 94x46.png" id="2_tsqg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lykvo"]
@@ -44,8 +44,7 @@ size = Vector2(94, 42)
 
 [node name="Shot" type="Area2D" unique_id=902067583 groups=["Shot"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_iym3s")
-speed = 2000
+script = ExtResource("1_tsqg5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=366115409]
 sprite_frames = SubResource("SpriteFrames_erf12")
