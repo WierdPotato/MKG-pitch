@@ -145,8 +145,7 @@ func set_up_buttons() -> void:
 				b.get_child(0).my_y = hbox_iter
 				b.get_child(0).im_set()
 				all_buttons.append(b)
-				if iter == 1:
-					print("debug global dict: ", GLOBAL.picked_run_perks)
+
 				iter += 1
 				
 			hbox_iter += 1
@@ -154,7 +153,6 @@ func set_up_buttons() -> void:
 
 	for i in all_buttons:
 		i.get_child(0).get_my_friends(all_buttons)
-	print("Yellow: ", yellow_count, " Red: ", red_count, " Blue: ", blue_count)
 	#new_clicker.sim_points_per_second()
 	
 func recover_perks():
@@ -168,6 +166,7 @@ func recover_perks():
 			var my_perk_type = my_dictionary.get("main_type")
 			
 			b.my_perk_dict = my_perk
+			print("current info: ", b, my_perk)
 			b.my_bought_region = my_perk_type.get("bought_reg")
 			b.my_pressed_region = my_perk_type.get("pressed_reg")
 			b.my_available_region = my_perk_type.get("available_reg")
@@ -178,6 +177,8 @@ func recover_perks():
 			b.get_child(0).my_y = hbox_iter
 			b.get_child(0).im_set()
 			all_buttons.append(b)
+			if my_perk.get("available") == true:
+				b.visible = true
 			iter += 1
 		hbox_iter += 1
 
@@ -215,6 +216,7 @@ func show_perks(friends : Array) -> void:
 				i.perk_available.emit()
 		else:
 			pass
+
 
 
 func details_updater()-> void:

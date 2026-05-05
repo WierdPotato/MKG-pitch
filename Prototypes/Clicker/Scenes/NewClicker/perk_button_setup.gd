@@ -27,6 +27,7 @@ func set_up()->void:
 	
 func im_set() -> void:
 	if GLOBAL.current_step == 0:
+		print("sup")
 		if my_x == 1 and my_y == 1:
 			apply_starter()
 			await get_tree().process_frame
@@ -37,6 +38,11 @@ func im_set() -> void:
 		elif my_x == all_perks.columns and my_y == 1:
 			apply_starter()
 		elif my_x == 1 and my_y == all_perks.rows:
+			apply_starter()
+		else:
+			texture_button.hide_perk()
+	else:
+		if texture_button.my_perk_dict.get("available") == true:
 			apply_starter()
 
 func apply_starter()->void:

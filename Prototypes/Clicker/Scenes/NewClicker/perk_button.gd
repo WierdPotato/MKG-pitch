@@ -60,7 +60,7 @@ func _on_set_up_all_set() -> void:
 	im_set = true
 	
 	if my_perk_dict.get("available") == true:
-		print("estoy ready: ", self)
+		pass
 	
 	if my_perk_dict.get("bought") == true:
 		_on_perk_bought()
@@ -87,7 +87,6 @@ func _on_perk_bought() -> void:
 		GLOBAL.total_red += my_perk_dict.get("value")
 	else:
 		manage_blue_perks()
-	GLOBAL.picked_run_perks.get(my_global_id)
 
 func manage_blue_perks()-> void:
 	var my_subtype = my_perk_dict.get("subtype")
@@ -123,6 +122,7 @@ func hide_perk() -> void:
 	price_tag.visible = false
 	im_ready_to_buy = false
 	icon.visible = false
+	my_perk_dict.set("available", false)
 	get_child(0).im_center = false
 	self_modulate.a = 0
 	focus_mode = Control.FOCUS_NONE
