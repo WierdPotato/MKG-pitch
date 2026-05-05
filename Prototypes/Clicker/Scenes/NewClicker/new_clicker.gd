@@ -17,9 +17,10 @@ var simulated_pps : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Clicker in")
 	game_started = false
 	time_stopped = false
-	
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("PrevTab") and game_started:
 		stop_time.emit()

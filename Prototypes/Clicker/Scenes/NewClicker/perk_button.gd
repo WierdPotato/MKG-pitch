@@ -14,7 +14,8 @@ signal perk_available
 @onready var red_price_color : Color = Color(0.691, 0.247, 0.327, 1.0)
 
 @onready var icon: Sprite2D = $Icon
-@onready var marker_2d: Marker2D = $Marker2D
+@onready var ring: Sprite2D = $Ring
+
 
 var points_input : float
 
@@ -37,8 +38,6 @@ var my_type : String
 var im_bought : bool
 var im_ready_to_buy : bool
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	disabled = true
@@ -50,7 +49,7 @@ func _ready() -> void:
 	im_ready_to_buy = false
 	self.pressed.connect(self._im_pressed)
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-
+	
 func _on_set_up_all_set() -> void:
 	var region = my_perk_dict.get("region")
 	my_icon_region = Rect2(region.get("x"), region.get("y"), region.get("w"), region.get("h"))
@@ -60,15 +59,19 @@ func _on_set_up_all_set() -> void:
 	texture_normal.region = normal_region #Cambiar aquí si está pequeño o grande
 	im_set = true
 	
+	if my_perk_dict.get("available") == true:
+		print("estoy ready: ", self)
+	
 	if my_perk_dict.get("bought") == true:
-		#print("Check bought: ", my_perk_dict)
 		_on_perk_bought()
 		unhide()
+		
 	if im_bought:
 		icon.visible = true
 	
 	if GLOBAL.last_focused_perk == my_global_id:
 		grab_focus()
+
 
 func _on_perk_bought() -> void:
 	im_bought = true
@@ -84,6 +87,7 @@ func _on_perk_bought() -> void:
 		GLOBAL.total_red += my_perk_dict.get("value")
 	else:
 		manage_blue_perks()
+	GLOBAL.picked_run_perks.get(my_global_id)
 
 func manage_blue_perks()-> void:
 	var my_subtype = my_perk_dict.get("subtype")
@@ -109,6 +113,7 @@ func _on_perk_available() -> void:
 	adapt_price()
 	disabled = false
 	price_tag.text = str(my_perk_dict.get("price"))
+	my_perk_dict.set("available", true)
 	price_tag.visible = true
 	im_ready_to_buy = true
 	unhide()
@@ -159,12 +164,24 @@ func _im_pressed()->void:
 	all_perks.current_button = self
 
 func _on_focus_entered() -> void:
-	all_perks.show_ring()
-	all_perks.move_ring(marker_2d.global_position)
+	ring_tweener(Vector2(4.8, 4.8), false)
+
+func _on_focus_exited() -> void:
+	ring_tweener(Vector2(3.5, 3.5), true)
 
 func _on_mouse_entered() -> void:
-	all_perks.show_ring()
-	all_perks.move_ring(marker_2d.global_position)
+	ring_tweener(Vector2(4.8, 4.8), false)
+
+func _on_mouse_exited() -> void:
+	ring_tweener(Vector2(3.5, 3.5), true)
+
+func ring_tweener(final_scale : Vector2, hide_ring : bool)->void:
+	ring.visible = true
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(ring, "scale", final_scale, 0.1)
+	if hide_ring:
+		await tween.finished
+		ring.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -12,11 +12,11 @@ func manage_behaviour(step : String) -> void:
 
 func set_color(step : String) -> void:
 	if step == "starting":
-		visible = true
+		#visible = true
 		self_modulate = reload_start_color
 	elif step == "reloading":
 		self.self_modulate = reloading_color
 	elif step == "reloaded":
 		self.self_modulate = reloaded_color
 		await get_tree().create_timer(0.5).timeout
-		visible = false
+		#visible = false

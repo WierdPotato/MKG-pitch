@@ -39,7 +39,6 @@ func _on_start_game() -> void:
 	all_perks.current_button.grab_focus()
 	hide_unchosen.emit()
 	autopoints_timer.start(autopoints_cd)
-	print(autopoints_timer.wait_time)
 
 func _on_clicker_pressed() -> void:
 	manage_click()

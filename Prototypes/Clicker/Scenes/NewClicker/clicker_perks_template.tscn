@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://skmbgy5bal6y" path="res://Prototypes/Clicker/Scenes/NewClicker/perk_button_setup.gd" id="4_y4ui1"]
 [ext_resource type="Texture2D" uid="uid://cer4tlggh4t34" path="res://Prototypes/Clicker/Assets/DemoUI/yellow_spritesheet_v1.png" id="5_y03f4"]
 [ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="6_0e8al"]
+[ext_resource type="Texture2D" uid="uid://boo8vel51qop6" path="res://Prototypes/Clicker/Assets/Overhaul/test botones spritesheet V1.png" id="7_vhsxs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eekm3"]
 resource_local_to_scene = true
@@ -22,7 +23,12 @@ resource_local_to_scene = true
 atlas = ExtResource("5_y03f4")
 region = Rect2(0, 0, 160, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7r7h"]
+atlas = ExtResource("7_vhsxs")
+region = Rect2(300, 0, 100, 100)
+
 [node name="Perk1" type="TextureButton" unique_id=1697736367]
+z_index = 1
 anchors_preset = -1
 anchor_left = -0.026
 anchor_top = -0.046000004
@@ -67,11 +73,17 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1741756233]
-position = Vector2(200, 200)
+[node name="Ring" type="Sprite2D" parent="." unique_id=235444775]
+visible = false
+z_index = -1
+position = Vector2(200.00003, 200)
+scale = Vector2(3.5, 3.5)
+texture = SubResource("AtlasTexture_l7r7h")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="perk_available" from="." to="." method="_on_perk_available"]
 [connection signal="perk_bought" from="." to="." method="_on_perk_bought"]
 [connection signal="all_set" from="SetUp" to="." method="_on_set_up_all_set"]

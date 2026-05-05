@@ -38,9 +38,6 @@ const red_available_reg : Rect2 = Rect2(1224, 816, 400, 400)
 @onready var red_atlas : CompressedTexture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/passives_spritesheet_BW_v1.png")
 @onready var blue_atlas : CompressedTexture2D = preload("res://Prototypes/Clicker/Assets/DemoUI/blue_spritesheet_V1.1.png")
 
-@onready var ring: Sprite2D = $"../Ring"
-
-
 @onready var yellow_perk_param : Dictionary = {
 	"dictionary" = GLOBAL.yellow_perks_info.duplicate(),
 	"bought_reg" = yellow_bought_reg, 
@@ -148,7 +145,10 @@ func set_up_buttons() -> void:
 				b.get_child(0).my_y = hbox_iter
 				b.get_child(0).im_set()
 				all_buttons.append(b)
+				if iter == 1:
+					print("debug global dict: ", GLOBAL.picked_run_perks)
 				iter += 1
+				
 			hbox_iter += 1
 
 
@@ -156,6 +156,7 @@ func set_up_buttons() -> void:
 		i.get_child(0).get_my_friends(all_buttons)
 	print("Yellow: ", yellow_count, " Red: ", red_count, " Blue: ", blue_count)
 	#new_clicker.sim_points_per_second()
+	
 func recover_perks():
 	var hbox_iter = 1
 	for row in get_children():
@@ -203,6 +204,7 @@ func _on_points_manager_hide_unchosen() -> void:
 	starters.erase(current_button)
 	for i in starters:
 		i.hide_perk()
+		i.my_perk_dict.set("available", false)
 
 func show_perks(friends : Array) -> void:
 	for i in friends:
@@ -214,13 +216,6 @@ func show_perks(friends : Array) -> void:
 		else:
 			pass
 
-func show_ring()-> void:
-	ring.visible = true
-
-func move_ring(coords) -> void:
-	var tween : Tween = get_tree().create_tween() #Creamos el tween
-	tween.tween_property(ring,"position", coords, 0.1)
-	tween.play()
 
 func details_updater()-> void:
 	if current_button:

@@ -27,7 +27,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(2).timeout
-	#saeta_spawn_timer.start(randf_range(1.5, 2)) 
+	saeta_spawn_timer.start(randf_range(1.5, 2)) 
 	duende_spawn_timer.start(randf_range(1.5, 2))
 	chonky_spawn_timer.start(randf_range(8, 10))
 	

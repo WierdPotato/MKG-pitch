@@ -21,8 +21,8 @@ func initiate_timer() -> void:
 		time_debuff = 15
 	elif GLOBAL.current_step == 3:
 		time_debuff = 30
-	clicker_timer.wait_time = time - time_debuff
-	timer_progress_donut.max_value = time - time_debuff
+	clicker_timer.wait_time = time #añadir "- time_debuff"
+	timer_progress_donut.max_value = time #añadir "- time_debuff"
 	clicker_timer.start()
 	clicker_timer.paused = true
 
