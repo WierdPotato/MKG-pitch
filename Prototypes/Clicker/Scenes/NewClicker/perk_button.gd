@@ -111,7 +111,7 @@ func manage_blue_perks()-> void:
 func _on_perk_available() -> void:
 	adapt_price()
 	disabled = false
-	price_tag.text = str(my_perk_dict.get("price"))
+	price_tag.text = str(int(my_perk_dict.get("price")))
 	my_perk_dict.set("available", true)
 	price_tag.visible = true
 	im_ready_to_buy = true

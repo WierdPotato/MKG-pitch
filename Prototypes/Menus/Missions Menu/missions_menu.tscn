@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://6py71cxt22bq" path="res://Prototypes/Shmup/Assets/Demo/mapa/MISIONES.png" id="4_qep0c"]
 [ext_resource type="FontFile" uid="uid://ch1e42vmgblng" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-VariableFont_opsz,wght.ttf" id="6_32x45"]
 [ext_resource type="FontFile" uid="uid://1x7lyo6xmmfn" path="res://Prototypes/Clicker/Assets/DemoUI/Fonts/Inter-Italic-VariableFont_opsz,wght.ttf" id="7_hogos"]
+[ext_resource type="Texture2D" uid="uid://8yv3h7mhvswa" path="res://Prototypes/Shmup/Assets/Demo/mapa/Spritesheet planetas V1 x4.png" id="8_cjxon"]
+[ext_resource type="Script" uid="uid://4hy0vj4bch4f" path="res://Prototypes/Menus/Missions Menu/orbits_manager.gd" id="9_cjxon"]
+[ext_resource type="Texture2D" uid="uid://b8qxtitv0tlo5" path="res://Prototypes/Shmup/Assets/Demo/mapa/4 orbitas perfectas.png" id="9_gwg30"]
 [ext_resource type="Texture2D" uid="uid://b1wmtnpeyt2aj" path="res://Prototypes/Clicker/Assets/DemoUI/current_sel_hover.png" id="11_hogos"]
 [ext_resource type="Script" uid="uid://bf1flqfvghhtj" path="res://Prototypes/Menus/Missions Menu/demo_planet_button.gd" id="11_o3yeh"]
 [ext_resource type="Texture2D" uid="uid://cg7ppwcjfr342" path="res://Prototypes/Shmup/Assets/Demo/mapa/Otros/mapa completo.png" id="11_rom31"]
@@ -21,6 +24,36 @@
 [ext_resource type="Script" uid="uid://bd4uodvqx2q2c" path="res://Prototypes/Shmup/Demo/highlight_buttons.gd" id="17_yrbcl"]
 [ext_resource type="PackedScene" uid="uid://bpeyqs2poxgkh" path="res://Prototypes/Menus/PauseMenu/pause_menu.tscn" id="20_y6iu0"]
 [ext_resource type="Texture2D" uid="uid://dhmckdb42fsea" path="res://Prototypes/Clicker/Assets/DemoUI/pause_btn.png" id="21_oplk6"]
+[ext_resource type="Script" uid="uid://dlqg4wscfddyp" path="res://TextureCircle.gd" id="25_1mpb4"]
+[ext_resource type="Texture2D" uid="uid://cnm8v50vwwont" path="res://Prototypes/Clicker/Assets/DemoUI/bubble_name.png" id="26_1mpb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjxon"]
+atlas = ExtResource("8_cjxon")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="Curve2D" id="Curve2D_o8yqw"]
+_data = {
+"points": PackedVector2Array(-51.74048, -46.609646, 51.74048, 46.609646, 810.03894, 575.10944, -62.27769, 43.35823, 62.27769, -43.35823, 1064.3799, 578.17126, 68.711876, 45.07744, -68.711876, -45.07744, 1069.8245, 416.66138, 71.79712, -34.59249, -71.79712, 34.59249, 827.92834, 405.17963, -81.15968, -42.084854, 81.15968, 42.084854, 810.03894, 574.344)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_cjxon"]
+_data = {
+"points": PackedVector2Array(-154.91002, -68.27092, 154.91002, 68.27092, 843.1666, 713.6191, -83.25304, 97.06503, 83.25304, -97.06503, 1243.5916, 643.7393, 112.99446, 87.77507, -112.99446, -87.77507, 1192.945, 349.31256, 122.81613, -85.5005, -122.81613, 85.5005, 777.48425, 361.42505, -160.39276, -67.33092, 160.39276, 67.33092, 840.79254, 713.6191)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_gwg30"]
+_data = {
+"points": PackedVector2Array(171.07008, 6.5052233, -171.07008, -6.5052233, 930.20667, 220.26668, 3.0305383, -209.6792, -3.0305383, 209.6792, 499.4077, 553.06665, -210.50436, -0.5596397, 210.50436, 0.5596397, 934.27844, 894.4, -0.4779358, 212.91736, 0.4779358, -212.91736, 1387.0653, 561.60004, 227.72293, -3.2099814, -227.72293, 3.2099814, 931.8353, 220.26668)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_q0iim"]
+_data = {
+"points": PackedVector2Array(332.00854, 8.774002, -332.00854, -8.774002, 933.5962, 116.66577, -5.9067287, -213.50966, 5.9067287, 213.50966, 337.4548, 548.31665, -364.0088, 10.373256, 364.0088, -10.373256, 948.6884, 980.8958, 6.7747, 207.47737, -6.7747, -207.47737, 1531.4146, 534.39246, 369.08868, 6.6952515, -369.08868, -6.6952515, 933.5962, 116.66577)
+}
+point_count = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rom31"]
 
@@ -44,6 +77,7 @@
 
 [node name="MissionsMenu" type="Node2D" unique_id=818084740]
 process_mode = 1
+position = Vector2(0, 1)
 script = ExtResource("1_b10sa")
 
 [node name="Button" type="Button" parent="." unique_id=1598163161]
@@ -61,19 +95,23 @@ texture = ExtResource("2_xy8td")
 centered = false
 
 [node name="Planet" type="Sprite2D" parent="Statics" unique_id=1226823121]
+visible = false
 position = Vector2(751, 837)
 texture = ExtResource("3_gwg30")
 
 [node name="Window" type="Sprite2D" parent="Statics" unique_id=118589725]
-position = Vector2(0, 1)
+z_index = 2
+position = Vector2(0, -1)
 texture = ExtResource("3_w88qh")
 centered = false
 
 [node name="MissionsOverlay" type="Sprite2D" parent="Statics" unique_id=615510681]
+visible = false
 position = Vector2(247, 264)
 texture = ExtResource("4_qep0c")
 
 [node name="MissionDetails" type="Control" parent="." unique_id=703821709]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 151.0
@@ -143,7 +181,77 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Map" type="Control" parent="." unique_id=1833047163]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Star" type="Sprite2D" parent="Map" unique_id=1637160320]
+position = Vector2(960, 540)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("AtlasTexture_cjxon")
+metadata/_edit_lock_ = true
+
+[node name="OrbitsLines" type="Sprite2D" parent="Map" unique_id=850525775]
+position = Vector2(960, 544)
+texture = ExtResource("9_gwg30")
+metadata/_edit_lock_ = true
+
+[node name="Range" type="Node2D" parent="Map" unique_id=1318607011]
+z_index = 1
+texture_repeat = 2
+position = Vector2(327, 755)
+script = ExtResource("25_1mpb4")
+texture_outline = ExtResource("26_1mpb4")
+outline_texture_scale = 0.06
+
+[node name="Orbits" type="Node" parent="Map" unique_id=2104214153]
+script = ExtResource("9_cjxon")
+
+[node name="Orbit1" type="Path2D" parent="Map/Orbits" unique_id=368551328]
+position = Vector2(-246.44768, -103.33538)
+scale = Vector2(1.2856761, 1.3064216)
+curve = SubResource("Curve2D_o8yqw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/Orbits/Orbit1" unique_id=2035376909]
+position = Vector2(810.03894, 575.10944)
+rotation = 0.73327607
+
+[node name="Orbit2" type="Path2D" parent="Map/Orbits" unique_id=1286678256]
+position = Vector2(-296.47375, -11.90744)
+scale = Vector2(1.2636575, 1.0732721)
+curve = SubResource("Curve2D_cjxon")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/Orbits/Orbit2" unique_id=775346255]
+position = Vector2(843.1666, 713.6191)
+rotation = 0.41510442
+
+[node name="Orbit3" type="Path2D" parent="Map/Orbits" unique_id=340721263]
+position = Vector2(-199.2482, -43.3125)
+scale = Vector2(1.227951, 1.0546875)
+curve = SubResource("Curve2D_gwg30")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/Orbits/Orbit3" unique_id=1304356448]
+position = Vector2(930.20667, 220.26668)
+rotation = -3.1035843
+
+[node name="Orbit4" type="Path2D" parent="Map/Orbits" unique_id=1608448201]
+position = Vector2(-154.47224, -44.679302)
+scale = Vector2(1.1926701, 1.0772594)
+curve = SubResource("Curve2D_q0iim")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/Orbits/Orbit4" unique_id=1852595134]
+position = Vector2(933.5962, 116.66577)
+rotation = -3.1151717
+
+[node name="Planets" type="Control" parent="Map/Orbits" unique_id=1658007958]
+layout_mode = 3
+anchors_preset = 0
+
 [node name="PathsManager" type="Node2D" parent="." unique_id=1852772850]
+visible = false
 script = ExtResource("3_1xbc7")
 metadata/_edit_lock_ = true
 
@@ -157,10 +265,10 @@ offset_bottom = 40.0
 
 [node name="Lvl3" type="Button" parent="PathsManager/Final/Boss" unique_id=1456913998]
 layout_mode = 0
-offset_left = 992.0
-offset_top = 221.0
-offset_right = 1093.0
-offset_bottom = 324.0
+offset_left = 872.0
+offset_top = 157.0
+offset_right = 973.0
+offset_bottom = 260.0
 focus_neighbor_left = NodePath("../../../../Menus/Back/Back")
 focus_neighbor_right = NodePath("../../../PathA/Buttons/Lvl2a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rom31")
@@ -200,10 +308,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Lvl1a" type="Button" parent="PathsManager/PathA/Buttons" unique_id=2047166180]
 layout_mode = 0
-offset_left = 1629.0
-offset_top = 221.0
-offset_right = 1730.0
-offset_bottom = 324.0
+offset_left = 709.0
+offset_top = 493.0
+offset_right = 810.0
+offset_bottom = 596.0
 focus_neighbor_left = NodePath("../Lvl2a")
 focus_neighbor_top = NodePath("../../../../Menus/Go/Go")
 focus_neighbor_right = NodePath("../../../Final/Boss/Lvl3")
@@ -237,10 +345,10 @@ metadata/_edit_lock_ = true
 
 [node name="Lvl2a" type="Button" parent="PathsManager/PathA/Buttons" unique_id=1048734764]
 layout_mode = 0
-offset_left = 1308.0
-offset_top = 221.0
-offset_right = 1409.0
-offset_bottom = 324.0
+offset_left = 1556.0
+offset_top = 605.0
+offset_right = 1657.0
+offset_bottom = 708.0
 focus_neighbor_left = NodePath("../../../Final/Boss/Lvl3")
 focus_neighbor_top = NodePath("../../../PathB/Buttons/Lvl2b")
 focus_neighbor_right = NodePath("../Lvl1a")
@@ -280,10 +388,10 @@ offset_bottom = 40.0
 
 [node name="Lvl1b" type="Button" parent="PathsManager/PathB/Buttons" unique_id=1747713467]
 layout_mode = 0
-offset_left = 1630.0
-offset_top = 362.0
-offset_right = 1731.0
-offset_bottom = 465.0
+offset_left = 774.0
+offset_top = 778.0
+offset_right = 875.0
+offset_bottom = 881.0
 focus_neighbor_left = NodePath("../Lvl2b")
 focus_neighbor_top = NodePath("../../../PathA/Buttons/Lvl1a")
 focus_neighbor_right = NodePath("../../../Final/Boss/Lvl3")
@@ -316,10 +424,10 @@ scale = Vector2(0.25, 0.25)
 
 [node name="Lvl2b" type="Button" parent="PathsManager/PathB/Buttons" unique_id=1197866671]
 layout_mode = 0
-offset_left = 1306.0
-offset_top = 363.0
-offset_right = 1410.0
-offset_bottom = 466.0
+offset_left = 330.0
+offset_top = 243.0
+offset_right = 434.0
+offset_bottom = 346.0
 focus_neighbor_left = NodePath("../../../Final/Boss/Lvl3")
 focus_neighbor_top = NodePath("../../../PathA/Buttons/Lvl2a")
 focus_neighbor_right = NodePath("../Lvl1b")
@@ -373,6 +481,7 @@ metadata/_edit_lock_ = true
 [node name="Menus" type="Node2D" parent="." unique_id=592813450]
 
 [node name="Go" type="Node2D" parent="Menus" unique_id=1112196310]
+visible = false
 
 [node name="Highlight" type="Sprite2D" parent="Menus/Go" unique_id=926093864]
 position = Vector2(1737, 948)
@@ -391,6 +500,8 @@ texture_normal = ExtResource("16_rom31")
 script = ExtResource("17_yrbcl")
 
 [node name="Back" type="Node2D" parent="Menus" unique_id=1734006247]
+z_index = 3
+position = Vector2(32, 400)
 
 [node name="Highlight" type="Sprite2D" parent="Menus/Back" unique_id=260074085]
 position = Vector2(194, 546)
@@ -411,6 +522,7 @@ visible = false
 z_index = 2
 
 [node name="Pause" type="TextureButton" parent="." unique_id=472046455]
+z_index = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 86.0

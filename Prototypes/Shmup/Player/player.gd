@@ -8,10 +8,12 @@ var Tm : float #Tiempo de cambio de velocidad
 var Vf : float #Velocidad objetivo
 var Viy : float #Velocidad inicial en eje y
 var Vix : float #Velocidad inicial en eje y
-var Fz : int #Fuerza de empuje VALOR BASE: 25
+var Fz : float #Fuerza de empuje VALOR BASE: 25
 var Mu : float #Densidad del aire VALOR BASE: 1.2
 var Ms : float #Masa VALOR BASE: 3
 var Ar : float #Superficie de la nave VALOR BASE: 2
+
+var ef : float = 0.02 #Factor de eficiencia del motor. Cuanto más cercano a 0, menos se ve afectado por las temperaturas. 
 
 @onready var screensize = get_viewport_rect().size #Obtiene el tamaño de la pantalla
 @onready var sprite: Sprite2D = $ShipSprite #Nodo sprites de la nave
@@ -36,10 +38,11 @@ func _ready() -> void:
 	alive = true
 	Vmn = 0
 	Vmx = PREP.ship_max_speed
-	Fz = PREP.ship_force
+	Fz = PREP.ship_force + (ef*(-PREP.temperature))
 	Mu = PREP.air_density
 	Ar = PREP.ship_area
-
+	print("Current air density: ", Mu)
+	print("Current engine thrust: ", Fz)
 func get_axis() -> Vector2:
 	if alive:
 		axis.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left")) #Obtiene el vector en base a los inputs
@@ -85,13 +88,15 @@ func time_sim(comp : float, Ax : String) -> float: #Ejecuta la formula que deter
 #Mu representa el rozamiento del aire sobre la nave. A mayor rozamiento, más tarda en alcanzar la velocidad objetivo.
 #Ms representa la masa de la nave. A más masa, mas tarda en alcanzar la velocidad. 
 		
-		Tm = (((Vf-Vix)*(Ms + (Mu*Ar)))/(Fz*Fz*Fz))*(Ms*Ms)
+		#Tm = (((Vf-Vix)*(Ms + (Mu*Ar)))/(Fz*Fz*Fz))*(Ms*Ms)
+		Tm = (((Vf-Vix)*(Ms + (Mu*Ar)))/(Fz**3))*(Ms**2)
 		#Tm = (((Vf-Vix)/(Fz*Fz))*Mu)*Ms 
 		if Tm < 0: #Si el tiempo es negativo la formula se vuelve inutil así que si ocurre, la hacemos positiva. 
 			Tm = -Tm 
 		
 	elif Ax == "y":
-		Tm = (((Vf-Viy)*(Ms + (Mu*Ar)))/(Fz*Fz*Fz))*(Ms*Ms)
+		#Tm = (((Vf-Viy)*(Ms + (Mu*Ar)))/(Fz*Fz*Fz))*(Ms*Ms)
+		Tm = (((Vf-Viy)*(Ms + (Mu*Ar)))/(Fz**3))*(Ms**2)
 		#Tm = (((Vf-Viy)/(Fz*Fz))*Mu)*Ms
 		if Tm < 0:
 			Tm = -Tm

@@ -28,7 +28,8 @@ var current_button : Button
 
 
 func _ready() -> void:
-	prepare_planet_buttons()
+	pass
+	#prepare_planet_buttons()
 
 func get_current_planet()->void:
 	for i in all_planet_buttons:
@@ -39,8 +40,10 @@ func get_current_planet()->void:
 	if current_button == null:
 		print("Current button ref error:")
 		print("Ref: ", current_planet_ref)
+		pass
 	else:
 		print("Current button positive: ", current_button)
+		pass
 
 func prepare_planet_buttons()->void:
 	lvl_1a.set_info("lvl_1a", 1, 1)
@@ -112,8 +115,8 @@ func manage_progress()->void: #Bloquea o desbloquea las misiones
 func save_temp_data():
 	GLOBAL.selected_planet = selected_planet
 	GLOBAL.map_button_ref = current_planet_ref
-	GLOBAL.ship_icon_coords = current_button.get_child(0).global_position
-	GLOBAL.current_path = current_button.my_info.get("path") 
+	#GLOBAL.ship_icon_coords = current_button.get_child(0).global_position
+	#GLOBAL.current_path = current_button.my_info.get("path") 
 
 func debug_progress_sim() -> void:
 	save_temp_data()
@@ -121,6 +124,8 @@ func debug_progress_sim() -> void:
 	_ready()
 
 func _on_go_pressed() -> void:
+	PREP.get_densities(1)
+	PREP.get_temperatures(1)
 	save_temp_data()
 	get_tree().change_scene_to_file("res://Prototypes/Shmup/FightLevel/fight_level.tscn")
 

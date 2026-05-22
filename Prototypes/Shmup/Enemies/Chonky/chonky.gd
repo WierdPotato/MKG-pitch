@@ -69,11 +69,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		STATS.crashes += 1
 		body.get_child(0).integrity -= crash_damage
 		body.get_child(1).add_ammo(3)
 		manage_death() 
 
 func manage_death() -> void:
+	STATS.kills += 1
 	alive = false
 	collision_shape_2d.call_deferred("set_disabled", true)
 	collision_polygon_2d.call_deferred("set_disabled", true)

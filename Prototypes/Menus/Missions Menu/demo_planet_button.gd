@@ -2,6 +2,7 @@ extends Button
 
 @onready var missions_menu: Node2D = $"../../../.."
 @onready var paths_manager: Node2D = $"../../.."
+@onready var planet_map : String = "res://Prototypes/Menus/Planet/PlanteStageMenu.tscn"
 
 var my_info : Dictionary = {
 	"my_name" = null,
@@ -26,22 +27,26 @@ func set_info(name : String, step : int, path: int)-> void:
 
 func set_planet(planet : Dictionary) -> void:
 	my_planet = planet.duplicate()
-	PLANETS.assign_refs(my_planet, my_info.get("my_name"))
+	#PLANETS.assign_refs(my_planet, my_info.get("my_name"))
 	get_child(3).texture = my_planet.get("icon")
 	
 func find_my_planet()-> void:
-	print("My info: ",my_info.get("my_name"))
+	#print("My info: ",my_info.get("my_name"))
 	var planet : Dictionary = PLANETS.referenced_planets.get(my_info.get("my_name"))
 	my_planet = planet.duplicate()
 	get_child(3).texture = my_planet.get("icon")
 
 func _im_pressed() -> void:
+	PREP.selected_planet_id = my_info.get("my_name")
 	get_child(1).visible = false
 	paths_manager.move_ship(get_child(0).global_position)
 	missions_menu.selected_planet = my_planet
 	missions_menu.current_planet_ref = my_info.get("my_name")
 	missions_menu.bg_planet.texture = my_planet.get("background")
 	missions_menu.get_current_planet()
+	missions_menu.save_temp_data()
+	GLOBAL.planet_menu_prev_scene = "system"
+	get_tree().change_scene_to_file(planet_map)
 	#missions_menu.update_planet_details()
 
 func _im_focused_entered() -> void:

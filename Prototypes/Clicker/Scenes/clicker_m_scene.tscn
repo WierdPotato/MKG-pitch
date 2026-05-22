@@ -245,6 +245,7 @@ script = ExtResource("1_a80n7")
 cheat = true
 prep_menu = ExtResource("2_t2f2w")
 clicker_minutes = 0.75
+float_points = 99999999.0
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="Clicker_gameplay" unique_id=1517376632]

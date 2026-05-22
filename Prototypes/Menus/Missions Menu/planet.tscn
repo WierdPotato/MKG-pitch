@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://rairuiwamgvp"]
+
+[ext_resource type="Script" uid="uid://b5jvh0tml361l" path="res://Prototypes/Menus/Missions Menu/planet_template.gd" id="1_0tvy3"]
+[ext_resource type="Texture2D" uid="uid://8yv3h7mhvswa" path="res://Prototypes/Shmup/Assets/Demo/mapa/Spritesheet planetas V1 x4.png" id="1_gmr3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pt78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nqr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tvy3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un2xc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5vpp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pt78"]
+resource_local_to_scene = true
+atlas = ExtResource("1_gmr3n")
+region = Rect2(0, 3200, 800, 800)
+
+[node name="Planet" type="Node2D" unique_id=805347607]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_0tvy3")
+
+[node name="Button" type="Button" parent="." unique_id=949250174]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -232.0
+offset_right = 230.61542
+offset_bottom = 231.07697
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67, 0.67)
+pivot_offset = Vector2(232, 232)
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pt78")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7nqr8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0tvy3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_un2xc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r5vpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=801134551]
+texture = SubResource("AtlasTexture_3pt78")
+
+[node name="HoldTimer" type="Timer" parent="." unique_id=376203420]
+wait_time = 5.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

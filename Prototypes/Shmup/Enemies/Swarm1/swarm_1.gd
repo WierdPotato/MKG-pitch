@@ -41,6 +41,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		manage_death()
 
 func manage_death() -> void:
+	STATS.kills += 1
 	collision_shape_2d.call_deferred("set_disabled", true)
 	explosion.visible = true
 	sprite_2d.visible = false

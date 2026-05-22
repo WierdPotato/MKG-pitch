@@ -398,6 +398,8 @@ var total_red_cd_reduction : float = 0
 
 var ignore_call : bool
 
+var planet_menu_prev_scene : String
+
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(arrow)
 	Input.set_custom_mouse_cursor(pointing, Input.CURSOR_POINTING_HAND)

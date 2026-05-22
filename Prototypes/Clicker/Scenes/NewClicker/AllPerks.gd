@@ -217,8 +217,6 @@ func show_perks(friends : Array) -> void:
 		else:
 			pass
 
-
-
 func details_updater()-> void:
 	if current_button:
 		details.visible = true

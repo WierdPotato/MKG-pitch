@@ -27,6 +27,7 @@ func shot_hit(impact : float) -> void:
 	integrity -= burst
 	if shield < 0:
 		shield = 0
+	STATS.hits_recieved += 1
 
 func process_death() -> void:
 	one_time_call -= 1

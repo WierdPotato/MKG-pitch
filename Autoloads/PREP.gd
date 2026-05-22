@@ -11,6 +11,8 @@ var ship_cadence : int = 1
 var air_density : float = 1.2 #Densidad del aire VALOR BASE: 1.2
 var ship_damage : int = 100
 
+var temperature : float
+
 var sim_ship_hp : int = 150
 var sim_ship_mass : float = 3 
 var sim_ship_force : int = 40 
@@ -47,11 +49,16 @@ var sim_parts : Dictionary = {
 	"wpn" : PARTS_WPN.weapon_1
 }
 
+var selected_planet_id : String
+var planet_info : Dictionary
+
+var max_fuel: float = 300
+var current_fuel: float 
+
 func _ready() -> void:
 	update_real_stats()
 	simulate_stats()
-
-
+	current_fuel = max_fuel
 func update_real_stats() -> void:
 	ship_hp = 0
 	ship_mass = 0
@@ -121,3 +128,47 @@ func equip_pressed() -> void:
 	equiped_parts = sim_parts.duplicate()
 	update_real_stats()
 	reset_sim()
+
+func get_densities(layer : int)->void:
+	planet_info = PLANETS.referenced_planets.get(selected_planet_id)
+	var surface_density = planet_info.get("details").get("density")
+	var density_factor = planet_info.get("details").get("density_factor")
+	var density_exosfera = surface_density - (density_factor*4)
+	var density_estratosfera = surface_density - (density_factor*2)
+	var density_surface = surface_density 
+	if layer == 1:
+		if density_exosfera < 0:
+			density_exosfera = 0
+		air_density = density_exosfera
+		
+	elif layer == 2:
+		if density_estratosfera < 0:
+			density_estratosfera = 0
+		air_density = density_estratosfera
+		
+	elif layer == 3:
+		if density_surface < 0:
+			density_surface = 0
+		air_density = density_surface
+		
+	else:
+		air_density = 0
+
+func get_temperatures(layer : int)->void:
+	planet_info = PLANETS.referenced_planets.get(selected_planet_id)
+	var surface_temp = planet_info.get("details").get("temp")
+	var temp_factor = planet_info.get("details").get("temp_factor")
+	var temp_exosfera = surface_temp - (temp_factor*4)
+	var temp_estratosfera = surface_temp - (temp_factor*2)
+	var temp_surface = surface_temp
+	if layer == 1:
+		temperature = temp_exosfera
+		
+	elif layer == 2:
+		temperature = temp_estratosfera
+		
+	elif layer == 3:
+		temperature = temp_surface
+		
+	else:
+		temperature = 20

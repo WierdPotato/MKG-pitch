@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://7gqxkxxn7drq"]
+
+[ext_resource type="Script" uid="uid://dga4hhlsgrji3" path="res://Prototypes/Menus/RoundSummary/round_summ.gd" id="1_t7fhw"]
+[ext_resource type="Texture2D" uid="uid://b8edd3p0i1ibr" path="res://Prototypes/Clicker/Assets/DemoUI/footer small_buy.png" id="2_fb5pa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ergkq"]
+
+[node name="RoundSumm" type="Control" unique_id=625495469]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7fhw")
+metadata/_edit_lock_ = true
+
+[node name="Next" type="TextureButton" parent="." unique_id=1925118109]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 833.0
+offset_right = 1201.0
+offset_bottom = 1014.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("2_fb5pa")
+metadata/_edit_lock_ = true
+
+[node name="Details" type="VBoxContainer" parent="." unique_id=926029944]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 211.0
+offset_right = 1169.0
+offset_bottom = 519.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PlanetName" type="Label" parent="Details" unique_id=1883419124]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ROUND SUMMARY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Details" unique_id=1104318378]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ergkq")
+
+[node name="Data1" type="HBoxContainer" parent="Details" unique_id=1904081230]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title1" type="Label" parent="Details/Data1" unique_id=198926616]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "TIME"
+vertical_alignment = 1
+
+[node name="Info1" type="Label" parent="Details/Data1" unique_id=465272876]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "4:31"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data2" type="HBoxContainer" parent="Details" unique_id=996673171]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title2" type="Label" parent="Details/Data2" unique_id=910823640]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "SHOTS FIRED"
+vertical_alignment = 1
+
+[node name="Info2" type="Label" parent="Details/Data2" unique_id=309055523]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data4" type="HBoxContainer" parent="Details" unique_id=1419867638]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title4" type="Label" parent="Details/Data4" unique_id=420524869]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "HITS ON ENEMY"
+vertical_alignment = 1
+
+[node name="Info4" type="Label" parent="Details/Data4" unique_id=2051090494]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data5" type="HBoxContainer" parent="Details" unique_id=1608020194]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title5" type="Label" parent="Details/Data5" unique_id=718393569]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "HITS ON PROJECTILE"
+vertical_alignment = 1
+
+[node name="Info5" type="Label" parent="Details/Data5" unique_id=248487832]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data6" type="HBoxContainer" parent="Details" unique_id=227796246]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title6" type="Label" parent="Details/Data6" unique_id=243670859]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "HITS RECEIVED"
+vertical_alignment = 1
+
+[node name="Info6" type="Label" parent="Details/Data6" unique_id=1229150909]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data7" type="HBoxContainer" parent="Details" unique_id=1697207391]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title7" type="Label" parent="Details/Data7" unique_id=616946276]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "CRASHES"
+vertical_alignment = 1
+
+[node name="Info7" type="Label" parent="Details/Data7" unique_id=902534857]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data8" type="HBoxContainer" parent="Details" unique_id=1124269655]
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title8" type="Label" parent="Details/Data8" unique_id=66086410]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "ENEMIES DETROYED"
+vertical_alignment = 1
+
+[node name="Info8" type="Label" parent="Details/Data8" unique_id=167410226]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data3" type="HBoxContainer" parent="Details" unique_id=1260391462]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Title3" type="Label" parent="Details/Data3" unique_id=593248136]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "SHOTS MISSED"
+vertical_alignment = 1
+
+[node name="Info3" type="Label" parent="Details/Data3" unique_id=1795891200]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

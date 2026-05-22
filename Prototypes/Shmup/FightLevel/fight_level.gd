@@ -1,10 +1,13 @@
 extends Node2D
 
+signal spawn_boss
+
 @export var player : PackedScene
 
 @export var points_goal : int
 
-@export var clicker_scene : PackedScene
+@export var next_scene : String = "res://Prototypes/Menus/RoundSummary/RoundSumm.tscn"
+
 
 @onready var pause_menu: Control = $"../PauseMenu"
 
@@ -27,13 +30,13 @@ extends Node2D
 
 @onready var challenge_detail: Label = $UI/Missions/Challenge/Detail
 @onready var challenge_value: Label = $UI/Missions/Challenge/Value
-
+@onready var round_duration: Timer = $RoundDuration
 
 var player_instance
 var current_points = 0
 
-
 func _ready() -> void:
+	STATS.reset_stats()
 	current_points = 0
 	player_instance = player.instantiate()
 	player_instance.global_position = player_spawn.global_position
@@ -44,7 +47,7 @@ func _ready() -> void:
 	progress_bar.max_value = player_instance.integrity_machine.integrity
 	hp_diff.max_value = progress_bar.max_value
 	player_instance.get_child(1).reload_machine = reload_machine
-	
+	round_duration.start(1)
 	#$EnemiesEngine/ButanoBoss.player = player_instance
 	#$EnemiesEngine/ButanoBoss.activate_systems()
 
@@ -68,16 +71,20 @@ func _on_pause_menu_visibility_changed() -> void:
 
 func add_points(hit_points_value) -> void:
 	current_points += hit_points_value
-	if current_points >= points_goal:
-		manage_win() 
+	if current_points == points_goal:
+		if PLANETS.current_planet_round == 3:
+			spawn_boss.emit("butano")
+		else:
+			manage_win() 
+			
 		
 func manage_win() -> void:
 	stop_spawn_timers()
+	PLANETS.current_planet_round += 1
 	PREP.ship_ammo = player_instance.shot_machine.ammo
 	await get_tree().create_timer(1).timeout
-	GLOBAL.current_step += 1
-	get_tree().change_scene_to_file("res://Prototypes/Clicker/Scenes/NewClicker/NewClicker.tscn")
-
+	get_tree().change_scene_to_file(next_scene)
+ 
 func stop_spawn_timers() -> void:
 	for i in enemy_timers.get_children():
 		i.stop()
@@ -95,6 +102,10 @@ func _on_reload_machine_late_reload() -> void:
 func _on_reload_machine_missed_reload() -> void:
 	player_instance.shot_machine.reload(4)
 
+func _on_round_duration_timeout() -> void:
+	STATS.duration += 1
+	print(STATS.duration)
+	#round_duration.start(1)
 
 func _process(_delta: float) -> void:
 	progress_bar.value = player_instance.integrity_machine.integrity

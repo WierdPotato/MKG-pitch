@@ -3,6 +3,7 @@ extends Node2D
 signal intruder
 signal cleared
 signal phase_2
+signal boss_completed
 
 @onready var alive : bool = true
 @onready var turret_1: Sprite2D = $Turret1
@@ -35,7 +36,7 @@ func check_turrets() -> void:
 		
 func _on_main_body_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("turrer hit")
+		STATS.crashes += 1
 		body.get_child(0).integrity = 0
 
 
@@ -46,7 +47,11 @@ func _on_main_body_area_entered(area: Area2D) -> void:
 			manage_death() 
 
 func manage_death():
+	STATS.kills += 1
 	alive = false
-	turret_1.manage_death()
-	turret_2.manage_death()
+	if turret_1:
+		turret_1.manage_death()
+	if turret_2:
+		turret_2.manage_death()
+	boss_completed.emit()
 	self.queue_free()

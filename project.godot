@@ -34,6 +34,7 @@ PREP="*res://Autoloads/PREP.gd"
 STORE="*res://Autoloads/STORE.gd"
 MISSIONS="*res://Autoloads/MISSIONS.gd"
 PLANETS="*uid://c8dhxs61dp10a"
+STATS="*uid://cuu3yyol5fkj4"
 
 [display]
 

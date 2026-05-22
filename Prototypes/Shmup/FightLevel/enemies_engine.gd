@@ -5,6 +5,7 @@ extends Node
 @export var max_duendes : int = 0
 @export var max_chonky : int = -1
 
+@onready var level: Node2D = $".."
 @onready var enemies: Node = $Enemies
 
 @onready var saeta_spawn_timer = $Timers/SaetaSpawnTimer
@@ -18,9 +19,11 @@ extends Node
 @onready var saeta : PackedScene = preload("res://Prototypes/Shmup/Enemies/Saeta/saeta.tscn")
 @onready var duende : PackedScene = preload("res://Prototypes/Shmup/Enemies/Duende Verde/DuendeVerde.tscn")
 @onready var chonky : PackedScene = preload("res://Prototypes/Shmup/Enemies/Chonky/Chonky.tscn")
+@onready var butano : PackedScene = preload("res://Prototypes/Shmup/Enemies/ButanoBoss/butano_boss.tscn")
 
 @onready var duende_spawns: Node = $SpawnMarkers/DuendeSpawns
 @onready var chonky_spawns: Node = $SpawnMarkers/ChonkySpawns
+@onready var butano_spawner: Marker2D = $SpawnMarkers/ButanoSpawn/ButanoSpawner
 
 @onready var placements: Node = $Placements
 
@@ -30,7 +33,6 @@ func _ready() -> void:
 	saeta_spawn_timer.start(randf_range(1.5, 2)) 
 	duende_spawn_timer.start(randf_range(1.5, 2))
 	chonky_spawn_timer.start(randf_range(8, 10))
-	
 
 func _on_saeta_spawn_timer_timeout() -> void:
 	var saeta_instance = saeta.instantiate()
@@ -39,7 +41,7 @@ func _on_saeta_spawn_timer_timeout() -> void:
 	saeta_spawn_timer.start(randf_range(1.5, 2))
 
 func _on_duende_spawn_timer_timeout() -> void:
-	if enemies.get_child(0).get_child_count() < max_duendes + GLOBAL.current_step:
+	if enemies.get_child(0).get_child_count() < (max_duendes-1) + GLOBAL.current_step:
 		var duende_instance = duende.instantiate()
 		duende_instance.global_position = duende_spawns.get_children().pick_random().global_position 
 		enemies.get_child(0).add_child(duende_instance)
@@ -48,7 +50,7 @@ func _on_duende_spawn_timer_timeout() -> void:
 	duende_spawn_timer.start(randf_range(8, 10))
 
 func _on_chonky_spawn_timer_timeout() -> void:
-	if enemies.get_child(2).get_child_count() < max_chonky + GLOBAL.current_step:
+	if enemies.get_child(2).get_child_count() < (max_chonky-1) + GLOBAL.current_step:
 		var chonky_instance = chonky.instantiate()
 		chonky_instance.global_position = chonky_spawns.get_children().pick_random().global_position 
 		enemies.get_child(2).add_child(chonky_instance)
@@ -58,6 +60,32 @@ func _on_chonky_spawn_timer_timeout() -> void:
 
 func get_enemies() -> void:
 	pass
+
+func stop_normies()->void:
+	saeta_spawn_timer.paused = true
+	duende_spawn_timer.paused = true
+	chonky_spawn_timer.paused = true
+
+func start_normies()->void:
+	saeta_spawn_timer.start(randf_range(1.5, 2))
+	duende_spawn_timer.start(randf_range(1.5, 2))
+	chonky_spawn_timer.start(randf_range(8, 10))
+
+func _on_level_spawn_boss(boss_name : String) -> void:
+	if boss_name == "butano":
+		stop_normies()
+		var butano_instance = butano.instantiate()
+		butano_instance.global_position = butano_spawner.global_position
+		enemies.get_child(3).call_deferred("add_child", butano_instance)
+		butano_instance.player = level.player_instance
+		var tween : Tween = get_tree().create_tween()
+		tween.tween_property(butano_instance, "global_position", Vector2(0, 0),5)
+		await tween.finished
+		butano_instance.activate_systems()
+		butano_instance.boss_completed.connect(self._on_butano_killed)
+
+func _on_butano_killed()->void:
+	level.manage_win()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

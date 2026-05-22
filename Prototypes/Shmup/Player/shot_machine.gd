@@ -46,6 +46,7 @@ func process_shot() -> void:
 			#Así las balas se mueven solo hacia alante y no se desplazan cuando movemos la nave. 
 			shot_cd.start(shot_cadence())
 			ammo -= 1
+			STATS.shots_fired += 1
 			manage_chamber()
 			can_shoot = false
 		else:

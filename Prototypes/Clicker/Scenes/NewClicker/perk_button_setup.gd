@@ -27,7 +27,6 @@ func set_up()->void:
 	
 func im_set() -> void:
 	if GLOBAL.current_step == 0:
-		print("sup")
 		if my_x == 1 and my_y == 1:
 			apply_starter()
 			await get_tree().process_frame

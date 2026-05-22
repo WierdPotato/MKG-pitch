@@ -7,8 +7,6 @@ extends Node2D
 @onready var explosion: AnimatedSprite2D = $Explosion
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
-
-
 var crash_damage : float = 50
 var hit_points_value = 1
 
@@ -27,11 +25,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		STATS.crashes += 1
 		body.get_child(0).integrity -= crash_damage
 		body.get_child(1).add_ammo(2)
 		manage_death()
 
 func manage_death() -> void:
+	STATS.kills += 1
 	collision_shape_2d.call_deferred("set_disabled", true)
 	speed = 500
 	explosion.visible = true
